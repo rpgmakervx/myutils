@@ -62,7 +62,7 @@ public class IOUtils {
         }
     }
 
-    public static void closeChl(Channel ch){
+    public static void closeChl(Channel ch) {
         try {
             ch.close();
         } catch (IOException e) {
@@ -70,7 +70,7 @@ public class IOUtils {
         }
     }
 
-    public static void flushIO(OutputStream os){
+    public static void flushIO(OutputStream os) {
         try {
             os.flush();
         } catch (IOException e) {
@@ -78,7 +78,7 @@ public class IOUtils {
         }
     }
 
-    public static void flushIO(Writer writer){
+    public static void flushIO(Writer writer) {
         try {
             writer.flush();
         } catch (IOException e) {
@@ -95,14 +95,22 @@ public class IOUtils {
         return bb.array();
     }
 
+
     public static byte[] toByteArray(InputStream is) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         copy(is, baos);
         return baos.toByteArray();
     }
+
     public static byte[] toNIOByteArray(InputStream is) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         nioCopy(is, baos);
+        return baos.toByteArray();
+    }
+
+    public static byte[] toByteArrayx(InputStream is, int length) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        copyx(is, baos, length);
         return baos.toByteArray();
     }
 
@@ -112,14 +120,31 @@ public class IOUtils {
         return caw.toCharArray();
     }
 
-    public static String toString(InputStream is) {
-        StringWriter sw = new StringWriter();
-        copy(is, sw);
-        return sw.toString();
+    public static char[] toCharArrayx(Reader reader, int length) {
+        CharArrayWriter caw = new CharArrayWriter();
+        copyx(reader, caw, length);
+        return caw.toCharArray();
     }
+
+    public static String toString(InputStream is) {
+        return toString(new InputStreamReader(is));
+    }
+
     public static String toNIOString(InputStream is) {
         byte[] bytes = toNIOByteArray(is);
-        return new String(bytes,0,bytes.length);
+        return new String(bytes, 0, bytes.length);
+    }
+
+    public static String toStringx(InputStream is) {
+        StringWriter sw = new StringWriter();
+        try {
+            System.out.println("read available:" + is.available());
+            copyx(is, sw, is.available());
+            return sw.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static String toString(Reader reader) {
@@ -128,34 +153,34 @@ public class IOUtils {
         return sw.toString();
     }
 
-    public static void fill(OutputStream os,byte[] bytes){
+    public static void write(OutputStream os, byte[] bytes) {
         if (bytes == null)
             bytes = new byte[0];
         try {
-            os.write(bytes,0,bytes.length);
+            os.write(bytes, 0, bytes.length);
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             flushIO(os);
         }
     }
-    public static void fill(OutputStream os,String string){
+
+    public static void write(OutputStream os, String string) {
         byte[] bytes;
         if (string == null)
             bytes = new byte[0];
         else
             bytes = string.getBytes();
-        try {
-            os.write(bytes, 0, bytes.length);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }finally {
-            flushIO(os);
-        }
+        write(os, bytes);
     }
 
-    private static long bufferedCopy(InputStream is, OutputStream os) {
-        byte[] bytes = new byte[DEFAULT_BUFFER_SIZE];
+    public static void println(OutputStream os, String string) {
+        PrintStream ps = new PrintStream(os);
+        ps.println(string);
+    }
+
+    private static long bufferedCopy(InputStream is, OutputStream os, int size) {
+        byte[] bytes = new byte[size];
         int len = 0;
         long count = 0;
         try {
@@ -171,8 +196,8 @@ public class IOUtils {
         return count;
     }
 
-    private static long bufferedCopy(Reader reader, Writer writer) {
-        char[] buffer = new char[DEFAULT_BUFFER_SIZE];
+    private static long bufferedCopy(Reader reader, Writer writer, int bufsize) {
+        char[] buffer = new char[bufsize];
         int len = 0;
         long count = 0;
         try {
@@ -196,11 +221,11 @@ public class IOUtils {
      * @return
      */
     public static long copy(InputStream is, OutputStream os) {
-        return bufferedCopy(is, os);
+        return bufferedCopy(is, os, DEFAULT_BUFFER_SIZE);
     }
 
     public static long copy(Reader reader, Writer writer) {
-        return bufferedCopy(reader, writer);
+        return bufferedCopy(reader, writer, DEFAULT_BUFFER_SIZE);
     }
 
     public static long copy(InputStream is, Writer writer) {
@@ -213,11 +238,10 @@ public class IOUtils {
         return copy(reader, osw);
     }
 
-
-    public static long nioCopy(InputStream is, OutputStream os) {
+    public static long nioCopy(InputStream is, OutputStream os, int size) {
         ReadableByteChannel readChannel = Channels.newChannel(is);
         WritableByteChannel writeChannel = Channels.newChannel(os);
-        ByteBuffer buffer = ByteBuffer.allocate(DEFAULT_BUFFER_SIZE << 2);
+        ByteBuffer buffer = ByteBuffer.allocate(size);
         int len = 0;
         int count = 0;
         try {
@@ -236,6 +260,184 @@ public class IOUtils {
         }
     }
 
+    public static long nioCopy(InputStream is, OutputStream os) {
+        return nioCopy(is, os, DEFAULT_BUFFER_SIZE << 2);
+    }
+
+    public static long nioCopyx(InputStream is, OutputStream os, int size, int packetsize) {
+        ReadableByteChannel readChannel = Channels.newChannel(is);
+        WritableByteChannel writeChannel = Channels.newChannel(os);
+        ByteBuffer buffer = ByteBuffer.allocate(size);
+        int len = 0;
+        int count = 0;
+        try {
+            for (; ; ) {
+                if (count >= packetsize)
+                    break;
+                len = readChannel.read(buffer);
+                buffer.flip();
+                while (buffer.hasRemaining()) {
+                    writeChannel.write(buffer);
+                }
+                buffer.clear();
+                count += len;
+            }
+            return count;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public static long nioCopyx(InputStream is, OutputStream os, int packetsize) {
+        return nioCopyx(is, os, DEFAULT_BUFFER_SIZE << 2, packetsize);
+    }
+
+    public static long copyx(InputStream is, OutputStream os, int bufsize, int packetsize) {
+        byte[] bytes = new byte[bufsize];
+        int len = 0;
+        long count = 0;
+        try {
+            for (; ; ) {
+                if (count >= packetsize)
+                    break;
+                len = is.read(bytes);
+                os.write(bytes, 0, len);
+                count += len;
+            }
+            flushIO(os);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return count;
+    }
+
+    public static long copyx(InputStream is, OutputStream os, int packetSize) {
+        return copyx(is, os, DEFAULT_BUFFER_SIZE, packetSize);
+    }
+
+    public static long copyx(InputStream is, Writer writer, int packetSize) {
+        return copyx(new InputStreamReader(is), writer, DEFAULT_BUFFER_SIZE, packetSize);
+    }
+
+    public static long copyx(Reader reader, OutputStream os, int packetSize) {
+        return copyx(reader, new OutputStreamWriter(os), DEFAULT_BUFFER_SIZE, packetSize);
+    }
+
+    public static long copyx(Reader reader, Writer writer, int bufsize, int packetsize) {
+        char[] buffer = new char[bufsize];
+        int len = 0;
+        long count = 0;
+        try {
+            for (; ; ) {
+                if (count >= packetsize)
+                    break;
+                len = reader.read(buffer);
+                writer.write(buffer, 0, len);
+                count += len;
+            }
+            flushIO(writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return count;
+    }
+
+    public static long copyx(Reader reader, Writer writer, int packetsize) {
+        return copyx(reader, writer, packetsize);
+    }
+
+    public static long copyln(Reader reader, Writer writer) {
+        BufferedReader br = new BufferedReader(reader);
+        BufferedWriter bw = new BufferedWriter(writer);
+        String line = "";
+        int count = 0;
+        try {
+            while ((line = br.readLine()) != null) {
+                writer.write(line);
+                count += line.length();
+            }
+            return count;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        } finally {
+            closeIO(br);
+            closeIO(bw);
+        }
+    }
+
+    public static long copyln(InputStream is, OutputStream os) {
+        return copyln(new InputStreamReader(is), new OutputStreamWriter(os));
+    }
+
+    public static long copyln(InputStream is, Writer writer) {
+        return copyln(new InputStreamReader(is), writer);
+    }
+
+    public static long copyln(Reader reader, OutputStream os) {
+        return copyln(reader, new OutputStreamWriter(os));
+    }
+
+    public static long nioCopyln(InputStream is, OutputStream os, int size) {
+        ReadableByteChannel readChannel = Channels.newChannel(is);
+        WritableByteChannel writeChannel = Channels.newChannel(os);
+        ByteBuffer buffer = ByteBuffer.allocate(size);
+        int len = 0;
+        int count = 0;
+        boolean eof = false;
+        try {
+            while (!eof) {
+                len = readChannel.read(buffer);
+                System.out.println("readlength-> "+len);
+                if (len == -1){
+                    break;
+                }
+                buffer.flip();
+                buffer.mark();
+                int readable = buffer.limit();
+                boolean endln = false;
+                int offset = 0;
+                for (int index = 0; index < readable; index++) {
+                    byte ch = buffer.get();
+                    System.out.println(ch);
+                    if ('\n' == ch) {
+                        endln = true;
+                        offset = index;
+                        System.out.println("hint --> "+offset);
+                        break;
+                    }else if (ch == -1){
+                        eof = true;
+                    }
+                }
+                buffer.reset();
+                if (endln){
+                    buffer.limit(offset);
+                    while (buffer.hasRemaining())
+                        writeChannel.write(buffer);
+                    buffer.clear();
+                    count += offset;
+                    continue;
+                }
+                while (buffer.hasRemaining()) {
+                    writeChannel.write(buffer);
+                }
+                buffer.clear();
+                count += len;
+            }
+            return count;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public static long nioCopyln(InputStream is, OutputStream os) {
+        return nioCopyln(is, os, DEFAULT_BUFFER_SIZE << 2);
+    }
+
     public static boolean equals(InputStream is1, InputStream is2) {
         String hashStr1 = CodecUtils.sha1(toByteArray(is1));
         String hashStr2 = CodecUtils.sha1(toByteArray(is2));
@@ -248,26 +450,28 @@ public class IOUtils {
         return hashStr1.equals(hashStr2);
     }
 
-    public static ReadableByteChannel streamToChannel(InputStream is){
+    public static ReadableByteChannel streamToChannel(InputStream is) {
         return Channels.newChannel(is);
     }
-    public static WritableByteChannel streamToChannel(OutputStream os){
+
+    public static WritableByteChannel streamToChannel(OutputStream os) {
         return Channels.newChannel(os);
     }
 
     /**
      * 针对文件流的transferTo
+     *
      * @param from
      * @param to
      * @return
      */
-    public static long transferTo(FileInputStream from,OutputStream to){
+    public static long transferTo(FileInputStream from, OutputStream to) {
         FileChannel fChannel = from.getChannel();
         WritableByteChannel tChannel = streamToChannel(to);
         return transferTo(fChannel, tChannel);
     }
 
-    public static long transferTo(FileChannel from,WritableByteChannel to){
+    public static long transferTo(FileChannel from, WritableByteChannel to) {
         long count = 0;
         try {
             count = from.transferTo(0, from.size(), to);
@@ -279,21 +483,21 @@ public class IOUtils {
     }
 
 
-    public static long transferFrom(InputStream from,FileOutputStream to){
+    public static long transferFrom(InputStream from, FileOutputStream to) {
         ReadableByteChannel fChannel = streamToChannel(from);
         FileChannel tChannel = to.getChannel();
         try {
-            return transferFrom(fChannel,tChannel,from.available());
+            return transferFrom(fChannel, tChannel, from.available());
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
         }
     }
 
-    public static long transferFrom(ReadableByteChannel from,FileChannel to,long length){
+    public static long transferFrom(ReadableByteChannel from, FileChannel to, long length) {
         long count = 0;
         try {
-            count = to.transferFrom(from,0,length);
+            count = to.transferFrom(from, 0, length);
         } catch (IOException e) {
             e.printStackTrace();
             count = -1;

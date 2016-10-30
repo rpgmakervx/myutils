@@ -7,6 +7,9 @@ package org.easyArch.myutils.socket.io;/**
 import org.easyArch.myutils.io.IOUtils;
 import org.easyArch.myutils.socket.SocketListener;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -67,7 +70,8 @@ public class SocketUtils {
     public static byte[] recvByte(Socket socket){
         try {
             if (!socket.isClosed()&&socket.isConnected())
-                return IOUtils.toByteArray(socket.getInputStream());
+                return IOUtils.toByteArrayx(socket.getInputStream()
+                        , socket.getInputStream().available());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +81,7 @@ public class SocketUtils {
     public static String recvString(Socket socket){
         try {
             if (!socket.isClosed()&&socket.isConnected())
-                return IOUtils.toString(socket.getInputStream());
+                return IOUtils.toStringx(socket.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -98,7 +102,7 @@ public class SocketUtils {
     public static void send(Socket socket,byte[] data){
         try {
             if (!socket.isClosed()&&socket.isConnected())
-                IOUtils.fill(socket.getOutputStream(),data);
+                IOUtils.write(socket.getOutputStream(), data);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -107,57 +111,33 @@ public class SocketUtils {
     public static void send(Socket socket,String data){
         try {
             if (!socket.isClosed()&&socket.isConnected())
-                IOUtils.fill(socket.getOutputStream(),data);
+                IOUtils.write(socket.getOutputStream(), data);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        ServerSocket ss = SocketUtils.createServ(3000);
-        System.out.println("服务开启");
-        while (true){
-            System.out.println("等待连接");
-//            Socket socket = ss.accept();
-            Socket socket = SocketUtils.wait(ss);
-            System.out.println("新连接加入");
-            System.out.println(SocketUtils.recvString(socket));
-            SocketUtils.send(socket,"hi! I know you!");
-            closeSocket(socket);
+    public static void main(String[] args) throws FileNotFoundException {
+//        ServerSocket ss = SocketUtils.createServ(3000);
+//        String respMsg = "hi welcome to server";
+//        Socket socket = SocketUtils.wait(ss);
+//        System.out.println("收到客户端消息："+SocketUtils.recvString(socket));
+//        SocketUtils.send(socket,respMsg);
 
-//            String request = IOUtils.toString(socket.getInputStream());
-//            System.out.println(request);
-//            Reader is = new InputStreamReader(socket.getInputStream());
-//            int len = 0;
-//            char[] bytes = new char[1024];
-//            StringBuffer buffer = new StringBuffer();
-//            long count = 0;
-//            try {
-//                while ((len = is.read(bytes)) != -1) {
-//                    buffer.append(new String(bytes,0,len));
-//                    count += len;
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-            String string = "hi! nice to meet you!";
-//            OutputStream os = socket.getOutputStream();
-//            byte[] bytes;
-//            if (string == null)
-//                bytes = new byte[0];
-//            else
-//                bytes = string.getBytes();
-//            try {
-//                os.write(bytes,0,bytes.length);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }finally {
-//                os.flush();
-//            }
-//            os.close();
-//            IOUtils.fill(socket.getOutputStream(), "hi! nice to meet you!");
-//            IOUtils.closeIO(socket.getOutputStream());
-
-        }
+//        ByteBuffer buf = ByteBuffer.allocate(10);
+//        buf.put((byte) 1);
+//        buf.put((byte) 2);
+//        buf.put((byte) 3);
+//        buf.put((byte) 4);
+//        buf.flip();
+//
+//        for (int index=0;index<buf.limit();index++){
+//            System.out.println(buf.get());
+//        }
+//        System.out.println((byte)'[');
+        long length = IOUtils.nioCopyln(new FileInputStream("/home/code4j/testdirectory/test/data.json"),
+                new FileOutputStream("/home/code4j/testdirectory/test/json.data"));
+        System.out.println("long --> "+length);
     }
+
 }
