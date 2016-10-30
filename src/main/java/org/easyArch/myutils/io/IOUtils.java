@@ -70,6 +70,22 @@ public class IOUtils {
         }
     }
 
+    public static void flushIO(OutputStream os){
+        try {
+            os.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void flushIO(Writer writer){
+        try {
+            writer.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static byte[] getBytes(char[] chars) {
         Charset cs = Charset.forName("UTF-8");
         CharBuffer cb = CharBuffer.allocate(chars.length);
@@ -84,6 +100,11 @@ public class IOUtils {
         copy(is, baos);
         return baos.toByteArray();
     }
+    public static byte[] toNIOByteArray(InputStream is) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        nioCopy(is, baos);
+        return baos.toByteArray();
+    }
 
     public static char[] toCharArray(Reader reader) {
         CharArrayWriter caw = new CharArrayWriter();
@@ -96,11 +117,41 @@ public class IOUtils {
         copy(is, sw);
         return sw.toString();
     }
+    public static String toNIOString(InputStream is) {
+        byte[] bytes = toNIOByteArray(is);
+        return new String(bytes,0,bytes.length);
+    }
 
     public static String toString(Reader reader) {
         StringWriter sw = new StringWriter();
         copy(reader, sw);
         return sw.toString();
+    }
+
+    public static void fill(OutputStream os,byte[] bytes){
+        if (bytes == null)
+            bytes = new byte[0];
+        try {
+            os.write(bytes,0,bytes.length);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            flushIO(os);
+        }
+    }
+    public static void fill(OutputStream os,String string){
+        byte[] bytes;
+        if (string == null)
+            bytes = new byte[0];
+        else
+            bytes = string.getBytes();
+        try {
+            os.write(bytes, 0, bytes.length);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            flushIO(os);
+        }
     }
 
     private static long bufferedCopy(InputStream is, OutputStream os) {
@@ -112,6 +163,7 @@ public class IOUtils {
                 os.write(bytes, 0, len);
                 count += len;
             }
+            flushIO(os);
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
@@ -128,6 +180,7 @@ public class IOUtils {
                 writer.write(buffer, 0, len);
                 count += len;
             }
+            flushIO(writer);
         } catch (IOException e) {
             e.printStackTrace();
             return -1;
@@ -159,6 +212,7 @@ public class IOUtils {
         OutputStreamWriter osw = new OutputStreamWriter(os);
         return copy(reader, osw);
     }
+
 
     public static long nioCopy(InputStream is, OutputStream os) {
         ReadableByteChannel readChannel = Channels.newChannel(is);
@@ -212,18 +266,6 @@ public class IOUtils {
         WritableByteChannel tChannel = streamToChannel(to);
         return transferTo(fChannel, tChannel);
     }
-    public static long transferTo(InputStream from,FileOutputStream to){
-        ReadableByteChannel fChannel = streamToChannel(from);
-        FileChannel tChannel = to.getChannel();
-        System.out.println("transferTo --> ");
-        try {
-            return transferFrom(fChannel, tChannel,from.available());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return -1;
-        }
-    }
-
 
     public static long transferTo(FileChannel from,WritableByteChannel to){
         long count = 0;
@@ -232,9 +274,6 @@ public class IOUtils {
         } catch (IOException e) {
             e.printStackTrace();
             count = -1;
-        }finally {
-            closeChl(from);
-            closeChl(to);
         }
         return count;
     }
@@ -258,9 +297,6 @@ public class IOUtils {
         } catch (IOException e) {
             e.printStackTrace();
             count = -1;
-        }finally {
-            closeChl(from);
-            closeChl(to);
         }
         return count;
     }
