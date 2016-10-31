@@ -1,4 +1,7 @@
-package org.easyArch.myutils.lang;
+package org.easyarch.myutils.lang;
+
+import java.util.Random;
+import java.util.UUID;
 
 /**
  * Description :
@@ -10,6 +13,15 @@ package org.easyArch.myutils.lang;
  */
 
 public class StringUtils {
+
+    private static final Random RANDOM = new Random();
+    public static boolean isEmpty(final String src){
+        return src == null||src.length() == 0;
+    }
+
+    public static boolean isBlank(final String src){
+        return trimToEmpty(src).length() == 0;
+    }
 
     public static String headAbbreviate(final String src, int begin, int ellipsisLength) {
         final int length = src.length();
@@ -86,8 +98,8 @@ public class StringUtils {
         return buffer.toString();
     }
 
-    public static String trimToEmpty(final String str) {
-        return str == null ? "" : str.trim();
+    public static String trimToEmpty(final String src) {
+        return src == null ? "" : trimAll(src);
     }
 
     public static String insert(final String src, String plugin, int index) {
@@ -255,6 +267,95 @@ public class StringUtils {
         return result;
     }
 
+    private static String random(int count, int start, int end, final boolean letters, final boolean numbers,
+                                final char[] chars, final Random random) {
+        if (count == 0) {
+            return "";
+        } else if (count < 0) {
+            throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+        }
+        if (chars != null && chars.length == 0) {
+            throw new IllegalArgumentException("The chars array must not be empty");
+        }
+
+        if (start == 0 && end == 0) {
+            if (chars != null) {
+                end = chars.length;
+            } else {
+                if (!letters && !numbers) {
+                    end = Integer.MAX_VALUE;
+                } else {
+                    end = 'z' + 1;
+                    start = ' ';
+                }
+            }
+        } else {
+            if (end <= start) {
+                throw new IllegalArgumentException("Parameter end (" + end + ") must be greater than start (" + start + ")");
+            }
+        }
+
+        final char[] buffer = new char[count];
+        final int gap = end - start;
+
+        while (count-- != 0) {
+            char ch;
+            if (chars == null) {
+                ch = (char) (random.nextInt(gap) + start);
+            } else {
+                ch = chars[random.nextInt(gap) + start];
+            }
+            if (letters && Character.isLetter(ch)
+                    || numbers && Character.isDigit(ch)
+                    || !letters && !numbers) {
+                if(ch >= 56320 && ch <= 57343) {
+                    if(count == 0) {
+                        count++;
+                    } else {
+                        // low surrogate, insert high surrogate after putting it in
+                        buffer[count] = ch;
+                        count--;
+                        buffer[count] = (char) (55296 + random.nextInt(128));
+                    }
+                } else if(ch >= 55296 && ch <= 56191) {
+                    if(count == 0) {
+                        count++;
+                    } else {
+                        // high surrogate, insert low surrogate before putting it in
+                        buffer[count] = (char) (56320 + random.nextInt(128));
+                        count--;
+                        buffer[count] = ch;
+                    }
+                } else if(ch >= 56192 && ch <= 56319) {
+                    // private high surrogate, no effing clue, so skip it
+                    count++;
+                } else {
+                    buffer[count] = ch;
+                }
+            } else {
+                count++;
+            }
+        }
+        return new String(buffer);
+    }
+
+    private static String random(final int count, final int start, final int end, final boolean letters, final boolean numbers) {
+        return random(count, start, end, letters, numbers, null, RANDOM);
+    }
+    private static String random(final int count, final boolean letters, final boolean numbers) {
+        return random(count, 0, 0, letters, numbers);
+    }
+    public static String randomString(final int count) {
+        return random(count, 32, 127, false, false);
+    }
+
+    public static String randomNumeric(final int count) {
+        return random(count, false, true);
+    }
+
+    public static String uuid(){
+        return UUID.randomUUID().toString();
+    }
     public static void main(String[] args) {
 //        String[] arrays = {"aaa","bbb","ccc"};
 //        System.out.println(kmp("abcfdeabcffffabc","abc"));replaceAccurate("12ab345678ab90", "ab", "")

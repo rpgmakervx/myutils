@@ -1,10 +1,10 @@
-package org.easyArch.myutils.io;/**
+package org.easyarch.myutils.io;/**
  * Description : 
  * Created by YangZH on 16-10-28
  *  上午10:03
  */
 
-import org.easyArch.myutils.codec.CodecUtils;
+import org.easyarch.myutils.codec.CodecUtils;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -381,62 +381,67 @@ public class IOUtils {
         return copyln(reader, new OutputStreamWriter(os));
     }
 
-    public static long nioCopyln(InputStream is, OutputStream os, int size) {
-        ReadableByteChannel readChannel = Channels.newChannel(is);
-        WritableByteChannel writeChannel = Channels.newChannel(os);
-        ByteBuffer buffer = ByteBuffer.allocate(size);
-        int len = 0;
-        int count = 0;
-        boolean eof = false;
-        try {
-            while (!eof) {
-                len = readChannel.read(buffer);
-                System.out.println("readlength-> "+len);
-                if (len == -1){
-                    break;
-                }
-                buffer.flip();
-                buffer.mark();
-                int readable = buffer.limit();
-                boolean endln = false;
-                int offset = 0;
-                for (int index = 0; index < readable; index++) {
-                    byte ch = buffer.get();
-                    System.out.println(ch);
-                    if ('\n' == ch) {
-                        endln = true;
-                        offset = index;
-                        System.out.println("hint --> "+offset);
-                        break;
-                    }else if (ch == -1){
-                        eof = true;
-                    }
-                }
-                buffer.reset();
-                if (endln){
-                    buffer.limit(offset);
-                    while (buffer.hasRemaining())
-                        writeChannel.write(buffer);
-                    buffer.clear();
-                    count += offset;
-                    continue;
-                }
-                while (buffer.hasRemaining()) {
-                    writeChannel.write(buffer);
-                }
-                buffer.clear();
-                count += len;
-            }
-            return count;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return -1;
-        }
-    }
-
-    public static long nioCopyln(InputStream is, OutputStream os) {
-        return nioCopyln(is, os, DEFAULT_BUFFER_SIZE << 2);
-    }
+//    public static long nioCopyln(InputStream is, OutputStream os, int size) {
+//        ReadableByteChannel readChannel = Channels.newChannel(is);
+//        WritableByteChannel writeChannel = Channels.newChannel(os);
+//        BufferedReader
+//        ByteBuffer buffer = ByteBuffer.allocate(size);
+//        int len = 0;
+//        int count = 0;
+//        boolean eof = false;
+//        try {
+//            while (!eof) {
+//                len = readChannel.read(buffer);
+//                System.out.println("readlength-> "+len);
+//                if (len == -1){
+//                    break;
+//                }
+//                buffer.flip();
+//                buffer.mark();
+//                int readable = buffer.limit();
+//                boolean endln = false;
+//                int offset = 0;
+//                for (int index = 0; index < readable; index++) {
+//                    byte ch = buffer.get();
+//                    System.out.println(ch);
+//                    if ('\n' == ch) {
+//                        endln = true;
+//                        offset = index;
+//                        System.out.println("hint --> "+offset);
+//                        break;
+//                    }else if (ch == -1){
+//                        eof = true;
+//                        break;
+//                    }
+//                }
+//                if (eof){
+//                    break;
+//                }
+//                buffer.reset();
+//                if (endln){
+//                    buffer.limit(offset);
+//                    while (buffer.hasRemaining())
+//                        writeChannel.write(buffer);
+//                    buffer.clear();
+//                    count += offset;
+//                    continue;
+//                }
+//                while (buffer.hasRemaining()) {
+//                    writeChannel.write(buffer);
+//                }
+//                buffer.clear();
+//                count += len;
+//            }
+//            return count;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            return -1;
+//        }
+//    }
+//
+//    public static long nioCopyln(InputStream is, OutputStream os) {
+//        return nioCopyln(is, os, DEFAULT_BUFFER_SIZE << 2);
+//    }
 
     public static boolean equals(InputStream is1, InputStream is2) {
         String hashStr1 = CodecUtils.sha1(toByteArray(is1));

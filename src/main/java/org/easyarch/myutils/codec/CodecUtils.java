@@ -1,4 +1,4 @@
-package org.easyArch.myutils.codec;/**
+package org.easyarch.myutils.codec;/**
  * Description : MD5Util
  * Created by YangZH on 16-5-25
  *  下午2:25
@@ -13,8 +13,8 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import static org.easyArch.myutils.codec.HashType.MD5;
-import static org.easyArch.myutils.codec.HashType.SHA1;
+import static org.easyarch.myutils.codec.HashType.MD5;
+import static org.easyarch.myutils.codec.HashType.SHA1;
 /**
  * Description : MD5Util
  * Created by YangZH on 16-5-25

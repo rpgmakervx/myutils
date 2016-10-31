@@ -1,11 +1,11 @@
-package org.easyArch.myutils.file;/**
+package org.easyarch.myutils.file;/**
  * Description : 
  * Created by YangZH on 16-10-27
  *  下午7:42
  */
 
 import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
-import org.easyArch.myutils.io.IOUtils;
+import org.easyarch.myutils.io.IOUtils;
 
 import java.io.*;
 import java.util.ArrayList;

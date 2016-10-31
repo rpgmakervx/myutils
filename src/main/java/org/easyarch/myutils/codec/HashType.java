@@ -1,4 +1,4 @@
-package org.easyArch.myutils.codec;/**
+package org.easyarch.myutils.codec;/**
  * Description : 
  * Created by YangZH on 16-10-30
  *  上午1:17
