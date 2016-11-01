@@ -356,10 +356,4 @@ public class StringUtils {
     public static String uuid(){
         return UUID.randomUUID().toString();
     }
-    public static void main(String[] args) {
-//        String[] arrays = {"aaa","bbb","ccc"};
-//        System.out.println(kmp("abcfdeabcffffabc","abc"));replaceAccurate("12ab345678ab90", "ab", "")
-        System.out.println(hightLightAccurate("12ab345678ab90", "ab", "<#>"));
-//        System.out.println(insert("12<b>ab<b>345678<b>ab90","<b>",22));
-    }
 }

@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Description :
@@ -239,6 +241,27 @@ public class FileUtils {
         return deletEmptyDirectory(new File(path));
     }
 
+    public static void clearDirectory(File directory) {
+        if (!directory.exists()) {
+            throw new IllegalArgumentException(directory + " does not exist");
+        }
+        if (!directory.isDirectory()) {
+            throw new IllegalArgumentException(directory + " is not a directory");
+        }
+        File[] files = directory.listFiles();
+        if (files == null) {  // null if security restricted
+            throw new IllegalArgumentException("Failed to list contents of " + directory);
+        }
+
+        IOException exception = null;
+        for (int i = 0; i < files.length; i++) {
+            File file = files[i];
+        }
+
+        if (null != exception) {
+//            throw exception;
+        }
+    }
     /**
      * 递归遍历
      * @param file
@@ -306,8 +329,7 @@ public class FileUtils {
             return true;
         }
         if (file1.isDirectory() || file2.isDirectory()) {
-            // don't want to compare directory contents
-            throw new IllegalArgumentException("Can't compare directories, only files");
+            throw new IllegalArgumentException("Can't compare directories");
         }
         try {
             return IOUtils.equals(new FileInputStream(file1), new FileInputStream(file2));
@@ -321,6 +343,36 @@ public class FileUtils {
         return contentEquals(new File(path1), new File(path2));
     }
 
+    public static List<File> filter(File file,String regex){
+        if (file == null){
+            return null;
+        }
+        Pattern pattern = Pattern.compile(regex);
+        List<File> paths = new ArrayList<File>();
+        File[] files = file.listFiles();
+        for (File f:files){
+            Matcher matcher = pattern.matcher(f.getName());
+            if (f.isDirectory()){
+                paths.addAll(filter(f,regex));
+            }else if (matcher.matches()){
+                paths.add(f);
+            }
+        }
+        return paths;
+    }
+
+    public static List<File> filter(String path,String regex){
+        return filter(new File(path),regex);
+    }
+
+    public static List<File> suffixFilter(String path,String suffix){
+        suffix = ".*\\.".concat(suffix);
+        return filter(path,suffix);
+    }
+    public static List<File> suffixFilter(File file,String suffix){
+        suffix = ".*\\.".concat(suffix);
+        return filter(file,suffix);
+    }
 
     public static String byteCountToDisplaySize(long size) {
         String displaySize;
@@ -337,38 +389,4 @@ public class FileUtils {
         return displaySize;
     }
 
-    public static void clearDirectory(File directory) {
-        if (!directory.exists()) {
-            throw new IllegalArgumentException(directory + " does not exist");
-        }
-        if (!directory.isDirectory()) {
-            throw new IllegalArgumentException(directory + " is not a directory");
-        }
-        File[] files = directory.listFiles();
-        if (files == null) {  // null if security restricted
-            throw new IllegalArgumentException("Failed to list contents of " + directory);
-        }
-
-        IOException exception = null;
-        for (int i = 0; i < files.length; i++) {
-            File file = files[i];
-        }
-
-        if (null != exception) {
-//            throw exception;
-        }
-    }
-
-    public static void main(String[] args) throws Exception {
-//        cp("/home/code4j/58daojia/txt","/home/code4j/58daojia/dump");
-//        vim("/home/code4j/58daojia/txt","asasas");
-//        System.out.println(contentEquals(new File("/home/code4j/58daojia/dump"),new File("/home/code4j/58daojia/dum")));
-//        File file = new File("/home/code4j/58daojia/test/dir");
-//        System.out.println(deletEmptyDirectory(new File("/home/code4j/testdirectory/test")));
-//        for (File s:listDirectoryRecursive(new File("/home/code4j/testdirectory/test"))){
-//            System.out.println(s.getAbsoluteFile());
-//        }
-        mv(new File("/home/code4j/testdirectory/test/data"),new File("/home/code4j/testdirectory/mv/data"));
-//        deleteAll(new File("/home/code4j/testdirectory/test"));
-    }
 }

@@ -12,5 +12,5 @@ package org.easyarch.myutils.array.action;/**
 
 public interface Loop<T> {
 
-    public void loop(T elem);
+    public void loop(T elem,int index);
 }

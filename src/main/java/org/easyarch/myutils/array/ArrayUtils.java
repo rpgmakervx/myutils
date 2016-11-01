@@ -16,9 +16,16 @@ import java.lang.reflect.Array;
 
 public class ArrayUtils {
 
+    private static int getLength(Object array) {
+        if (array == null) {
+            return 0;
+        }
+        return Array.getLength(array);
+    }
+
     private static Object expandSpace(final Object array, int expsize, final Class<?> contentType) {
         if (array != null) {
-            int length = Array.getLength(array);
+            int length = getLength(array);
             Object newarray = Array.newInstance(contentType, length + expsize);
             System.arraycopy(array, 0, newarray, 0, length);
             return newarray;
@@ -26,82 +33,184 @@ public class ArrayUtils {
         return Array.newInstance(contentType, 1);
     }
 
-    public static boolean isEmpty(int[] array){
-        return array == null||array.length == 0;
+    public static boolean isEmpty(Object array) {
+        return array == null || Array.getLength(array) == 0;
     }
-    public static boolean isEmpty(float[] array){
-        return array == null||array.length == 0;
-    }
-    public static boolean isEmpty(double[] array){
-        return array == null||array.length == 0;
-    }
-    public static boolean isEmpty(long[] array){
-        return array == null||array.length == 0;
-    }
-    public static boolean isEmpty(byte[] array){
-        return array == null||array.length == 0;
-    }
-    public static boolean isEmpty(short[] array){
-        return array == null||array.length == 0;
-    }
-    public static<T> boolean isEmpty(T[] array){
-        return array == null||array.length == 0;
+    public static boolean isEmpty(int[] array) {
+        return array == null || array.length == 0;
     }
 
-    public static<T> void foreach(T[] array,Loop<T> loop){
-        if (isEmpty(array)||loop == null)
-            return;
-        for (T t:array){
-            loop.loop(t);
-        }
+    public static boolean isEmpty(float[] array) {
+        return array == null || array.length == 0;
     }
-    public static void foreach(int[] array,Loop<Integer> loop){
-        if (isEmpty(array)||loop == null)
-            return;
-        for (Integer i:array){
-            loop.loop(i);
-        }
+
+    public static boolean isEmpty(double[] array) {
+        return array == null || array.length == 0;
     }
-    public static void foreach(float[] array,Loop<Float> loop){
-        if (isEmpty(array)||loop == null)
-            return;
-        for (Float i:array){
-            loop.loop(i);
-        }
+
+    public static boolean isEmpty(long[] array) {
+        return array == null || array.length == 0;
     }
-    public static void foreach(double[] array,Loop<Double> loop){
-        if (isEmpty(array)||loop == null)
-            return;
-        for (Double i:array){
-            loop.loop(i);
-        }
+
+    public static boolean isEmpty(byte[] array) {
+        return array == null || array.length == 0;
     }
-    public static void foreach(long[] array,Loop<Long> loop){
-        if (isEmpty(array)||loop == null)
-            return;
-        for (Long i:array){
-            loop.loop(i);
-        }
+
+    public static boolean isEmpty(short[] array) {
+        return array == null || array.length == 0;
     }
-    public static void foreach(byte[] array,Loop<Byte> loop){
-        if (isEmpty(array)||loop == null)
-            return;
-        for (Byte i:array){
-            loop.loop(i);
-        }
+
+    public static <T> boolean isEmpty(T[] array) {
+        return array == null || array.length == 0;
     }
-    public static void foreach(short[] array,Loop<Short> loop){
-        if (isEmpty(array)||loop == null)
+
+    public static <T> void foreach(T[] array, Loop<T> loop) {
+        if (isEmpty(array) || loop == null)
             return;
-        for (Short i:array){
-            loop.loop(i);
+        int index = 0;
+        for (T t : array) {
+            loop.loop(t, index);
+            index++;
         }
     }
 
+    public static void foreach(int[] array, Loop<Integer> loop) {
+        if (isEmpty(array) || loop == null)
+            return;
+        int index = 0;
+        for (Integer t : array) {
+            loop.loop(t, index);
+            index++;
+        }
+    }
+
+    public static void foreach(float[] array, Loop<Float> loop) {
+        if (isEmpty(array) || loop == null)
+            return;
+        int index = 0;
+        for (Float t : array) {
+            loop.loop(t, index);
+            index++;
+        }
+    }
+
+    public static void foreach(double[] array, Loop<Double> loop) {
+        if (isEmpty(array) || loop == null)
+            return;
+        int index = 0;
+        for (Double t : array) {
+            loop.loop(t, index);
+            index++;
+        }
+    }
+
+    public static void foreach(long[] array, Loop<Long> loop) {
+        if (isEmpty(array) || loop == null)
+            return;
+        int index = 0;
+        for (Long t : array) {
+            loop.loop(t, index);
+            index++;
+        }
+    }
+
+    public static void foreach(byte[] array, Loop<Byte> loop) {
+        if (isEmpty(array) || loop == null)
+            return;
+        int index = 0;
+        for (Byte t : array) {
+            loop.loop(t, index);
+            index++;
+        }
+    }
+
+    public static void foreach(short[] array, Loop<Short> loop) {
+        if (isEmpty(array) || loop == null)
+            return;
+        int index = 0;
+        for (Short t : array) {
+            loop.loop(t, index);
+            index++;
+        }
+    }
+
+    public static <T> int index(T[] array, T elem) {
+        int index = 0;
+        for (T t : array) {
+            if (t.equals(elem))
+                return index;
+            index++;
+        }
+        return -1;
+    }
+    public static int index(Object array, Object elem) {
+        if (isEmpty(array))
+            return -1;
+        int length = getLength(array);
+        for (int index = 0;index<length;index++) {
+            if (Array.get(array,index).equals(elem))
+                return index;
+        }
+        return -1;
+    }
+    public static int index(int[] array, int elem) {
+        if (isEmpty(array))
+            return -1;
+        for (int index = 0;index<array.length;index++) {
+            if (array[index] == elem)
+                return index;
+        }
+        return -1;
+    }
+    public static int index(float[] array, float elem) {
+        if (isEmpty(array))
+            return -1;
+        for (int index = 0;index<array.length;index++) {
+            if (array[index] == elem)
+                return index;
+        }
+        return -1;
+    }
+    public static int index(double[] array, double elem) {
+        if (isEmpty(array))
+            return -1;
+        for (int index = 0;index<array.length;index++) {
+            if (array[index] == elem)
+                return index;
+        }
+        return -1;
+    }
+    public static int index(long[] array, long elem) {
+        if (isEmpty(array))
+            return -1;
+        for (int index = 0;index<array.length;index++) {
+            if (array[index] == elem)
+                return index;
+        }
+        return -1;
+    }
+    public static int index(byte[] array, byte elem) {
+        if (isEmpty(array))
+            return -1;
+        for (int index = 0;index<array.length;index++) {
+            if (array[index] == elem)
+                return index;
+        }
+        return -1;
+    }
+    public static int index(short[] array, short elem) {
+        if (isEmpty(array))
+            return -1;
+        for (int index = 0;index<array.length;index++) {
+            if (array[index] == elem)
+                return index;
+        }
+        return -1;
+    }
 
     private static Object add(Object array, Object elem, Class<?> type) {
         final Object newarray = expandSpace(array, 1, type);
-        int length = Array.getLength(array);
+        int length = getLength(array);
         Array.set(newarray, length, elem);
         return newarray;
     }
@@ -115,7 +224,7 @@ public class ArrayUtils {
             Array.set(newarray, 0, elem);
             return newarray;
         }
-        int length = Array.getLength(array);
+        int length = getLength(array);
         if (index > length || index < 0) {
             throw new ArrayIndexOutOfBoundsException("insert point is " + index + ",but array size is " + 0);
         }
@@ -128,8 +237,8 @@ public class ArrayUtils {
         return newarray;
     }
 
-    public static <T> T[] addAll(T[] array,T... elems){
-        int srcLength = Array.getLength(array);
+    public static <T> Object addAll(Object array, T... elems) {
+        int srcLength = getLength(array);
         int elemsLength = Array.getLength(elems);
         if (srcLength < elemsLength) {
             throw new ArrayIndexOutOfBoundsException("src length is " + srcLength +
@@ -138,6 +247,10 @@ public class ArrayUtils {
         T[] expanedArray = (T[]) expandSpace(array, elemsLength, array.getClass().getComponentType());
         System.arraycopy(elems, 0, expanedArray, 0, elemsLength + srcLength);
         return expanedArray;
+    }
+
+    public static <T> T[] addAll(T[] array, T... elems) {
+        return (T[]) addAll((Object) array, elems);
     }
 
     public static <T> T[] add(T[] array, int index, T elem) {
@@ -198,7 +311,7 @@ public class ArrayUtils {
     }
 
     public static int[] addAll(int[] array, int... elems) {
-        int srcLength = Array.getLength(array);
+        int srcLength = getLength(array);
         int elemsLength = Array.getLength(elems);
         if (srcLength < elemsLength) {
             throw new ArrayIndexOutOfBoundsException("src length is " + srcLength +
@@ -210,7 +323,7 @@ public class ArrayUtils {
     }
 
     public static float[] addAll(float[] array, float... elems) {
-        int srcLength = Array.getLength(array);
+        int srcLength = getLength(array);
         int elemsLength = Array.getLength(elems);
         if (srcLength < elemsLength) {
             throw new ArrayIndexOutOfBoundsException("src length is " + srcLength +
@@ -222,7 +335,7 @@ public class ArrayUtils {
     }
 
     public static double[] addAll(double[] array, double... elems) {
-        int srcLength = Array.getLength(array);
+        int srcLength = getLength(array);
         int elemsLength = Array.getLength(elems);
         if (srcLength < elemsLength) {
             throw new ArrayIndexOutOfBoundsException("src length is " + srcLength +
@@ -234,7 +347,7 @@ public class ArrayUtils {
     }
 
     public static long[] addAll(long[] array, long... elems) {
-        int srcLength = Array.getLength(array);
+        int srcLength = getLength(array);
         int elemsLength = Array.getLength(elems);
         if (srcLength < elemsLength) {
             throw new ArrayIndexOutOfBoundsException("src length is " + srcLength +
@@ -246,7 +359,7 @@ public class ArrayUtils {
     }
 
     public static byte[] addAll(byte[] array, byte... elems) {
-        int srcLength = Array.getLength(array);
+        int srcLength = getLength(array);
         int elemsLength = Array.getLength(elems);
         if (srcLength < elemsLength) {
             throw new ArrayIndexOutOfBoundsException("src length is " + srcLength +
@@ -258,7 +371,7 @@ public class ArrayUtils {
     }
 
     public static short[] addAll(short[] array, short... elems) {
-        int srcLength = Array.getLength(array);
+        int srcLength = getLength(array);
         int elemsLength = Array.getLength(elems);
         if (srcLength < elemsLength) {
             throw new ArrayIndexOutOfBoundsException("src length is " + srcLength +
@@ -269,22 +382,110 @@ public class ArrayUtils {
         return expanedArray;
     }
 
-
-    public static void main(String args[]) {
-        int[] array = new int[10];
-        for (int index = 0; index < 10; index++) {
-            array[index] = index + 1;
+    public static Object remove(Object array, int index, Class<?> type) {
+        int srcLength = getLength(array);
+        if (index < 0 || index >= srcLength) {
+            throw new IndexOutOfBoundsException("src length is " + srcLength +
+                    ", but index is " + index);
         }
-        foreach(array, new Loop<Integer>() {
-            @Override
-            public void loop(Integer elem) {
 
-            }
-        });
-//        array = addAll(array, 11,12,13,14,15);
-//        for (int i : array) {
-//            System.out.println(i);
-//        }
+        final Object result = Array.newInstance(type, srcLength - 1);
+        System.arraycopy(array, 0, result, 0, index);
+        if (index < srcLength - 1) {
+            System.arraycopy(array, index + 1, result, index, srcLength - index - 1);
+        }
+
+        return result;
+    }
+
+    public static Object removeElem(Object array,Object elem){
+        int srcLength = getLength(array);
+        if (elem == null) {
+            return null;
+        }
+
+        final Object result = Array.newInstance(array.getClass().getComponentType(), srcLength - 1);
+        int point = index(array, elem);
+        if (point == -1)
+            return array;
+        System.arraycopy(array, 0, result, 0, point);
+        if (point < srcLength - 1) {
+            System.arraycopy(array, point + 1, result, point, srcLength - point - 1);
+        }
+        return result;
+    }
+
+    public static<T> T[] removeElem(T[] array, T elem,Class<T> type) {
+        int srcLength = getLength(array);
+        if (elem == null) {
+            return null;
+        }
+
+        final T[] result = (T[]) Array.newInstance(type, srcLength - 1);
+        int point = index(array, elem);
+        if (point == -1)
+            return array;
+        System.arraycopy(array, 0, result, 0, point);
+        if (point < srcLength - 1) {
+            System.arraycopy(array, point + 1, result, point, srcLength - point - 1);
+        }
+        return result;
+    }
+
+    public static <T> T[] remove(T[] array, int index) {
+        return (T[]) remove((Object) array, index, array.getClass().getComponentType());
+    }
+
+    public static int[] remove(int[] array, int index) {
+        return (int[]) remove(array, index, Integer.TYPE);
+    }
+
+    public static float[] remove(float[] array, int index) {
+        return (float[]) remove(array, index, Float.TYPE);
+    }
+
+    public static double[] remove(double[] array, int index) {
+        return (double[]) remove(array, index, Double.TYPE);
+    }
+
+    public static long[] remove(long[] array, int index) {
+        return (long[]) remove(array, index, Long.TYPE);
+    }
+
+    public static byte[] remove(byte[] array, int index) {
+        return (byte[]) remove(array, index, Byte.TYPE);
+    }
+
+    public static short[] remove(short[] array, int index) {
+        return (short[]) remove(array, index, Short.TYPE);
+    }
+
+    public static int[] removeElem(int[] array,int elem){
+        return (int[]) removeElem((Object)array,elem);
+    }
+    public static float[] removeElem(float[] array,float elem){
+        return (float[]) removeElem((Object)array,elem);
+    }
+    public static double[] removeElem(double[] array,double elem){
+        return (double[]) removeElem((Object)array,elem);
+    }
+    public static long[] removeElem(long[] array,long elem){
+        return (long[]) removeElem((Object)array,elem);
+    }
+    public static byte[] removeElem(byte[] array,byte elem){
+        return (byte[]) removeElem((Object)array,elem);
+    }
+    public static short[] removeElem(short[] array,short elem){
+        return (short[]) removeElem((Object)array,elem);
+    }
+
+    public static void main(String[] args) {
+        float[] nums = new float[]{0f, 1f, 2f, 3.8f, 4f, 5.9f, 6f, 7.7f, 8.3f, 9.4f};
+        float[] newnums = removeElem(nums,6);
+//        nums = (int[]) add(nums, 11, 10);
+        for (float n : newnums) {
+            System.out.println(n);
+        }
     }
 
 }

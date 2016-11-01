@@ -13,7 +13,7 @@ package org.easyarch.myutils.lang;/**
 public class NumberUtils {
 
     public static boolean isNumber(final String str) {
-        if (org.apache.commons.lang3.StringUtils.isEmpty(str)) {
+        if (StringUtils.isEmpty(str)) {
             return false;
         }
         final char[] chars = str.toCharArray();
@@ -126,7 +126,7 @@ public class NumberUtils {
     }
 
     public static boolean isDigist(final String number) {
-        if (org.apache.commons.lang3.StringUtils.isEmpty(number)) {
+        if (StringUtils.isEmpty(number)) {
             return false;
         }
         for (int i = 0; i < number.length(); i++) {
@@ -362,11 +362,6 @@ public class NumberUtils {
             }
         }
         return min;
-    }
-
-    public static void main(String[] args) {
-
-        System.out.println(max(new int[]{5, 9, 2, 10, 4, 0, 7}));
     }
 
 }
