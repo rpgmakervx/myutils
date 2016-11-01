@@ -7,6 +7,10 @@ package org.easyarch.myutils.array;/**
 import org.easyarch.myutils.array.action.Loop;
 
 import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Description :
@@ -36,6 +40,7 @@ public class ArrayUtils {
     public static boolean isEmpty(Object array) {
         return array == null || Array.getLength(array) == 0;
     }
+
     public static boolean isEmpty(int[] array) {
         return array == null || array.length == 0;
     }
@@ -134,78 +139,121 @@ public class ArrayUtils {
         }
     }
 
-    public static <T> int index(T[] array, T elem) {
+    public static <T> List<Integer> indexOf(T[] array, T elem) {
+        List<Integer> indexs = new ArrayList<Integer>();
         int index = 0;
         for (T t : array) {
             if (t.equals(elem))
-                return index;
+                indexs.add(index);
             index++;
         }
-        return -1;
+        return indexs;
     }
-    public static int index(Object array, Object elem) {
+
+    public static List<Integer> indexOf(Object array, Object elem) {
+        List<Integer> indexs = new ArrayList<Integer>();
         if (isEmpty(array))
-            return -1;
+            return indexs;
         int length = getLength(array);
-        for (int index = 0;index<length;index++) {
-            if (Array.get(array,index).equals(elem))
-                return index;
+        for (int index = 0; index < length; index++) {
+            if (Array.get(array, index).equals(elem))
+                indexs.add(index);
         }
-        return -1;
+        return indexs;
     }
-    public static int index(int[] array, int elem) {
+
+    public static List<Integer> indexOf(int[] array, int elem) {
+        List<Integer> indexs = new ArrayList<Integer>();
         if (isEmpty(array))
-            return -1;
-        for (int index = 0;index<array.length;index++) {
+            return indexs;
+        for (int index = 0; index < array.length; index++) {
             if (array[index] == elem)
-                return index;
+                indexs.add(index);
         }
-        return -1;
+        return indexs;
     }
-    public static int index(float[] array, float elem) {
+
+    public static List<Integer> indexOf(float[] array, float elem) {
+        List<Integer> indexs = new ArrayList<Integer>();
         if (isEmpty(array))
-            return -1;
-        for (int index = 0;index<array.length;index++) {
+            return indexs;
+        for (int index = 0; index < array.length; index++) {
             if (array[index] == elem)
-                return index;
+                indexs.add(index);
         }
-        return -1;
+        return indexs;
     }
-    public static int index(double[] array, double elem) {
+
+    public static List<Integer> indexOf(double[] array, double elem) {
+        List<Integer> indexs = new ArrayList<Integer>();
         if (isEmpty(array))
-            return -1;
-        for (int index = 0;index<array.length;index++) {
+            return indexs;
+        for (int index = 0; index < array.length; index++) {
             if (array[index] == elem)
-                return index;
+                indexs.add(index);
         }
-        return -1;
+        return indexs;
     }
-    public static int index(long[] array, long elem) {
+
+    public static List<Integer> indexOf(long[] array, long elem) {
+        List<Integer> indexs = new ArrayList<Integer>();
         if (isEmpty(array))
-            return -1;
-        for (int index = 0;index<array.length;index++) {
+            return indexs;
+        for (int index = 0; index < array.length; index++) {
             if (array[index] == elem)
-                return index;
+                indexs.add(index);
         }
-        return -1;
+        return indexs;
     }
-    public static int index(byte[] array, byte elem) {
+
+    public static List<Integer> indexOf(byte[] array, byte elem) {
+        List<Integer> indexs = new ArrayList<Integer>();
         if (isEmpty(array))
-            return -1;
-        for (int index = 0;index<array.length;index++) {
+            return indexs;
+        for (int index = 0; index < array.length; index++) {
             if (array[index] == elem)
-                return index;
+                indexs.add(index);
         }
-        return -1;
+        return indexs;
     }
-    public static int index(short[] array, short elem) {
+
+    public static List<Integer> indexOf(short[] array, short elem) {
+        List<Integer> indexs = new ArrayList<Integer>();
         if (isEmpty(array))
-            return -1;
-        for (int index = 0;index<array.length;index++) {
+            return indexs;
+        for (int index = 0; index < array.length; index++) {
             if (array[index] == elem)
-                return index;
+                indexs.add(index);
         }
-        return -1;
+        return indexs;
+    }
+
+    public static <T> boolean contains(T[] array, T elem) {
+        return indexOf(array, elem).isEmpty();
+    }
+
+    public static boolean contains(int[] array, int elem) {
+        return indexOf(array, elem).isEmpty();
+    }
+
+    public static boolean contains(float[] array, float elem) {
+        return indexOf(array, elem).isEmpty();
+    }
+
+    public static boolean contains(double[] array, double elem) {
+        return indexOf(array, elem).isEmpty();
+    }
+
+    public static boolean contains(long[] array, long elem) {
+        return indexOf(array, elem).isEmpty();
+    }
+
+    public static boolean contains(byte[] array, byte elem) {
+        return indexOf(array, elem).isEmpty();
+    }
+
+    public static boolean contains(short[] array, short elem) {
+        return indexOf(array, elem).isEmpty();
     }
 
     private static Object add(Object array, Object elem, Class<?> type) {
@@ -398,38 +446,66 @@ public class ArrayUtils {
         return result;
     }
 
-    public static Object removeElem(Object array,Object elem){
+    public static Object removeElem(Object array, Object elem) {
         int srcLength = getLength(array);
         if (elem == null) {
             return null;
         }
 
         final Object result = Array.newInstance(array.getClass().getComponentType(), srcLength - 1);
-        int point = index(array, elem);
-        if (point == -1)
+        List<Integer> points = indexOf(array, elem);
+        if (points.isEmpty())
             return array;
-        System.arraycopy(array, 0, result, 0, point);
-        if (point < srcLength - 1) {
-            System.arraycopy(array, point + 1, result, point, srcLength - point - 1);
+        for (int index = 0; index < srcLength; index++) {
+            Object o = Array.get(array, index);
+            if (!points.contains(o)) {
+                Array.set(result, index, o);
+            }
+            index++;
         }
         return result;
     }
 
-    public static<T> T[] removeElem(T[] array, T elem,Class<T> type) {
+    public static <T> T[] removeElem(T[] array, T elem, Class<T> type) {
         int srcLength = getLength(array);
         if (elem == null) {
             return null;
         }
 
         final T[] result = (T[]) Array.newInstance(type, srcLength - 1);
-        int point = index(array, elem);
-        if (point == -1)
+        List<Integer> points = indexOf(array, elem);
+        if (points.isEmpty())
             return array;
-        System.arraycopy(array, 0, result, 0, point);
-        if (point < srcLength - 1) {
-            System.arraycopy(array, point + 1, result, point, srcLength - point - 1);
+        for (int index = 0; index < srcLength; index++) {
+            Object o = Array.get(array, index);
+            if (!points.contains(o)) {
+                Array.set(result, index, o);
+            }
+            index++;
         }
         return result;
+    }
+
+    public static <T> T[] removeAll(T[] array, T... elems) {
+        List<T> keys = new ArrayList<T>();
+        for (T t : elems) {
+            List<Integer> points = indexOf(array, t);
+            if (points.isEmpty())
+                return array;
+            for (int index = 0; index < array.length; index++) {
+                T o = array[index];
+                if (!points.contains(o)) {
+                    keys.add(o);
+                }
+                index++;
+            }
+        }
+        T[] newarray = (T[]) Array.newInstance(array.getClass().getComponentType(), keys.size());
+        int index = 0;
+        for (T t : keys) {
+            newarray[index] = t;
+        }
+        return newarray;
     }
 
     public static <T> T[] remove(T[] array, int index) {
@@ -460,32 +536,172 @@ public class ArrayUtils {
         return (short[]) remove(array, index, Short.TYPE);
     }
 
-    public static int[] removeElem(int[] array,int elem){
-        return (int[]) removeElem((Object)array,elem);
-    }
-    public static float[] removeElem(float[] array,float elem){
-        return (float[]) removeElem((Object)array,elem);
-    }
-    public static double[] removeElem(double[] array,double elem){
-        return (double[]) removeElem((Object)array,elem);
-    }
-    public static long[] removeElem(long[] array,long elem){
-        return (long[]) removeElem((Object)array,elem);
-    }
-    public static byte[] removeElem(byte[] array,byte elem){
-        return (byte[]) removeElem((Object)array,elem);
-    }
-    public static short[] removeElem(short[] array,short elem){
-        return (short[]) removeElem((Object)array,elem);
+    public static int[] removeElem(int[] array, int elem) {
+        return (int[]) removeElem((Object) array, elem);
     }
 
-    public static void main(String[] args) {
-        float[] nums = new float[]{0f, 1f, 2f, 3.8f, 4f, 5.9f, 6f, 7.7f, 8.3f, 9.4f};
-        float[] newnums = removeElem(nums,6);
-//        nums = (int[]) add(nums, 11, 10);
-        for (float n : newnums) {
-            System.out.println(n);
+    public static float[] removeElem(float[] array, float elem) {
+        return (float[]) removeElem((Object) array, elem);
+    }
+
+    public static double[] removeElem(double[] array, double elem) {
+        return (double[]) removeElem((Object) array, elem);
+    }
+
+    public static long[] removeElem(long[] array, long elem) {
+        return (long[]) removeElem((Object) array, elem);
+    }
+
+    public static byte[] removeElem(byte[] array, byte elem) {
+        return (byte[]) removeElem((Object) array, elem);
+    }
+
+    public static short[] removeElem(short[] array, short elem) {
+        return (short[]) removeElem((Object) array, elem);
+    }
+
+    public static int[] removeAll(int[] array, int... elems) {
+        Set<Integer> forbid = new HashSet<Integer>();
+        int count = 0;
+        for (Integer t : elems) {
+            List<Integer> points = indexOf(array, t);
+            count += points.size();
+            for (int index = 0; index < array.length; index++) {
+                if (points.contains(index)) {
+                    forbid.add(array[index]);
+                }
+            }
         }
+        int[] newarray = (int[]) Array.newInstance(array.getClass().getComponentType(), array.length-count);
+        int index = 0;
+        for (Integer t : array) {
+            if (!forbid.contains(t)){
+                newarray[index] = t;
+                index++;
+            }
+
+        }
+        return newarray;
+    }
+
+    public static float[] removeAll(float[] array, float... elems) {
+        Set<Float> forbid = new HashSet<Float>();
+        int count = 0;
+        for (Float t : elems) {
+            List<Integer> points = indexOf(array, t);
+            count += points.size();
+            for (int index = 0; index < array.length; index++) {
+                if (points.contains(index)) {
+                    forbid.add(array[index]);
+                }
+            }
+        }
+        float[] newarray = (float[]) Array.newInstance(array.getClass().getComponentType(), array.length-count);
+        int index = 0;
+        for (Float t : array) {
+            if (!forbid.contains(t)){
+                newarray[index] = t;
+                index++;
+            }
+
+        }
+        return newarray;
+    }
+
+    public static double[] removeAll(double[] array, double... elems) {
+        Set<Double> forbid = new HashSet<Double>();
+        int count = 0;
+        for (Double t : elems) {
+            List<Integer> points = indexOf(array, t);
+            count += points.size();
+            for (int index = 0; index < array.length; index++) {
+                if (points.contains(index)) {
+                    forbid.add(array[index]);
+                }
+            }
+        }
+        double[] newarray = (double[]) Array.newInstance(array.getClass().getComponentType(), array.length-count);
+        int index = 0;
+        for (Double t : array) {
+            if (!forbid.contains(t)){
+                newarray[index] = t;
+                index++;
+            }
+
+        }
+        return newarray;
+    }
+
+    public static long[] removeAll(long[] array, long... elems) {
+        Set<Long> forbid = new HashSet<Long>();
+        int count = 0;
+        for (Long t : elems) {
+            List<Integer> points = indexOf(array, t);
+            count += points.size();
+            for (int index = 0; index < array.length; index++) {
+                if (points.contains(index)) {
+                    forbid.add(array[index]);
+                }
+            }
+        }
+        long[] newarray = (long[]) Array.newInstance(array.getClass().getComponentType(), array.length-count);
+        int index = 0;
+        for (Long t : array) {
+            if (!forbid.contains(t)){
+                newarray[index] = t;
+                index++;
+            }
+
+        }
+        return newarray;
+    }
+
+    public static byte[] removeAll(byte[] array, byte... elems) {
+        Set<Byte> forbid = new HashSet<Byte>();
+        int count = 0;
+        for (Byte t : elems) {
+            List<Integer> points = indexOf(array, t);
+            count += points.size();
+            for (int index = 0; index < array.length; index++) {
+                if (points.contains(index)) {
+                    forbid.add(array[index]);
+                }
+            }
+        }
+        byte[] newarray = (byte[]) Array.newInstance(array.getClass().getComponentType(), array.length-count);
+        int index = 0;
+        for (Byte t : array) {
+            if (!forbid.contains(t)){
+                newarray[index] = t;
+                index++;
+            }
+
+        }
+        return newarray;
+    }
+
+    public static short[] removeAll(short[] array, short... elems) {
+        Set<Short> forbid = new HashSet<Short>();
+        int count = 0;
+        for (Short t : elems) {
+            List<Integer> points = indexOf(array, t);
+            count += points.size();
+            for (int index = 0; index < array.length; index++) {
+                if (points.contains(index)) {
+                    forbid.add(array[index]);
+                }
+            }
+        }
+        short[] newarray = (short[]) Array.newInstance(array.getClass().getComponentType(), array.length-count);
+        int index = 0;
+        for (Short t : array) {
+            if (!forbid.contains(t)){
+                newarray[index] = t;
+                index++;
+            }
+
+        }
+        return newarray;
     }
 
 }
