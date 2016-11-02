@@ -20,6 +20,10 @@ import java.util.Set;
 
 public class ArrayUtils {
 
+    public static<T> T[] newArray(Class<T> type,int length){
+        return (T[]) Array.newInstance(type,length);
+    }
+
     private static int getLength(Object array) {
         if (array == null) {
             return 0;

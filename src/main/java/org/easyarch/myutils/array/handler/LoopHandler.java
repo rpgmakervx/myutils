@@ -1,4 +1,4 @@
-package org.easyarch.myutils.array.action;/**
+package org.easyarch.myutils.array.handler;/**
  * Description : 
  * Created by YangZH on 16-11-1
  *  下午3:43
@@ -10,7 +10,7 @@ package org.easyarch.myutils.array.action;/**
  * 下午3:43
  */
 
-public interface Loop<T> {
+public interface LoopHandler<T> {
 
     public void loop(T elem,int index);
 }

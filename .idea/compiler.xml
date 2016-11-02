@@ -22,7 +22,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="myutils" />
+        <module name="myutils-db" />
+        <module name="myutils-lang" />
       </profile>
     </annotationProcessing>
   </component>
