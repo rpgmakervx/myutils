@@ -4,8 +4,8 @@ package org.easyarch.myutils.db.handler;/**
  *  上午12:00
  */
 
-import org.easyarch.myutils.db.processor.BasicProcessor;
-import org.easyarch.myutils.db.processor.Processor;
+import org.easyarch.myutils.db.processor.BasicWrapper;
+import org.easyarch.myutils.db.processor.Wrapper;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -18,18 +18,18 @@ import java.util.List;
 
 public class BeanListResultSetHadler<T> implements ResultSetHandler<List<T>> {
 
-    private Processor processor;
+    private Wrapper wrapper;
 
     private Class<T> clazz;
 
     public BeanListResultSetHadler(Class<T> clazz) {
         this.clazz = clazz;
-        this.processor = new BasicProcessor();
+        this.wrapper = new BasicWrapper();
     }
 
-    public BeanListResultSetHadler(Class<T> clazz, Processor processor) {
+    public BeanListResultSetHadler(Class<T> clazz, Wrapper wrapper) {
         this.clazz = clazz;
-        this.processor = processor;
+        this.wrapper = wrapper;
     }
 
     public Class<T> getType(){
@@ -38,6 +38,6 @@ public class BeanListResultSetHadler<T> implements ResultSetHandler<List<T>> {
 
     @Override
     public List<T> handle(ResultSet rs) throws Exception {
-        return processor.list(rs, clazz);
+        return wrapper.list(rs, clazz);
     }
 }

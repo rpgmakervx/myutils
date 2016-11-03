@@ -5,7 +5,6 @@ package org.easyarch.myutils.db;/**
  */
 
 import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
-import org.easyarch.myutils.db.handler.ResultSetHandler;
 import org.easyarch.myutils.db.test.User;
 
 import java.sql.*;
@@ -45,7 +44,7 @@ public class Main {
         return connection;
     }
 
-    public <T> T select(String sql, ResultSetHandler<T> rshandler, Object... params) {
+    public <T> List<T> queryList(String sql, BeanListResultSetHadler<T> rshandler, Object... params) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -66,39 +65,27 @@ public class Main {
                 ps.setObject(index + 1, params[index]);
             }
             rs = ps.executeQuery();
-            T t = rshandler.handle(rs);
-            return t;
+            List<T> list = rshandler.handle(rs);
+            return list;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         } finally {
-            try {
-                if (rs != null&&!rs.isClosed()){
-                    rs.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            try {
-                if (ps != null&&!ps.isClosed())
-                    rs.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            try {
-                if (connection!=null&&!connection.isClosed()){
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            DBUtils.close(connection);
+            DBUtils.close(rs);
+            DBUtils.close(ps);
         }
     }
 
     public static void main(String[] args) {
         Main ma = new Main();
-        List<User> user = ma.select("select * from user where age = ?",new BeanListResultSetHadler<User>(User.class),20);
-        System.out.println(user);
+        List<User> users = ma.queryList("select * from user where age = ?",
+                    new BeanListResultSetHadler<User>(User.class), 20);
+        System.out.println(users);
     }
+
+//    private List<User> queryList(String s, BeanListResultSetHadler<User> userBeanListResultSetHadler, int i) {
+//
+//
+//    }
 }

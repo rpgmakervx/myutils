@@ -4,7 +4,7 @@ package org.easyarch.myutils.db.handler;/**
  *  下午7:08
  */
 
-import org.easyarch.myutils.db.processor.Processor;
+import org.easyarch.myutils.db.processor.Wrapper;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -18,18 +18,18 @@ import java.util.List;
 
 abstract public class AbstractResultSetHandler<T> implements ResultSetHandler<List<T>>{
 
-    private Processor processor;
-
-    public AbstractResultSetHandler(Processor processor){
-        this.processor = processor;
+    protected Wrapper wrapper;
+    protected Class<T> type;
+    public AbstractResultSetHandler(Wrapper wrapper,Class<T> type){
+        this.wrapper = wrapper;
+        this.type = type;
     }
 
     @Override
     public List<T> handle(ResultSet rs) throws Exception {
         List<T> list = new ArrayList<T>();
-        int index = 0;
         while (rs.next()){
-            list.add((T) rs.getObject(index));
+            list.add(handleOneRow(rs));
         }
         return list;
     }

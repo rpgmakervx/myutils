@@ -4,6 +4,9 @@ package org.easyarch.myutils.reflect;/**
  *  上午12:36
  */
 
+import java.beans.BeanInfo;
+import java.beans.IntrospectionException;
+import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -55,14 +58,6 @@ public class ReflectUtils {
         }
     }
 
-
-    /**
-     * 暴力反射获取字段值
-     *
-     * @param fieldName 属性名
-     * @param obj       实例对象
-     * @return 属性值
-     */
     public static Object getFieldValue(Object obj, String fieldName) {
         try {
             Field field = obj.getClass().getDeclaredField(fieldName);
@@ -73,14 +68,6 @@ public class ReflectUtils {
         }
     }
 
-    /**
-     * 设置字段值
-     *
-     * @param propertyName 字段名
-     * @param obj          实例对象
-     * @param value        新的字段值
-     * @return
-     */
     public static void setFieldValue(Object obj, String propertyName, Object value) {
         try {
             Field field = obj.getClass().getDeclaredField(propertyName);
@@ -91,35 +78,27 @@ public class ReflectUtils {
         }
     }
 
-    /**
-     * 暴力反射获取字段值
-     *
-     * @param propertyName 属性名
-     * @param object       实例对象
-     * @return 字段值
-     */
     public static Object getter(Object object, String propertyName) {
         try {
             PropertyDescriptor pd = new PropertyDescriptor(propertyName, object.getClass());
             Method method = pd.getReadMethod();
+            if (method == null){
+                throw new IllegalArgumentException("method may not exists");
+            }
             return method.invoke(object);
         } catch (Exception ex) {
             throw new RuntimeException();
         }
     }
 
-    /**
-     * 设置字段值
-     *
-     * @param propertyName 属性名
-     * @param value        新的字段值
-     * @return
-     */
     public static void setter(Object object, String propertyName, Object value){
         try{
             PropertyDescriptor pd = new PropertyDescriptor(propertyName, object.getClass());
-            Method methodSet = pd.getWriteMethod();
-            methodSet.invoke(object, value);
+            Method method = pd.getWriteMethod();
+            if (method == null){
+                throw new IllegalArgumentException("method may not exists");
+            }
+            method.invoke(object, value);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -136,7 +115,6 @@ public class ReflectUtils {
      * @param object         实例对象
      * @return
      */
-    @SuppressWarnings("rawtypes")
     public static Object methodInvoke(String className, String methodName, Class[] parameterTypes, Object[] values, Object object) {
         try {
             Method method = Class.forName(className).getDeclaredMethod(methodName, parameterTypes);
@@ -147,4 +125,14 @@ public class ReflectUtils {
         }
     }
 
+    public static PropertyDescriptor[] propertyDescriptors(Class<?> c){
+        BeanInfo beanInfo = null;
+        try {
+            beanInfo = Introspector.getBeanInfo(c);
+        } catch (IntrospectionException e) {
+            e.printStackTrace();
+        }
+
+        return beanInfo.getPropertyDescriptors();
+    }
 }

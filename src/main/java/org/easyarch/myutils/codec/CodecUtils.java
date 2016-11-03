@@ -93,6 +93,51 @@ public class CodecUtils {
         return (new BASE64Decoder()).decodeBuffer(key);
     }
 
+    public static long murmurHash64(String text) {
+        byte[] bytes = text.getBytes();
+        return murmurHash64(bytes, bytes.length, -512093083);
+    }
+
+    public static long murmurHash64(byte[] data, int length, int seed) {
+        long m = -4132994306676758123L;
+        boolean r = true;
+        long h = (long)seed & 4294967295L ^ (long)length * -4132994306676758123L;
+        int length8 = length / 8;
+
+        for(int i = 0; i < length8; ++i) {
+            int i8 = i * 8;
+            long k = ((long)data[i8 + 0] & 255L) + (((long)data[i8 + 1] & 255L) << 8) + (((long)data[i8 + 2] & 255L) << 16) + (((long)data[i8 + 3] & 255L) << 24) + (((long)data[i8 + 4] & 255L) << 32) + (((long)data[i8 + 5] & 255L) << 40) + (((long)data[i8 + 6] & 255L) << 48) + (((long)data[i8 + 7] & 255L) << 56);
+            k *= -4132994306676758123L;
+            k ^= k >>> 47;
+            k *= -4132994306676758123L;
+            h ^= k;
+            h *= -4132994306676758123L;
+        }
+
+        switch(length % 8) {
+            case 7:
+                h ^= (long)(data[(length & -8) + 6] & 255) << 48;
+            case 6:
+                h ^= (long)(data[(length & -8) + 5] & 255) << 40;
+            case 5:
+                h ^= (long)(data[(length & -8) + 4] & 255) << 32;
+            case 4:
+                h ^= (long)(data[(length & -8) + 3] & 255) << 24;
+            case 3:
+                h ^= (long)(data[(length & -8) + 2] & 255) << 16;
+            case 2:
+                h ^= (long)(data[(length & -8) + 1] & 255) << 8;
+            case 1:
+                h ^= (long)(data[length & -8] & 255);
+                h *= -4132994306676758123L;
+            default:
+                h ^= h >>> 47;
+                h *= -4132994306676758123L;
+                h ^= h >>> 47;
+                return h;
+        }
+    }
+
     private static String bytes2Hex(byte[] bts) {
         StringBuffer des = new StringBuffer();
         String tmp = null;
@@ -106,5 +151,6 @@ public class CodecUtils {
         return des.toString();
 
     }
+
 
 }

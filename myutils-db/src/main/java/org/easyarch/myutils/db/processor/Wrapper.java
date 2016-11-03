@@ -15,7 +15,7 @@ import java.util.Set;
  * 下午7:17
  */
 
-public interface Processor {
+public interface Wrapper {
 
     public<T> List<T> list(ResultSet rs,Class<T> type);
 
