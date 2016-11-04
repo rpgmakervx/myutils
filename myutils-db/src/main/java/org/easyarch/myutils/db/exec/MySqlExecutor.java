@@ -4,6 +4,8 @@ package org.easyarch.myutils.db.exec;/**
  *  下午3:11
  */
 
+import org.easyarch.myutils.db.connector.DBConnector;
+
 /**
  * Description :
  * Created by code4j on 16-11-3
@@ -11,7 +13,7 @@ package org.easyarch.myutils.db.exec;/**
  */
 
 public class MySqlExecutor extends SqlExecutor {
-    public MySqlExecutor() {
-        super(true);
+    public MySqlExecutor(DBConnector connector) {
+        super(connector,true);
     }
 }

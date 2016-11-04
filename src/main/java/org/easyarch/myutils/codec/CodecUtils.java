@@ -152,5 +152,9 @@ public class CodecUtils {
 
     }
 
+    public static void main(String[] args) {
+        System.out.println(murmurHash64("你好"));
+    }
+
 
 }

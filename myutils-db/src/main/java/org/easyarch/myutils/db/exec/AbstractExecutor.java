@@ -4,6 +4,7 @@ package org.easyarch.myutils.db.exec;/**
  *  下午2:30
  */
 
+import org.easyarch.myutils.db.connector.DBConnector;
 import org.easyarch.myutils.reflect.ReflectUtils;
 
 import java.beans.PropertyDescriptor;
@@ -18,12 +19,12 @@ import java.sql.*;
 public abstract class AbstractExecutor {
 
     protected boolean supportMeta;
-
-    public AbstractExecutor() {
-        this.supportMeta = true;
+    protected final DBConnector connector;
+    public AbstractExecutor(DBConnector connector) {
+        this.connector = connector;
     }
-
-    public AbstractExecutor(boolean supportMeta) {
+    public AbstractExecutor(DBConnector connector,boolean supportMeta){
+        this.connector = connector;
         this.supportMeta = supportMeta;
     }
 
@@ -53,6 +54,8 @@ public abstract class AbstractExecutor {
     }
 
     protected void fillStatementWithBean(PreparedStatement ps, Object bean) {
+        if (bean == null)
+            return;
         PropertyDescriptor[] descriptors = ReflectUtils.propertyDescriptors(bean.getClass());
         Object[] params = new Object[descriptors.length];
         for (int index = 0; index < params.length; index++) {

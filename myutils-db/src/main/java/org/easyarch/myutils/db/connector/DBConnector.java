@@ -16,23 +16,15 @@ import java.sql.SQLException;
 
 public class DBConnector {
 
-    static {
-        try {
-            Class.forName(ConnectInfo.getDrivername());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-
-
-    public static Connection getConnection(){
+    public Connection getConnection(){
         try {
             return DriverManager.getConnection(ConnectInfo.getUrl()
-                    ,ConnectInfo.getUsername(),ConnectInfo.getPassword());
+                    ,ConnectInfo.getUser(),ConnectInfo.getPassword());
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
+
 }

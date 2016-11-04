@@ -1,4 +1,4 @@
-package org.easyarch.myutils.mycp.ds;/**
+package org.easyarch.myutils.cp.ds;/**
  * Description : 
  * Created by YangZH on 16-11-4
  *  上午2:01
@@ -18,16 +18,15 @@ import java.util.logging.Logger;
 
 abstract public class DataSourceAdapter implements DataSource {
 
-
-
+    protected PrintWriter logWriter = new PrintWriter(System.out);
     @Override
     public PrintWriter getLogWriter() throws SQLException {
-        return null;
+        return logWriter;
     }
 
     @Override
     public void setLogWriter(PrintWriter out) throws SQLException {
-
+        logWriter = out;
     }
 
     @Override

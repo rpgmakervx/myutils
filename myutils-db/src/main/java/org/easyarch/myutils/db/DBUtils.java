@@ -28,7 +28,7 @@ public final class DBUtils {
         }
         try {
             if (stmt != null&&!stmt.isClosed())
-                rs.close();
+                stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -53,4 +53,26 @@ public final class DBUtils {
     public static void close(Statement stmt) {
         closeAll(null,stmt,null);
     }
+
+    public static void rollBack(Connection conn){
+        try {
+            conn.rollback();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void rollBackAndClose(Connection conn){
+        if (conn != null){
+            try {
+                conn.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }finally {
+                close(conn);
+            }
+        }
+    }
+
+
 }
