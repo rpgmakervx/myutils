@@ -1,4 +1,4 @@
-package org.easyarch.myutils.cp.pool;/**
+package org.easyarch.myutils.cp.factory;/**
  * Description : 
  * Created by YangZH on 16-11-4
  *  上午2:00
@@ -9,8 +9,6 @@ import org.easyarch.myutils.cp.ds.DataSourceAdapter;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Description :
@@ -20,9 +18,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class ConnectionPool extends DataSourceAdapter {
 
-    private CopyOnWriteArrayList<Connection> conpool = new CopyOnWriteArrayList<Connection>();
-
-    private LinkedBlockingQueue<Connection> waitQueue = new LinkedBlockingQueue<Connection>();
 
     @Override
     public Connection getConnection() throws SQLException {
