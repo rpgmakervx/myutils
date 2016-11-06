@@ -13,7 +13,7 @@ clone项目后，在你希望使用的模块，用`mvn install`将项目置入�
 
 ```xml
 <dependency>
-    <groupId>org.easyArch</groupId>
+    <groupId>org.easyarch</groupId>
     <artifactId>myutils-db</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
