@@ -4,11 +4,9 @@ package org.easyarch.myutils.db;/**
  *  上午11:23
  */
 
-import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
-import org.easyarch.myutils.db.test.User;
-
-import java.sql.*;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  * Description :
@@ -44,44 +42,44 @@ public class Main {
         return connection;
     }
 
-    public <T> List<T> queryList(String sql, BeanListResultSetHadler<T> rshandler, Object... params) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            ps = connection.prepareStatement(sql);
-            ParameterMetaData meta = ps.getParameterMetaData();
-            int count = meta.getParameterCount();
-            int paramLength = params == null ? 0 : params.length;
-//            StringTrimmedResultSet.wrap()
-            if (paramLength != count) {
-                throw new IllegalArgumentException("your param not match query string's param");
-            }
-
-            for (int index = 0; index < paramLength; index++) {
-                if (params[index] == null) {
-                    ps.setNull(index, Types.VARCHAR);
-                    continue;
-                }
-                ps.setObject(index + 1, params[index]);
-            }
-            rs = ps.executeQuery();
-            List<T> list = rshandler.handle(rs);
-            return list;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            DBUtils.close(connection);
-            DBUtils.close(rs);
-            DBUtils.close(ps);
-        }
-    }
+//    public <T> List<T> queryList(String sql, BeanListResultSetHadler<T> rshandler, Object... params) {
+//        PreparedStatement ps = null;
+//        ResultSet rs = null;
+//        try {
+//            ps = connection.prepareStatement(sql);
+//            ParameterMetaData meta = ps.getParameterMetaData();
+//            int count = meta.getParameterCount();
+//            int paramLength = params == null ? 0 : params.length;
+////            StringTrimmedResultSet.wrap()
+//            if (paramLength != count) {
+//                throw new IllegalArgumentException("your param not match query string's param");
+//            }
+//
+//            for (int index = 0; index < paramLength; index++) {
+//                if (params[index] == null) {
+//                    ps.setNull(index, Types.VARCHAR);
+//                    continue;
+//                }
+//                ps.setObject(index + 1, params[index]);
+//            }
+//            rs = ps.executeQuery();
+//            List<T> list = rshandler.handle(rs);
+//            return list;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        } finally {
+//            DBUtils.close(connection);
+//            DBUtils.close(rs);
+//            DBUtils.close(ps);
+//        }
+//    }
 
     public static void main(String[] args) {
-        Main ma = new Main();
-        List<User> users = ma.queryList("select * from user where age = ?",
-                    new BeanListResultSetHadler<User>(User.class), 20);
-        System.out.println(users);
+//        Main ma = new Main();
+//        List<User> users = ma.queryList("select * from user where age = ?",
+//                    new BeanListResultSetHadler<User>(User.class), 20);
+//        System.out.println(users);
     }
 
 //    private List<User> queryList(String s, BeanListResultSetHadler<User> userBeanListResultSetHadler, int i) {

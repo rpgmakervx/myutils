@@ -4,9 +4,9 @@ package org.easyarch.myutils.db.exec;/**
  *  下午2:30
  */
 
-import org.easyarch.myutils.db.connector.DBConnector;
 import org.easyarch.myutils.reflect.ReflectUtils;
 
+import javax.sql.DataSource;
 import java.beans.PropertyDescriptor;
 import java.sql.*;
 
@@ -19,12 +19,15 @@ import java.sql.*;
 public abstract class AbstractExecutor {
 
     protected boolean supportMeta;
-    protected final DBConnector connector;
-    public AbstractExecutor(DBConnector connector) {
-        this.connector = connector;
+    protected final DataSource ds;
+    public AbstractExecutor(){
+        ds = null;
     }
-    public AbstractExecutor(DBConnector connector,boolean supportMeta){
-        this.connector = connector;
+    public AbstractExecutor(DataSource ds) {
+        this.ds = ds;
+    }
+    public AbstractExecutor(DataSource ds,boolean supportMeta){
+        this.ds = ds;
         this.supportMeta = supportMeta;
     }
 

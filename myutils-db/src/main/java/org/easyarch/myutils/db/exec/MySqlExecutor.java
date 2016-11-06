@@ -4,7 +4,7 @@ package org.easyarch.myutils.db.exec;/**
  *  下午3:11
  */
 
-import org.easyarch.myutils.db.connector.DBConnector;
+import javax.sql.DataSource;
 
 /**
  * Description :
@@ -13,7 +13,12 @@ import org.easyarch.myutils.db.connector.DBConnector;
  */
 
 public class MySqlExecutor extends SqlExecutor {
-    public MySqlExecutor(DBConnector connector) {
-        super(connector,true);
+
+    public MySqlExecutor(){
+        super(true);
+    }
+
+    public MySqlExecutor(DataSource ds) {
+        super(ds,true);
     }
 }

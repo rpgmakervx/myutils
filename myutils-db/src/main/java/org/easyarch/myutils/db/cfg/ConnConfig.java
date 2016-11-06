@@ -1,4 +1,4 @@
-package org.easyarch.myutils.db.connector;/**
+package org.easyarch.myutils.db.cfg;/**
  * Description : 
  * Created by YangZH on 16-11-3
  *  下午7:28
@@ -12,7 +12,7 @@ import java.util.Properties;
  * 下午7:28
  */
 
-public class ConnectInfo {
+public class ConnConfig {
 
     private static String user;
     private static String password;
@@ -22,10 +22,10 @@ public class ConnectInfo {
 
     public static void config(String user,String password,
                               String url,String drivername){
-        ConnectInfo.user = user;
-        ConnectInfo.password = password;
-        ConnectInfo.url = url;
-        ConnectInfo.drivername = drivername;
+        ConnConfig.user = user;
+        ConnConfig.password = password;
+        ConnConfig.url = url;
+        ConnConfig.drivername = drivername;
         registerDriver();
     }
 
