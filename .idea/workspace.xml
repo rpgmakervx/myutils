@@ -54,11 +54,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myutils-db/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.234375" vertical-offset="0" max-vertical-offset="1470">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
               <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MultiMarkdownFxHtmlEditor">
+            <state />
+          </provider>
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5196305" vertical-offset="0" max-vertical-offset="866">
+              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -116,10 +132,10 @@
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-lang/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-db/pom.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -814,12 +830,12 @@
       <workItem from="1478222727199" duration="16805000" />
       <workItem from="1478268880073" duration="3224000" />
       <workItem from="1478348561661" duration="10868000" />
-      <workItem from="1478397865839" duration="21626000" />
+      <workItem from="1478397865839" duration="21696000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214467000" />
+    <option name="totallyTimeSpent" value="214537000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1419" y="24" width="1867" height="1056" extended-state="6" />
@@ -924,19 +940,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///opt/jdk1.7.0_80/src.zip!/java/util/concurrent/SynchronousQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="11187" max-vertical-offset="14760">
-          <caret line="877" column="28" selection-start-line="877" selection-start-column="28" selection-end-line="877" selection-end-column="28" />
-          <folding>
-            <element signature="method#casItem#0;class#QNode#0;class#TransferQueue#0;class#SynchronousQueue#0" expanded="false" />
-            <element signature="method#transfer#0;class#TransferQueue#0;class#SynchronousQueue#0" expanded="false" />
-            <element signature="method#awaitFulfill#0;class#TransferQueue#0;class#SynchronousQueue#0" expanded="false" />
-            <element signature="method#offer#1;class#SynchronousQueue#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///opt/jdk1.7.0_80/src.zip!/java/util/concurrent/ConcurrentLinkedQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.18415178" vertical-offset="5475" max-vertical-offset="8550">
@@ -1421,20 +1424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="MultiMarkdownFxHtmlEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5666666" vertical-offset="223" max-vertical-offset="780">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/easyarch/myutils/array/ArrayUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3327674" vertical-offset="104" max-vertical-offset="5340">
@@ -1459,10 +1448,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/libraries/Maven__org_easyArch_myutils_lang_1_0_SNAPSHOT.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="909">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.234375" vertical-offset="0" max-vertical-offset="1470">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
           <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MultiMarkdownFxHtmlEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5196305" vertical-offset="0" max-vertical-offset="866">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding />
         </state>
       </provider>
