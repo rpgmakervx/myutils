@@ -4,9 +4,7 @@ package org.easyarch.myutils.db;/**
  *  上午11:23
  */
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.concurrent.*;
 
 /**
  * Description :
@@ -16,74 +14,104 @@ import java.sql.SQLException;
 
 public class Main {
 
-    private Connection connection;
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "123456";
-    private static final String URL = "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false";
-    private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
 
-    public Main() {
-        try {
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public static void main(String[] args) throws InterruptedException {
+        TransferQueue<Integer> transferQueue = new LinkedTransferQueue();
+        BlockingQueue<Integer> linkedBlockingQueue = new LinkedBlockingQueue<Integer>();
+        ConcurrentLinkedQueue<Integer> concurrentLinkedQueue = new ConcurrentLinkedQueue<Integer>();
+        SynchronousQueue<Integer> synchronousQueue = new SynchronousQueue<Integer>();
+        long length = (2 << 19L);
+        System.out.println("elemet length--->"+length);
+        double all = 0.0;
+        //-----------transfer offeer
+        long begin = System.nanoTime();
+        for (int index = 0; index < length; index++) {
+            transferQueue.offer(index);
         }
-    }
+        long transferused = (System.nanoTime() - begin);
+        all += transferused;
+        System.out.println("transfer offer time:   " + transferused);
 
-    static {
-        try {
-            Class.forName(DRIVER_CLASS);
-        } catch (Exception e) {
-            e.printStackTrace();
+        //-----------linked offeer
+        begin = System.nanoTime();
+        for (int index = 0; index < length; index++) {
+            linkedBlockingQueue.offer(index);
         }
+        long linkedused = (System.nanoTime() - begin);
+        all += linkedused;
+        System.out.println("linked offer time:     " + linkedused);
+
+        //-----------concurrent offeer
+        begin = System.nanoTime();
+        for (int index = 0; index < length; index++) {
+            concurrentLinkedQueue.offer(index);
+        }
+        long concurrentused = (System.nanoTime() - begin);
+        all += concurrentused;
+        System.out.println("concurrent offer time: " + concurrentused);
+
+        //-----------sync offeer
+        begin = System.nanoTime();
+        for (int index = 0; index < length; index++) {
+            synchronousQueue.offer(index);
+        }
+        long syncused = (System.nanoTime() - begin);
+        all += syncused;
+        System.out.println("sync offer time:       " + syncused);
+
+        System.out.println("transfer percent:" + (transferused/all)*100.0+"% , linked percent:"+
+                (linkedused/all)*100.0+"% , concurrent percent:"+ (concurrentused/all)*100.0+"%.sync percent:"+
+                        (syncused/all)*100.0+"%.\n" +
+                "\n" +
+                "----------------------------------\n" +
+                "\n");
+
+
+
+        all = 0.0;
+
+        //-----------transfer offeer
+        begin = System.nanoTime();
+        for (int index = 0; index < length; index++) {
+            transferQueue.poll();
+        }
+        transferused = (System.nanoTime() - begin);
+        all += transferused;
+        System.out.println("transfer poll time:    " + transferused);
+
+        //-----------linked offeer
+        begin = System.nanoTime();
+        for (int index = 0; index < length; index++) {
+            linkedBlockingQueue.poll();
+        }
+        linkedused = (System.nanoTime() - begin);
+        all += linkedused;
+        System.out.println("linked offer time:     " + linkedused);
+
+        //-----------concurrent offeer
+        begin = System.nanoTime();
+        for (int index = 0; index < length; index++) {
+            concurrentLinkedQueue.poll();
+        }
+        concurrentused = (System.nanoTime() - begin);
+        all += concurrentused;
+        System.out.println("concurrent offer time: " + concurrentused);
+        //-----------sync offeer
+        begin = System.nanoTime();
+        for (int index = 0; index < length; index++) {
+            synchronousQueue.poll();
+        }
+        syncused = (System.nanoTime() - begin);
+        all += syncused;
+        System.out.println("sync offer time:       " + syncused);
+
+        System.out.println("transfer percent:" + (transferused/all)*100.0+"% , linked percent:"+
+                (linkedused/all)*100.0+"% , concurrent percent:"+ (concurrentused/all)*100.0+"%.sync percent:"+
+                (syncused/all)*100.0+"%.\n");
     }
 
-    private Connection getConnection() {
-        return connection;
+    public static long usedTime(long begin) {
+        return System.nanoTime();
     }
 
-//    public <T> List<T> queryList(String sql, BeanListResultSetHadler<T> rshandler, Object... params) {
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//        try {
-//            ps = connection.prepareStatement(sql);
-//            ParameterMetaData meta = ps.getParameterMetaData();
-//            int count = meta.getParameterCount();
-//            int paramLength = params == null ? 0 : params.length;
-////            StringTrimmedResultSet.wrap()
-//            if (paramLength != count) {
-//                throw new IllegalArgumentException("your param not match query string's param");
-//            }
-//
-//            for (int index = 0; index < paramLength; index++) {
-//                if (params[index] == null) {
-//                    ps.setNull(index, Types.VARCHAR);
-//                    continue;
-//                }
-//                ps.setObject(index + 1, params[index]);
-//            }
-//            rs = ps.executeQuery();
-//            List<T> list = rshandler.handle(rs);
-//            return list;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        } finally {
-//            DBUtils.close(connection);
-//            DBUtils.close(rs);
-//            DBUtils.close(ps);
-//        }
-//    }
-
-    public static void main(String[] args) {
-//        Main ma = new Main();
-//        List<User> users = ma.queryList("select * from user where age = ?",
-//                    new BeanListResultSetHadler<User>(User.class), 20);
-//        System.out.println(users);
-    }
-
-//    private List<User> queryList(String s, BeanListResultSetHadler<User> userBeanListResultSetHadler, int i) {
-//
-//
-//    }
 }

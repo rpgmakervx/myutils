@@ -4,7 +4,7 @@ package org.easyarch.myutils.db.handler;/**
  *  上午12:00
  */
 
-import org.easyarch.myutils.db.processor.BasicWrapper;
+import org.easyarch.myutils.db.processor.BeanWrapper;
 import org.easyarch.myutils.db.processor.Wrapper;
 
 import java.sql.ResultSet;
@@ -18,26 +18,22 @@ import java.util.List;
 
 public class BeanListResultSetHadler<T> implements ResultSetHandler<List<T>> {
 
-    private Wrapper wrapper;
+    protected Wrapper<T> wrapper;
 
-    private Class<T> clazz;
+    protected Class<T> type;
 
-    public BeanListResultSetHadler(Class<T> clazz) {
-        this.clazz = clazz;
-        this.wrapper = new BasicWrapper();
+    public BeanListResultSetHadler(Class<T> type){
+        this(new BeanWrapper<T>(),type);
     }
 
-    public BeanListResultSetHadler(Class<T> clazz, Wrapper wrapper) {
-        this.clazz = clazz;
+    public BeanListResultSetHadler(Wrapper<T> wrapper ,Class<T> type) {
         this.wrapper = wrapper;
+        this.type = type;
     }
 
-    public Class<T> getType(){
-        return clazz;
-    }
 
     @Override
     public List<T> handle(ResultSet rs) throws Exception {
-        return wrapper.list(rs, clazz);
+        return wrapper.list(rs, type);
     }
 }

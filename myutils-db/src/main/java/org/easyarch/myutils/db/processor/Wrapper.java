@@ -6,8 +6,6 @@ package org.easyarch.myutils.db.processor;/**
 
 import java.sql.ResultSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * Description :
@@ -15,17 +13,11 @@ import java.util.Set;
  * 下午7:17
  */
 
-public interface Wrapper {
+public interface Wrapper<T>  {
 
-    public<T> List<T> list(ResultSet rs,Class<T> type);
+    public List<T> list(ResultSet rs,Class<T> type);
 
-    public<T> Set<T> set(ResultSet rs,Class<T> type);
-
-    public Object[] array(ResultSet rs,Class type);
-
-    public<T> T bean(ResultSet rs,Class<T> type);
-
-    public<T> Map<String,T> map(ResultSet rs,Class<T> type);
+    public T bean(ResultSet rs,Class<T> type);
 
 }
 

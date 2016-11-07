@@ -38,9 +38,11 @@ public abstract class AbstractExecutor {
 
     protected void fillStatement(PreparedStatement ps, Object... params) {
         try {
+            int paramLength = params == null ? 0 : params.length;
             ParameterMetaData meta = ps.getParameterMetaData();
             int count = meta.getParameterCount();
-            int paramLength = params == null ? 0 : params.length;
+            if (params == null||meta == null||count == 0)
+                return;
             if (paramLength != count) {
                 throw new IllegalArgumentException("your param not match query string's param");
             }

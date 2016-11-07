@@ -4,10 +4,14 @@ package org.easyarch.myutils.db;/**
  *  上午10:37
  */
 
+import org.easyarch.myutils.db.exec.SqlExecutor;
+import org.easyarch.myutils.db.test.User;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Description :
@@ -16,6 +20,8 @@ import java.sql.Statement;
  */
 
 public final class DBUtils {
+
+    public static SqlExecutor executor;
 
     public static void closeAll(Connection conn, Statement stmt,
                                     ResultSet rs) {
@@ -35,6 +41,7 @@ public final class DBUtils {
         try {
             if (conn!=null&&!conn.isClosed()){
                 conn.close();
+                System.out.println("connection close from DBUtils");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,4 +82,22 @@ public final class DBUtils {
     }
 
 
+    public static<T> T selectById(String sql,String id){
+//        executor.query(sql,new id);
+        return null;
+    }
+
+    public static void main(String[] args) {
+        LinkedBlockingQueue<User> queue = new LinkedBlockingQueue();
+        User u = new User();
+        queue.add(u);
+        queue.add(new User());
+        queue.add(new User());
+        queue.add(new User());
+        queue.add(new User());
+        queue.add(new User());
+        queue.add(new User());
+        queue.add(new User());
+        System.out.println(queue.remove(u));
+    }
 }

@@ -23,8 +23,8 @@ public class PoolConfig {
 
     private static long keepAliveTime;
 
-    public static void config(int maxPoolSize,int minIdle,
-                              int maxIdle,long keepAliveTime){
+    public static void config(int maxPoolSize,int maxIdle,
+                              int minIdle,long keepAliveTime){
         PoolConfig.maxPoolSize = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
         PoolConfig.minIdle = minIdle<=0?0:minIdle;
         PoolConfig.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
@@ -60,5 +60,12 @@ public class PoolConfig {
 
     public static long getKeepAliveTime() {
         return keepAliveTime;
+    }
+
+    public static void print() {
+        System.out.println("maxPoolSize:"+maxPoolSize+
+                "\nmaxIdle:"+maxIdle+
+                "\nminIdle:"+minIdle+
+                "\nkeepAliveTime:"+keepAliveTime);
     }
 }
