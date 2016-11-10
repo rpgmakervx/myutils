@@ -27,9 +27,9 @@ import java.util.List;
 
 public class ExcelUtils {
 
-    private static XSSFWorkbook xsswb = new XSSFWorkbook();
+    private static XSSFWorkbook xsswb;
+    private static ByteArrayOutputStream content;
     private final static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    private static ByteArrayOutputStream content = new ByteArrayOutputStream();
     public static final String SUFFIX = ".xls";
 
     /**
@@ -38,6 +38,8 @@ public class ExcelUtils {
      * @param <T>
      */
     public static <T> void build(List<T> datas) {
+        xsswb = new XSSFWorkbook();
+        content = new ByteArrayOutputStream();
         if (CollectionUtils.isEmpty(datas)) {
             return;
         }
