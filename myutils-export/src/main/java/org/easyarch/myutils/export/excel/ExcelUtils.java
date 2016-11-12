@@ -150,16 +150,6 @@ public class ExcelUtils {
     }
 
     public static void main(String[] args) {
-        List<User> users = new ArrayList<User>();
-        long begin = System.currentTimeMillis();
-        for (int index=0;index<50000;index++){
-            users.add(new User("邢天宇", 22+index, "dfghjhdasfdsgdfbdv"+index,"1SFdsgfdhgfG1"+index,"1afsafsgds1"+index, TimeUtils.getDateOffsetByNow(-5000+index)));
-        }
-//        users.add(new User("梁乙", 23, TimeUtil.getDateOffsetByNow(-1)));
-//        users.add(new User("季旭", 21, TimeUtil.getDateOffsetByNow(1)));
-//        users.add(new User("周雪原", 24, TimeUtil.getDateOffsetByNow(2)));
-        ExcelUtils.build(users);
-        ExcelUtils.disk("/home/code4j/58daojia/名单" + SUFFIX);
-        System.out.println("time:"+ (System.currentTimeMillis() - begin));
+
     }
 }
