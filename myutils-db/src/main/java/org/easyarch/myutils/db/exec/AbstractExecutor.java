@@ -31,7 +31,7 @@ public abstract class AbstractExecutor {
         return conn.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
     }
 
-    protected void fillStatement(PreparedStatement ps, Object... params) {
+    protected void fillStatement(PreparedStatement ps, Object[] params) {
         try {
             int paramLength = params == null ? 0 : params.length;
             ParameterMetaData meta = ps.getParameterMetaData();

@@ -31,7 +31,8 @@ public class SqlExecutor extends AbstractExecutor{
         super(supportMeta);
     }
 
-    public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler, Object... params) {
+
+    public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler, Object[] params) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -50,6 +51,7 @@ public class SqlExecutor extends AbstractExecutor{
         }
     }
 
+
     /**
      * 提供connection的修改操作
      * @param conn
@@ -57,7 +59,7 @@ public class SqlExecutor extends AbstractExecutor{
      * @param params
      * @return
      */
-    public int alter(Connection conn,String sql,Object... params){
+    public int alter(Connection conn,String sql,Object[] params){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -111,7 +113,7 @@ public class SqlExecutor extends AbstractExecutor{
         Connection connection = dataSource.getConnection();
         List<User> user = executor.query(connection,"select * from user ",
                 new BeanListResultSetHadler<User>(User.class), null);
-        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
-        System.out.println("end "+result);
+//        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
+//        System.out.println("end "+result);
     }
 }
