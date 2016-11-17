@@ -4,6 +4,8 @@ package org.easyarch.myutils.cp.ds;/**
  *  下午8:23
  */
 
+import org.easyarch.myutils.db.ConnectionUtils;
+
 import java.sql.Connection;
 
 /**
@@ -20,10 +22,16 @@ public class ProcessWatcher implements Monitor{
             public void run() {
                 System.out.println("programme exit,ready to close all dbcpool connections ... ");
                 System.out.println("connections count is :"+ DBCPool.realconns.size());
-                DBCPool.kill();
+                kill();
             }
         });
 
+    }
+
+    private static void kill() {
+        for (Connection conn : DBCPool.realconns) {
+            ConnectionUtils.close(conn);
+        }
     }
 
     @Override
