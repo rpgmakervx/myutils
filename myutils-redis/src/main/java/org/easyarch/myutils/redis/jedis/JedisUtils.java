@@ -35,4 +35,18 @@ public class JedisUtils {
         jedis.set(key,value);
         JedisHelper.recycle(jedis);
     }
+
+    public static void set(String key,String value,int expire){
+        ShardedJedis jedis = helper.getShardedJedis();
+        jedis.set(key,value);
+        jedis.expire(key,expire);
+        JedisHelper.recycle(jedis);
+    }
+
+    public static String get(String key){
+        ShardedJedis jedis = helper.getShardedJedis();
+        String value = jedis.get(key);
+        JedisHelper.recycle(jedis);
+        return value;
+    }
 }
