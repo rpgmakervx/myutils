@@ -1,6 +1,7 @@
 package org.easyarch.myutils.export.excel;
 
 import org.apache.poi.hssf.usermodel.*;
+import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.export.excel.annotation.ExcelEntity;
 import org.easyarch.myutils.export.excel.annotation.ExcelField;
@@ -10,6 +11,8 @@ import org.easyarch.myutils.io.IOUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -95,6 +98,19 @@ public class ExcelUtils {
         }
     }
 
+    public void stream(OutputStream output){
+        byte[] data = getExcelAsByte();
+        if (ArrayUtils.isEmpty(data)){
+            return;
+        }
+        try {
+            output.write(data,0,data.length);
+            output.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private <T> void iterateField(Field[] fields, T dto, HSSFRow row) throws Exception {
         for (int index = 0; index < fields.length; index++) {
             fields[index].setAccessible(true);
@@ -108,12 +124,12 @@ public class ExcelUtils {
     }
 
     public static void main(String[] args) {
-        ExcelUtils helper = new ExcelUtils();
+        ExcelUtils util = new ExcelUtils();
         List<User> users = new ArrayList<User>();
         users.add(new User("邢天宇", 22, TimeUtil.getDateByNow(0)));
         users.add(new User("梁乙", 23, TimeUtil.getDateByNow(-1)));
         users.add(new User("季旭", 21, TimeUtil.getDateByNow(1)));
         users.add(new User("周雪原", 24, TimeUtil.getDateByNow(2)));
-        helper.build(users).disk("/home/code4j/58daojia/名单" + SUFFIX);
+        util.build(users).disk("/home/code4j/58daojia/名单" + SUFFIX);
     }
 }
