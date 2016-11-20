@@ -10,7 +10,7 @@ import org.easyarch.myutils.db.ConnectionUtils;
 import org.easyarch.myutils.db.cfg.ConnConfig;
 import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.db.handler.ResultSetHandler;
-import org.easyarch.myutils.db.test.User;
+import org.easyarch.myutils.test.User;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

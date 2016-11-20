@@ -1,4 +1,4 @@
-package org.easyarch.myutils.db.test;/**
+package org.easyarch.myutils.test;/**
  * Description : 
  * Created by YangZH on 16-11-3
  *  上午2:04

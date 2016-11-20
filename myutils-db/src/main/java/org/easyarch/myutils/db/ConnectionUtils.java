@@ -5,7 +5,7 @@ package org.easyarch.myutils.db;/**
  */
 
 import org.easyarch.myutils.db.exec.SqlExecutor;
-import org.easyarch.myutils.db.test.User;
+import org.easyarch.myutils.test.User;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

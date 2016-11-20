@@ -2,7 +2,6 @@ package org.easyarch.myutils.test;
 
 import org.apache.commons.dbcp.BasicDataSource;
 import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
-import org.easyarch.myutils.db.test.User;
 
 import java.sql.SQLException;
 import java.util.List;

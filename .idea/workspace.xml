@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/ConnectionUtils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/orm/session/DBSession.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/Student.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/test/Student.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/TestMain.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/test/TestMain.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/User.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/test/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/DBUtils.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/DBUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/AbstractExecutor.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/AbstractExecutor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/ConnectionUtils.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/ConnectionUtils.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/test/java/org/easyarch/myutils/test/Main.java" afterPath="$PROJECT_DIR$/myutils-db/src/test/java/org/easyarch/myutils/test/Main.java" />
     </list>
@@ -33,102 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SqlExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java">
+      <file leaf-file-name="DBSession.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/orm/session/DBSession.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="162" column="63" selection-start-line="162" selection-start-column="63" selection-end-line="162" selection-end-column="63" />
-              <folding>
-                <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
-                <element signature="docComment;method#alter#0;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#alter#0;class#SqlExecutor#0" expanded="true" />
-                <element signature="docComment;method#alter#1;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#alter#1;class#SqlExecutor#0" expanded="true" />
-                <element signature="docComment;method#alterBatch#0;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#alterBatch#0;class#SqlExecutor#0" expanded="true" />
-                <element signature="docComment;method#alterBatch#1;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#alterBatch#1;class#SqlExecutor#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionUtils.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/ConnectionUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="906">
-              <caret line="81" column="29" selection-start-line="81" selection-start-column="23" selection-end-line="81" selection-end-column="29" />
-              <folding>
-                <element signature="method#beginTransaction#0;class#ConnectionUtils#0" expanded="true" />
-                <element signature="method#beginTransaction#1;class#ConnectionUtils#0" expanded="true" />
-                <element signature="method#commit#0;class#ConnectionUtils#0" expanded="true" />
-                <element signature="method#endTransaction#1;class#ConnectionUtils#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Statement.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/sql/Statement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="589" column="10" selection-start-line="589" selection-start-column="10" selection-end-line="589" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/AbstractExecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="38" column="99" selection-start-line="38" selection-start-column="99" selection-end-line="38" selection-end-column="99" />
-              <folding>
-                <element signature="method#prepareStatement#0;class#AbstractExecutor#0" expanded="true" />
-                <element signature="method#fillStatement#0;class#AbstractExecutor#0" expanded="true" />
-                <element signature="method#fillStatementWithBean#0;class#AbstractExecutor#0" expanded="true" />
-                <element signature="method#fillStatement#1;class#AbstractExecutor#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResultSetHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/ResultSetHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BeanResultSetHadler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanResultSetHadler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-55">
-              <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BeanListResultSetHadler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-55">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="348">
+              <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -157,7 +72,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/myutils-redis/pom.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/BeanWrapper.java" />
@@ -208,6 +122,7 @@
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/ConnectionUtils.java" />
+        <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/orm/session/DBSession.java" />
       </list>
     </option>
   </component>
@@ -395,6 +310,90 @@
               <option name="myItemId" value="myutils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="session" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="orm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -442,44 +441,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myutils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myutils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myutils-db" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="easyarch" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myutils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -505,6 +466,9 @@
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.easyarch.myutils" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.easyarch.myutils" />
       <recent name="org.easyarch.myutils.json" />
@@ -1149,7 +1113,7 @@
       <workItem from="1482803184180" duration="4000" />
       <workItem from="1482820575984" duration="1386000" />
       <workItem from="1482826477524" duration="4097000" />
-      <workItem from="1482849859526" duration="5586000" />
+      <workItem from="1482849859526" duration="9386000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -1235,11 +1199,18 @@
       <option name="project" value="LOCAL" />
       <updated>1482855763204</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修正db模块">
+      <created>1482856621956</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1482856621956</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146447000" />
+    <option name="totallyTimeSpent" value="150247000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1335,20 +1306,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/util/concurrent/LinkedBlockingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="248" column="11" selection-start-line="248" selection-start-column="11" selection-end-line="248" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/util/Timer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="131" column="10" selection-start-line="131" selection-start-column="10" selection-end-line="131" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="62">
@@ -1573,14 +1530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/orm/mapper/TypeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/SqlHelper.java" />
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/orm/mapper/JDBCType.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1691,7 +1640,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/User.java">
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/test/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
@@ -1728,6 +1677,30 @@
             <element signature="method#commit#0;class#ConnectionUtils#0" expanded="true" />
             <element signature="method#endTransaction#1;class#ConnectionUtils#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/orm/mapper/TypeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="54" column="18" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/orm/session/DBSession.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
