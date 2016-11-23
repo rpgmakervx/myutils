@@ -115,12 +115,6 @@ public final class DBUtils {
         }
     }
 
-
-    public static<T> T selectById(String sql,String id){
-//        executor.query(sql,new id);
-        return null;
-    }
-
     public static void main(String[] args) {
         LinkedBlockingQueue<User> queue = new LinkedBlockingQueue();
         User u = new User();
