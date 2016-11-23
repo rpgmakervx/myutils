@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtils.java" afterPath="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtils.java" />
     </list>
     <ignored path="myutils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -978,7 +977,7 @@
       <workItem from="1482128464038" duration="5405000" />
       <workItem from="1482158398517" duration="5498000" />
       <workItem from="1479059584281" duration="22000" />
-      <workItem from="1479059649680" duration="287000" />
+      <workItem from="1479059649680" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -991,7 +990,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94187000" />
+    <option name="totallyTimeSpent" value="94332000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
