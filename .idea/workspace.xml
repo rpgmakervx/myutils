@@ -33,8 +33,8 @@
       <file leaf-file-name="JedisUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+            <state relative-caret-position="216">
+              <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#JedisUtils#0" expanded="true" />
@@ -50,11 +50,161 @@
       <file leaf-file-name="ShardedJedis.java" pinned="false" current-in-tab="false">
         <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/ShardedJedis.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-277">
+            <state relative-caret-position="496">
               <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
               <folding>
-                <element signature="method#set#0;class#ShardedJedis#0" expanded="true" />
-                <element signature="method#expire#0;class#ShardedJedis#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#762#763#0" expanded="false" />
+                <element signature="e#785#786#0" expanded="false" />
+                <element signature="e#853#854#0" expanded="false" />
+                <element signature="e#882#883#0" expanded="false" />
+                <element signature="e#959#960#0" expanded="false" />
+                <element signature="e#997#998#0" expanded="false" />
+                <element signature="method#ShardedJedis#3;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#set#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#set#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#get#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#echo#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#exists#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#type#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#pexpire#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#expireAt#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#pexpireAt#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#ttl#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#pttl#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#setbit#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#setbit#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#getbit#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#setrange#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#getrange#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#getSet#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#setnx#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#setex#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#psetex#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#blpop#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#blpop#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#brpop#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#brpop#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#decrBy#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#decr#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#incrBy#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#incrByFloat#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#incr#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#append#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#substr#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hset#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hget#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hsetnx#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hmset#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hmget#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hincrBy#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hincrByFloat#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hexists#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#del#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hdel#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hlen#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hkeys#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hvals#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hgetAll#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#rpush#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#lpush#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#lpushx#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#strlen#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#move#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#rpushx#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#persist#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#llen#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#lrange#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#ltrim#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#lindex#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#lset#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#lrem#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#lpop#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#rpop#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#sadd#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#smembers#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#srem#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#spop#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#spop#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#scard#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#sismember#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#srandmember#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#srandmember#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zadd#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zadd#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zadd#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zadd#3;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrange#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrem#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zincrby#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zincrby#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrank#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrank#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrange#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeWithScores#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeWithScores#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zcard#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zscore#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#sort#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#sort#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zcount#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zcount#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByScore#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByScore#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByScore#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByScore#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByScoreWithScores#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByScoreWithScores#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByScoreWithScores#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByScoreWithScores#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByScore#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByScore#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByScore#3;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByScore#3;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByScoreWithScores#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByScoreWithScores#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByScoreWithScores#3;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByScoreWithScores#3;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zremrangeByRank#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zremrangeByScore#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zremrangeByScore#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zlexcount#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByLex#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrangeByLex#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByLex#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zrevrangeByLex#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zremrangeByLex#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#linsert#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#bitcount#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#bitcount#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#bitpos#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#bitpos#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hscan#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#sscan#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zscan#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hscan#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#hscan#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#sscan#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#sscan#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zscan#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#zscan#2;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#close#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="e#19768#19769#0" expanded="false" />
+                <element signature="e#19812#19813#0" expanded="false" />
+                <element signature="method#resetState#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#pfadd#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#pfcount#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#geoadd#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#geoadd#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#geodist#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#geodist#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#geohash#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#geopos#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#georadius#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#georadius#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#georadiusByMember#0;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#georadiusByMember#1;class#ShardedJedis#0" expanded="false" />
+                <element signature="method#bitfield#0;class#ShardedJedis#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -206,7 +356,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -328,6 +477,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -980,7 +1130,8 @@
       <workItem from="1482128464038" duration="5405000" />
       <workItem from="1482158398517" duration="5498000" />
       <workItem from="1479059584281" duration="22000" />
-      <workItem from="1479059649680" duration="608000" />
+      <workItem from="1479059649680" duration="666000" />
+      <workItem from="1482284628885" duration="216000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -993,7 +1144,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94508000" />
+    <option name="totallyTimeSpent" value="94782000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1006,7 +1157,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="24" width="1313" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1016,7 +1167,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5432692" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910256" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910256" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27852085" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
@@ -1439,19 +1590,169 @@
     <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/MapUtils.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/ShardedJedis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-277">
+        <state relative-caret-position="496">
           <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
           <folding>
-            <element signature="method#set#0;class#ShardedJedis#0" expanded="true" />
-            <element signature="method#expire#0;class#ShardedJedis#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#762#763#0" expanded="false" />
+            <element signature="e#785#786#0" expanded="false" />
+            <element signature="e#853#854#0" expanded="false" />
+            <element signature="e#882#883#0" expanded="false" />
+            <element signature="e#959#960#0" expanded="false" />
+            <element signature="e#997#998#0" expanded="false" />
+            <element signature="method#ShardedJedis#3;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#set#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#set#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#get#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#echo#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#exists#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#type#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#pexpire#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#expireAt#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#pexpireAt#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#ttl#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#pttl#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#setbit#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#setbit#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#getbit#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#setrange#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#getrange#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#getSet#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#setnx#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#setex#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#psetex#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#blpop#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#blpop#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#brpop#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#brpop#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#decrBy#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#decr#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#incrBy#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#incrByFloat#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#incr#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#append#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#substr#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hset#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hget#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hsetnx#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hmset#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hmget#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hincrBy#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hincrByFloat#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hexists#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#del#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hdel#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hlen#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hkeys#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hvals#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hgetAll#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#rpush#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#lpush#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#lpushx#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#strlen#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#move#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#rpushx#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#persist#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#llen#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#lrange#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#ltrim#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#lindex#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#lset#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#lrem#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#lpop#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#rpop#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#sadd#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#smembers#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#srem#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#spop#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#spop#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#scard#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#sismember#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#srandmember#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#srandmember#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zadd#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zadd#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zadd#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zadd#3;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrange#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrem#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zincrby#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zincrby#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrank#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrank#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrange#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeWithScores#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeWithScores#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zcard#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zscore#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#sort#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#sort#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zcount#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zcount#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByScore#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByScore#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByScore#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByScore#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByScoreWithScores#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByScoreWithScores#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByScoreWithScores#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByScoreWithScores#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByScore#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByScore#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByScore#3;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByScore#3;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByScoreWithScores#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByScoreWithScores#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByScoreWithScores#3;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByScoreWithScores#3;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zremrangeByRank#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zremrangeByScore#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zremrangeByScore#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zlexcount#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByLex#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrangeByLex#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByLex#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zrevrangeByLex#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zremrangeByLex#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#linsert#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#bitcount#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#bitcount#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#bitpos#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#bitpos#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hscan#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#sscan#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zscan#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hscan#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#hscan#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#sscan#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#sscan#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zscan#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#zscan#2;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#close#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="e#19768#19769#0" expanded="false" />
+            <element signature="e#19812#19813#0" expanded="false" />
+            <element signature="method#resetState#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#pfadd#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#pfcount#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#geoadd#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#geoadd#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#geodist#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#geodist#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#geohash#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#geopos#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#georadius#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#georadius#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#georadiusByMember#0;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#georadiusByMember#1;class#ShardedJedis#0" expanded="false" />
+            <element signature="method#bitfield#0;class#ShardedJedis#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="52" column="30" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+        <state relative-caret-position="216">
+          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#JedisUtils#0" expanded="true" />

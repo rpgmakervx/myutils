@@ -50,7 +50,7 @@ public class JedisUtils {
         return value;
     }
 
-    public static String setnx(String key,String values){
+    public static void setnx(String key,String values){
         ShardedJedis jedis = helper.getShardedJedis();
         jedis.setnx(key,values);
         JedisHelper.recycle(jedis);
