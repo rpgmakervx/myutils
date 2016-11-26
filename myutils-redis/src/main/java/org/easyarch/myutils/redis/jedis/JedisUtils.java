@@ -49,4 +49,10 @@ public class JedisUtils {
         JedisHelper.recycle(jedis);
         return value;
     }
+
+    public static String setnx(String key,String values){
+        ShardedJedis jedis = helper.getShardedJedis();
+        jedis.setnx(key,values);
+        JedisHelper.recycle(jedis);
+    }
 }
