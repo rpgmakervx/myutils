@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtils.java" afterPath="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtils.java" />
     </list>
     <ignored path="myutils.iws" />
@@ -33,8 +32,8 @@
       <file leaf-file-name="JedisUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+            <state relative-caret-position="217">
+              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;class#JedisUtils#0" expanded="true" />
@@ -46,7 +45,9 @@
                 <element signature="method#get#0;class#JedisUtils#0" expanded="true" />
                 <element signature="method#getBytes#0;class#JedisUtils#0" expanded="true" />
                 <element signature="method#del#0;class#JedisUtils#0" expanded="true" />
+                <element signature="method#del#1;class#JedisUtils#0" expanded="true" />
                 <element signature="method#append#0;class#JedisUtils#0" expanded="true" />
+                <element signature="method#append#1;class#JedisUtils#0" expanded="true" />
                 <element signature="method#main#0;class#JedisUtils#0" expanded="true" />
               </folding>
             </state>
@@ -1023,7 +1024,7 @@
       <workItem from="1482284628885" duration="424000" />
       <workItem from="1480038700583" duration="1393000" />
       <workItem from="1482293070875" duration="2506000" />
-      <workItem from="1482392305893" duration="2986000" />
+      <workItem from="1482392305893" duration="3240000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -1036,7 +1037,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101875000" />
+    <option name="totallyTimeSpent" value="102129000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1499,8 +1500,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="68" column="23" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+        <state relative-caret-position="217">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;class#JedisUtils#0" expanded="true" />
@@ -1512,7 +1513,9 @@
             <element signature="method#get#0;class#JedisUtils#0" expanded="true" />
             <element signature="method#getBytes#0;class#JedisUtils#0" expanded="true" />
             <element signature="method#del#0;class#JedisUtils#0" expanded="true" />
+            <element signature="method#del#1;class#JedisUtils#0" expanded="true" />
             <element signature="method#append#0;class#JedisUtils#0" expanded="true" />
+            <element signature="method#append#1;class#JedisUtils#0" expanded="true" />
             <element signature="method#main#0;class#JedisUtils#0" expanded="true" />
           </folding>
         </state>

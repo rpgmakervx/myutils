@@ -73,7 +73,6 @@ public class JedisUtils {
         return value;
     }
 
-
     public static long del(String key){
         ShardedJedis jedis = helper.getShardedJedis();
         long count = jedis.del(key);
@@ -81,12 +80,26 @@ public class JedisUtils {
         return count;
     }
 
-    public static long append(String key,String value){
+    public static long del(byte[] key){
+        ShardedJedis jedis = helper.getShardedJedis();
+        long count = jedis.del(key);
+        JedisHelper.recycle(jedis);
+        return count;
+    }
 
+    public static long append(String key,String value){
+        ShardedJedis jedis = helper.getShardedJedis();
+        long count = jedis.append(key,value);
+        JedisHelper.recycle(jedis);
+        return count;
+    }
+    public static long append(byte[] key,byte[] value){
+        ShardedJedis jedis = helper.getShardedJedis();
+        long count = jedis.append(key,value);
+        JedisHelper.recycle(jedis);
+        return count;
     }
 
     public static void main(String[] args) {
-        ShardedJedis jedis = helper.getShardedJedis();
-        jedis.append()
     }
 }
