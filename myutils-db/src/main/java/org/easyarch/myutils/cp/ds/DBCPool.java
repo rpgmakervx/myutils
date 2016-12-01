@@ -1,7 +1,7 @@
 package org.easyarch.myutils.cp.ds;/**
- * Description : 
+ * Description :
  * Created by YangZH on 16-11-5
- *  下午10:04
+ * 下午10:04
  */
 
 import org.easyarch.myutils.cp.cfg.PoolConfig;
@@ -16,10 +16,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Queue;
 import java.util.Set;
-import java.util.concurrent.BlockingQueue;
+import java.util.Timer;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -29,8 +28,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 
 public class DBCPool extends DataSourceAdapter {
+    static Timer timer = new Timer();
     private Queue<Connection> conpool;
-    private BlockingQueue<Connection> idleQueue;
+    private Queue<Connection> idleQueue;
     public static final Set<Connection> realconns = new CopyOnWriteArraySet<Connection>();
     private final int maxPoolSize;
     private final int minIdle;
@@ -38,7 +38,7 @@ public class DBCPool extends DataSourceAdapter {
     private final long keepAliveTime;
     private AtomicInteger currentPoolSize = new AtomicInteger(0);
 
-    static{
+    static {
         try {
             Class.forName(ProcessWatcher.class.getName());
         } catch (ClassNotFoundException e) {
@@ -46,7 +46,7 @@ public class DBCPool extends DataSourceAdapter {
         }
     }
 
-    public DBCPool(BlockingQueue queue) {
+    public DBCPool(Queue queue) {
         maxPoolSize = PoolConfig.getMaxPoolSize();
         minIdle = PoolConfig.getMinIdle();
         maxIdle = PoolConfig.getMaxIdle();
@@ -56,16 +56,15 @@ public class DBCPool extends DataSourceAdapter {
         initQueue();
     }
 
-    public DBCPool(int maxPoolSize,int maxIdle,
-                   int minIdle,long keepAliveTime, BlockingQueue queue) {
-        PoolConfig.config(maxPoolSize, maxIdle,minIdle , keepAliveTime);
+    public DBCPool(int maxPoolSize, int maxIdle,
+                   int minIdle, long keepAliveTime, Queue queue) {
+        PoolConfig.config(maxPoolSize, maxIdle, minIdle, keepAliveTime);
         this.maxPoolSize = PoolConfig.getMaxPoolSize();
         this.maxIdle = PoolConfig.getMaxIdle();
         this.minIdle = PoolConfig.getMinIdle();
         this.keepAliveTime = PoolConfig.getKeepAliveTime();
         conpool = new ConcurrentLinkedQueue<Connection>();
         idleQueue = queue;
-        System.out.println("init");
         initQueue();
     }
 
@@ -81,29 +80,37 @@ public class DBCPool extends DataSourceAdapter {
     }
 
     @Override
-    public Connection getConnection() {
-        Connection conn;
+    public synchronized Connection getConnection() {
+        Connection conn = null;
         try {
-            conn = idleQueue.poll();
-            System.out.println(realconns.size()+" 从队列中获取到一个资源:"+conn);
-            if (conn == null||idleQueue.isEmpty()) {
-                if (currentPoolSize.get() < maxPoolSize){
+            if (!idleQueue.isEmpty()) {
+                conn = idleQueue.poll();
+            }
+            if (conn != null && !conn.isClosed()) {
+                poolIn(conn);
+            }else{
+                if (currentPoolSize.get()  < maxPoolSize+ maxIdle) {
                     conn = createConnection();
-                    System.out.println("队列没有，在池中创建:"+conn);
-                    conpool.offer(conn);
-                    currentPoolSize.incrementAndGet();
+                    System.out.println("队列没有，在池中创建:" + conn);
+                    poolIn(conn);
                     return conn;
                 }
-                System.out.println("try again....");
-                conn = idleQueue.poll(keepAliveTime, TimeUnit.MILLISECONDS);
-                if(conn == null) {
+                System.out.println("try again...." + idleQueue.size());
+                long timestamp = System.currentTimeMillis();
+                while (System.currentTimeMillis() - timestamp <= keepAliveTime) {
+                    conn = idleQueue.poll();
+                    if (conn != null){
+                        poolIn(conn);
+                        break;
+                    }
+                }
+//                System.out.println("front 总连接数--->"+realconns.size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
+                if (conn == null) {
                     throw new RuntimeException("db connection pool was full");
                 }
-                System.out.println("got it!!"+conn);
+                System.out.println("got it!!" + conn);
             }
-            return (Connection) Proxy.newProxyInstance(getClass().getClassLoader(),
-                    new Class[]{Connection.class}, new ConnectionProxy(conn));
-//            return conn;
+            return conn;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -111,42 +118,50 @@ public class DBCPool extends DataSourceAdapter {
         return null;
     }
 
-    protected void ensureMinIdle() {
-        while (idleQueue.size() < minIdle) {
-            idleQueue.offer(createConnection());
+    private void poolIn(Connection conn) throws Exception {
+        if (conn != null){
+            if (!conn.isClosed()){
+                conpool.offer(conn);
+                currentPoolSize.incrementAndGet();
+                System.out.println("连接入池成功"+conn);
+            }else{
+                System.out.println("连接入池失败，连接已关闭");
+            }
+        }else{
+            System.out.println("连接入池失败，连接为空");
         }
     }
 
-    protected Connection createConnection() {
+    private void poolOut(Connection conn){
+        if (conpool.remove(conn)){
+            System.out.println("从池中删除连接");
+            currentPoolSize.decrementAndGet();
+        }
+    }
+
+    protected synchronized Connection createConnection() {
         try {
-        Connection conn = DriverManager.getConnection(ConnConfig.getUrl()
-                , ConnConfig.getUser(), ConnConfig.getPassword());
+            Connection conn = DriverManager.getConnection(ConnConfig.getUrl()
+                    , ConnConfig.getUser(), ConnConfig.getPassword());
+//            System.out.println("realcon : "+conn);
             realconns.add(conn);
-            return conn;
+            return (Connection) Proxy.newProxyInstance(getClass().getClassLoader(),
+                    new Class[]{Connection.class}, new ConnectionProxy(conn));
         } catch (SQLException e) {
             throw new RuntimeException("fail to create connection:\n" + e.getMessage());
         }
     }
 
-    protected void recover(Connection conn) {
+    protected synchronized void recover(Connection conn) {
         if (conn != null) {
-            System.out.println("recover ok? "+idleQueue.offer(conn));
-            conpool.remove(conn);
-            currentPoolSize.decrementAndGet();
+            poolOut(conn);
+//            System.out.println("recover ok? " + idleQueue.offer(conn) + ", size-->" + idleQueue.size()+",conn-->"+conn);
+            System.out.println("recover 总连接数--->"+realconns.size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
+        }else{
+            System.out.println("recover fail...");
         }
     }
 
-    protected void release(Connection conn) {
-        if (conn != null) {
-            idleQueue.remove(conn);
-            conpool.remove(conn);
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 
     @Override
     public Connection getConnection(String username, String password) throws SQLException {
@@ -155,6 +170,7 @@ public class DBCPool extends DataSourceAdapter {
 
     class ConnectionProxy implements InvocationHandler {
         private static final String CLOSE = "close";
+        private static final String EQUALS = "equals";
 
         private Connection conn;
 
@@ -166,15 +182,25 @@ public class DBCPool extends DataSourceAdapter {
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             if (!CLOSE.equals(method.getName())) {
                 method.setAccessible(true);
-                return method.invoke(conn, args);
+                if (EQUALS.equals(method.getName())){
+                    return args[0] == proxy;
+                }
+                if (!conn.isClosed()) {
+                    return method.invoke(conn, args);
+                }
             }
-            recover(conn);
+            recover((Connection) proxy);
             return null;
         }
     }
-    static void kill(){
-        for (Connection conn: DBCPool.realconns){
+
+    static void kill() {
+        for (Connection conn : DBCPool.realconns) {
             DBUtils.close(conn);
         }
+    }
+
+    static Set<Connection> getRealConnections() {
+        return realconns;
     }
 }

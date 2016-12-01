@@ -39,9 +39,11 @@ public final class DBUtils {
             e.printStackTrace();
         }
         try {
-            if (conn!=null&&!conn.isClosed()){
-                conn.close();
-                System.out.println("connection close from DBUtils");
+            if (conn!=null){
+                if (!conn.isClosed()){
+                    conn.close();
+                    System.out.println("connection close from DBUtils "+conn.isClosed());
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();

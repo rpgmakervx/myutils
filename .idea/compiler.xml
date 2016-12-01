@@ -26,5 +26,10 @@
         <module name="myutils-lang" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="myutils" target="1.5" />
+      <module name="myutils-db" target="1.7" />
+      <module name="myutils-lang" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

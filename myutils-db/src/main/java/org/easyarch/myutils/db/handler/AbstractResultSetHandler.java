@@ -4,7 +4,7 @@ package org.easyarch.myutils.db.handler;/**
  *  下午7:08
  */
 
-import org.easyarch.myutils.db.processor.Wrapper;
+import org.easyarch.myutils.db.warpper.Wrapper;
 
 /**
  * Description :

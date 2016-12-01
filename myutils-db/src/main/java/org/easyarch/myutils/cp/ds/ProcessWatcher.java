@@ -4,6 +4,8 @@ package org.easyarch.myutils.cp.ds;/**
  *  下午8:23
  */
 
+import java.util.Timer;
+
 /**
  * Description :
  * Created by code4j on 16-11-7
@@ -12,6 +14,7 @@ package org.easyarch.myutils.cp.ds;/**
 
 public class ProcessWatcher {
     static Runtime rt = Runtime.getRuntime();
+    static Timer timer;
     static{
         System.out.println("watcher is ready.");
         rt.addShutdownHook(new Thread() {
@@ -21,5 +24,6 @@ public class ProcessWatcher {
                 DBCPool.kill();
             }
         });
+
     }
 }

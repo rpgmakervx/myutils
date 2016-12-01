@@ -1,17 +1,15 @@
-package org.easyarch.myutils.db.processor;/**
+package org.easyarch.myutils.db.warpper;/**
  * Description : 
  * Created by YangZH on 16-11-3
  *  上午12:19
  */
 
-import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.reflect.ReflectUtils;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**

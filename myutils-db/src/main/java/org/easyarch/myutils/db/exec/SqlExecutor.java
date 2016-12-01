@@ -46,17 +46,7 @@ public class SqlExecutor extends AbstractExecutor{
         Connection conn = null;
         try {
             conn = ds.getConnection();
-            return query(conn, false,sql, rshandler,obj);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-    public <T> T query(String sql, boolean closeCon,ResultSetHandler<T> rshandler,Object obj) {
-        Connection conn = null;
-        try {
-            conn = ds.getConnection();
-            return query(conn, closeCon,sql, rshandler,obj);
+            return query(conn,sql, rshandler,obj);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -64,9 +54,9 @@ public class SqlExecutor extends AbstractExecutor{
     }
 
     public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler) {
-        return query(conn, false,sql, rshandler,(T)null);
+        return query(conn,sql, rshandler,(T)null);
     }
-    public <T> T query(Connection conn, boolean closeCon,String sql, ResultSetHandler<T> rshandler, Object... params) {
+    public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler, Object... params) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -81,11 +71,10 @@ public class SqlExecutor extends AbstractExecutor{
         } finally {
             DBUtils.close(rs);
             DBUtils.close(ps);
-            if (closeCon)
-                DBUtils.close(conn);
+            DBUtils.close(conn);
         }
     }
-    public <T> T query(Connection conn, boolean closeCon, String sql, ResultSetHandler<T> rshandler, T bean) {
+    public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler, T bean) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -100,8 +89,7 @@ public class SqlExecutor extends AbstractExecutor{
         } finally {
             DBUtils.close(rs);
             DBUtils.close(ps);
-            if (closeCon)
-                DBUtils.close(conn);
+            DBUtils.close(conn);
 
         }
     }
@@ -166,38 +154,29 @@ public class SqlExecutor extends AbstractExecutor{
     public static void main(String[] args) {
         ConnConfig.config("root", "123456",
                 "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");
-        PoolConfig.config(100, 5, 20, 60 * 1000L);
+        PoolConfig.config(200, 50, 20, 3 * 1000L);
         final SqlExecutor executor = new MySqlExecutor(DBCPoolFactory.newConfigedDBCPool());
 //        final SqlExecutor executor = new MySqlExecutor();
         ExecutorService pool = Executors.newCachedThreadPool();
-        List<User> user = executor.query("select * from user ",true,
-                new BeanListResultSetHadler<User>(User.class), null);
-        pool.submit(new Runnable() {
-            @Override
-            public void run() {
-                int index = 0;
-                while (index < 2000) {
-                    List<User> user = executor.query("select * from user ",true,
-                            new BeanListResultSetHadler<User>(User.class), null);
-                    System.out.println(Thread.currentThread().getName() + " index:" + index);
-                    index++;
-                }
-                System.out.println("thread1 ended");
-            }
-        });
-        pool.submit(new Runnable() {
-            @Override
-            public void run() {
-                int index = 0;
-                while (index < 3000) {
-                    List<User> user =  executor.query("select * from user ",true,
-                            new BeanListResultSetHadler<User>(User.class),null);
-                    System.out.println(Thread.currentThread().getName()+" index:"+index);
-                    index++;
-                }
-                System.out.println("thread2 ended");
-            }
-        });
+//        List<User> user = executor.query("select * from user ",true,
+//                new BeanListResultSetHadler<User>(User.class), null);
+        for (int index = 0;index<200;index++){
+            final int finalIndex = index;
+            pool.submit(new Runnable() {
+                @Override
+                public void run() {
+                    Thread.currentThread().setName("thread"+ finalIndex);
+                        int count = 0;
+                        while (count < 200) {
+                            List<User> user = executor.query("select * from user ",
+                                    new BeanListResultSetHadler<User>(User.class), null);
+                            System.out.println(Thread.currentThread().getName() + " count:" + count);
+                            count++;
+                        }
+                        System.out.println("++++++++++++++++++++++"+Thread.currentThread().getName()+" ended ++++++++++++++++++++++");
+                    }
+            });
+        }
         pool.shutdown();
 //        executor.query(createConnection(),"select * from user ",
 //                            new BeanListResultSetHadler<User>(User.class));

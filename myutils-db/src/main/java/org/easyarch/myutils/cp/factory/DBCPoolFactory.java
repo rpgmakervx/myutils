@@ -5,7 +5,6 @@ package org.easyarch.myutils.cp.factory;/**
  */
 
 
-import org.easyarch.myutils.cp.cfg.PoolConfig;
 import org.easyarch.myutils.cp.ds.DBCPool;
 
 import javax.sql.DataSource;
@@ -23,7 +22,7 @@ public class DBCPoolFactory {
 
     public static DataSource newFixedDBCPool(int maxPoolSize) {
         return new DBCPool(maxPoolSize, maxPoolSize >> 2, maxPoolSize >> 3,
-                1000 * 30L, new LinkedBlockingQueue<Connection>(maxPoolSize));
+                1000 * 30L, new LinkedBlockingQueue<Connection>());
     }
 
     public static DataSource newCachedDBCPool() {
@@ -31,7 +30,7 @@ public class DBCPoolFactory {
                 0L, new LinkedTransferQueue());
     }
     public static DataSource newConfigedDBCPool() {
-        return new DBCPool(new LinkedBlockingQueue<Connection>(PoolConfig.getMaxIdle()));
+        return new DBCPool(new LinkedBlockingQueue<Connection>());
     }
 
 }
