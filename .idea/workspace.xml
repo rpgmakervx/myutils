@@ -2,72 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/unnamed.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_0_18.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mchange_c3p0_0_9_5_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mchange_mchange_commons_java_0_2_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbutils_commons_dbutils_1_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_easyArch_myutils_lang_1_0_SNAPSHOT.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor$2.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/test/TestMain$1.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/processor/BeanWrapper.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/warpper/BeanWrapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/processor/MapWrapper.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/warpper/MapWrapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/processor/Wrapper.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/warpper/Wrapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/processor/WrapperAdapter.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/warpper/WrapperAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/DBCPool$ConnectionProxy.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/DBCPool$ConnectionProxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/DBCPool.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/DBCPool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/ProcessWatcher$1.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/ProcessWatcher$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/ProcessWatcher.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/ProcessWatcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/factory/DBCPoolFactory.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/factory/DBCPoolFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/DBUtils.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/DBUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor$1.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/handler/AbstractResultSetHandler.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/handler/AbstractResultSetHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/handler/BeanListResultSetHadler.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/handler/BeanListResultSetHadler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/handler/BeanResultSetHadler.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/handler/BeanResultSetHadler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/test/TestMain$Block.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/test/TestMain$Block.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/test/TestMain.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/test/TestMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/User.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/ArrayUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/ArrayUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/handler/LoopHandler.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/handler/LoopHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/CodecUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/CodecUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/HashType.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/HashType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/io/IOUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/io/IOUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/NumberUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/NumberUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/StringUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/StringUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/reflect/ReflectUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/reflect/ReflectUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_5_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_5_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_21.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_21.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_8_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/myutils-db.iml" afterPath="$PROJECT_DIR$/myutils-db/myutils-db.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/pom.xml" afterPath="$PROJECT_DIR$/myutils-db/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/ProcessWatcher.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/ProcessWatcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/factory/DBCPoolFactory.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/factory/DBCPoolFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/AbstractResultSetHandler.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/AbstractResultSetHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanResultSetHadler.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanResultSetHadler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/TestMain.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/TestMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" afterPath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/pom.xml" afterPath="$PROJECT_DIR$/myutils-lang/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils.iml" afterPath="$PROJECT_DIR$/myutils.iml" />
     </list>
     <ignored path="myutils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,115 +25,24 @@
     <favorites_list name="myutils" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
+      <file leaf-file-name="ProcessWatcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/ProcessWatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="22" column="84" selection-start-line="22" selection-start-column="84" selection-end-line="22" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DBCPool.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="157" column="50" selection-start-line="157" selection-start-column="50" selection-end-line="157" selection-end-column="50" />
+            <state relative-caret-position="222">
+              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="initializer##0;class#DBCPool#0" expanded="true" />
-                <element signature="method#DBCPool#0;class#DBCPool#0" expanded="true" />
-                <element signature="method#DBCPool#1;class#DBCPool#0" expanded="true" />
-                <element signature="method#initQueue#0;class#DBCPool#0" expanded="true" />
-                <element signature="method#getConnection#0;class#DBCPool#0" expanded="true" />
-                <element signature="method#poolIn#0;class#DBCPool#0" expanded="true" />
-                <element signature="method#poolOut#0;class#DBCPool#0" expanded="true" />
-                <element signature="method#createConnection#0;class#DBCPool#0" expanded="true" />
-                <element signature="method#getConnection#1;class#DBCPool#0" expanded="true" />
-                <element signature="method#invoke#0;class#ConnectionProxy#0;class#DBCPool#0" expanded="true" />
-                <element signature="method#kill#0;class#DBCPool#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="docComment;class#DBUtils#0" expanded="false" />
-                <element signature="e#1418#1419#0" expanded="false" />
-                <element signature="e#1458#1459#0" expanded="false" />
-                <element signature="e#1506#1507#0" expanded="false" />
-                <element signature="e#1546#1547#0" expanded="false" />
-                <element signature="method#rollBack#0;class#DBUtils#0" expanded="false" />
-                <element signature="method#rollBackAndClose#0;class#DBUtils#0" expanded="false" />
-                <element signature="method#selectById#0;class#DBUtils#0" expanded="false" />
-                <element signature="method#main#0;class#DBUtils#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestMain.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/TestMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1147">
-              <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
-              <folding>
-                <element signature="docComment;class#TestMain#0" expanded="false" />
-                <element signature="e#1784#1785#0" expanded="false" />
-                <element signature="e#1830#1831#0" expanded="false" />
-                <element signature="method#run#0;class#Block#0;class#TestMain#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectionImpl.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar!/com/mysql/jdbc/ConnectionImpl.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="93" column="13" selection-start-line="93" selection-start-column="13" selection-end-line="93" selection-end-column="13" />
-              <folding>
-                <marker date="1480499345473" expanded="true" signature="84903:84932" ph="SELECT @@ses... " />
-                <marker date="1480499345473" expanded="true" signature="98224:98251" ph="SELECT @@ses... " />
-                <marker date="1480499345473" expanded="true" signature="103171:103186" ph="/* missingVa... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SqlExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1488">
-              <caret line="162" column="36" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="36" />
-              <folding>
-                <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#query#2;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#query#3;class#SqlExecutor#0" expanded="true" />
-                <element signature="e#5297#6044#0" expanded="true" />
-                <element signature="e#6043#6044#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PoolConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/cfg/PoolConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-              <folding>
-                <element signature="docComment;class#PoolConfig#0" expanded="false" />
-                <element signature="method#config#0;class#PoolConfig#0" expanded="false" />
-                <element signature="method#config#1;class#PoolConfig#0" expanded="false" />
-                <element signature="e#1696#1697#0" expanded="false" />
-                <element signature="e#1730#1731#0" expanded="false" />
-                <element signature="e#1768#1769#0" expanded="false" />
-                <element signature="e#1798#1799#0" expanded="false" />
-                <element signature="e#1836#1837#0" expanded="false" />
-                <element signature="e#1866#1867#0" expanded="false" />
-                <element signature="e#1911#1912#0" expanded="false" />
-                <element signature="e#1947#1948#0" expanded="false" />
-                <element signature="method#print#0;class#PoolConfig#0" expanded="false" />
+                <element signature="method#recover#0;class#DBCPool#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -289,14 +133,7 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myutils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
@@ -319,7 +156,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/58Workspace/branches/zhongtai/card/dj-card-promotion/promotion/card-promotion_6-0-8_BRANCH" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager" selected="Application.SqlExecutor">
@@ -879,12 +716,13 @@
       <workItem from="1480505901670" duration="3000" />
       <workItem from="1480507859477" duration="4539000" />
       <workItem from="1480516541206" duration="14355000" />
-      <workItem from="1480559568523" duration="951000" />
+      <workItem from="1480559568523" duration="2457000" />
+      <workItem from="1480573394901" duration="900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20426000" />
+    <option name="totallyTimeSpent" value="22832000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -897,7 +735,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="24" width="1313" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -910,7 +748,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2368214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31864673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -945,10 +783,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.7291667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2368214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31864673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -973,27 +811,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="initializer##0;class#DBCPool#0" expanded="true" />
-            <element signature="method#DBCPool#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#DBCPool#1;class#DBCPool#0" expanded="true" />
-            <element signature="method#initQueue#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#getConnection#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#poolIn#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#poolOut#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#createConnection#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#getConnection#1;class#DBCPool#0" expanded="true" />
-            <element signature="method#invoke#0;class#ConnectionProxy#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#kill#0;class#DBCPool#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
@@ -1017,12 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1147">
           <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
-          <folding>
-            <element signature="docComment;class#TestMain#0" expanded="false" />
-            <element signature="e#1784#1785#0" expanded="false" />
-            <element signature="e#1830#1831#0" expanded="false" />
-            <element signature="method#run#0;class#Block#0;class#TestMain#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,11 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2883">
           <caret line="93" column="13" selection-start-line="93" selection-start-column="13" selection-end-line="93" selection-end-column="13" />
-          <folding>
-            <marker date="1480499345473" expanded="true" signature="84903:84932" ph="SELECT @@ses... " />
-            <marker date="1480499345473" expanded="true" signature="98224:98251" ph="SELECT @@ses... " />
-            <marker date="1480499345473" expanded="true" signature="103171:103186" ph="/* missingVa... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1042,14 +848,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1488">
           <caret line="162" column="36" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="36" />
-          <folding>
-            <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#2;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#3;class#SqlExecutor#0" expanded="true" />
-            <element signature="e#5297#6044#0" expanded="true" />
-            <element signature="e#6043#6044#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1079,18 +877,7 @@
         <state relative-caret-position="1705">
           <caret line="181" column="17" selection-start-line="181" selection-start-column="17" selection-end-line="181" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="initializer##0;class#DBCPool#0" expanded="true" />
-            <element signature="method#DBCPool#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#DBCPool#1;class#DBCPool#0" expanded="true" />
-            <element signature="method#initQueue#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#getConnection#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#poolIn#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#poolOut#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#createConnection#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#getConnection#1;class#DBCPool#0" expanded="true" />
-            <element signature="method#invoke#0;class#ConnectionProxy#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#kill#0;class#DBCPool#0" expanded="true" />
+            <element signature="method#recover#0;class#DBCPool#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1132,14 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#2;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#3;class#SqlExecutor#0" expanded="true" />
-            <element signature="e#5297#6044#0" expanded="true" />
-            <element signature="e#6043#6044#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1161,12 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1550">
           <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#TestMain#0" expanded="false" />
-            <element signature="e#1784#1785#0" expanded="false" />
-            <element signature="e#1830#1831#0" expanded="false" />
-            <element signature="method#run#0;class#Block#0;class#TestMain#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1262,17 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/ProcessWatcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="22" column="84" selection-start-line="22" selection-start-column="84" selection-end-line="22" selection-end-column="84" />
-          <folding>
-            <element signature="e#386#673#0" expanded="false" />
-            <element signature="e#672#673#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/commons-dbcp/commons-dbcp/1.4/commons-dbcp-1.4.jar!/org/apache/commons/dbcp/BasicDataSource.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -1320,11 +1082,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="43" column="79" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1188#2049#0" expanded="true" />
-            <element signature="e#2048#2049#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1411,11 +1168,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="93" column="13" selection-start-line="93" selection-start-column="13" selection-end-line="93" selection-end-column="13" />
-          <folding>
-            <marker date="1480499345473" expanded="true" signature="84903:84932" ph="SELECT @@ses... " />
-            <marker date="1480499345473" expanded="true" signature="98224:98251" ph="SELECT @@ses... " />
-            <marker date="1480499345473" expanded="true" signature="103171:103186" ph="/* missingVa... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1423,6 +1175,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="148" column="19" selection-start-line="148" selection-start-column="19" selection-end-line="148" selection-end-column="19" />
+          <folding>
+            <element signature="e#5860#5861#0" expanded="false" />
+            <element signature="e#5896#5897#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1458,12 +1214,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1147">
           <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
-          <folding>
-            <element signature="docComment;class#TestMain#0" expanded="false" />
-            <element signature="e#1784#1785#0" expanded="false" />
-            <element signature="e#1830#1831#0" expanded="false" />
-            <element signature="method#run#0;class#Block#0;class#TestMain#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1490,34 +1240,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1488">
           <caret line="162" column="36" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="36" />
-          <folding>
-            <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#2;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#3;class#SqlExecutor#0" expanded="true" />
-            <element signature="e#5297#6044#0" expanded="true" />
-            <element signature="e#6043#6044#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/ProcessWatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="22" column="84" selection-start-line="22" selection-start-column="84" selection-end-line="22" selection-end-column="84" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="157" column="50" selection-start-line="157" selection-start-column="50" selection-end-line="157" selection-end-column="50" />
+        <state relative-caret-position="222">
+          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="initializer##0;class#DBCPool#0" expanded="true" />
-            <element signature="method#DBCPool#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#DBCPool#1;class#DBCPool#0" expanded="true" />
-            <element signature="method#initQueue#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#getConnection#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#poolIn#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#poolOut#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#createConnection#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#getConnection#1;class#DBCPool#0" expanded="true" />
-            <element signature="method#invoke#0;class#ConnectionProxy#0;class#DBCPool#0" expanded="true" />
-            <element signature="method#kill#0;class#DBCPool#0" expanded="true" />
+            <element signature="method#recover#0;class#DBCPool#0" expanded="true" />
           </folding>
         </state>
       </provider>
