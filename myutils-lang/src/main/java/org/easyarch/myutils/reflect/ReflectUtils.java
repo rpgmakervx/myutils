@@ -37,7 +37,7 @@ public class ReflectUtils {
             return null;
         }
     }
-    public static Object violentlyNewInstance(Class<?> clazz){
+    public static Object newInstanceViolently(Class<?> clazz){
         try {
             Constructor<?> constructor = clazz.getDeclaredConstructor();
             constructor.setAccessible(true);
@@ -48,7 +48,7 @@ public class ReflectUtils {
         }
     }
 
-    public static Object violentlyNewInstance(Class<?> clazz, Class[] parameterTypes, Object[] initargs) {
+    public static Object newInstanceViolently(Class<?> clazz, Class[] parameterTypes, Object[] initargs) {
         try {
             Constructor<?> constructor = clazz.getDeclaredConstructor(parameterTypes);
             constructor.setAccessible(true);
