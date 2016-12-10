@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/ArrayUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/ArrayUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/CodecUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/CodecUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/io/IOUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/io/IOUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/StringUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/StringUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/reflect/ReflectUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/reflect/ReflectUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/myutils-db.iml" afterPath="$PROJECT_DIR$/myutils-db/myutils-db.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" afterPath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/pom.xml" afterPath="$PROJECT_DIR$/myutils-lang/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java" />
     </list>
     <ignored path="myutils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +29,8 @@
       <file leaf-file-name="CollectionUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2478">
-              <caret line="123" column="48" selection-start-line="123" selection-start-column="48" selection-end-line="123" selection-end-column="48" />
+            <state relative-caret-position="277">
+              <caret line="88" column="9" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#326#327#0" expanded="true" />
@@ -56,11 +43,11 @@
                 <element signature="method#newLinkedList#0;class#CollectionUtil#0" expanded="true" />
                 <element signature="e#1483#1484#0" expanded="true" />
                 <element signature="method#intersection#0;class#CollectionUtil#0" expanded="true" />
-                <element signature="method#union#0;class#CollectionUtil#0" expanded="true" />
                 <element signature="e#2710#2711#0" expanded="true" />
                 <element signature="e#2737#2738#0" expanded="true" />
                 <element signature="method#getFrequency#0;class#CollectionUtil#0" expanded="true" />
                 <element signature="method#countFrequency#0;class#CollectionUtil#0" expanded="true" />
+                <element signature="method#main#0;class#CollectionUtil#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -881,12 +868,12 @@
       <workItem from="1480573394901" duration="900000" />
       <workItem from="1481133259004" duration="1222000" />
       <workItem from="1481160359510" duration="7210000" />
-      <workItem from="1481211763225" duration="4968000" />
+      <workItem from="1481211763225" duration="5396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36232000" />
+    <option name="totallyTimeSpent" value="36660000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -899,7 +886,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="24" width="1313" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -910,7 +897,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31864673" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
@@ -1688,8 +1675,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2478">
-          <caret line="123" column="48" selection-start-line="123" selection-start-column="48" selection-end-line="123" selection-end-column="48" />
+        <state relative-caret-position="277">
+          <caret line="88" column="9" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#326#327#0" expanded="true" />
@@ -1702,11 +1689,11 @@
             <element signature="method#newLinkedList#0;class#CollectionUtil#0" expanded="true" />
             <element signature="e#1483#1484#0" expanded="true" />
             <element signature="method#intersection#0;class#CollectionUtil#0" expanded="true" />
-            <element signature="method#union#0;class#CollectionUtil#0" expanded="true" />
             <element signature="e#2710#2711#0" expanded="true" />
             <element signature="e#2737#2738#0" expanded="true" />
             <element signature="method#getFrequency#0;class#CollectionUtil#0" expanded="true" />
             <element signature="method#countFrequency#0;class#CollectionUtil#0" expanded="true" />
+            <element signature="method#main#0;class#CollectionUtil#0" expanded="true" />
           </folding>
         </state>
       </provider>
