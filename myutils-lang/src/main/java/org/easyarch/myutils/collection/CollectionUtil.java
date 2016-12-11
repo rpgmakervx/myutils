@@ -1,6 +1,5 @@
 package org.easyarch.myutils.collection;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.easyarch.myutils.lang.NumberUtils;
 
 import java.util.*;
@@ -90,8 +89,19 @@ public class CollectionUtil {
         return result;
     }
 
-    public static<T> Collection<T> subtract(final Collection<T> col){
-        return null;
+    public static<T> Collection<T> subtract(final Collection<T> a,final Collection<T> b){
+        Set<T> set = new HashSet<T>();
+        ArrayList<T> result = new ArrayList<T>();
+        set.addAll(a);
+        Map<T, Integer> aMap = countFrequency(a);
+        Map<T, Integer> bMap = countFrequency(b);
+        for (T bean : set) {
+            int loopSize = aMap.get(bean) - bMap.get(bean);
+            for (int index = 0; index < loopSize; index++) {
+                result.add(bean);
+            }
+        }
+        return result;
     }
 
     private static <T> int getFrequency(final T bean, Map<T, Integer> map) {
@@ -121,6 +131,6 @@ public class CollectionUtil {
         List<Integer> b = newArrayList(1,1,2,3,4,4,4,5);
 //        System.out.println(Lists.partition(a,5));;
 //        System.out.println(union(a,b));
-        System.out.println(CollectionUtils.subtract(a,b));;
+        System.out.println(subtract(a,b));;
     }
 }

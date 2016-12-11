@@ -1,3 +1,4 @@
+/home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java
 /home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java
 /home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java
 /home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java
@@ -7,4 +8,5 @@
 /home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/User.java
 /home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java
 /home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/codec/CodecUtils.java
+/home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java
 /home/code4j/IDEAWorkspace/myutils/myutils-lang/src/main/java/org/easyarch/myutils/codec/HashType.java

@@ -4,7 +4,6 @@ package org.easyarch.myutils.file;/**
  *  下午7:42
  */
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 import org.easyarch.myutils.io.IOUtils;
 
 import java.io.*;
@@ -177,7 +176,7 @@ public class FileUtils {
     }
 
     public static File write(File file, byte[] data) throws Exception {
-        ByteArrayInputStream bais = new ByteInputStream(data, data.length);
+        ByteArrayInputStream bais = new ByteArrayInputStream(data);
         FileOutputStream fos = new FileOutputStream(file);
         IOUtils.transferFrom(bais, fos);
         bais.close();

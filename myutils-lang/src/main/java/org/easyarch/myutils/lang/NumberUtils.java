@@ -364,4 +364,24 @@ public class NumberUtils {
         return min;
     }
 
+    /**
+     * 最大公约数
+     * @param numbers
+     * @return
+     */
+    public static int getMaxCommonDivisor(int... numbers) {
+        int minN = min(numbers);
+        for (int j = minN; j >= 2; j--) {
+            int count = 0;
+            for (int i = 0; i < numbers.length; i++) {
+                if (numbers[i] % j == 0) {
+                    count++;
+                }
+            }
+            if (count == numbers.length) {
+                return j;
+            }
+        }
+        return -1;// 无最大公约数
+    }
 }

@@ -11,6 +11,7 @@
     <modules>
         <module>myutils-lang</module>
         <module>myutils-db</module>
+        <module>myutils-http</module>
     </modules>
 
     <dependencies>
