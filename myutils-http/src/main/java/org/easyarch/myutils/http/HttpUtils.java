@@ -26,7 +26,7 @@ import java.util.concurrent.Executors;
  * 上午1:35
  */
 
-public class NettyClient {
+public class HttpUtils {
 
     private String ip;
     private int port;
@@ -35,7 +35,7 @@ public class NettyClient {
     private ChannelFuture future;
     private Channel channel;
 
-    public NettyClient(InetSocketAddress address) {
+    public HttpUtils(InetSocketAddress address) {
         try {
             this.ip = address.getHostString();
             this.port = address.getPort();
@@ -47,7 +47,7 @@ public class NettyClient {
         }
     }
 
-    public NettyClient(String ip, int port) {
+    public HttpUtils(String ip, int port) {
         try {
             this.ip = ip;
             this.port = port;
@@ -113,7 +113,13 @@ public class NettyClient {
     private void doRequest(String uri, HttpMethod method,HttpHeaders headers, ByteBuf buf){
         DefaultFullHttpRequest request =
                 new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, uri,buf);
+        if (headers == null){
+            headers = new DefaultHttpHeaders();
+            headers.set(HttpHeaderNames.CONTENT_TYPE, "text/html;charset=utf-8");
+            headers.set(HttpHeaderNames.HOST, channel.localAddress());
+        }
         request.headers().set(headers);
+        request.headers().set(HttpHeaderNames.USER_AGENT,"java/HttpUtils");
         HttpResponseManager.setAttr(channel,new ResponseFuture<FullHttpResponse>());
         channel.writeAndFlush(request);
     }
@@ -175,5 +181,12 @@ public class NettyClient {
 
     private HttpHeaders getHeaders(FullHttpResponse response){
         return response == null?null:response.headers();
+    }
+
+    public static void main(String[] args) throws Exception {
+        HttpUtils client = new HttpUtils("127.0.0.1",9524);
+        client.connect();
+        client.get("/",null);
+        System.out.println(new String(client.getContentAsStream()));
     }
 }
