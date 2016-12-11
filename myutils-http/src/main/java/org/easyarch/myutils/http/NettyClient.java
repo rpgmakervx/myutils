@@ -10,6 +10,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.*;
+import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.http.future.ResponseFuture;
 import org.easyarch.myutils.http.handler.BaseClientChildHandler;
 import org.easyarch.myutils.http.manager.HttpResponseManager;
@@ -78,41 +79,46 @@ public class NettyClient {
     }
 
     public void send(FullHttpRequest request) throws Exception {
-        System.out.println("future : " + future.isDone());
-        HttpResponseManager.setAttr(channel,new ResponseFuture<FullHttpResponse>());
-        write(request);
+        doRequest(request.uri(),request.method()
+                ,request.headers(),request.content());
     }
 
-    public void sendGet(String uri, HttpHeaders headers) throws Exception {
+    public void get(String uri, HttpHeaders headers) throws Exception {
+        doRequest(uri,HttpMethod.GET,headers,Unpooled.EMPTY_BUFFER);
+    }
+
+    public void post(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
+        if (ArrayUtils.isEmpty(bytes)){
+            bytes = new byte[0];
+        }
+        doRequest(uri,HttpMethod.POST,headers,Unpooled.wrappedBuffer(bytes));
+    }
+
+    public void put(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
+        if (ArrayUtils.isEmpty(bytes)){
+            bytes = new byte[0];
+        }
+        doRequest(uri,HttpMethod.PUT,headers,Unpooled.wrappedBuffer(bytes));
+    }
+
+    public void delete(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
+        if (ArrayUtils.isEmpty(bytes)){
+            bytes = new byte[0];
+        }
+        doRequest(uri,HttpMethod.DELETE,headers,Unpooled.wrappedBuffer(bytes));
+    }
+
+
+
+    private void doRequest(String uri, HttpMethod method,HttpHeaders headers, ByteBuf buf){
         DefaultFullHttpRequest request =
-                new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.GET, uri);
-        setHeaders(request, headers);
-        HttpResponseManager.setAttr(channel,new ResponseFuture<FullHttpResponse>());
-        write(request);
-        ResponseFuture<FullHttpResponse> responseFuture =
-                HttpResponseManager.getAttr(channel);
-        getContent(responseFuture.get());
-    }
-
-    public void sendPost(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
-        DefaultFullHttpRequest request = new DefaultFullHttpRequest(
-                HttpVersion.HTTP_1_1, HttpMethod.POST, uri, Unpooled.wrappedBuffer(bytes));
-        HttpResponseManager.setAttr(channel,new ResponseFuture<FullHttpResponse>());
-        setHeaders(request, headers);
-        write(request);
-    }
-
-    private void setHeaders(FullHttpRequest request, HttpHeaders headers) {
+                new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, uri,buf);
         request.headers().set(headers);
-    }
-
-    private void write(FullHttpRequest request) throws Exception {
+        HttpResponseManager.setAttr(channel,new ResponseFuture<FullHttpResponse>());
         channel.writeAndFlush(request);
-        System.out.println("request has sent:" + future.channel().id());
     }
 
     public FullHttpResponse getWholeResponse() throws Exception {
-        System.out.println("get whole response");
         ResponseFuture<FullHttpResponse> responseFuture =
                 HttpResponseManager.getAttr(channel);
         return responseFuture.get();
@@ -128,6 +134,16 @@ public class NettyClient {
             return null;
         }finally {
             close();
+        }
+    }
+    public HttpHeaders getHeaders(){
+        ResponseFuture<FullHttpResponse> responseFuture =
+                HttpResponseManager.getAttr(channel);
+        try {
+            return getHeaders(responseFuture.get());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -158,6 +174,6 @@ public class NettyClient {
     }
 
     private HttpHeaders getHeaders(FullHttpResponse response){
-        return response.headers();
+        return response == null?null:response.headers();
     }
 }
