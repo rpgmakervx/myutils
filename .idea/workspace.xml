@@ -2,36 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/array/ArrayUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/array/handler/LoopHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/codec/CodecUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/codec/HashType.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/file/FileUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/io/IOUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/lang/NumberUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/lang/StringUtils.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/easyarch/myutils/redis/Client.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/cfg/PoolConfig.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/cfg/PoolConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/DBCPool$ConnectionProxy.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/DBCPool$ConnectionProxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/DBCPool.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/DBCPool.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/ProcessWatcher$1.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/ProcessWatcher$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/ProcessWatcher.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/ds/ProcessWatcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/factory/DBCPoolFactory.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/cp/factory/DBCPoolFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/DBUtils.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/DBUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/cfg/ConnConfig.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/cfg/ConnConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/AbstractExecutor.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/AbstractExecutor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor$1.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/exec/SqlExecutor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/test/TestMain.class" afterPath="$PROJECT_DIR$/myutils-db/target/classes/org/easyarch/myutils/db/test/TestMain.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/NumberUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/NumberUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/myutils-lang/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/NettyClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/future/ResponseFuture.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/BaseClientChildHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/ProxyHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/manager/HttpResponseManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/test/java/org/easyarch/myutils/test/Main.java" afterPath="$PROJECT_DIR$/myutils-lang/src/test/java/org/easyarch/myutils/test/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/myutils-lang/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-http/myutils-http.iml" afterPath="$PROJECT_DIR$/myutils-http/myutils-http.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-http/pom.xml" afterPath="$PROJECT_DIR$/myutils-http/pom.xml" />
     </list>
     <ignored path="myutils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,8 +71,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/myutils-http/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NettyClient.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/NettyClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#NettyClient#0;class#NettyClient#0" expanded="true" />
+                <element signature="method#NettyClient#1;class#NettyClient#0" expanded="true" />
+                <element signature="method#connect#0;class#NettyClient#0" expanded="true" />
+                <element signature="method#send#0;class#NettyClient#0" expanded="true" />
+                <element signature="method#sendGet#0;class#NettyClient#0" expanded="true" />
+                <element signature="method#getContentAsStream#0;class#NettyClient#0" expanded="true" />
+                <element signature="method#getHeadersAsMap#0;class#NettyClient#0" expanded="true" />
+                <element signature="e#4956#4957#0" expanded="true" />
+                <element signature="e#5004#5005#0" expanded="true" />
+                <element signature="method#getContent#0;class#NettyClient#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseClientChildHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/BaseClientChildHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -102,206 +113,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NumberUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java">
+      <file leaf-file-name="ProxyHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/ProxyHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="372" column="32" selection-start-line="372" selection-start-column="32" selection-end-line="372" selection-end-column="32" />
+            <state relative-caret-position="124">
+              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
               <folding>
-                <element signature="method#min#0;class#NumberUtils#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#channelRead#0;class#ProxyHandler#0" expanded="true" />
+                <element signature="method#channelRead0#0;class#ProxyHandler#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CollectionUtils.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1-sources.jar!/org/apache/commons/collections4/CollectionUtils.java">
+      <file leaf-file-name="HttpResponseManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/manager/HttpResponseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2635">
-              <caret line="305" column="20" selection-start-line="305" selection-start-column="20" selection-end-line="305" selection-end-column="20" />
+            <state relative-caret-position="217">
+              <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
               <folding>
-                <element signature="e#0#83531#0" expanded="false" />
+                <element signature="docComment;class#HttpResponseManager#0" expanded="false" />
+                <element signature="method#setAttr#0;class#HttpResponseManager#0" expanded="false" />
+                <element signature="e#666#667#0" expanded="false" />
+                <element signature="e#718#719#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResponseFuture.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/future/ResponseFuture.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
                 <element signature="imports" expanded="false" />
-                <element signature="docComment;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;field#cardinalityA#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;field#cardinalityB#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#CardinalityHelper#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#CardinalityHelper#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#max#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#3427#3428#0" expanded="false" />
-                <element signature="e#3490#3491#0" expanded="false" />
-                <element signature="docComment;method#min#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#3708#3709#0" expanded="false" />
-                <element signature="e#3771#3772#0" expanded="false" />
-                <element signature="docComment;method#freqA#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#4003#4004#0" expanded="false" />
-                <element signature="e#4060#4061#0" expanded="false" />
-                <element signature="docComment;method#freqB#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#4292#4293#0" expanded="false" />
-                <element signature="e#4349#4350#0" expanded="false" />
-                <element signature="method#getFreq#0;class#CardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;class#SetOperationCardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;field#elements#0;class#SetOperationCardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;field#newList#0;class#SetOperationCardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#SetOperationCardinalityHelper#0;class#SetOperationCardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#SetOperationCardinalityHelper#0;class#SetOperationCardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#5664#5665#0" expanded="false" />
-                <element signature="e#5714#5715#0" expanded="false" />
-                <element signature="docComment;method#setCardinality#0;class#SetOperationCardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#setCardinality#0;class#SetOperationCardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#list#0;class#SetOperationCardinalityHelper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#6196#6197#0" expanded="false" />
-                <element signature="e#6234#6235#0" expanded="false" />
-                <element signature="docComment;field#EMPTY_COLLECTION#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#CollectionUtils#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#emptyCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#7224#7225#0" expanded="false" />
-                <element signature="e#7263#7264#0" expanded="false" />
-                <element signature="docComment;method#emptyIfNull#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#emptyIfNull#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#union#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#union#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#intersection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#intersection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#disjunction#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#subtract#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#subtract#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#containsAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#containsAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#containsAny#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#containsAny#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#getCardinalityMap#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#getCardinalityMap#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#isSubCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#isSubCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#isProperSubCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#isProperSubCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#isEqualCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#isEqualCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#isEqualCollection#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#isEqualCollection#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#23179#23180#0" expanded="false" />
-                <element signature="e#23252#23253#0" expanded="false" />
-                <element signature="docComment;class#EquatorWrapper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#EquatorWrapper#0;class#EquatorWrapper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#23951#23952#0" expanded="false" />
-                <element signature="e#23988#23989#0" expanded="false" />
-                <element signature="method#equals#0;class#EquatorWrapper#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#24394#24395#0" expanded="false" />
-                <element signature="e#24445#24446#0" expanded="false" />
-                <element signature="docComment;method#cardinality#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#cardinality#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#find#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#find#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#forAllDo#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#forAllDo#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#forAllDo#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#forAllDo#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#forAllButLastDo#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#forAllButLastDo#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#forAllButLastDo#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#forAllButLastDo#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#filter#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#filter#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#filterInverse#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#filterInverse#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#transform#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#transform#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#countMatches#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#countMatches#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#exists#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#exists#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#matchesAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#matchesAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#select#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#select#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#select#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#select#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#select#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#select#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#selectRejected#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#selectRejected#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#selectRejected#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#selectRejected#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#collect#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#collect#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#collect#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#collect#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#collect#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#collect#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#collect#3;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#collect#3;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#addIgnoreNull#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#addIgnoreNull#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#addAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#addAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#addAll#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#addAll#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#addAll#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#addAll#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#addAll#3;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#addAll#3;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#get#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#51262#51263#0" expanded="false" />
-                <element signature="e#51319#51320#0" expanded="false" />
-                <element signature="docComment;method#checkIndexBounds#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#checkIndexBounds#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#get#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#52422#52423#0" expanded="false" />
-                <element signature="e#52479#52480#0" expanded="false" />
-                <element signature="docComment;method#get#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#get#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#get#3;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#get#3;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#size#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#size#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#sizeIsEmpty#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#sizeIsEmpty#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#isEmpty#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#60410#60411#0" expanded="false" />
-                <element signature="e#60463#60464#0" expanded="false" />
-                <element signature="docComment;method#isNotEmpty#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#60776#60777#0" expanded="false" />
-                <element signature="e#60813#60814#0" expanded="false" />
-                <element signature="docComment;method#reverseArray#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#reverseArray#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#isFull#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#isFull#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#maxSize#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#maxSize#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#collate#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#collate#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#collate#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#collate#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#collate#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#collate#2;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#collate#3;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#collate#3;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#permutations#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#permutations#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#retainAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#retainAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#retainAll#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#retainAll#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#73856#73857#0" expanded="false" />
-                <element signature="e#73932#73933#0" expanded="false" />
-                <element signature="docComment;method#removeAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#removeAll#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#removeAll#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#removeAll#1;class#CollectionUtils#0" expanded="false" />
-                <element signature="e#78122#78123#0" expanded="false" />
-                <element signature="e#78198#78199#0" expanded="false" />
-                <element signature="docComment;method#synchronizedCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#synchronizedCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#unmodifiableCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#unmodifiableCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#predicatedCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#predicatedCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#transformingCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#transformingCollection#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="docComment;method#extractSingleton#0;class#CollectionUtils#0" expanded="false" />
-                <element signature="method#extractSingleton#0;class#CollectionUtils#0" expanded="false" />
+                <element signature="docComment;class#ResponseFuture#0" expanded="false" />
+                <element signature="e#426#427#0" expanded="false" />
+                <element signature="e#454#455#0" expanded="false" />
+                <element signature="e#490#491#0" expanded="false" />
+                <element signature="e#518#519#0" expanded="false" />
+                <element signature="e#549#550#0" expanded="false" />
+                <element signature="e#588#589#0" expanded="false" />
+                <element signature="method#get#0;class#ResponseFuture#0" expanded="false" />
+                <element signature="method#get#1;class#ResponseFuture#0" expanded="false" />
+                <element signature="method#set#0;class#ResponseFuture#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -322,26 +179,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
               <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-532">
-              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/test/java/org/easyarch/myutils/test/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="19" column="42" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -386,6 +223,11 @@
         <option value="$PROJECT_DIR$/myutils-lang/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-db/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java" />
+        <option value="$PROJECT_DIR$/myutils-http/pom.xml" />
+        <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/future/ResponseFuture.java" />
+        <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/manager/HttpResponseManager.java" />
+        <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/NettyClient.java" />
+        <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/ProxyHandler.java" />
       </list>
     </option>
   </component>
@@ -490,7 +332,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="myutils-lang" />
+              <option name="myItemId" value="myutils-http" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -504,7 +346,213 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="myutils-db" />
+              <option name="myItemId" value="myutils-http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="future" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -532,6 +580,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler" />
+      <recent name="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
     <configuration default="false" name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -1139,7 +1193,7 @@
       <workItem from="1481133259004" duration="1222000" />
       <workItem from="1481160359510" duration="7210000" />
       <workItem from="1481211763225" duration="5396000" />
-      <workItem from="1481454153228" duration="1796000" />
+      <workItem from="1481454153228" duration="3202000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -1152,7 +1206,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38456000" />
+    <option name="totallyTimeSpent" value="39862000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1176,7 +1230,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24038461" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31864673" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
@@ -1245,41 +1299,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///opt/jdk1.7.0_80/src.zip!/java/io/Console.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2069">
-          <caret line="554" column="12" selection-start-line="554" selection-start-column="12" selection-end-line="554" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/test/java/org/easyarch/myutils/test/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="43" column="79" selection-start-line="43" selection-start-column="79" selection-end-line="43" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/AbstractExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-303">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.7.0_80/src.zip!/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="190" column="6" selection-start-line="190" selection-start-column="6" selection-end-line="190" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.7.0_80/src.zip!/java/util/concurrent/LinkedBlockingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="545" column="19" selection-start-line="545" selection-start-column="19" selection-end-line="545" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/factory/DBCPoolFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -2070,9 +2089,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-http/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/future/ResponseFuture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#ResponseFuture#0" expanded="false" />
+            <element signature="e#426#427#0" expanded="false" />
+            <element signature="e#454#455#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
+            <element signature="e#518#519#0" expanded="false" />
+            <element signature="e#549#550#0" expanded="false" />
+            <element signature="e#588#589#0" expanded="false" />
+            <element signature="method#get#0;class#ResponseFuture#0" expanded="false" />
+            <element signature="method#get#1;class#ResponseFuture#0" expanded="false" />
+            <element signature="method#set#0;class#ResponseFuture#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/manager/HttpResponseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding>
+            <element signature="docComment;class#HttpResponseManager#0" expanded="false" />
+            <element signature="method#setAttr#0;class#HttpResponseManager#0" expanded="false" />
+            <element signature="e#666#667#0" expanded="false" />
+            <element signature="e#718#719#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/NettyClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#NettyClient#0;class#NettyClient#0" expanded="true" />
+            <element signature="method#NettyClient#1;class#NettyClient#0" expanded="true" />
+            <element signature="method#connect#0;class#NettyClient#0" expanded="true" />
+            <element signature="method#send#0;class#NettyClient#0" expanded="true" />
+            <element signature="method#sendGet#0;class#NettyClient#0" expanded="true" />
+            <element signature="method#getContentAsStream#0;class#NettyClient#0" expanded="true" />
+            <element signature="method#getHeadersAsMap#0;class#NettyClient#0" expanded="true" />
+            <element signature="e#4956#4957#0" expanded="true" />
+            <element signature="e#5004#5005#0" expanded="true" />
+            <element signature="method#getContent#0;class#NettyClient#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/BaseClientChildHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/ProxyHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#channelRead#0;class#ProxyHandler#0" expanded="true" />
+            <element signature="method#channelRead0#0;class#ProxyHandler#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
