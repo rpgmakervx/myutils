@@ -184,7 +184,7 @@ public class HttpUtils {
     }
 
     public static void main(String[] args) throws Exception {
-        HttpUtils client = new HttpUtils("127.0.0.1",9524);
+        HttpUtils client = new HttpUtils("127.0.0.1",8080);
         client.connect();
         client.get("/",null);
         System.out.println(new String(client.getContentAsStream()));

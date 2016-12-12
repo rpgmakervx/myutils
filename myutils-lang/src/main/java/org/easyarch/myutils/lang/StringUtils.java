@@ -15,14 +15,32 @@ import java.util.UUID;
 public class StringUtils {
 
     private static final Random RANDOM = new Random();
+
+    /**
+     * 字符串是否是空
+     * @param src
+     * @return
+     */
     public static boolean isEmpty(final String src){
         return src == null||src.length() == 0;
     }
 
+    /**
+     * 字符串是否是空白的
+     * @param src
+     * @return
+     */
     public static boolean isBlank(final String src){
         return trimToEmpty(src).length() == 0;
     }
 
+    /**
+     * 字符串头部添加省略符
+     * @param src
+     * @param begin
+     * @param ellipsisLength
+     * @return
+     */
     public static String headAbbreviate(final String src, int begin, int ellipsisLength) {
         final int length = src.length();
         if (src == null || src.isEmpty() || begin > length - ellipsisLength) {
@@ -38,6 +56,13 @@ public class StringUtils {
         return newStr;
     }
 
+    /**
+     * 字符串尾部添加省略符
+     * @param end
+     * @param ellipsisLength
+     * @param src
+     * @return
+     */
     public static String tailAbbreviate(int end, int ellipsisLength, final String src) {
         final int length = src.length();
         if (src == null || src.isEmpty() || length - end < ellipsisLength) {
@@ -53,6 +78,11 @@ public class StringUtils {
         return newStr;
     }
 
+    /**
+     * 字符串首字母大写
+     * @param str
+     * @return
+     */
     public static String capitalize(final String str) {
         int length = str.length();
         if (str == null || length == 0) {
@@ -66,15 +96,34 @@ public class StringUtils {
                 .concat(str.substring(1));
     }
 
-    public static String append(String src, String plugin) {
+    /**
+     * 给字符串追加内容
+     * @param src
+     * @param plugin
+     * @return
+     */
+    public static String append(final String src, String plugin) {
         return src.concat(plugin);
     }
 
-    public static String preAppend(String src, String plugin) {
+    /**
+     * 给字符串前面添加内容
+     * @param src
+     * @param plugin
+     * @return
+     */
+    public static String preAppend(final String src, String plugin) {
         return plugin.concat(src);
     }
 
-    public static String center(String src, int pad, String symbol) {
+    /**
+     * 用指定的标识符将字符串居中
+     * @param src
+     * @param pad
+     * @param symbol
+     * @return
+     */
+    public static String center(final String src, int pad, String symbol) {
         if (src == null || src.isEmpty() || pad <= 0) {
             return src;
         }
@@ -85,11 +134,36 @@ public class StringUtils {
         return append(preAppend(src, symbolDump), symbolDump);
     }
 
-    public static String center(String src, int pad) {
+    /**
+     * 将字符串居中
+     * @param src
+     * @param pad
+     * @return
+     */
+    public static String center(final String src, int pad) {
         return center(src, pad, " ");
     }
 
-    public static String trimAll(String src) {
+    /**
+     * 用指定的标签组给字符串打标签
+     * @param src
+     * @param frontSymbol
+     * @param backSymbol
+     * @return
+     */
+    public static String surround(final String src,final String frontSymbol,final String backSymbol){
+        if (src == null || src.isEmpty()) {
+            return src;
+        }
+        return append(preAppend(src, frontSymbol), backSymbol);
+    }
+
+    /**
+     * 去除字符串中所有空白符
+     * @param src   字符串不能为null
+     * @return
+     */
+    public static String trimAll(final String src) {
         String[] slices = src.split(" ");
         StringBuffer buffer = new StringBuffer();
         for (String str : slices) {
@@ -98,10 +172,22 @@ public class StringUtils {
         return buffer.toString();
     }
 
+    /**
+     * 去除字符串中所有的空白符（包括null）
+     * @param src
+     * @return
+     */
     public static String trimToEmpty(final String src) {
         return src == null ? "" : trimAll(src);
     }
 
+    /**
+     * 在源字符串指定位置插入字符串
+     * @param src
+     * @param plugin
+     * @param index
+     * @return
+     */
     public static String insert(final String src, String plugin, int index) {
         if (index == 0) {
             return preAppend(src, plugin);
@@ -116,7 +202,13 @@ public class StringUtils {
                 src.substring(index - 1, src.length())).toString();
     }
 
-    public static String difference(String str1, String str2) {
+    /**
+     *
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public static String difference(final String str1, String str2) {
         if (str1 == null) {
             return str2;
         }
@@ -134,42 +226,68 @@ public class StringUtils {
         return diff;
     }
 
-    private static int indexOfDifference(final CharSequence cs1, final CharSequence cs2) {
-        if (cs1 == cs2) {
+    /**
+     * 两个字符串开始出现不同的临界点
+     * @param src1
+     * @param src2
+     * @return
+     */
+    private static int indexOfDifference(final String src1, final String src2) {
+        if (src1 == src2) {
             return -1;
         }
-        if (cs1 == null || cs2 == null) {
+        if (src1 == null || src2 == null) {
             return 0;
         }
         int i;
-        for (i = 0; i < cs1.length() && i < cs2.length(); ++i) {
-            if (cs1.charAt(i) != cs2.charAt(i)) {
+        for (i = 0; i < src1.length() && i < src2.length(); ++i) {
+            if (src1.charAt(i) != src2.charAt(i)) {
                 break;
             }
         }
-        if (i < cs2.length() || i < cs1.length()) {
+        if (i < src2.length() || i < src1.length()) {
             return i;
         }
         return -1;
     }
 
-    public static String reverse(final String str) {
+    /**
+     * 字符串翻转
+     * @param str
+     * @return
+     */
+    public static String reverse(final String str)  {
         if (str == null || str.isEmpty()) {
             return str;
         }
         return new StringBuffer(str).reverse().toString();
     }
 
-    public static boolean isPalindrom(String src) {
+    /**
+     * 是否是回文
+     * @param src
+     * @return
+     */
+    public static boolean isPalindrom(final String src) {
         return new StringBuffer(src).reverse()
                 .toString().equals(src);
     }
 
-    public static boolean isPalindromIgnoreCase(String src) {
+    /**
+     * 是否是回文（忽略大小写）
+     * @param src
+     * @return
+     */
+    public static boolean isPalindromIgnoreCase(final String src) {
         return new StringBuffer(src).reverse()
                 .toString().equalsIgnoreCase(src);
     }
 
+    /**
+     * 配合kmp算法获取下一个数组
+     * @param t
+     * @return
+     */
     private static int[] next(char[] t) {
         int[] next = new int[t.length];
         next[0] = -1;
@@ -216,7 +334,14 @@ public class StringUtils {
             return i - t.length(); // 返回模式串在主串中的头下标
     }
 
-    public static String join(String[] srcs, String separator, boolean edge) {
+    /**
+     * 用分隔符把字符串数组拼接成按分隔符分割的字符串
+     * @param srcs
+     * @param separator
+     * @param edge  是否把分隔符添加到边界
+     * @return
+     */
+    public static String join(final String[] srcs, String separator, boolean edge) {
         StringBuffer buffer = new StringBuffer();
         int index = 0;
         for (String src : srcs) {
@@ -232,40 +357,76 @@ public class StringUtils {
         return buffer.toString();
     }
 
-    public static String join(String[] srcs, String separator) {
+    /**
+     * 用分隔符把字符串数组拼接成按分隔符分割的字符串
+     * @param srcs
+     * @param separator
+     * @return
+     */
+    public static String join(final String[] srcs, String separator) {
         return join(srcs, separator, false);
     }
 
-    public static String replaceAccurate(String src, String target, String replace) {
-        int begin = kmp(src, target);
-        StringBuffer buffer = new StringBuffer();
-        return buffer.append(src.substring(0, begin)).append(replace).
-                append(src.substring(target.length() + begin, src.length())).toString();
-    }
+//    public static String replaceAccurate(final String src, String target, String replace) {
+//        int begin = kmp(src, target);
+//        StringBuffer buffer = new StringBuffer();
+//        return buffer.append(src.substring(0, begin)).append(replace).
+//                append(src.substring(target.length() + begin, src.length())).toString();
+//    }
 
-    public static String hightLightAccurate(final String src, String key, String symbol) {
+    /**
+     * 关键字打标签
+     * @param src
+     * @param key
+     * @param frontTag
+     * @param backTag
+     * @return
+     */
+    public static String tagKeyWord(final String src,String key,String frontTag,String backTag){
+        StringBuffer buffer = new StringBuffer();
         int begin = 0;
         int end = 0;
-        String result = src;
-        String sr = src;
-        String replaceChar = "";
-        for (int index = 0; index < key.length(); index++) {
-            replaceChar += " ";
-        }
-        int n = 0;
-        while (true) {
-            begin = kmp(sr, key);
-            if (begin == -1)
+        String copy = src;
+        while (true){
+            begin = kmp(copy,key);
+            if (begin == -1){
+                buffer.append(copy);
                 break;
-            end = key.length() + begin;
-            sr = replaceAccurate(sr, key, replaceChar);
-            result = insert(result, symbol, begin + symbol.length() * n + 1);
-            n++;
-            result = insert(result, symbol, end + symbol.length() * n + 1);
-            n++;
+            }
+            end = begin + key.length();
+            String frontSegment = src.substring(0,begin);
+            copy = src.substring(end);
+            buffer.append(frontSegment)
+                    .append(frontTag)
+                    .append(key)
+                    .append(backTag);
         }
-        return result;
+        return buffer.toString();
     }
+
+//    public static String hightLightAccurate(final String src, String key, String symbol) {
+//        int begin = 0;
+//        int end = 0;
+//        String result = src;
+//        String sr = src;
+//        String replaceChar = "";
+//        for (int index = 0; index < key.length(); index++) {
+//            replaceChar += " ";
+//        }
+//        int n = 0;
+//        while (true) {
+//            begin = kmp(sr, key);
+//            if (begin == -1)
+//                break;
+//            end = key.length() + begin;
+//            sr = replaceAccurate(sr, key, replaceChar);
+//            result = insert(result, symbol, begin + symbol.length() * n + 1);
+//            n++;
+//            result = insert(result, symbol, end + symbol.length() * n + 1);
+//            n++;
+//        }
+//        return result;
+//    }
 
     private static String random(int count, int start, int end, final boolean letters, final boolean numbers,
                                 final char[] chars, final Random random) {
@@ -355,5 +516,20 @@ public class StringUtils {
 
     public static String uuid(){
         return UUID.randomUUID().toString();
+    }
+
+    public static void main(String[] args) {
+//        System.out.println(tagKeyWord("this book told about javaweb programming","java","<br>","</br>"));
+//        System.out.println(kmp("this book told about java programming","java"));
+        String src1 = "this book told about java programming";
+        String src2 = "this book told about C++ programming";
+//        String key = "java";
+//        String frontSegement = src.substring(0,21);;
+//        System.out.println(frontSegement);
+//        System.out.println(src.replace("java","c++"));
+        String[] languages = new String[]{"java","c++","python"};
+//        System.out.println(join(languages, File.separator));
+//        System.out.println(indexOfDifference(src1,src2));
+        System.out.println(capitalize(src2));
     }
 }
