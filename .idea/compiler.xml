@@ -25,6 +25,7 @@
         <module name="myutils-db" />
         <module name="myutils-http" />
         <module name="myutils-lang" />
+        <module name="myutils-redis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -32,6 +33,7 @@
       <module name="myutils-db" target="1.7" />
       <module name="myutils-http" target="1.7" />
       <module name="myutils-lang" target="1.5" />
+      <module name="myutils-redis" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

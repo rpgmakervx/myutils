@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-redis/myutils-redis.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-redis/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_5_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_5_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_8_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_8_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java" afterPath="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="myutils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -11,6 +28,7 @@
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/myutils-http/target/" />
+    <ignored path="$PROJECT_DIR$/myutils-redis/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-http/pom.xml">
+      <file leaf-file-name="TimeUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="899">
-              <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
+            <state relative-caret-position="2046">
+              <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -47,90 +65,87 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java">
+      <file leaf-file-name="CollectionUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3627">
-              <caret line="512" column="23" selection-start-line="512" selection-start-column="23" selection-end-line="512" selection-end-column="23" />
+            <state relative-caret-position="961">
+              <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-redis/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JedisUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
               <folding>
-                <element signature="docComment;method#isEmpty#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#isBlank#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#headAbbreviate#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#tailAbbreviate#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#tailAbbreviate#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#capitalize#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#capitalize#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#append#0;class#StringUtils#0" expanded="true" />
-                <element signature="e#2540#2541#0" expanded="true" />
-                <element signature="e#2581#2582#0" expanded="true" />
-                <element signature="docComment;method#preAppend#0;class#StringUtils#0" expanded="true" />
-                <element signature="e#2740#2741#0" expanded="true" />
-                <element signature="e#2781#2782#0" expanded="true" />
-                <element signature="docComment;method#center#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#center#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#center#1;class#StringUtils#0" expanded="true" />
-                <element signature="e#3397#3398#0" expanded="true" />
-                <element signature="e#3441#3442#0" expanded="true" />
-                <element signature="docComment;method#surround#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#surround#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#trimAll#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#trimAll#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#trimToEmpty#0;class#StringUtils#0" expanded="true" />
-                <element signature="e#4294#4295#0" expanded="true" />
-                <element signature="e#4348#4349#0" expanded="true" />
-                <element signature="docComment;method#insert#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#difference#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#difference#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#indexOfDifference#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#reverse#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#reverse#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#isPalindrom#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#isPalindromIgnoreCase#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#isPalindromIgnoreCase#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#next#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#next#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#kmp#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#join#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#join#0;class#StringUtils#0" expanded="true" />
-                <element signature="docComment;method#join#1;class#StringUtils#0" expanded="true" />
-                <element signature="e#8866#8867#0" expanded="true" />
-                <element signature="e#8917#8918#0" expanded="true" />
-                <element signature="docComment;method#tagKeyWord#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#tagKeyWord#0;class#StringUtils#0" expanded="true" />
-                <element signature="method#random#1;class#StringUtils#0" expanded="true" />
-                <element signature="method#random#2;class#StringUtils#0" expanded="true" />
-                <element signature="method#main#0;class#StringUtils#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="docComment;method#getPool#0;class#JedisUtil#0" expanded="true" />
+                <element signature="docComment;method#returnResource#0;class#JedisUtil#0" expanded="true" />
+                <element signature="method#returnResource#0;class#JedisUtil#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeUtil.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java">
+      <file leaf-file-name="JedisPool.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/JedisPool.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#parse#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#parse#1;class#TimeUtil#0" expanded="true" />
-                <element signature="docComment;method#getDateByNow#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#getDateByNow#0;class#TimeUtil#0" expanded="true" />
-                <element signature="docComment;method#yesterday#0;class#TimeUtil#0" expanded="true" />
-                <element signature="docComment;method#tomorrow#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#plus#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#plusHours#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#plusMonth#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#plusYear#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#milliseconds#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#seconds#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#minutes#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#hours#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#dayOfYear#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#dayOfWeek#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#dayOfMonth#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#month#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#year#0;class#TimeUtil#0" expanded="true" />
+                <element signature="method#JedisPool#12;class#JedisPool#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="method#getWholeResponse#0;class#HttpUtils#0" expanded="true" />
+                <element signature="method#getContent#0;class#HttpUtils#0" expanded="true" />
+                <element signature="method#main#0;class#HttpUtils#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding>
+                <element signature="e#610#611#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpResponse.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/handler/codec/http/HttpResponse.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding>
+                <element signature="docComment;method#getStatus#0;class#HttpResponse#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,10 +194,13 @@
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/ProxyHandler.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/NettyClient.java" />
-        <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java" />
         <option value="$PROJECT_DIR$/myutils-lang/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java" />
+        <option value="$PROJECT_DIR$/myutils-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" />
+        <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java" />
+        <option value="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java" />
       </list>
     </option>
   </component>
@@ -196,6 +214,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Bundled (Maven 3)" />
+        <option name="userSettingsFile" value="$USER_HOME$/58daojia/maven/conf/settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -257,8 +276,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -287,7 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="myutils-http" />
+              <option name="myItemId" value="myutils-redis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,7 +318,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="myutils-http" />
+              <option name="myItemId" value="myutils-redis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -319,7 +336,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="myutils-http" />
+              <option name="myItemId" value="myutils-redis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -341,7 +358,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="myutils-http" />
+              <option name="myItemId" value="myutils-redis" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -364,10 +381,66 @@
               <option name="myItemId" value="easyarch" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="redis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-redis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="redis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jedis" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -383,10 +456,10 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/58Workspace/paycenter-accountcheck" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../easyproxy" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
   </component>
@@ -396,7 +469,7 @@
       <recent name="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TimeUtil">
+  <component name="RunManager" selected="Application.HttpUtils">
     <configuration default="false" name="CollectionUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -965,9 +1038,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.TimeUtil" />
-        <item index="1" class="java.lang.String" itemvalue="Application.StringUtils" />
-        <item index="2" class="java.lang.String" itemvalue="Application.HttpUtils" />
+        <item index="0" class="java.lang.String" itemvalue="Application.HttpUtils" />
+        <item index="1" class="java.lang.String" itemvalue="Application.TimeUtil" />
+        <item index="2" class="java.lang.String" itemvalue="Application.StringUtils" />
         <item index="3" class="java.lang.String" itemvalue="Application.Main (1)" />
         <item index="4" class="java.lang.String" itemvalue="Application.CollectionUtil" />
       </list>
@@ -1006,6 +1079,9 @@
       <workItem from="1481506616808" duration="598000" />
       <workItem from="1481526021935" duration="9091000" />
       <workItem from="1481593951813" duration="1164000" />
+      <workItem from="1481725700337" duration="1156000" />
+      <workItem from="1481726941336" duration="3026000" />
+      <workItem from="1481804861788" duration="2836000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -1018,7 +1094,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55821000" />
+    <option name="totallyTimeSpent" value="62839000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1031,17 +1107,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="24" width="1313" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2628205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31864673" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
@@ -1049,13 +1126,12 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31864673" sideWeight="0.50641024" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940991" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1079,10 +1155,10 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2628205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2628205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31864673" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31864673" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31864673" sideWeight="0.50641024" order="4" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -1111,41 +1187,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1488">
-          <caret line="162" column="36" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.7.0_80/jre/lib/rt.jar!/sun/misc/BASE64Encoder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/array/handler/LoopHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/codec/CodecUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
@@ -1293,26 +1334,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="83" column="36" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/easyarch/myutils/io/IOUtils.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/easyarch/myutils/file/FileUtils.java" />
     <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1891">
           <caret line="178" column="65" selection-start-line="178" selection-start-column="65" selection-end-line="178" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="178" column="21" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1394,19 +1421,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-http/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="899">
           <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1428,55 +1446,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3627">
           <caret line="512" column="23" selection-start-line="512" selection-start-column="23" selection-end-line="512" selection-end-column="23" />
-          <folding>
-            <element signature="docComment;method#isEmpty#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#isBlank#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#headAbbreviate#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#tailAbbreviate#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#tailAbbreviate#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#capitalize#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#capitalize#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#append#0;class#StringUtils#0" expanded="true" />
-            <element signature="e#2540#2541#0" expanded="true" />
-            <element signature="e#2581#2582#0" expanded="true" />
-            <element signature="docComment;method#preAppend#0;class#StringUtils#0" expanded="true" />
-            <element signature="e#2740#2741#0" expanded="true" />
-            <element signature="e#2781#2782#0" expanded="true" />
-            <element signature="docComment;method#center#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#center#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#center#1;class#StringUtils#0" expanded="true" />
-            <element signature="e#3397#3398#0" expanded="true" />
-            <element signature="e#3441#3442#0" expanded="true" />
-            <element signature="docComment;method#surround#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#surround#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#trimAll#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#trimAll#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#trimToEmpty#0;class#StringUtils#0" expanded="true" />
-            <element signature="e#4294#4295#0" expanded="true" />
-            <element signature="e#4348#4349#0" expanded="true" />
-            <element signature="docComment;method#insert#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#difference#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#difference#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#indexOfDifference#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#reverse#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#reverse#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#isPalindrom#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#isPalindromIgnoreCase#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#isPalindromIgnoreCase#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#next#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#next#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#kmp#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#join#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#join#0;class#StringUtils#0" expanded="true" />
-            <element signature="docComment;method#join#1;class#StringUtils#0" expanded="true" />
-            <element signature="e#8866#8867#0" expanded="true" />
-            <element signature="e#8917#8918#0" expanded="true" />
-            <element signature="docComment;method#tagKeyWord#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#tagKeyWord#0;class#StringUtils#0" expanded="true" />
-            <element signature="method#random#1;class#StringUtils#0" expanded="true" />
-            <element signature="method#random#2;class#StringUtils#0" expanded="true" />
-            <element signature="method#main#0;class#StringUtils#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1503,29 +1472,88 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="2046">
           <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="961">
+          <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-redis/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/handler/codec/http/HttpResponse.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;method#getStatus#0;class#HttpResponse#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="e#610#611#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="method#getWholeResponse#0;class#HttpUtils#0" expanded="true" />
+            <element signature="method#getContent#0;class#HttpUtils#0" expanded="true" />
+            <element signature="method#main#0;class#HttpUtils#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/JedisPool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
+          <folding>
+            <element signature="method#JedisPool#12;class#JedisPool#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#parse#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#parse#1;class#TimeUtil#0" expanded="true" />
-            <element signature="docComment;method#getDateByNow#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#getDateByNow#0;class#TimeUtil#0" expanded="true" />
-            <element signature="docComment;method#yesterday#0;class#TimeUtil#0" expanded="true" />
-            <element signature="docComment;method#tomorrow#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#plus#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#plusHours#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#plusMonth#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#plusYear#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#milliseconds#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#seconds#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#minutes#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#hours#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#dayOfYear#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#dayOfWeek#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#dayOfMonth#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#month#0;class#TimeUtil#0" expanded="true" />
-            <element signature="method#year#0;class#TimeUtil#0" expanded="true" />
+            <element signature="docComment;method#getPool#0;class#JedisUtil#0" expanded="true" />
+            <element signature="docComment;method#returnResource#0;class#JedisUtil#0" expanded="true" />
+            <element signature="method#returnResource#0;class#JedisUtil#0" expanded="true" />
           </folding>
         </state>
       </provider>

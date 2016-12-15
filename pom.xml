@@ -12,6 +12,7 @@
         <module>myutils-lang</module>
         <module>myutils-db</module>
         <module>myutils-http</module>
+        <module>myutils-redis</module>
     </modules>
 
     <dependencies>

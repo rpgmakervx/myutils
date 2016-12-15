@@ -10,6 +10,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.*;
+import org.easyarch.myutils.User;
 import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.http.future.ResponseFuture;
 import org.easyarch.myutils.http.handler.BaseClientChildHandler;
@@ -184,9 +185,21 @@ public class HttpUtils {
     }
 
     public static void main(String[] args) throws Exception {
-        HttpUtils client = new HttpUtils("127.0.0.1",8080);
-        client.connect();
-        client.get("/",null);
-        System.out.println(new String(client.getContentAsStream()));
+//        HttpUtils client = new HttpUtils("127.0.0.1",8080);
+//        client.connect();
+//        client.get("/",null);
+//        System.out.println(new String(client.getContentAsStream()));
+        User u1 = new User("xing",1);
+        User u2 = new User("lala",2);
+        User u3 = new User("okok",3);
+
+//        List<User> user = CollectionUtil.newArrayList(u1,u2,u3);
+        Map<String,User> map = new HashMap<>();
+        map.put("1",u1);
+        map.put("2",u2);
+        map.put("3",u3);
+//        test(map);
+        System.out.println(map.get("1").getUsername());
     }
+
 }

@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/myutils-db/myutils-db.iml" filepath="$PROJECT_DIR$/myutils-db/myutils-db.iml" />
       <module fileurl="file://$PROJECT_DIR$/myutils-http/myutils-http.iml" filepath="$PROJECT_DIR$/myutils-http/myutils-http.iml" />
       <module fileurl="file://$PROJECT_DIR$/myutils-lang/myutils-lang.iml" filepath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myutils-redis/myutils-redis.iml" filepath="$PROJECT_DIR$/myutils-redis/myutils-redis.iml" />
     </modules>
   </component>
 </project>
