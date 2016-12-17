@@ -34,7 +34,7 @@
       <module name="myutils-db" target="1.7" />
       <module name="myutils-export" target="1.5" />
       <module name="myutils-http" target="1.7" />
-      <module name="myutils-lang" target="1.5" />
+      <module name="myutils-lang" target="1.7" />
       <module name="myutils-redis" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -143,14 +143,6 @@ public class SqlExecutor extends AbstractExecutor{
         }
     }
 
-//    protected static Connection createConnection() {
-//        try {
-//            return DriverManager.getConnection(ConnConfig.getUrl()
-//                    , ConnConfig.getUser(), ConnConfig.getPassword());
-//        } catch (SQLException e) {
-//            throw new RuntimeException("fail to create connection:\n" + e.getMessage());
-//        }
-//    }
     public static void main(String[] args) {
         ConnConfig.config("root", "123456",
                 "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");

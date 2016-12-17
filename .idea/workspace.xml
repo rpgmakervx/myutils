@@ -2,15 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/ExcelHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/entity/User.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/Result.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/json/JSONUtil.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/StringUtils.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/User.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/ArrayUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/ArrayUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/handler/LoopHandler.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/handler/LoopHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/CodecUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/CodecUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/HashType.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/HashType.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/io/IOUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/io/IOUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/NumberUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/NumberUtils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/reflect/ReflectUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/reflect/ReflectUtils.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/myutils-db.iml" afterPath="$PROJECT_DIR$/myutils-db/myutils-db.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-export/myutils-export.iml" afterPath="$PROJECT_DIR$/myutils-export/myutils-export.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-export/pom.xml" afterPath="$PROJECT_DIR$/myutils-export/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-http/myutils-http.iml" afterPath="$PROJECT_DIR$/myutils-http/myutils-http.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" afterPath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/pom.xml" afterPath="$PROJECT_DIR$/myutils-lang/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java" />
     </list>
     <ignored path="myutils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,146 +52,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TimeUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java">
+      <file leaf-file-name="MySqlExecutor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/MySqlExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12">
-              <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+            <state relative-caret-position="224">
+              <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SqlExecutor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="55">
+              <caret line="146" column="24" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="24" />
               <folding>
-                <element signature="method#getDateByNow#0;class#TimeUtil#0" expanded="true" />
+                <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
+                <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
+                <element signature="method#query#2;class#SqlExecutor#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExcelHelper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/ExcelHelper.java">
+      <file leaf-file-name="ConnConfig.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#ExcelHelper#0;class#ExcelHelper#0" expanded="true" />
-                <element signature="method#build#0;class#ExcelHelper#0" expanded="true" />
-                <element signature="e#2570#2571#0" expanded="true" />
-                <element signature="e#2614#2615#0" expanded="true" />
-                <element signature="method#disk#0;class#ExcelHelper#0" expanded="true" />
-                <element signature="method#iterateField#0;class#ExcelHelper#0" expanded="true" />
-                <element signature="e#3558#3564#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IOUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/io/IOUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-              <folding>
-                <element signature="method#closeIO#1;class#IOUtils#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/entity/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+            <state relative-caret-position="193">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#User#0;class#User#0" expanded="true" />
-                <element signature="e#698#699#0" expanded="true" />
-                <element signature="e#729#730#0" expanded="true" />
-                <element signature="e#777#778#0" expanded="true" />
-                <element signature="e#817#818#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-                <element signature="e#870#871#0" expanded="true" />
-                <element signature="e#905#906#0" expanded="true" />
-                <element signature="e#935#936#0" expanded="true" />
-                <element signature="e#970#971#0" expanded="true" />
-                <element signature="e#1003#1004#0" expanded="true" />
-                <element signature="e#1053#1054#0" expanded="true" />
-                <element signature="e#1097#1098#0" expanded="true" />
+                <element signature="method#config#1;class#ConnConfig#0" expanded="true" />
+                <element signature="method#config#2;class#ConnConfig#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExcelEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/annotation/ExcelEntity.java">
+      <file leaf-file-name="BeanListResultSetHadler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+              <folding>
+                <element signature="e#526#527#0" expanded="true" />
+                <element signature="e#573#574#0" expanded="true" />
+                <element signature="method#BeanListResultSetHadler#1;class#BeanListResultSetHadler#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BeanWrapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/BeanWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="348">
-              <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
               <folding>
-                <element signature="docComment;class#ExcelEntity#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="T.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.9/poi-3.9.jar!/org/apache/poi/ss/formula/functions/T.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParameterizedType.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/lang/reflect/ParameterizedType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-              <folding>
-                <element signature="e#0#2945#0" expanded="false" />
-                <element signature="docComment;class#ParameterizedType#0" expanded="false" />
-                <element signature="docComment;method#getActualTypeArguments#0;class#ParameterizedType#0" expanded="false" />
-                <element signature="docComment;method#getRawType#0;class#ParameterizedType#0" expanded="false" />
-                <element signature="docComment;method#getOwnerType#0;class#ParameterizedType#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-export/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReflectUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-53">
-              <caret line="144" column="8" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="52" />
-              <folding>
-                <element signature="e#4346#4347#0" expanded="true" />
-                <element signature="e#4422#4423#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Type.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/lang/reflect/Type.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#813#0" expanded="false" />
-                <element signature="docComment;class#Type#0" expanded="false" />
-                <element signature="docComment;method#getTypeName#0;class#Type#0" expanded="false" />
-                <element signature="e#776#777#0" expanded="false" />
-                <element signature="e#809#810#0" expanded="false" />
+                <element signature="method#list#0;class#BeanWrapper#0" expanded="true" />
+                <element signature="method#createBean#0;class#BeanWrapper#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -211,7 +146,6 @@
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/factory/DBCPoolFactory.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/test/java/org/easyarch/myutils/test/Main.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/test/TestMain.java" />
-        <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/ds/DBCPool.java" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java" />
         <option value="$PROJECT_DIR$/myutils-lang/src/test/java/org/easyarch/myutils/test/Main.java" />
@@ -223,14 +157,11 @@
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/ProxyHandler.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/NettyClient.java" />
-        <option value="$PROJECT_DIR$/myutils-lang/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-redis/pom.xml" />
-        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" />
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java" />
         <option value="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java" />
-        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/io/IOUtils.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/BeanWrapper.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java" />
@@ -242,6 +173,14 @@
         <option value="$PROJECT_DIR$/myutils-export/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/entity/User.java" />
         <option value="$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/ExcelHelper.java" />
+        <option value="$PROJECT_DIR$/myutils-lang/pom.xml" />
+        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" />
+        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtil.java" />
+        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/Result.java" />
+        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" />
+        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/json/JSONUtil.java" />
+        <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
+        <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java" />
       </list>
     </option>
   </component>
@@ -319,7 +258,24 @@
     <panes>
       <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="PackagesPane" />
       <pane id="Scratches" />
@@ -347,6 +303,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.easyarch.myutils.json" />
       <recent name="org.easyarch.myutils.export.excel.annotation" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -354,7 +311,7 @@
       <recent name="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ExcelHelper">
+  <component name="RunManager" selected="Application.JSONUtil">
     <configuration default="false" name="HttpUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -372,26 +329,6 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="myutils-http" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="StringUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.easyarch.myutils.lang.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.easyarch.myutils.lang.StringUtils" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="myutils-lang" />
       <envs />
       <method />
     </configuration>
@@ -452,6 +389,26 @@
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="myutils-export" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="JSONUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.easyarch.myutils.json.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.easyarch.myutils.json.JSONUtil" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="myutils-lang" />
       <envs />
       <method />
     </configuration>
@@ -916,18 +873,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.HttpUtils" />
-      <item index="1" class="java.lang.String" itemvalue="Application.StringUtils" />
-      <item index="2" class="java.lang.String" itemvalue="Application.TimeUtil" />
-      <item index="3" class="java.lang.String" itemvalue="Application.NumberUtils" />
-      <item index="4" class="java.lang.String" itemvalue="Application.ExcelHelper" />
+      <item index="1" class="java.lang.String" itemvalue="Application.TimeUtil" />
+      <item index="2" class="java.lang.String" itemvalue="Application.NumberUtils" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ExcelHelper" />
+      <item index="4" class="java.lang.String" itemvalue="Application.JSONUtil" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.ExcelHelper" />
-        <item index="1" class="java.lang.String" itemvalue="Application.NumberUtils" />
-        <item index="2" class="java.lang.String" itemvalue="Application.HttpUtils" />
-        <item index="3" class="java.lang.String" itemvalue="Application.TimeUtil" />
-        <item index="4" class="java.lang.String" itemvalue="Application.StringUtils" />
+        <item index="0" class="java.lang.String" itemvalue="Application.JSONUtil" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ExcelHelper" />
+        <item index="2" class="java.lang.String" itemvalue="Application.NumberUtils" />
+        <item index="3" class="java.lang.String" itemvalue="Application.HttpUtils" />
+        <item index="4" class="java.lang.String" itemvalue="Application.TimeUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -968,7 +925,7 @@
       <workItem from="1481726941336" duration="3026000" />
       <workItem from="1481804861788" duration="3479000" />
       <workItem from="1481818132458" duration="1309000" />
-      <workItem from="1481956475588" duration="12592000" />
+      <workItem from="1481956475588" duration="16268000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -981,7 +938,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77383000" />
+    <option name="totallyTimeSpent" value="81059000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1004,7 +961,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2628205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5432692" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18910256" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1043,7 +1000,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2628205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5432692" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18910256" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34775767" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1074,76 +1031,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/handler/ProxyHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/manager/HttpResponseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/future/ResponseFuture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/text/DateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="151" column="22" selection-start-line="151" selection-start-column="22" selection-end-line="151" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/util/Locale.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="2312" column="8" selection-start-line="2312" selection-start-column="8" selection-end-line="2312" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/text/SimpleDateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2263">
-          <caret line="555" column="53" selection-start-line="555" selection-start-column="53" selection-end-line="555" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/util/Date.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="725">
-          <caret line="1082" column="38" selection-start-line="1082" selection-start-column="38" selection-end-line="1082" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-http/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar!/org/apache/commons/lang3/StringUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="1944" column="25" selection-start-line="1944" selection-start-column="25" selection-end-line="1944" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4-sources.jar!/org/apache/commons/lang3/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="115" column="26" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/joda-time/joda-time/2.9.6/joda-time-2.9.6.jar!/org/joda/time/field/AbstractReadableInstantFieldProperty.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -1165,14 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-redis/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -1185,14 +1064,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1210,20 +1081,6 @@
         <state relative-caret-position="961">
           <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;method#getPool#0;class#JedisUtil#0" expanded="false" />
-            <element signature="method#getPool#0;class#JedisUtil#0" expanded="false" />
-            <element signature="docComment;method#returnResource#0;class#JedisUtil#0" expanded="false" />
-            <element signature="method#returnResource#0;class#JedisUtil#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1254,17 +1111,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-117">
-          <caret line="406" column="0" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
-          <folding>
-            <element signature="e#13393#13394#0" expanded="false" />
-            <element signature="e#13442#13443#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/codec/CodecUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-81">
@@ -1289,14 +1135,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/MapWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1313,35 +1151,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/BeanWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="67" column="30" selection-start-line="67" selection-start-column="30" selection-end-line="67" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/sql/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="392" column="33" selection-start-line="392" selection-start-column="33" selection-end-line="392" selection-end-column="33" />
           <folding>
             <element signature="docComment;field#TRANSACTION_READ_UNCOMMITTED#0;class#Connection#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="method#beginTransaction#0;class#DBUtils#0" expanded="false" />
-            <element signature="method#beginTransaction#1;class#DBUtils#0" expanded="false" />
-            <element signature="e#2099#2100#0" expanded="false" />
-            <element signature="e#2173#2174#0" expanded="false" />
-            <element signature="method#endTransaction#1;class#DBUtils#0" expanded="false" />
-            <element signature="method#rollBackAndClose#0;class#DBUtils#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1399,31 +1214,20 @@
             <element signature="method#sum#2;class#NumberUtils#0" expanded="false" />
             <element signature="method#sum#3;class#NumberUtils#0" expanded="false" />
             <element signature="method#sum#4;class#NumberUtils#0" expanded="false" />
-            <element signature="e#13371#13372#0" expanded="false" />
-            <element signature="e#13427#13428#0" expanded="false" />
-            <element signature="e#13478#13479#0" expanded="false" />
-            <element signature="e#13526#13527#0" expanded="false" />
-            <element signature="e#13579#13580#0" expanded="false" />
-            <element signature="e#13627#13628#0" expanded="false" />
-            <element signature="e#13678#13679#0" expanded="false" />
-            <element signature="e#13726#13727#0" expanded="false" />
-            <element signature="e#13778#13779#0" expanded="false" />
-            <element signature="e#13834#13835#0" expanded="false" />
-            <element signature="e#13884#13885#0" expanded="false" />
-            <element signature="e#13940#13941#0" expanded="false" />
+            <element signature="e#13363#13364#0" expanded="false" />
+            <element signature="e#13419#13420#0" expanded="false" />
+            <element signature="e#13470#13471#0" expanded="false" />
+            <element signature="e#13518#13519#0" expanded="false" />
+            <element signature="e#13571#13572#0" expanded="false" />
+            <element signature="e#13619#13620#0" expanded="false" />
+            <element signature="e#13670#13671#0" expanded="false" />
+            <element signature="e#13718#13719#0" expanded="false" />
+            <element signature="e#13770#13771#0" expanded="false" />
+            <element signature="e#13826#13827#0" expanded="false" />
+            <element signature="e#13876#13877#0" expanded="false" />
+            <element signature="e#13932#13933#0" expanded="false" />
             <element signature="method#getMaxCommonDivisor#0;class#NumberUtils#0" expanded="false" />
             <element signature="method#main#0;class#NumberUtils#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="118" column="19" selection-start-line="118" selection-start-column="19" selection-end-line="118" selection-end-column="19" />
-          <folding>
-            <element signature="method#getGenericSuperclass#0;class#Class#0" expanded="false" />
-            <element signature="docComment;method#getComponentType#0;class#Class#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1463,8 +1267,8 @@
         <state relative-caret-position="-53">
           <caret line="144" column="8" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="52" />
           <folding>
-            <element signature="e#4346#4347#0" expanded="true" />
-            <element signature="e#4422#4423#0" expanded="true" />
+            <element signature="e#4346#4347#0" expanded="false" />
+            <element signature="e#4422#4423#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1496,7 +1300,7 @@
         <state relative-caret-position="348">
           <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
           <folding>
-            <element signature="docComment;class#ExcelEntity#0" expanded="true" />
+            <element signature="docComment;class#ExcelEntity#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1506,7 +1310,67 @@
         <state relative-caret-position="198">
           <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
           <folding>
-            <element signature="method#closeIO#1;class#IOUtils#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#IOUtils#0" expanded="false" />
+            <element signature="method#closeIO#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#closeIO#2;class#IOUtils#0" expanded="false" />
+            <element signature="method#closeIO#3;class#IOUtils#0" expanded="false" />
+            <element signature="method#closeChl#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#flushIO#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#flushIO#1;class#IOUtils#0" expanded="false" />
+            <element signature="method#getBytes#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#toByteArray#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#toNIOByteArray#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#toByteArrayx#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#toCharArray#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#toCharArrayx#0;class#IOUtils#0" expanded="false" />
+            <element signature="e#3131#3132#0" expanded="false" />
+            <element signature="e#3189#3190#0" expanded="false" />
+            <element signature="method#toNIOString#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#toStringln#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#toString#1;class#IOUtils#0" expanded="false" />
+            <element signature="method#write#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#write#1;class#IOUtils#0" expanded="false" />
+            <element signature="method#println#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#print#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#bufferedCopy#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#bufferedCopy#1;class#IOUtils#0" expanded="false" />
+            <element signature="docComment;method#copy#0;class#IOUtils#0" expanded="false" />
+            <element signature="e#5796#5797#0" expanded="false" />
+            <element signature="e#5860#5861#0" expanded="false" />
+            <element signature="e#5921#5922#0" expanded="false" />
+            <element signature="e#5993#5994#0" expanded="false" />
+            <element signature="method#copy#2;class#IOUtils#0" expanded="false" />
+            <element signature="method#copy#3;class#IOUtils#0" expanded="false" />
+            <element signature="method#nioCopy#0;class#IOUtils#0" expanded="false" />
+            <element signature="e#7124#7125#0" expanded="false" />
+            <element signature="e#7188#7189#0" expanded="false" />
+            <element signature="method#nioCopyx#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#nioCopyx#1;class#IOUtils#0" expanded="false" />
+            <element signature="method#copyx#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#copyx#1;class#IOUtils#0" expanded="false" />
+            <element signature="method#copyx#2;class#IOUtils#0" expanded="false" />
+            <element signature="method#copyx#3;class#IOUtils#0" expanded="false" />
+            <element signature="method#copyx#4;class#IOUtils#0" expanded="false" />
+            <element signature="e#9905#9906#0" expanded="false" />
+            <element signature="e#9961#9962#0" expanded="false" />
+            <element signature="method#copyln#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#copyln#1;class#IOUtils#0" expanded="false" />
+            <element signature="e#10758#10759#0" expanded="false" />
+            <element signature="e#10822#10823#0" expanded="false" />
+            <element signature="e#10887#10888#0" expanded="false" />
+            <element signature="e#10952#10953#0" expanded="false" />
+            <element signature="method#equals#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#equals#1;class#IOUtils#0" expanded="false" />
+            <element signature="e#11531#11532#0" expanded="false" />
+            <element signature="e#11577#11578#0" expanded="false" />
+            <element signature="e#11651#11652#0" expanded="false" />
+            <element signature="e#11697#11698#0" expanded="false" />
+            <element signature="docComment;method#transferTo#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#transferTo#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#transferTo#1;class#IOUtils#0" expanded="false" />
+            <element signature="method#transferFrom#0;class#IOUtils#0" expanded="false" />
+            <element signature="method#transferFrom#1;class#IOUtils#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1539,15 +1403,54 @@
         <state relative-caret-position="12">
           <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
           <folding>
-            <element signature="method#getDateByNow#0;class#TimeUtil#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="docComment;class#TimeUtil#0" expanded="false" />
+            <element signature="method#parse#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#parse#1;class#TimeUtil#0" expanded="false" />
+            <element signature="e#1021#1022#0" expanded="false" />
+            <element signature="e#1067#1068#0" expanded="false" />
+            <element signature="e#1125#1126#0" expanded="false" />
+            <element signature="e#1171#1172#0" expanded="false" />
+            <element signature="e#1203#1204#0" expanded="false" />
+            <element signature="e#1236#1237#0" expanded="false" />
+            <element signature="e#1277#1278#0" expanded="false" />
+            <element signature="e#1329#1330#0" expanded="false" />
+            <element signature="e#1370#1371#0" expanded="false" />
+            <element signature="e#1422#1423#0" expanded="false" />
+            <element signature="docComment;method#getDateByNow#0;class#TimeUtil#0" expanded="false" />
+            <element signature="docComment;method#yesterday#0;class#TimeUtil#0" expanded="false" />
+            <element signature="e#1789#1790#0" expanded="false" />
+            <element signature="e#1828#1829#0" expanded="false" />
+            <element signature="docComment;method#tomorrow#0;class#TimeUtil#0" expanded="false" />
+            <element signature="e#1915#1916#0" expanded="false" />
+            <element signature="e#1953#1954#0" expanded="false" />
+            <element signature="method#plus#0;class#TimeUtil#0" expanded="false" />
+            <element signature="e#2204#2205#0" expanded="false" />
+            <element signature="e#2246#2247#0" expanded="false" />
+            <element signature="method#plusHours#0;class#TimeUtil#0" expanded="false" />
+            <element signature="e#2489#2490#0" expanded="false" />
+            <element signature="e#2525#2526#0" expanded="false" />
+            <element signature="e#2569#2570#0" expanded="false" />
+            <element signature="e#2609#2610#0" expanded="false" />
+            <element signature="method#plusMonth#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#plusYear#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#milliseconds#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#seconds#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#minutes#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#hours#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#dayOfYear#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#dayOfWeek#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#dayOfMonth#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#month#0;class#TimeUtil#0" expanded="false" />
+            <element signature="method#year#0;class#TimeUtil#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/ExcelHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="115" column="50" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ExcelHelper#0;class#ExcelHelper#0" expanded="true" />
@@ -1557,6 +1460,201 @@
             <element signature="method#disk#0;class#ExcelHelper#0" expanded="true" />
             <element signature="method#iterateField#0;class#ExcelHelper#0" expanded="true" />
             <element signature="e#3558#3564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1-sources.jar!/org/apache/commons/collections4/Transformer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1-sources.jar!/org/apache/commons/collections4/MapUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-546">
+          <caret line="1320" column="23" selection-start-line="1320" selection-start-column="23" selection-end-line="1320" selection-end-column="23" />
+          <folding>
+            <element signature="e#47217#47218#0" expanded="false" />
+            <element signature="e#47268#47269#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#348#349#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#592#593#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.8/fastjson-1.2.8-sources.jar!/com/alibaba/fastjson/JSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1314">
+          <caret line="302" column="24" selection-start-line="302" selection-start-column="24" selection-end-line="302" selection-end-column="24" />
+          <folding>
+            <element signature="e#11045#11046#0" expanded="false" />
+            <element signature="e#11108#11109#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding>
+            <element signature="method#toString#0;class#User#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.8/fastjson-1.2.8-sources.jar!/com/alibaba/fastjson/TypeReference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <folding>
+            <element signature="method#TypeReference#0;class#TypeReference#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="711" column="36" selection-start-line="711" selection-start-column="36" selection-end-line="711" selection-end-column="36" />
+          <folding>
+            <element signature="method#getTypeParameters#0;class#Class#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/json/JSONUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="88" column="9" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#isJson#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#list2Json#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#json2List#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#pojo2Json#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#json2Pojo#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#map2Json#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#json2Map#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#str2Json#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#pojo2Map#0;class#JSONUtil#0" expanded="true" />
+            <element signature="method#addKV#0;class#JSONUtil#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/DBUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/AbstractResultSetHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/BeanWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding>
+            <element signature="method#list#0;class#BeanWrapper#0" expanded="true" />
+            <element signature="method#createBean#0;class#BeanWrapper#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+          <folding>
+            <element signature="e#526#527#0" expanded="true" />
+            <element signature="e#573#574#0" expanded="true" />
+            <element signature="method#BeanListResultSetHadler#1;class#BeanListResultSetHadler#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/MySqlExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="146" column="24" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="24" />
+          <folding>
+            <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
+            <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
+            <element signature="method#query#2;class#SqlExecutor#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#config#1;class#ConnConfig#0" expanded="true" />
+            <element signature="method#config#2;class#ConnConfig#0" expanded="true" />
           </folding>
         </state>
       </provider>

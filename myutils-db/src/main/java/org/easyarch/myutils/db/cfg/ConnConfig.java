@@ -4,6 +4,10 @@ package org.easyarch.myutils.db.cfg;/**
  *  下午7:28
  */
 
+import org.easyarch.myutils.io.IOUtils;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -36,32 +40,20 @@ public class ConnConfig {
                 props.getProperty("drivername"));
         registerDriver();
     }
-//    public static void config(String user,String password,
-//                              String url,String drivername,
-//                              int minConnection,int maxConnection,
-//                              int minIdle,int maxWait){
-//        ConnectInfo.user = user;
-//        ConnectInfo.password = password;
-//        ConnectInfo.url = url;
-//        ConnectInfo.drivername = drivername;
-//        ConnectInfo.minConnection = minConnection;
-//        ConnectInfo.maxConnection = maxConnection;
-//        ConnectInfo.minIdle = minIdle;
-//        ConnectInfo.maxWait = maxWait;
-//        registerDriver();
-//    }
-//
-//    public static void config(Properties props){
-//        user = props.getProperty("user");
-//        password = props.getProperty("password");
-//        url = props.getProperty("url");
-//        drivername = props.getProperty("drivername");
-//        ConnectInfo.minConnection = Integer.parseInt(props.getProperty("drivername"));
-//        ConnectInfo.maxConnection = Integer.parseInt(props.getProperty("drivername"));
-//        ConnectInfo.minIdle = Integer.parseInt(props.getProperty("drivername"));
-//        ConnectInfo.maxWait = Integer.parseInt(props.getProperty("drivername"));
-//        registerDriver();
-//    }
+
+    public static void config(String path){
+        Properties prop = new Properties();
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(path);
+            prop.load(fis);
+            config(prop);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            IOUtils.closeIO(fis);
+        }
+    }
 
     private static void registerDriver(){
         try {
