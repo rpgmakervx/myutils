@@ -364,6 +364,90 @@ public class NumberUtils {
         return min;
     }
 
+    public static int sum(final int... array){
+        int sum = 0;
+        for (int a:array){
+            if (Integer.MAX_VALUE - sum < a){
+                new IllegalArgumentException("int sum is out of range");
+            }
+            sum += a;
+        }
+        return sum;
+    }
+    public static double sum(final double... array){
+        double sum = 0.0;
+        for (double a:array){
+            if (Double.MAX_VALUE - sum < a){
+                new IllegalArgumentException("double sum is out of range");
+            }
+            sum += a;
+        }
+        return sum;
+    }
+
+    public static long sum(final long... array){
+        long sum = 0;
+        for (long a:array){
+            if (Long.MAX_VALUE - sum < a){
+                new IllegalArgumentException("long sum is out of range");
+            }
+            sum += a;
+        }
+        return sum;
+    }
+
+    public static float sum(final float... array){
+        float sum = 0f;
+        for (float a:array){
+            if (Float.MAX_VALUE - sum < a){
+                new IllegalArgumentException("float sum is out of range");
+            }
+            sum += a;
+        }
+        return sum;
+    }
+
+    public static short sum(final short... array){
+        short sum = 0;
+        for (short a:array){
+            if (Short.MAX_VALUE - sum < a){
+                new IllegalArgumentException("short sum is out of range");
+            }
+            sum += a;
+        }
+        return sum;
+    }
+
+    public static byte sum(final byte... array){
+        byte sum = 0;
+        for (byte a:array){
+            if (Byte.MAX_VALUE - sum < a){
+                new IllegalArgumentException("short sum is out of range");
+            }
+            sum += a;
+        }
+        return sum;
+    }
+
+    public static float avg(final int... array){
+        return (float) sum(array) / array.length;
+    }
+    public static float avg(final float... array){
+        return sum(array) / array.length;
+    }
+    public static double avg(final double... array){
+        return sum(array) / array.length;
+    }
+    public static double avg(final long... array){
+        return sum(array) / array.length;
+    }
+    public static float avg(final short... array ){
+        return (float) sum(array) / array.length;
+    }
+    public static float avg(final byte... array){
+        return (float) sum(array) / array.length;
+    }
+
     /**
      * 最大公约数
      * @param numbers
@@ -383,5 +467,8 @@ public class NumberUtils {
             }
         }
         return -1;// 无最大公约数
+    }
+
+    public static void main(String[] args) {
     }
 }
