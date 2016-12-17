@@ -404,29 +404,6 @@ public class StringUtils {
         return buffer.toString();
     }
 
-//    public static String hightLightAccurate(final String src, String key, String symbol) {
-//        int begin = 0;
-//        int end = 0;
-//        String result = src;
-//        String sr = src;
-//        String replaceChar = "";
-//        for (int index = 0; index < key.length(); index++) {
-//            replaceChar += " ";
-//        }
-//        int n = 0;
-//        while (true) {
-//            begin = kmp(sr, key);
-//            if (begin == -1)
-//                break;
-//            end = key.length() + begin;
-//            sr = replaceAccurate(sr, key, replaceChar);
-//            result = insert(result, symbol, begin + symbol.length() * n + 1);
-//            n++;
-//            result = insert(result, symbol, end + symbol.length() * n + 1);
-//            n++;
-//        }
-//        return result;
-//    }
 
     private static String random(int count, int start, int end, final boolean letters, final boolean numbers,
                                 final char[] chars, final Random random) {

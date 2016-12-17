@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-export/myutils-export.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-export/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/warpper/BeanWrapper.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/BeanWrapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/warpper/MapWrapper.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/MapWrapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/warpper/Wrapper.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/Wrapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/warpper/WrapperAdapter.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/WrapperAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_annotations_r03.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_annotations_r03.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_base_r03.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_base_r03.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_collections_r03.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_collections_r03.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_primitives_r03.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_primitives_r03.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_9_6.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_21.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_21.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/AbstractResultSetHandler.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/AbstractResultSetHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanResultSetHadler.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanResultSetHadler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" />
     </list>
     <ignored path="myutils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,113 +29,108 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TimeUtil.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java">
+      <file leaf-file-name="FileUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
+            <state relative-caret-position="-49">
+              <caret line="375" column="59" selection-start-line="375" selection-start-column="59" selection-end-line="375" selection-end-column="59" />
               <folding>
-                <element signature="method#getDateByNow#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#plus#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#plusHours#0;class#TimeUtil#0" expanded="true" />
-                <element signature="method#month#0;class#TimeUtil#0" expanded="true" />
+                <element signature="method#write#1;class#FileUtils#0" expanded="true" />
+                <element signature="method#byteCountToDisplaySize#0;class#FileUtils#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-redis/pom.xml">
+      <file leaf-file-name="ReflectUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="309">
+              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CollectionUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java">
+      <file leaf-file-name="NumberUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-249">
-              <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+            <state relative-caret-position="186">
+              <caret line="372" column="32" selection-start-line="372" selection-start-column="32" selection-end-line="372" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JedisUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java">
+      <file leaf-file-name="StringUtils.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="199">
+              <caret line="406" column="0" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;method#getPool#0;class#JedisUtil#0" expanded="true" />
-                <element signature="method#getPool#0;class#JedisUtil#0" expanded="true" />
-                <element signature="docComment;method#returnResource#0;class#JedisUtil#0" expanded="true" />
-                <element signature="method#returnResource#0;class#JedisUtil#0" expanded="true" />
+                <element signature="docComment;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#isEmpty#0;class#StringUtils#0" expanded="false" />
+                <element signature="e#396#397#0" expanded="false" />
+                <element signature="e#449#450#0" expanded="false" />
+                <element signature="docComment;method#isBlank#0;class#StringUtils#0" expanded="false" />
+                <element signature="e#569#570#0" expanded="false" />
+                <element signature="e#622#623#0" expanded="false" />
+                <element signature="docComment;method#headAbbreviate#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#headAbbreviate#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#tailAbbreviate#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#tailAbbreviate#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#capitalize#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#capitalize#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#append#0;class#StringUtils#0" expanded="false" />
+                <element signature="e#2540#2541#0" expanded="false" />
+                <element signature="e#2581#2582#0" expanded="false" />
+                <element signature="docComment;method#preAppend#0;class#StringUtils#0" expanded="false" />
+                <element signature="e#2740#2741#0" expanded="false" />
+                <element signature="e#2781#2782#0" expanded="false" />
+                <element signature="docComment;method#center#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#center#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#center#1;class#StringUtils#0" expanded="false" />
+                <element signature="e#3397#3398#0" expanded="false" />
+                <element signature="e#3441#3442#0" expanded="false" />
+                <element signature="docComment;method#surround#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#surround#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#trimAll#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#trimAll#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#trimToEmpty#0;class#StringUtils#0" expanded="false" />
+                <element signature="e#4294#4295#0" expanded="false" />
+                <element signature="e#4348#4349#0" expanded="false" />
+                <element signature="docComment;method#insert#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#insert#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#difference#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#difference#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#indexOfDifference#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#indexOfDifference#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#reverse#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#reverse#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#isPalindrom#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#isPalindrom#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#isPalindromIgnoreCase#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#isPalindromIgnoreCase#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#next#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#next#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#kmp#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#kmp#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#join#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#join#0;class#StringUtils#0" expanded="false" />
+                <element signature="docComment;method#join#1;class#StringUtils#0" expanded="false" />
+                <element signature="e#8866#8867#0" expanded="false" />
+                <element signature="e#8917#8918#0" expanded="false" />
+                <element signature="docComment;method#tagKeyWord#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#tagKeyWord#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#random#0;class#StringUtils#0" expanded="false" />
+                <element signature="method#random#1;class#StringUtils#0" expanded="false" />
+                <element signature="method#random#2;class#StringUtils#0" expanded="false" />
+                <element signature="e#13275#13276#0" expanded="false" />
+                <element signature="e#13334#13335#0" expanded="false" />
+                <element signature="e#13476#13477#0" expanded="false" />
+                <element signature="e#13527#13528#0" expanded="false" />
+                <element signature="method#main#0;class#StringUtils#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-export/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JedisPool.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/JedisPool.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="961">
-              <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpResponse.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/handler/codec/http/HttpResponse.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -207,7 +179,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/NettyClient.java" />
         <option value="$PROJECT_DIR$/myutils-lang/pom.xml" />
-        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" />
         <option value="$PROJECT_DIR$/myutils-redis/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" />
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java" />
@@ -215,6 +186,7 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/myutils-export/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java" />
+        <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" />
       </list>
     </option>
   </component>
@@ -439,7 +411,175 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="reflect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="format" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils-lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="easyarch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="myutils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1471,7 +1611,7 @@
       <workItem from="1481726941336" duration="3026000" />
       <workItem from="1481804861788" duration="3479000" />
       <workItem from="1481818132458" duration="1309000" />
-      <workItem from="1481956475588" duration="438000" />
+      <workItem from="1481956475588" duration="579000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -1484,7 +1624,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65229000" />
+    <option name="totallyTimeSpent" value="65370000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1577,13 +1717,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-131">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///opt/jdk1.7.0_80/src.zip!/java/util/LinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="868">
@@ -1689,13 +1822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="372" column="32" selection-start-line="372" selection-start-column="32" selection-end-line="372" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -1705,13 +1831,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/easyarch/myutils/io/IOUtils.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/org/easyarch/myutils/file/FileUtils.java" />
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1891">
-          <caret line="178" column="65" selection-start-line="178" selection-start-column="65" selection-end-line="178" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/buffer/Unpooled.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="744">
@@ -1808,13 +1927,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
           <caret line="115" column="26" selection-start-line="115" selection-start-column="26" selection-end-line="115" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3627">
-          <caret line="512" column="23" selection-start-line="512" selection-start-column="23" selection-end-line="512" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1927,7 +2039,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-249">
+        <state relative-caret-position="-235">
           <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
           <folding />
         </state>
@@ -1935,13 +2047,114 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
+        <state relative-caret-position="242">
+          <caret line="173" column="5" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
           <folding>
             <element signature="method#getDateByNow#0;class#TimeUtil#0" expanded="true" />
             <element signature="method#plus#0;class#TimeUtil#0" expanded="true" />
             <element signature="method#plusHours#0;class#TimeUtil#0" expanded="true" />
+            <element signature="method#plusMonth#0;class#TimeUtil#0" expanded="true" />
+            <element signature="method#plusYear#0;class#TimeUtil#0" expanded="true" />
+            <element signature="method#milliseconds#0;class#TimeUtil#0" expanded="true" />
             <element signature="method#month#0;class#TimeUtil#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49">
+          <caret line="375" column="59" selection-start-line="375" selection-start-column="59" selection-end-line="375" selection-end-column="59" />
+          <folding>
+            <element signature="method#write#1;class#FileUtils#0" expanded="true" />
+            <element signature="method#byteCountToDisplaySize#0;class#FileUtils#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/reflect/ReflectUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="372" column="32" selection-start-line="372" selection-start-column="32" selection-end-line="372" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="406" column="0" selection-start-line="406" selection-start-column="0" selection-end-line="406" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#isEmpty#0;class#StringUtils#0" expanded="false" />
+            <element signature="e#396#397#0" expanded="false" />
+            <element signature="e#449#450#0" expanded="false" />
+            <element signature="docComment;method#isBlank#0;class#StringUtils#0" expanded="false" />
+            <element signature="e#569#570#0" expanded="false" />
+            <element signature="e#622#623#0" expanded="false" />
+            <element signature="docComment;method#headAbbreviate#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#headAbbreviate#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#tailAbbreviate#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#tailAbbreviate#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#capitalize#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#capitalize#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#append#0;class#StringUtils#0" expanded="false" />
+            <element signature="e#2540#2541#0" expanded="false" />
+            <element signature="e#2581#2582#0" expanded="false" />
+            <element signature="docComment;method#preAppend#0;class#StringUtils#0" expanded="false" />
+            <element signature="e#2740#2741#0" expanded="false" />
+            <element signature="e#2781#2782#0" expanded="false" />
+            <element signature="docComment;method#center#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#center#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#center#1;class#StringUtils#0" expanded="false" />
+            <element signature="e#3397#3398#0" expanded="false" />
+            <element signature="e#3441#3442#0" expanded="false" />
+            <element signature="docComment;method#surround#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#surround#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#trimAll#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#trimAll#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#trimToEmpty#0;class#StringUtils#0" expanded="false" />
+            <element signature="e#4294#4295#0" expanded="false" />
+            <element signature="e#4348#4349#0" expanded="false" />
+            <element signature="docComment;method#insert#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#insert#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#difference#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#difference#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#indexOfDifference#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#indexOfDifference#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#reverse#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#reverse#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#isPalindrom#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#isPalindrom#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#isPalindromIgnoreCase#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#isPalindromIgnoreCase#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#next#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#next#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#kmp#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#kmp#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#join#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#join#0;class#StringUtils#0" expanded="false" />
+            <element signature="docComment;method#join#1;class#StringUtils#0" expanded="false" />
+            <element signature="e#8866#8867#0" expanded="false" />
+            <element signature="e#8917#8918#0" expanded="false" />
+            <element signature="docComment;method#tagKeyWord#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#tagKeyWord#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#random#0;class#StringUtils#0" expanded="false" />
+            <element signature="method#random#1;class#StringUtils#0" expanded="false" />
+            <element signature="method#random#2;class#StringUtils#0" expanded="false" />
+            <element signature="e#13275#13276#0" expanded="false" />
+            <element signature="e#13334#13335#0" expanded="false" />
+            <element signature="e#13476#13477#0" expanded="false" />
+            <element signature="e#13527#13528#0" expanded="false" />
+            <element signature="method#main#0;class#StringUtils#0" expanded="false" />
           </folding>
         </state>
       </provider>
