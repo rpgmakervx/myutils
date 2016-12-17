@@ -1,8 +1,4 @@
-package org.easyarch.myutils.lang;/**
- * Description : 
- * Created by YangZH on 16-10-31
- *  上午9:43
- */
+package org.easyarch.myutils.lang;
 
 /**
  * Description :
@@ -470,5 +466,8 @@ public class NumberUtils {
     }
 
     public static void main(String[] args) {
+
     }
+
+    public void $(){}
 }
