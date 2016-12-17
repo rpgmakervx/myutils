@@ -63,8 +63,7 @@ public class TimeUtil {
     public static Date getDateByNow(int offset) {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        int day = c.get(Calendar.DATE);
-        c.set(Calendar.DATE, day + offset);
+        c.add(Calendar.DATE, offset);
         return c.getTime();
     }
 
@@ -89,8 +88,7 @@ public class TimeUtil {
     public static Date plus(long time) {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        int millisecond = c.get(Calendar.MILLISECOND);
-        c.set(Calendar.MILLISECOND, (int) time + millisecond);
+        c.add(Calendar.MILLISECOND, (int) time);
         return c.getTime();
     }
 
@@ -101,8 +99,7 @@ public class TimeUtil {
     public static Date plusHours(int hours) {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        int h = c.get(Calendar.HOUR_OF_DAY);
-        c.set(Calendar.HOUR_OF_DAY, h + hours);
+        c.add(Calendar.HOUR_OF_DAY, hours);
         return c.getTime();
     }
 
@@ -117,16 +114,14 @@ public class TimeUtil {
     public static Date plusMonth(int month){
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        int m = c.get(Calendar.MONTH);
-        c.set(Calendar.MONTH, m + month);
+        c.add(Calendar.MONTH, month);
         return c.getTime();
     }
 
     public static Date plusYear(int year){
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        int y = c.get(Calendar.YEAR);
-        c.set(Calendar.YEAR, y + year);
+        c.add(Calendar.YEAR, year);
         return c.getTime();
     }
 

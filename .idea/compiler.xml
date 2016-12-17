@@ -23,6 +23,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="myutils-db" />
+        <module name="myutils-export" />
         <module name="myutils-http" />
         <module name="myutils-lang" />
         <module name="myutils-redis" />
@@ -31,6 +32,7 @@
     <bytecodeTargetLevel>
       <module name="myutils" target="1.5" />
       <module name="myutils-db" target="1.7" />
+      <module name="myutils-export" target="1.5" />
       <module name="myutils-http" target="1.7" />
       <module name="myutils-lang" target="1.5" />
       <module name="myutils-redis" target="1.5" />

@@ -4,8 +4,8 @@ package org.easyarch.myutils.db.handler;/**
  *  上午12:00
  */
 
-import org.easyarch.myutils.db.warpper.BeanWrapper;
-import org.easyarch.myutils.db.warpper.Wrapper;
+import org.easyarch.myutils.db.wrapper.BeanWrapper;
+import org.easyarch.myutils.db.wrapper.Wrapper;
 
 import java.sql.ResultSet;
 

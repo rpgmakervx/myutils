@@ -13,6 +13,7 @@
         <module>myutils-db</module>
         <module>myutils-http</module>
         <module>myutils-redis</module>
+        <module>myutils-export</module>
     </modules>
 
     <dependencies>

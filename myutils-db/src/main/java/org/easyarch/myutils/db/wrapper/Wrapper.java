@@ -1,4 +1,4 @@
-package org.easyarch.myutils.db.warpper;/**
+package org.easyarch.myutils.db.wrapper;/**
  * Description : 
  * Created by YangZH on 16-11-2
  *  下午7:17
