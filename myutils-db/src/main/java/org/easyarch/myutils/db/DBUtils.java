@@ -63,6 +63,38 @@ public final class DBUtils {
         closeAll(null,stmt,null);
     }
 
+    public static void beginTransaction(Connection conn){
+        beginTransaction(conn,Connection.TRANSACTION_READ_COMMITTED);
+    }
+
+    public static void beginTransaction(Connection conn,int level){
+        if (conn == null){
+            new IllegalStateException("connection cannot be null!");
+        }
+        try {
+            conn.setAutoCommit(false);
+            conn.setTransactionIsolation(level);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void endTransaction(Connection conn){
+        endTransaction(conn,Connection.TRANSACTION_READ_COMMITTED);
+    }
+
+    public static void endTransaction(Connection conn,int level){
+        if (conn == null){
+            new IllegalStateException("connection cannot be null!");
+        }
+        try {
+            conn.setAutoCommit(true);
+            conn.setTransactionIsolation(level);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void rollBack(Connection conn){
         try {
             conn.rollback();

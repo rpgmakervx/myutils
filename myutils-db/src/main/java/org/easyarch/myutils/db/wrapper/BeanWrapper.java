@@ -35,36 +35,6 @@ public class BeanWrapper<T> extends WrapperAdapter<T> {
         }
     }
 
-//    @Override
-//    public Set<T> set(ResultSet rs, Class<T> type) {
-//        Set<T> set = new HashSet<T>();
-//        try {
-//            ResultSetMetaData meta = rs.getMetaData();
-//            while (rs.next()) {
-//                set.add(createBean(rs,meta,type));
-//            }
-//            return set;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
-
-//    @Override
-//    public Object[] array(ResultSet rs, Class type) {
-//        Object[] array = null;
-//        try {
-//            ResultSetMetaData meta = rs.getMetaData();
-//            array = ArrayUtils.newArray(type, meta.getColumnCount());
-//            while (rs.next()) {
-//                array[rs.getRow()] = createBean(rs,meta,type);
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return array;
-//    }
-
     @Override
     public T bean(ResultSet rs, Class<T> type) {
         try {
@@ -78,20 +48,6 @@ public class BeanWrapper<T> extends WrapperAdapter<T> {
         return null;
     }
 
-//    @Override
-//    public Map<String, T> map(ResultSet rs, Class<T> type) {
-//        Map<String, T> resultMap = new ConcurrentHashMap<String, T>();
-//        try {
-//            ResultSetMetaData meta = rs.getMetaData();
-//            while (rs.next()) {
-//                resultMap.put(meta.getColumnName(rs.getRow()), createBean(rs,meta,type));
-//            }
-//            return resultMap;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
 
     /**
      * bean生成模块抽取
