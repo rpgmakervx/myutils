@@ -5,6 +5,7 @@ import redis.clients.jedis.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -15,7 +16,7 @@ import java.util.Properties;
  * 下午11:08
  */
 
-public class JedisHelper {
+class JedisHelper {
 
     private ShardedJedisPool shardedJedisPool;
 
@@ -41,6 +42,15 @@ public class JedisHelper {
         Properties properties = new Properties();
         try {
             properties.load(new FileInputStream(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        init(properties);
+    }
+    public JedisHelper(InputStream stream){
+        Properties properties = new Properties();
+        try {
+            properties.load(stream);
         } catch (IOException e) {
             e.printStackTrace();
         }
