@@ -10,7 +10,7 @@ import java.util.*;
  * 下午4:34
  */
 
-public class CollectionUtil {
+public class CollectionUtils {
 
     public static <T> boolean isEmpty(Collection<T> col) {
         return col == null || col.isEmpty();

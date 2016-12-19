@@ -1,7 +1,7 @@
 package org.easyarch.myutils.export.excel;
 
 import org.apache.poi.hssf.usermodel.*;
-import org.easyarch.myutils.collection.CollectionUtil;
+import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.export.excel.annotation.ExcelEntity;
 import org.easyarch.myutils.export.excel.annotation.ExcelField;
 import org.easyarch.myutils.export.excel.entity.User;
@@ -22,20 +22,20 @@ import java.util.List;
  * 下午4:34
  */
 
-public class ExcelHelper {
+public class ExcelUtils {
 
     private HSSFWorkbook wb;
     private final static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private ByteArrayOutputStream content;
     public static final String SUFFIX = ".xls";
 
-    public ExcelHelper() {
+    public ExcelUtils() {
         wb = new HSSFWorkbook();
         content = new ByteArrayOutputStream();
     }
 
-    public <T> ExcelHelper build(List<T> datas) {
-        if (CollectionUtil.isEmpty(datas)) {
+    public <T> ExcelUtils build(List<T> datas) {
+        if (CollectionUtils.isEmpty(datas)) {
             return this;
         }
         T t = datas.get(0);
@@ -108,7 +108,7 @@ public class ExcelHelper {
     }
 
     public static void main(String[] args) {
-        ExcelHelper helper = new ExcelHelper();
+        ExcelUtils helper = new ExcelUtils();
         List<User> users = new ArrayList<User>();
         users.add(new User("邢天宇", 22, TimeUtil.getDateByNow(0)));
         users.add(new User("梁乙", 23, TimeUtil.getDateByNow(-1)));

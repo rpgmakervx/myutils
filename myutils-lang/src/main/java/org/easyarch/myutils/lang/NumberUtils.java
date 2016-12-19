@@ -9,7 +9,7 @@ package org.easyarch.myutils.lang;
 public class NumberUtils {
 
     public static boolean isNumber(final String str) {
-        if (StringUtil.isEmpty(str)) {
+        if (StringUtils.isEmpty(str)) {
             return false;
         }
         final char[] chars = str.toCharArray();
@@ -122,7 +122,7 @@ public class NumberUtils {
     }
 
     public static boolean isDigist(final String number) {
-        if (StringUtil.isEmpty(number)) {
+        if (StringUtils.isEmpty(number)) {
             return false;
         }
         for (int i = 0; i < number.length(); i++) {
@@ -135,7 +135,7 @@ public class NumberUtils {
 
     public static Integer toInt(final String number, int defaultValue) {
         try {
-            return StringUtil.isEmpty(number) ? defaultValue : Integer.parseInt(number);
+            return StringUtils.isEmpty(number) ? defaultValue : Integer.parseInt(number);
         } catch (final NumberFormatException nfe) {
             return defaultValue;
         }
@@ -147,7 +147,7 @@ public class NumberUtils {
 
     public static Float toFloat(final String number, float defaultValue) {
         try {
-            return StringUtil.isEmpty(number) ? defaultValue : Float.parseFloat(number);
+            return StringUtils.isEmpty(number) ? defaultValue : Float.parseFloat(number);
         } catch (final NumberFormatException nfe) {
             return defaultValue;
         }
@@ -159,7 +159,7 @@ public class NumberUtils {
 
     public static Double toDouble(final String number, double defaultValue) {
         try {
-            return StringUtil.isEmpty(number) ? defaultValue : Double.parseDouble(number);
+            return StringUtils.isEmpty(number) ? defaultValue : Double.parseDouble(number);
         } catch (final NumberFormatException nfe) {
             return defaultValue;
         }
@@ -171,7 +171,7 @@ public class NumberUtils {
 
     public static Long toLong(final String number,long defaultValue){
         try {
-            return StringUtil.isEmpty(number) ? defaultValue : Long.parseLong(number);
+            return StringUtils.isEmpty(number) ? defaultValue : Long.parseLong(number);
         } catch (final NumberFormatException nfe) {
             return defaultValue;
         }
@@ -182,7 +182,7 @@ public class NumberUtils {
 
     public static Byte toByte(final String number, byte defaultValue) {
         try {
-            return StringUtil.isEmpty(number) ? defaultValue : Byte.parseByte(number);
+            return StringUtils.isEmpty(number) ? defaultValue : Byte.parseByte(number);
         } catch (final NumberFormatException nfe) {
             return defaultValue;
         }
@@ -194,7 +194,7 @@ public class NumberUtils {
 
     public static Short toShort(final String number, short defaultValue) {
         try {
-            return StringUtil.isEmpty(number) ? defaultValue : Short.parseShort(number);
+            return StringUtils.isEmpty(number) ? defaultValue : Short.parseShort(number);
         } catch (final NumberFormatException nfe) {
             return defaultValue;
         }

@@ -12,11 +12,11 @@ import java.util.Properties;
  * 提供三种初始化方式
  */
 
-public class JedisUtil {
+public class JedisUtils {
 
     private static JedisHelper helper;
 
-    private JedisUtil(){}
+    private JedisUtils(){}
 
     public static void init(String path){
         helper = new JedisHelper(path);

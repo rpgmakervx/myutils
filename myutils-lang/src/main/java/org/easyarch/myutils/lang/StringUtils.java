@@ -12,7 +12,7 @@ import java.util.UUID;
  * 上午1:24
  */
 
-public class StringUtil {
+public class StringUtils {
 
     private static final Random RANDOM = new Random();
 

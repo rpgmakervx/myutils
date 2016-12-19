@@ -6,8 +6,8 @@ package org.easyarch.myutils.json;/**
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import org.easyarch.myutils.collection.CollectionUtil;
-import org.easyarch.myutils.lang.StringUtil;
+import org.easyarch.myutils.collection.CollectionUtils;
+import org.easyarch.myutils.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +20,7 @@ import java.util.Map;
  * 下午5:50
  */
 
-public class JSONUtil {
+public class JSONUtils {
 
     public static boolean isJson(String string) {
         try {
@@ -32,14 +32,14 @@ public class JSONUtil {
     }
 
     public static String list2Json(List list) {
-        if (CollectionUtil.isEmpty(list)){
+        if (CollectionUtils.isEmpty(list)){
             return "";
         }
         return JSON.parseArray(JSON.toJSONString(list, true)).toString();
     }
 
     public static<T> List<T> json2List(String json, Class<T> cls){
-        if (StringUtil.isEmpty(json)){
+        if (StringUtils.isEmpty(json)){
             return new ArrayList<T>();
         }
         return JSON.parseArray(json,cls);
@@ -52,7 +52,7 @@ public class JSONUtil {
         return JSON.toJSONString(object, true);
     }
     public static<T> T json2Pojo(String json,Class<T> clz) {
-        if (StringUtil.isEmpty(json)){
+        if (StringUtils.isEmpty(json)){
             return null;
         }
         return JSONObject.parseObject(json,clz);
@@ -66,7 +66,7 @@ public class JSONUtil {
         return jsonObject.toJSONString();
     }
     public static Map<String,Object> json2Map(String json){
-        if (StringUtil.isEmpty(json)){
+        if (StringUtils.isEmpty(json)){
             return null;
         }
         JSONObject object = str2Json(json);
@@ -78,7 +78,7 @@ public class JSONUtil {
     }
 
     public static JSONObject str2Json(String str) {
-        if (StringUtil.isEmpty(str))
+        if (StringUtils.isEmpty(str))
             return null;
         return JSON.parseObject(str);
     }
