@@ -367,13 +367,6 @@ public class StringUtils {
         return join(srcs, separator, false);
     }
 
-//    public static String replaceAccurate(final String src, String target, String replace) {
-//        int begin = kmp(src, target);
-//        StringBuffer buffer = new StringBuffer();
-//        return buffer.append(src.substring(0, begin)).append(replace).
-//                append(src.substring(target.length() + begin, src.length())).toString();
-//    }
-
     /**
      * 关键字打标签
      * @param src
