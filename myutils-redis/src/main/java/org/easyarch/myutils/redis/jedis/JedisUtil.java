@@ -1,5 +1,7 @@
 package org.easyarch.myutils.redis.jedis;
 
+import redis.clients.jedis.ShardedJedis;
+
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -29,6 +31,8 @@ public class JedisUtil {
     }
 
     public static void set(String key,String value){
-        helper.getShardedJedis().set(key,value);
+        ShardedJedis jedis = helper.getShardedJedis();
+        jedis.set(key,value);
+        JedisHelper.recycle(jedis);
     }
 }
