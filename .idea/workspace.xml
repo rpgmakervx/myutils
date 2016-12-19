@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04479f73-a2f6-4dd0-b1ab-59d04019c34e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/Result.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/json/JSONUtil.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/StringUtils.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/StringUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/User.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/ArrayUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/ArrayUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/handler/LoopHandler.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/array/handler/LoopHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/CodecUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/CodecUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/HashType.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/codec/HashType.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/file/FileUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/io/IOUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/io/IOUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/NumberUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/lang/NumberUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/reflect/ReflectUtils.class" afterPath="$PROJECT_DIR$/myutils-lang/target/classes/org/easyarch/myutils/reflect/ReflectUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/myutils-db.iml" afterPath="$PROJECT_DIR$/myutils-db/myutils-db.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" afterPath="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-export/myutils-export.iml" afterPath="$PROJECT_DIR$/myutils-export/myutils-export.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-http/myutils-http.iml" afterPath="$PROJECT_DIR$/myutils-http/myutils-http.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" afterPath="$PROJECT_DIR$/myutils-lang/myutils-lang.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/pom.xml" afterPath="$PROJECT_DIR$/myutils-lang/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java" afterPath="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/lang/NumberUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java" afterPath="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java" />
     </list>
     <ignored path="myutils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,68 +29,65 @@
     <favorites_list name="myutils" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MySqlExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/MySqlExecutor.java">
+    <leaf>
+      <file leaf-file-name="JedisUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+            <state relative-caret-position="379">
+              <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#initialShardedPool#0;class#JedisUtil#0" expanded="true" />
+                <element signature="method#initialShardedPool#1;class#JedisUtil#0" expanded="true" />
+                <element signature="e#649#665#0" expanded="true" />
+                <element signature="e#969#970#0" expanded="true" />
+                <element signature="e#1022#1023#0" expanded="true" />
+                <element signature="method#recycle#0;class#JedisUtil#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JedisPool.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisPool.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SqlExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java">
+      <file leaf-file-name="Pool.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/util/Pool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="146" column="24" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="24" />
+            <state relative-caret-position="286">
+              <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
               <folding>
-                <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
-                <element signature="method#query#2;class#SqlExecutor#0" expanded="true" />
+                <element signature="docComment;method#returnResourceObject#0;class#Pool#0" expanded="true" />
+                <element signature="docComment;method#returnResource#0;class#Pool#0" expanded="true" />
+                <element signature="method#closeInternalPool#0;class#Pool#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConnConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java">
+      <file leaf-file-name="GenericObjectPoolConfig.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar!/org/apache/commons/pool2/impl/GenericObjectPoolConfig.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#config#1;class#ConnConfig#0" expanded="true" />
-                <element signature="method#config#2;class#ConnConfig#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="186">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeanListResultSetHadler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java">
+      <file leaf-file-name="GenericObjectPool.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar!/org/apache/commons/pool2/impl/GenericObjectPool.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-              <folding>
-                <element signature="e#526#527#0" expanded="true" />
-                <element signature="e#573#574#0" expanded="true" />
-                <element signature="method#BeanListResultSetHadler#1;class#BeanListResultSetHadler#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BeanWrapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/BeanWrapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-              <folding>
-                <element signature="method#list#0;class#BeanWrapper#0" expanded="true" />
-                <element signature="method#createBean#0;class#BeanWrapper#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="178">
+              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -159,7 +134,6 @@
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/NettyClient.java" />
         <option value="$PROJECT_DIR$/myutils-redis/pom.xml" />
         <option value="$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java" />
-        <option value="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/format/TimeUtil.java" />
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/io/IOUtils.java" />
@@ -181,6 +155,7 @@
         <option value="$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/json/JSONUtil.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java" />
         <option value="$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java" />
+        <option value="$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java" />
       </list>
     </option>
   </component>
@@ -256,6 +231,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -278,7 +254,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -925,7 +900,9 @@
       <workItem from="1481726941336" duration="3026000" />
       <workItem from="1481804861788" duration="3479000" />
       <workItem from="1481818132458" duration="1309000" />
-      <workItem from="1481956475588" duration="16268000" />
+      <workItem from="1481956475588" duration="16363000" />
+      <workItem from="1481976946236" duration="1821000" />
+      <workItem from="1482128464038" duration="4008000" />
     </task>
     <task id="LOCAL-00001" summary="修改module  name">
       <created>1481455888073</created>
@@ -938,7 +915,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81059000" />
+    <option name="totallyTimeSpent" value="86983000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -955,7 +932,6 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -965,17 +941,18 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18910256" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34775767" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34775767" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31864673" sideWeight="0.50641024" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31864673" sideWeight="0.50641024" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24940991" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1001,7 +978,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5432692" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18910256" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18910256" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34775767" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31864673" sideWeight="0.50641024" order="4" side_tool="true" content_ui="tabs" />
@@ -1031,107 +1008,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.m2/repository/joda-time/joda-time/2.9.6/joda-time-2.9.6.jar!/org/joda/time/field/AbstractReadableInstantFieldProperty.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="164" column="18" selection-start-line="164" selection-start-column="18" selection-end-line="164" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///opt/jdk1.8.0_72/src.zip!/java/util/Calendar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="1873" column="16" selection-start-line="1873" selection-start-column="16" selection-end-line="1873" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/joda-time/joda-time/2.9.6/joda-time-2.9.6.jar!/org/joda/time/DateTime.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="300" column="39" selection-start-line="300" selection-start-column="39" selection-end-line="300" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-redis/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final.jar!/io/netty/handler/codec/http/HttpResponse.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-http/src/main/java/org/easyarch/myutils/http/HttpUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/JedisPool.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="961">
-          <caret line="90" column="11" selection-start-line="90" selection-start-column="11" selection-end-line="90" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/cp/cfg/PoolConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/file/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
-          <caret line="375" column="59" selection-start-line="375" selection-start-column="59" selection-end-line="375" selection-end-column="59" />
-          <folding>
-            <element signature="method#write#1;class#FileUtils#0" expanded="false" />
-            <element signature="method#byteCountToDisplaySize#0;class#FileUtils#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/codec/CodecUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/array/ArrayUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-732">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myutils-lang/src/main/java/org/easyarch/myutils/collection/CollectionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="775">
           <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1139,7 +1019,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1147,7 +1026,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1156,24 +1034,16 @@
         <state relative-caret-position="188">
           <caret line="392" column="33" selection-start-line="392" selection-start-column="33" selection-end-line="392" selection-end-column="33" />
           <folding>
-            <element signature="docComment;field#TRANSACTION_READ_UNCOMMITTED#0;class#Connection#0" expanded="true" />
+            <element signature="docComment;field#TRANSACTION_READ_UNCOMMITTED#0;class#Connection#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/annotation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/annotation.java" />
     <entry file="file://$PROJECT_DIR$/myutils-export/src/main/java/org/easyarch/myutils/export/excel/helper/ClassHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,7 +1051,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1189,7 +1058,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="54" column="49" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1197,7 +1065,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-91">
           <caret line="165" column="50" selection-start-line="165" selection-start-column="50" selection-end-line="165" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1205,30 +1072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
-          <folding>
-            <element signature="method#max#0;class#NumberUtils#0" expanded="false" />
-            <element signature="method#max#1;class#NumberUtils#0" expanded="false" />
-            <element signature="method#min#5;class#NumberUtils#0" expanded="false" />
-            <element signature="method#sum#0;class#NumberUtils#0" expanded="false" />
-            <element signature="method#sum#1;class#NumberUtils#0" expanded="false" />
-            <element signature="method#sum#2;class#NumberUtils#0" expanded="false" />
-            <element signature="method#sum#3;class#NumberUtils#0" expanded="false" />
-            <element signature="method#sum#4;class#NumberUtils#0" expanded="false" />
-            <element signature="e#13363#13364#0" expanded="false" />
-            <element signature="e#13419#13420#0" expanded="false" />
-            <element signature="e#13470#13471#0" expanded="false" />
-            <element signature="e#13518#13519#0" expanded="false" />
-            <element signature="e#13571#13572#0" expanded="false" />
-            <element signature="e#13619#13620#0" expanded="false" />
-            <element signature="e#13670#13671#0" expanded="false" />
-            <element signature="e#13718#13719#0" expanded="false" />
-            <element signature="e#13770#13771#0" expanded="false" />
-            <element signature="e#13826#13827#0" expanded="false" />
-            <element signature="e#13876#13877#0" expanded="false" />
-            <element signature="e#13932#13933#0" expanded="false" />
-            <element signature="method#getMaxCommonDivisor#0;class#NumberUtils#0" expanded="false" />
-            <element signature="method#main#0;class#NumberUtils#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1236,7 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="65" column="61" selection-start-line="65" selection-start-column="61" selection-end-line="65" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1244,7 +1086,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1252,13 +1093,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="155">
           <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#813#0" expanded="false" />
-            <element signature="docComment;class#Type#0" expanded="false" />
-            <element signature="docComment;method#getTypeName#0;class#Type#0" expanded="false" />
-            <element signature="e#776#777#0" expanded="false" />
-            <element signature="e#809#810#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1266,10 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-53">
           <caret line="144" column="8" selection-start-line="144" selection-start-column="8" selection-end-line="144" selection-end-column="52" />
-          <folding>
-            <element signature="e#4346#4347#0" expanded="false" />
-            <element signature="e#4422#4423#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1277,13 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#2945#0" expanded="false" />
-            <element signature="docComment;class#ParameterizedType#0" expanded="false" />
-            <element signature="docComment;method#getActualTypeArguments#0;class#ParameterizedType#0" expanded="false" />
-            <element signature="docComment;method#getRawType#0;class#ParameterizedType#0" expanded="false" />
-            <element signature="docComment;method#getOwnerType#0;class#ParameterizedType#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1291,7 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1299,9 +1121,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="docComment;class#ExcelEntity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1309,69 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#IOUtils#0" expanded="false" />
-            <element signature="method#closeIO#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#closeIO#2;class#IOUtils#0" expanded="false" />
-            <element signature="method#closeIO#3;class#IOUtils#0" expanded="false" />
-            <element signature="method#closeChl#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#flushIO#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#flushIO#1;class#IOUtils#0" expanded="false" />
-            <element signature="method#getBytes#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#toByteArray#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#toNIOByteArray#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#toByteArrayx#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#toCharArray#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#toCharArrayx#0;class#IOUtils#0" expanded="false" />
-            <element signature="e#3131#3132#0" expanded="false" />
-            <element signature="e#3189#3190#0" expanded="false" />
-            <element signature="method#toNIOString#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#toStringln#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#toString#1;class#IOUtils#0" expanded="false" />
-            <element signature="method#write#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#write#1;class#IOUtils#0" expanded="false" />
-            <element signature="method#println#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#print#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#bufferedCopy#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#bufferedCopy#1;class#IOUtils#0" expanded="false" />
-            <element signature="docComment;method#copy#0;class#IOUtils#0" expanded="false" />
-            <element signature="e#5796#5797#0" expanded="false" />
-            <element signature="e#5860#5861#0" expanded="false" />
-            <element signature="e#5921#5922#0" expanded="false" />
-            <element signature="e#5993#5994#0" expanded="false" />
-            <element signature="method#copy#2;class#IOUtils#0" expanded="false" />
-            <element signature="method#copy#3;class#IOUtils#0" expanded="false" />
-            <element signature="method#nioCopy#0;class#IOUtils#0" expanded="false" />
-            <element signature="e#7124#7125#0" expanded="false" />
-            <element signature="e#7188#7189#0" expanded="false" />
-            <element signature="method#nioCopyx#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#nioCopyx#1;class#IOUtils#0" expanded="false" />
-            <element signature="method#copyx#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#copyx#1;class#IOUtils#0" expanded="false" />
-            <element signature="method#copyx#2;class#IOUtils#0" expanded="false" />
-            <element signature="method#copyx#3;class#IOUtils#0" expanded="false" />
-            <element signature="method#copyx#4;class#IOUtils#0" expanded="false" />
-            <element signature="e#9905#9906#0" expanded="false" />
-            <element signature="e#9961#9962#0" expanded="false" />
-            <element signature="method#copyln#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#copyln#1;class#IOUtils#0" expanded="false" />
-            <element signature="e#10758#10759#0" expanded="false" />
-            <element signature="e#10822#10823#0" expanded="false" />
-            <element signature="e#10887#10888#0" expanded="false" />
-            <element signature="e#10952#10953#0" expanded="false" />
-            <element signature="method#equals#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#equals#1;class#IOUtils#0" expanded="false" />
-            <element signature="e#11531#11532#0" expanded="false" />
-            <element signature="e#11577#11578#0" expanded="false" />
-            <element signature="e#11651#11652#0" expanded="false" />
-            <element signature="e#11697#11698#0" expanded="false" />
-            <element signature="docComment;method#transferTo#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#transferTo#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#transferTo#1;class#IOUtils#0" expanded="false" />
-            <element signature="method#transferFrom#0;class#IOUtils#0" expanded="false" />
-            <element signature="method#transferFrom#1;class#IOUtils#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1379,22 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#User#0;class#User#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-            <element signature="e#777#778#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#870#871#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-            <element signature="e#970#971#0" expanded="true" />
-            <element signature="e#1003#1004#0" expanded="true" />
-            <element signature="e#1053#1054#0" expanded="true" />
-            <element signature="e#1097#1098#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1402,48 +1142,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12">
           <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;class#TimeUtil#0" expanded="false" />
-            <element signature="method#parse#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#parse#1;class#TimeUtil#0" expanded="false" />
-            <element signature="e#1021#1022#0" expanded="false" />
-            <element signature="e#1067#1068#0" expanded="false" />
-            <element signature="e#1125#1126#0" expanded="false" />
-            <element signature="e#1171#1172#0" expanded="false" />
-            <element signature="e#1203#1204#0" expanded="false" />
-            <element signature="e#1236#1237#0" expanded="false" />
-            <element signature="e#1277#1278#0" expanded="false" />
-            <element signature="e#1329#1330#0" expanded="false" />
-            <element signature="e#1370#1371#0" expanded="false" />
-            <element signature="e#1422#1423#0" expanded="false" />
-            <element signature="docComment;method#getDateByNow#0;class#TimeUtil#0" expanded="false" />
-            <element signature="docComment;method#yesterday#0;class#TimeUtil#0" expanded="false" />
-            <element signature="e#1789#1790#0" expanded="false" />
-            <element signature="e#1828#1829#0" expanded="false" />
-            <element signature="docComment;method#tomorrow#0;class#TimeUtil#0" expanded="false" />
-            <element signature="e#1915#1916#0" expanded="false" />
-            <element signature="e#1953#1954#0" expanded="false" />
-            <element signature="method#plus#0;class#TimeUtil#0" expanded="false" />
-            <element signature="e#2204#2205#0" expanded="false" />
-            <element signature="e#2246#2247#0" expanded="false" />
-            <element signature="method#plusHours#0;class#TimeUtil#0" expanded="false" />
-            <element signature="e#2489#2490#0" expanded="false" />
-            <element signature="e#2525#2526#0" expanded="false" />
-            <element signature="e#2569#2570#0" expanded="false" />
-            <element signature="e#2609#2610#0" expanded="false" />
-            <element signature="method#plusMonth#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#plusYear#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#milliseconds#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#seconds#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#minutes#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#hours#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#dayOfYear#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#dayOfWeek#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#dayOfMonth#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#month#0;class#TimeUtil#0" expanded="false" />
-            <element signature="method#year#0;class#TimeUtil#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1451,16 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="115" column="50" selection-start-line="115" selection-start-column="50" selection-end-line="115" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#ExcelHelper#0;class#ExcelHelper#0" expanded="true" />
-            <element signature="method#build#0;class#ExcelHelper#0" expanded="true" />
-            <element signature="e#2570#2571#0" expanded="true" />
-            <element signature="e#2614#2615#0" expanded="true" />
-            <element signature="method#disk#0;class#ExcelHelper#0" expanded="true" />
-            <element signature="method#iterateField#0;class#ExcelHelper#0" expanded="true" />
-            <element signature="e#3558#3564#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1468,7 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1476,10 +1163,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-546">
           <caret line="1320" column="23" selection-start-line="1320" selection-start-column="23" selection-end-line="1320" selection-end-column="23" />
-          <folding>
-            <element signature="e#47217#47218#0" expanded="false" />
-            <element signature="e#47268#47269#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1487,19 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding>
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#554#555#0" expanded="true" />
-            <element signature="e#592#593#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1507,10 +1177,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1314">
           <caret line="302" column="24" selection-start-line="302" selection-start-column="24" selection-end-line="302" selection-end-column="24" />
-          <folding>
-            <element signature="e#11045#11046#0" expanded="false" />
-            <element signature="e#11108#11109#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1518,9 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-          <folding>
-            <element signature="method#toString#0;class#User#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1528,7 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1536,9 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding>
-            <element signature="method#TypeReference#0;class#TypeReference#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1546,9 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="711" column="36" selection-start-line="711" selection-start-column="36" selection-end-line="711" selection-end-column="36" />
-          <folding>
-            <element signature="method#getTypeParameters#0;class#Class#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1556,19 +1212,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="88" column="9" selection-start-line="88" selection-start-column="9" selection-end-line="88" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#isJson#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#list2Json#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#json2List#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#pojo2Json#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#json2Pojo#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#map2Json#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#json2Map#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#str2Json#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#pojo2Map#0;class#JSONUtil#0" expanded="true" />
-            <element signature="method#addKV#0;class#JSONUtil#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1576,15 +1219,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1592,7 +1226,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1600,61 +1233,165 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/wrapper/BeanWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
+        <state relative-caret-position="403">
           <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding>
-            <element signature="method#list#0;class#BeanWrapper#0" expanded="true" />
-            <element signature="method#createBean#0;class#BeanWrapper#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/handler/BeanListResultSetHadler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
+        <state relative-caret-position="713">
           <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-          <folding>
-            <element signature="e#526#527#0" expanded="true" />
-            <element signature="e#573#574#0" expanded="true" />
-            <element signature="method#BeanListResultSetHadler#1;class#BeanListResultSetHadler#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/MySqlExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="310">
           <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/exec/SqlExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
+        <state relative-caret-position="992">
           <caret line="146" column="24" selection-start-line="146" selection-start-column="24" selection-end-line="146" selection-end-column="24" />
-          <folding>
-            <element signature="method#query#0;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#1;class#SqlExecutor#0" expanded="true" />
-            <element signature="method#query#2;class#SqlExecutor#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myutils-db/src/main/java/org/easyarch/myutils/db/cfg/ConnConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state relative-caret-position="-241">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar!/org/apache/commons/pool2/impl/GenericObjectPool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar!/org/apache/commons/pool2/impl/GenericObjectPoolConfig.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/ShardedJedis.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/JedisPool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/jedis/ShardedJedisPool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="57" column="32" selection-start-line="57" selection-start-column="32" selection-end-line="57" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0.jar!/redis/clients/util/Pool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="65" column="5" selection-start-line="65" selection-start-column="5" selection-end-line="65" selection-end-column="5" />
+          <folding>
+            <element signature="method#Pool#0;class#Pool#0" expanded="true" />
+            <element signature="method#Pool#1;class#Pool#0" expanded="true" />
+            <element signature="method#getResource#0;class#Pool#0" expanded="true" />
+            <element signature="method#returnResourceObject#0;class#Pool#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/util/Pool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;method#returnResourceObject#0;class#Pool#0" expanded="true" />
+            <element signature="docComment;method#returnResource#0;class#Pool#0" expanded="true" />
+            <element signature="method#closeInternalPool#0;class#Pool#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/ShardedJedis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/BinaryJedis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/Jedis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="3411" column="9" selection-start-line="3411" selection-start-column="9" selection-end-line="3411" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/JedisPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/redis/clients/jedis/2.9.0/jedis-2.9.0-sources.jar!/redis/clients/jedis/ShardedJedisPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="40" column="2" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
+          <folding>
+            <element signature="docComment;method#returnBrokenResource#0;class#ShardedJedisPool#0" expanded="true" />
+            <element signature="method#returnBrokenResource#0;class#ShardedJedisPool#0" expanded="true" />
+            <element signature="docComment;method#returnResource#0;class#ShardedJedisPool#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myutils-redis/src/main/java/org/easyarch/myutils/redis/jedis/JedisUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#config#1;class#ConnConfig#0" expanded="true" />
-            <element signature="method#config#2;class#ConnConfig#0" expanded="true" />
+            <element signature="method#initialShardedPool#0;class#JedisUtil#0" expanded="true" />
+            <element signature="method#initialShardedPool#1;class#JedisUtil#0" expanded="true" />
+            <element signature="e#649#665#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#1022#1023#0" expanded="true" />
+            <element signature="method#recycle#0;class#JedisUtil#0" expanded="true" />
           </folding>
         </state>
       </provider>

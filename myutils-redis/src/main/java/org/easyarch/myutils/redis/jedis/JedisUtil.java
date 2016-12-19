@@ -1,8 +1,9 @@
 package org.easyarch.myutils.redis.jedis;
 
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
+import redis.clients.jedis.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description :
@@ -12,7 +13,24 @@ import redis.clients.jedis.JedisPoolConfig;
 
 public class JedisUtil {
 
-    private static JedisPool pool = null;
+    private ShardedJedisPool shardedJedisPool;
+
+    private void initialShardedPool(int maxTotal,int maxIdle,long maxWaitMillis){
+
+    }
+
+    private void initialShardedPool() {
+        // 池基本配置
+        JedisPoolConfig config = new JedisPoolConfig();
+        config.setMaxTotal(20);
+        config.setMaxIdle(5);
+        config.setMaxWaitMillis(1000l);
+        // slave链接
+        List<JedisShardInfo> shards = new ArrayList<JedisShardInfo>();
+        shards.add(new JedisShardInfo("127.0.0.1", 6379, "master"));
+        // 构造池
+        shardedJedisPool = new ShardedJedisPool(config, shards);
+    }
 
     /**
      * 构建redis连接池
@@ -21,19 +39,8 @@ public class JedisUtil {
      * @param port
      * @return JedisPool
      */
-    public static JedisPool getPool() {
-        if (pool == null) {
-            JedisPoolConfig config = new JedisPoolConfig();
-            //控制一个pool可分配多少个jedis实例，通过pool.getResource()来获取；
-            //如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。
-            config.setMaxTotal(500);
-            //控制一个pool最多有多少个状态为idle(空闲的)的jedis实例。
-            config.setMaxIdle(5);
-            //表示当borrow(引入)一个jedis实例时，最大的等待时间，如果超过等待时间，则直接抛出JedisConnectionException；
-            config.setMaxWaitMillis(1000 * 100);
-            pool = new JedisPool(config, "127.0.0.1", 6379);
-        }
-        return pool;
+    public ShardedJedis getShardedJedis() {
+        return shardedJedisPool.getResource();
     }
 
     /**
@@ -42,9 +49,9 @@ public class JedisUtil {
      * @param pool
      * @param redis
      */
-    public static void returnResource(JedisPool pool, Jedis redis) {
+    public static void recycle (ShardedJedis redis) {
         if (redis != null) {
-            pool.returnResource(redis);
+            redis.close();
         }
     }
 }
