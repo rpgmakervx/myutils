@@ -36,10 +36,27 @@ public class JedisUtils {
         JedisHelper.recycle(jedis);
     }
 
-    public static void set(String key,String value,int expire){
+    public static void setBytes(byte[] key,byte[] value){
+        ShardedJedis jedis = helper.getShardedJedis();
+        jedis.set(key,value);
+        JedisHelper.recycle(jedis);
+    }
+
+    public static void setExp(String key,String value,int expire){
         ShardedJedis jedis = helper.getShardedJedis();
         jedis.set(key,value);
         jedis.expire(key,expire);
+        JedisHelper.recycle(jedis);
+    }
+    public static void setBytesExp(byte[] key,byte[] value,int expire){
+        ShardedJedis jedis = helper.getShardedJedis();
+        jedis.set(key,value);
+        jedis.expire(key,expire);
+        JedisHelper.recycle(jedis);
+    }
+    public static void setnx(String key,String values){
+        ShardedJedis jedis = helper.getShardedJedis();
+        jedis.setnx(key,values);
         JedisHelper.recycle(jedis);
     }
 
@@ -49,10 +66,27 @@ public class JedisUtils {
         JedisHelper.recycle(jedis);
         return value;
     }
-
-    public static void setnx(String key,String values){
+    public static byte[] getBytes(byte[] key){
         ShardedJedis jedis = helper.getShardedJedis();
-        jedis.setnx(key,values);
+        byte[] value = jedis.get(key);
         JedisHelper.recycle(jedis);
+        return value;
+    }
+
+
+    public static long del(String key){
+        ShardedJedis jedis = helper.getShardedJedis();
+        long count = jedis.del(key);
+        JedisHelper.recycle(jedis);
+        return count;
+    }
+
+    public static long append(String key,String value){
+
+    }
+
+    public static void main(String[] args) {
+        ShardedJedis jedis = helper.getShardedJedis();
+        jedis.append()
     }
 }
