@@ -6,6 +6,8 @@ package org.easyarch.myutils.json;/**
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.parser.Feature;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.lang.StringUtils;
 
@@ -107,5 +109,11 @@ public class JSONUtils {
         return JSON.toJSONString(str.trim());
     }
 
+    public static<T> byte[] serialize(T bean){
+        return JSONObject.toJSONBytes(bean, SerializerFeature.PrettyFormat);
+    }
 
+    public static<T> T deserialize(byte[] json,Class<T> cls){
+        return (T) JSONObject.parse(json, Feature.OrderedField);
+    }
 }
