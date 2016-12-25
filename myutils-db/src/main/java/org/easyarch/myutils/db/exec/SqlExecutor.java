@@ -18,8 +18,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Description :
@@ -146,33 +144,10 @@ public class SqlExecutor extends AbstractExecutor{
     public static void main(String[] args) {
         ConnConfig.config("root", "123456",
                 "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");
-        PoolConfig.config(200, 50, 20, 3 * 1000L);
+        PoolConfig.config(200, 50, 5, 3 * 1000L);
         final SqlExecutor executor = new MySqlExecutor(DBCPoolFactory.newConfigedDBCPool());
-//        final SqlExecutor executor = new MySqlExecutor();
-        ExecutorService pool = Executors.newCachedThreadPool();
-//        List<User> user = executor.query("select * from user ",true,
-//                new BeanListResultSetHadler<User>(User.class), null);
-        for (int index = 0;index<200;index++){
-            final int finalIndex = index;
-            pool.submit(new Runnable() {
-                @Override
-                public void run() {
-                    Thread.currentThread().setName("thread"+ finalIndex);
-                        int count = 0;
-                        while (count < 200) {
-                            List<User> user = executor.query("select * from user ",
-                                    new BeanListResultSetHadler<User>(User.class), null);
-                            System.out.println(Thread.currentThread().getName() + " count:" + count);
-                            count++;
-                        }
-                        System.out.println("++++++++++++++++++++++"+Thread.currentThread().getName()+" ended ++++++++++++++++++++++");
-                    }
-            });
-        }
-        pool.shutdown();
-//        executor.query(createConnection(),"select * from user ",
-//                            new BeanListResultSetHadler<User>(User.class));
-        System.out.println("programme ended");
-
+        List<User> user = executor.query("select * from user ",
+                new BeanListResultSetHadler<User>(User.class), null);
+        System.out.println("end ");
     }
 }

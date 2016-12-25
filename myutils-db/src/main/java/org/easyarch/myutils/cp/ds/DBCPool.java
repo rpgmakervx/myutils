@@ -14,11 +14,10 @@ import java.lang.reflect.Proxy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.HashSet;
 import java.util.Queue;
 import java.util.Set;
-import java.util.Timer;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -28,10 +27,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 
 public class DBCPool extends DataSourceAdapter {
-    static Timer timer = new Timer();
     private Queue<Connection> conpool;
     private Queue<Connection> idleQueue;
-    public static final Set<Connection> realconns = new CopyOnWriteArraySet<Connection>();
+    public static final Set<Connection> realconns = new HashSet<>();
     private final int maxPoolSize;
     private final int minIdle;
     private final int maxIdle;
@@ -104,7 +102,6 @@ public class DBCPool extends DataSourceAdapter {
                         break;
                     }
                 }
-//                System.out.println("front 总连接数--->"+realconns.size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
                 if (conn == null) {
                     throw new RuntimeException("db connection pool was full");
                 }
@@ -136,6 +133,9 @@ public class DBCPool extends DataSourceAdapter {
         if (conpool.remove(conn)){
             System.out.println("从池中删除连接");
             currentPoolSize.decrementAndGet();
+            if (idleQueue.size() < maxIdle){
+                idleQueue.offer(conn);
+            }
         }
     }
 
@@ -143,7 +143,6 @@ public class DBCPool extends DataSourceAdapter {
         try {
             Connection conn = DriverManager.getConnection(ConnConfig.getUrl()
                     , ConnConfig.getUser(), ConnConfig.getPassword());
-//            System.out.println("realcon : "+conn);
             realconns.add(conn);
             return (Connection) Proxy.newProxyInstance(getClass().getClassLoader(),
                     new Class[]{Connection.class}, new ConnectionProxy(conn));
@@ -155,7 +154,6 @@ public class DBCPool extends DataSourceAdapter {
     protected synchronized void recover(Connection conn) {
         if (conn != null) {
             poolOut(conn);
-//            System.out.println("recover ok? " + idleQueue.offer(conn) + ", size-->" + idleQueue.size()+",conn-->"+conn);
             System.out.println("recover 总连接数--->"+realconns.size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
         }else{
             System.out.println("recover fail...");
