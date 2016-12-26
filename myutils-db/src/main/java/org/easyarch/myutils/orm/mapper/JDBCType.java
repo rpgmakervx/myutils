@@ -1,6 +1,5 @@
 package org.easyarch.myutils.orm.mapper;
 
-import java.sql.Types;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,48 +8,45 @@ import java.util.Map;
  * Created by code4j on 16-12-25
  * 下午10:04
  * description:
+ *
+ CHAR            String
+ VARCHAR         String
+ LONGVARCHAR     String
+ BOOL            boolean
+ TINYINT         byte
+ SMALLINT        short
+ INTEGER         int
+ BIGINT          long
+ REAL            float
+ FLOAT           double
+ DOUBLE          double
+ BINARY          byte[]
+ VARBINARY       byte[]
+ LONGVARBINARY   byte[]
+ DATE            java.sql.Date
+ TIME            java.sql.Time
+ TIMESTAMP       java.sql.Tiimestamp
  */
 
 public enum JDBCType {
-    ARRAY(Types.ARRAY),
-    BIT(Types.BIT),
-    TINYINT(Types.TINYINT),
-    SMALLINT(Types.SMALLINT),
-    INTEGER(Types.INTEGER),
-    BIGINT(Types.BIGINT),
-    FLOAT(Types.FLOAT),
-    REAL(Types.REAL),
-    DOUBLE(Types.DOUBLE),
-    NUMERIC(Types.NUMERIC),
-    DECIMAL(Types.DECIMAL),
-    CHAR(Types.CHAR),
-    VARCHAR(Types.VARCHAR),
-    LONGVARCHAR(Types.LONGVARCHAR),
-    DATE(Types.DATE),
-    TIME(Types.TIME),
-    TIMESTAMP(Types.TIMESTAMP),
-    BINARY(Types.BINARY),
-    VARBINARY(Types.VARBINARY),
-    LONGVARBINARY(Types.LONGVARBINARY),
-    NULL(Types.NULL),
-    OTHER(Types.OTHER),
-    BLOB(Types.BLOB),
-    CLOB(Types.CLOB),
-    BOOLEAN(Types.BOOLEAN),
-    CURSOR(-10), // Oracle
-    UNDEFINED(Integer.MIN_VALUE + 1000),
-    NVARCHAR(Types.NVARCHAR), // JDK6
-    NCHAR(Types.NCHAR), // JDK6
-    NCLOB(Types.NCLOB), // JDK6
-    STRUCT(Types.STRUCT),
-    JAVA_OBJECT(Types.JAVA_OBJECT),
-    DISTINCT(Types.DISTINCT),
-    REF(Types.REF),
-    DATALINK(Types.DATALINK),
-    ROWID(Types.ROWID), // JDK6
-    LONGNVARCHAR(Types.LONGNVARCHAR), // JDK6
-    SQLXML(Types.SQLXML), // JDK6
-    DATETIMEOFFSET(-155); // SQL Server 2008
+
+    CHAR(0),
+    VARCHAR(1),
+    LONGVARCHAR(2),
+    NUMERIC(3),
+    DECIMAL(4),
+    BOOL(5),
+    TINYINT(6),
+    SMALLINT(7),
+    INTEGER(8),
+    BIGINT(9),
+    FLOAT(10),
+    DOUBLE(11),
+    BINARY(12),
+    BLOB(13),
+    DATE(14),
+    DATETIME(15),
+    TIMESTAMP(16);
 
     public final int TYPE_CODE;
     private static Map<Integer,JDBCType> codeLookup = new HashMap<Integer,JDBCType>();

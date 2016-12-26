@@ -14,6 +14,7 @@ public class User {
 
     private String username;
     private int age;
+    private Integer sum;
 
     public User(){}
 
