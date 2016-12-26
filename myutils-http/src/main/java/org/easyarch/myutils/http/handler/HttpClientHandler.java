@@ -13,7 +13,7 @@ import org.easyarch.myutils.http.manager.HttpResponseManager;
  * 上午2:03
  */
 
-public class ProxyHandler extends ChannelInboundHandlerAdapter {
+public class HttpClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

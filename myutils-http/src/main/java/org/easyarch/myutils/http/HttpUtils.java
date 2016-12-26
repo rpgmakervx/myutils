@@ -109,8 +109,6 @@ public class HttpUtils {
         doRequest(uri,HttpMethod.DELETE,headers,Unpooled.wrappedBuffer(bytes));
     }
 
-
-
     private void doRequest(String uri, HttpMethod method,HttpHeaders headers, ByteBuf buf){
         DefaultFullHttpRequest request =
                 new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, uri,buf);

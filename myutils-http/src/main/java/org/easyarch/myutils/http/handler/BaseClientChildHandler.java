@@ -23,7 +23,7 @@ public class BaseClientChildHandler extends ChannelInitializer<SocketChannel> {
         ChannelPipeline pipeline = ch.pipeline();
         pipeline.addLast(new HttpClientCodec());
         pipeline.addLast(new HttpObjectAggregator(1024000));
-        pipeline.addLast(new ProxyHandler());
+        pipeline.addLast(new HttpClientHandler());
     }
 
 }
