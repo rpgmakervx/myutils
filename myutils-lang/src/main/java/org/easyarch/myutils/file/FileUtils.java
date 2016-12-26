@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Description :
@@ -240,27 +238,6 @@ public class FileUtils {
         return deletEmptyDirectory(new File(path));
     }
 
-    public static void clearDirectory(File directory) {
-        if (!directory.exists()) {
-            throw new IllegalArgumentException(directory + " does not exist");
-        }
-        if (!directory.isDirectory()) {
-            throw new IllegalArgumentException(directory + " is not a directory");
-        }
-        File[] files = directory.listFiles();
-        if (files == null) {  // null if security restricted
-            throw new IllegalArgumentException("Failed to list contents of " + directory);
-        }
-
-        IOException exception = null;
-        for (int i = 0; i < files.length; i++) {
-            File file = files[i];
-        }
-
-        if (null != exception) {
-//            throw exception;
-        }
-    }
     /**
      * 递归遍历
      * @param file
@@ -342,35 +319,24 @@ public class FileUtils {
         return contentEquals(new File(path1), new File(path2));
     }
 
-    public static List<File> filter(File file,String regex){
+    public static List<File> filter(File file,FileFilter filter){
         if (file == null){
             return null;
         }
-        Pattern pattern = Pattern.compile(regex);
         List<File> paths = new ArrayList<File>();
         File[] files = file.listFiles();
         for (File f:files){
-            Matcher matcher = pattern.matcher(f.getName());
             if (f.isDirectory()){
-                paths.addAll(filter(f,regex));
-            }else if (matcher.matches()){
+                paths.addAll(filter(f,filter));
+            }else if (filter.accept(f)){
                 paths.add(f);
             }
         }
         return paths;
     }
 
-    public static List<File> filter(String path,String regex){
-        return filter(new File(path),regex);
-    }
-
-    public static List<File> suffixFilter(String path,String suffix){
-        suffix = ".*\\.".concat(suffix);
-        return filter(path,suffix);
-    }
-    public static List<File> suffixFilter(File file,String suffix){
-        suffix = ".*\\.".concat(suffix);
-        return filter(file,suffix);
+    public static List<File> filter(String path,FileFilter filter){
+        return filter(new File(path),filter);
     }
 
     public static String byteCountToDisplaySize(long size) {

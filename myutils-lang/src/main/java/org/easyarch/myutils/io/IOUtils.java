@@ -95,7 +95,6 @@ public class IOUtils {
         return bb.array();
     }
 
-
     public static byte[] toByteArray(InputStream is) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         copy(is, baos);
@@ -351,7 +350,7 @@ public class IOUtils {
     }
 
     public static long copyx(Reader reader, Writer writer, int packetsize) {
-        return copyx(reader, writer, packetsize);
+        return copyx(reader, writer, DEFAULT_BUFFER_SIZE,packetsize);
     }
 
     public static long copyln(Reader reader, Writer writer) {
