@@ -20,7 +20,7 @@ public class User {
     @ExcelField(field = "年龄")
     private int age;
 
-    @ExcelField(field = "创建时间")
+//    @ExcelField(field = "创建时间")
     private Date createDate;
 
     public User(String username, int age, Date createDate) {

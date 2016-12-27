@@ -114,6 +114,10 @@ public class ExcelUtils {
     private <T> void iterateField(Field[] fields, T dto, HSSFRow row) throws Exception {
         for (int index = 0; index < fields.length; index++) {
             fields[index].setAccessible(true);
+            ExcelField ef = fields[index].getAnnotation(ExcelField.class);
+            if (ef == null){
+                continue;
+            }
             Object value = fields[index].get(dto);
             if (value instanceof Date) {
                 row.createCell(index).setCellValue(format.format((Date) value));

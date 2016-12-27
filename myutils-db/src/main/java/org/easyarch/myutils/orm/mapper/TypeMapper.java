@@ -1,5 +1,6 @@
 package org.easyarch.myutils.orm.mapper;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +48,11 @@ public class TypeMapper {
         typeMapper.put(JDBCType.TIMESTAMP,JAVAType.TIMESTAMP);
     }
 
+    public static void test(Object ... param){
+        System.out.println(param.length);
+    }
     public static void main(String[] args) throws Exception {
+        Object[] objs = new Object[]{new Date(),new Date(),new Date()};
+        test(objs);
     }
 }
