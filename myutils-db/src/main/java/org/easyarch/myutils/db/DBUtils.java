@@ -79,6 +79,15 @@ public final class DBUtils {
         }
     }
 
+    public static void commit(Connection conn){
+        try {
+            conn.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            rollBack(conn);
+        }
+    }
+
     public static void endTransaction(Connection conn){
         endTransaction(conn,Connection.TRANSACTION_READ_COMMITTED);
     }

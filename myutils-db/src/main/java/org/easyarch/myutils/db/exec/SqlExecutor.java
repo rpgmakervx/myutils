@@ -40,20 +40,17 @@ public class SqlExecutor extends AbstractExecutor{
         super(ds);
     }
 
-    public <T> T query(String sql, ResultSetHandler<T> rshandler,Object obj) {
+    public <T> T query(String sql, ResultSetHandler<T> rshandler,Object...params) {
         Connection conn = null;
         try {
             conn = ds.getConnection();
-            return query(conn,sql, rshandler,obj);
+            return query(conn,sql, rshandler,params);
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler) {
-        return query(conn,sql, rshandler,(T)null);
-    }
     public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler, Object... params) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -72,57 +69,33 @@ public class SqlExecutor extends AbstractExecutor{
             DBUtils.close(conn);
         }
     }
-    public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler, T bean) {
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            ps = prepareStatement(conn, sql);
-            fillStatementWithBean(ps, bean);
-            rs = ps.executeQuery();
-            T result = rshandler.handle(rs);
-            return result;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            DBUtils.close(rs);
-            DBUtils.close(ps);
-            DBUtils.close(conn);
 
-        }
-    }
-
-    public<T> int update(String sql,T bean){
+    /**
+     * 修改操作
+     * @param sql
+     * @param bean
+     * @param <T>
+     * @return
+     */
+    public<T> int alter(String sql,Object ...bean){
         Connection conn = null;
         try {
             conn = ds.getConnection();
-            return update(conn,false,sql,bean);
+            return alter(conn,sql,bean);
         } catch (SQLException e) {
             e.printStackTrace();
             return 0;
         }
     }
 
-    public<T> int update(Connection conn,boolean closeCon,String sql,T bean){
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            ps = prepareStatement(conn, sql);
-            fillStatementWithBean(ps,bean);
-            return ps.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            DBUtils.rollBack(conn);
-            return -1;
-        }finally {
-            DBUtils.close(rs);
-            DBUtils.close(ps);
-            if (closeCon)
-                DBUtils.close(conn);
-        }
-    }
-
-    public int update(Connection conn,boolean closeCon,String sql,Object... params){
+    /**
+     * 提供connection的修改操作
+     * @param conn
+     * @param sql
+     * @param params
+     * @return
+     */
+    public int alter(Connection conn,String sql,Object... params){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -136,10 +109,51 @@ public class SqlExecutor extends AbstractExecutor{
         }finally {
             DBUtils.close(rs);
             DBUtils.close(ps);
-            if (closeCon)
-                DBUtils.close(conn);
+            DBUtils.close(conn);
         }
     }
+
+    /**
+     * 提供connection的批量修改操作
+     * @param conn
+     * @param sql
+     * @param params
+     */
+    public void alterBatch(Connection conn,String sql,Object[][]params){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            DBUtils.beginTransaction(conn);
+            ps = batchPrepareStatement(conn, sql);
+            fillStatement(ps,params);
+            ps.executeBatch();
+            DBUtils.commit(conn);
+            return ;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            DBUtils.rollBack(conn);
+        }finally {
+            DBUtils.close(rs);
+            DBUtils.close(ps);
+            DBUtils.close(conn);
+        }
+    }
+
+    /**
+     * 批量修改操作
+     * @param sql
+     * @param params
+     */
+    public void alterBatch(String sql,Object[][]params){
+        Connection conn = null;
+        try {
+            conn = ds.getConnection();
+            alterBatch(conn,sql,params);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void main(String[] args) {
         ConnConfig.config("root", "123456",
@@ -148,6 +162,7 @@ public class SqlExecutor extends AbstractExecutor{
         final SqlExecutor executor = new MySqlExecutor(DBCPoolFactory.newConfigedDBCPool());
         List<User> user = executor.query("select * from user ",
                 new BeanListResultSetHadler<User>(User.class), null);
+        executor.alter("insert into user values()");
         System.out.println("end ");
     }
 }
