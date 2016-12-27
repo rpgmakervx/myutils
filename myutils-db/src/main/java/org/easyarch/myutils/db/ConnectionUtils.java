@@ -19,7 +19,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * 上午10:37
  */
 
-public final class DBUtils {
+public final class ConnectionUtils {
 
     public static SqlExecutor executor;
 

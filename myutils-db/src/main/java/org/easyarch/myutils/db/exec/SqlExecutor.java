@@ -6,7 +6,7 @@ package org.easyarch.myutils.db.exec;/**
 
 import org.easyarch.myutils.cp.cfg.PoolConfig;
 import org.easyarch.myutils.cp.factory.DBCPoolFactory;
-import org.easyarch.myutils.db.DBUtils;
+import org.easyarch.myutils.db.ConnectionUtils;
 import org.easyarch.myutils.db.cfg.ConnConfig;
 import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.db.handler.ResultSetHandler;
@@ -64,9 +64,9 @@ public class SqlExecutor extends AbstractExecutor{
             e.printStackTrace();
             return null;
         } finally {
-            DBUtils.close(rs);
-            DBUtils.close(ps);
-            DBUtils.close(conn);
+            ConnectionUtils.close(rs);
+            ConnectionUtils.close(ps);
+            ConnectionUtils.close(conn);
         }
     }
 
@@ -104,12 +104,12 @@ public class SqlExecutor extends AbstractExecutor{
             return ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            DBUtils.rollBack(conn);
+            ConnectionUtils.rollBack(conn);
             return -1;
         }finally {
-            DBUtils.close(rs);
-            DBUtils.close(ps);
-            DBUtils.close(conn);
+            ConnectionUtils.close(rs);
+            ConnectionUtils.close(ps);
+            ConnectionUtils.close(conn);
         }
     }
 
@@ -123,19 +123,19 @@ public class SqlExecutor extends AbstractExecutor{
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            DBUtils.beginTransaction(conn);
+            ConnectionUtils.beginTransaction(conn);
             ps = batchPrepareStatement(conn, sql);
             fillStatement(ps,params);
             ps.executeBatch();
-            DBUtils.commit(conn);
+            ConnectionUtils.commit(conn);
             return ;
         } catch (SQLException e) {
             e.printStackTrace();
-            DBUtils.rollBack(conn);
+            ConnectionUtils.rollBack(conn);
         }finally {
-            DBUtils.close(rs);
-            DBUtils.close(ps);
-            DBUtils.close(conn);
+            ConnectionUtils.close(rs);
+            ConnectionUtils.close(ps);
+            ConnectionUtils.close(conn);
         }
     }
 
@@ -162,7 +162,7 @@ public class SqlExecutor extends AbstractExecutor{
         final SqlExecutor executor = new MySqlExecutor(DBCPoolFactory.newConfigedDBCPool());
         List<User> user = executor.query("select * from user ",
                 new BeanListResultSetHadler<User>(User.class), null);
-        executor.alter("insert into user values()");
-        System.out.println("end ");
+        int result = executor.alter("insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
+        System.out.println("end "+result);
     }
 }

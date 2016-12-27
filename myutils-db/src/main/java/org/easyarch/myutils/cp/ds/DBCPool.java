@@ -5,7 +5,7 @@ package org.easyarch.myutils.cp.ds;/**
  */
 
 import org.easyarch.myutils.cp.cfg.PoolConfig;
-import org.easyarch.myutils.db.DBUtils;
+import org.easyarch.myutils.db.ConnectionUtils;
 import org.easyarch.myutils.db.cfg.ConnConfig;
 
 import java.lang.reflect.InvocationHandler;
@@ -194,7 +194,7 @@ public class DBCPool extends DataSourceAdapter {
 
     static void kill() {
         for (Connection conn : DBCPool.realconns) {
-            DBUtils.close(conn);
+            ConnectionUtils.close(conn);
         }
     }
 

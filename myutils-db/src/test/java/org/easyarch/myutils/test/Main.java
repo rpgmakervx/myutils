@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static org.easyarch.myutils.db.DBUtils.executor;
+import static org.easyarch.myutils.db.ConnectionUtils.executor;
 
 /**
  * Description :
