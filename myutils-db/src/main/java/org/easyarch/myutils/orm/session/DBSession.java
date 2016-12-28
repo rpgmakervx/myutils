@@ -18,4 +18,8 @@ public interface DBSession {
     public int update(String bind,Object parameter);
 
     public int delete(String bind,Object parameter);
+
+    public int insert(String bind,Object parameter);
+
+
 }

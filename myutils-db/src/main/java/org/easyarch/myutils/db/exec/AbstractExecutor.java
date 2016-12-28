@@ -6,7 +6,6 @@ package org.easyarch.myutils.db.exec;/**
 
 import org.easyarch.myutils.reflect.ReflectUtils;
 
-import javax.sql.DataSource;
 import java.beans.PropertyDescriptor;
 import java.sql.*;
 
@@ -19,15 +18,8 @@ import java.sql.*;
 public abstract class AbstractExecutor {
 
     protected boolean supportMeta;
-    protected final DataSource ds;
-    public AbstractExecutor(){
-        ds = null;
-    }
-    public AbstractExecutor(DataSource ds) {
-        this.ds = ds;
-    }
-    public AbstractExecutor(DataSource ds,boolean supportMeta){
-        this.ds = ds;
+//    protected final DataSource ds;
+    public AbstractExecutor(boolean supportMeta){
         this.supportMeta = supportMeta;
     }
 

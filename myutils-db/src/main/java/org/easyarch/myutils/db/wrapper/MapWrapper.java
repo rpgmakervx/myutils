@@ -18,7 +18,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * 下午6:09
  */
 
-public class MapWrapper extends WrapperAdapter<Map<String,Object>> {
+public class MapWrapper extends WrapperAdapter<Map<String,Object>> implements Wrapper<Map<String,Object>> {
 
     @Override
     public List<Map<String, Object>> list(ResultSet rs, Class<Map<String, Object>> type) {

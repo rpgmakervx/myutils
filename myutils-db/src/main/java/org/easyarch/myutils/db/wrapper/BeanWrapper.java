@@ -18,7 +18,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * 上午12:19
  */
 
-public class BeanWrapper<T> extends WrapperAdapter<T> {
+public class BeanWrapper<T> extends WrapperAdapter<T> implements Wrapper<T>{
 
     @Override
     public List<T> list(ResultSet rs, Class<T> type) {

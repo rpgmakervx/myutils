@@ -27,28 +27,8 @@ import java.util.List;
 
 public class SqlExecutor extends AbstractExecutor{
 
-
     public SqlExecutor(boolean supportMeta){
-        super(null,supportMeta);
-    }
-
-    public SqlExecutor(DataSource ds,boolean supportMeta){
-        super(ds,supportMeta);
-    }
-
-    public SqlExecutor(DataSource ds){
-        super(ds);
-    }
-
-    public <T> T query(String sql, ResultSetHandler<T> rshandler,Object...params) {
-        Connection conn = null;
-        try {
-            conn = ds.getConnection();
-            return query(conn,sql, rshandler,params);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
+        super(supportMeta);
     }
 
     public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler, Object... params) {
@@ -67,24 +47,6 @@ public class SqlExecutor extends AbstractExecutor{
             ConnectionUtils.close(rs);
             ConnectionUtils.close(ps);
             ConnectionUtils.close(conn);
-        }
-    }
-
-    /**
-     * 修改操作
-     * @param sql
-     * @param bean
-     * @param <T>
-     * @return
-     */
-    public<T> int alter(String sql,Object ...bean){
-        Connection conn = null;
-        try {
-            conn = ds.getConnection();
-            return alter(conn,sql,bean);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return 0;
         }
     }
 
@@ -139,30 +101,17 @@ public class SqlExecutor extends AbstractExecutor{
         }
     }
 
-    /**
-     * 批量修改操作
-     * @param sql
-     * @param params
-     */
-    public void alterBatch(String sql,Object[][]params){
-        Connection conn = null;
-        try {
-            conn = ds.getConnection();
-            alterBatch(conn,sql,params);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         ConnConfig.config("root", "123456",
                 "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");
         PoolConfig.config(200, 50, 5, 3 * 1000L);
-        final SqlExecutor executor = new MySqlExecutor(DBCPoolFactory.newConfigedDBCPool());
-        List<User> user = executor.query("select * from user ",
+        DataSource dataSource = DBCPoolFactory.newConfigedDBCPool();
+        final SqlExecutor executor = new MySqlExecutor();
+        Connection connection = dataSource.getConnection();
+        List<User> user = executor.query(connection,"select * from user ",
                 new BeanListResultSetHadler<User>(User.class), null);
-        int result = executor.alter("insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
+        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
         System.out.println("end "+result);
     }
 }
