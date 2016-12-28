@@ -60,20 +60,30 @@ public class TimeUtil {
      * @param offset
      * @return
      */
-    public static Date getDateByNow(int offset) {
+    public static Date getDateOffsetByNow(int offset) {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
         c.add(Calendar.DATE, offset);
         return c.getTime();
     }
 
+    public static Date getDateTimeOffsetByNow(int offset,int hours,int minute,int second){
+        Date now = new Date();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(now);
+        calendar.add(Calendar.DATE, offset);
+        calendar.set(Calendar.HOUR_OF_DAY,hours);
+        calendar.set(Calendar.MINUTE,minute);
+        calendar.set(Calendar.SECOND,second);
+        return calendar.getTime();
+    }
     /**
      * 获取昨天
      *
      * @return
      */
     public static Date yesterday() {
-        return getDateByNow(-1);
+        return getDateOffsetByNow(-1);
     }
 
     /**
@@ -82,7 +92,7 @@ public class TimeUtil {
      * @return
      */
     public static Date tomorrow() {
-        return getDateByNow(1);
+        return getDateOffsetByNow(1);
     }
 
     public static Date plus(long time) {
@@ -177,6 +187,10 @@ public class TimeUtil {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
         return c.get(Calendar.YEAR);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getDateTimeOffsetByNow(-10,0,0,0));
     }
 
 }
