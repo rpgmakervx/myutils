@@ -5,8 +5,6 @@ import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.export.excel.annotation.ExcelEntity;
 import org.easyarch.myutils.export.excel.annotation.ExcelField;
-import org.easyarch.myutils.export.excel.entity.User;
-import org.easyarch.myutils.format.TimeUtil;
 import org.easyarch.myutils.io.IOUtils;
 
 import java.io.ByteArrayOutputStream;
@@ -15,7 +13,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -127,13 +124,13 @@ public class ExcelUtils {
         }
     }
 
-    public static void main(String[] args) {
-        ExcelUtils util = new ExcelUtils();
-        List<User> users = new ArrayList<User>();
-        users.add(new User("邢天宇", 22, TimeUtil.getDateByNow(0)));
-        users.add(new User("梁乙", 23, TimeUtil.getDateByNow(-1)));
-        users.add(new User("季旭", 21, TimeUtil.getDateByNow(1)));
-        users.add(new User("周雪原", 24, TimeUtil.getDateByNow(2)));
-        util.build(users).disk("/home/code4j/58daojia/名单" + SUFFIX);
-    }
+//    public static void main(String[] args) {
+//        ExcelUtils util = new ExcelUtils();
+//        List<User> users = new ArrayList<User>();
+//        users.add(new User("邢天宇", 22, TimeUtil.getDateByNow(0)));
+//        users.add(new User("梁乙", 23, TimeUtil.getDateByNow(-1)));
+//        users.add(new User("季旭", 21, TimeUtil.getDateByNow(1)));
+//        users.add(new User("周雪原", 24, TimeUtil.getDateByNow(2)));
+//        util.build(users).disk("/home/code4j/58daojia/名单" + SUFFIX);
+//    }
 }
