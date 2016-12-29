@@ -4,7 +4,7 @@ package org.easyarch.myutils.db.wrapper;/**
  *  上午12:19
  */
 
-import org.easyarch.myutils.reflect.ReflectUtils;
+import org.easyarch.myutils.reflection.ReflectUtils;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;

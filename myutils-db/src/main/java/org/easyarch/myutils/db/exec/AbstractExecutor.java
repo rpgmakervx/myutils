@@ -4,7 +4,7 @@ package org.easyarch.myutils.db.exec;/**
  *  下午2:30
  */
 
-import org.easyarch.myutils.reflect.ReflectUtils;
+import org.easyarch.myutils.reflection.ReflectUtils;
 
 import java.beans.PropertyDescriptor;
 import java.sql.*;

@@ -6,7 +6,7 @@ import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.export.excel.annotation.ExcelEntity;
 import org.easyarch.myutils.export.excel.annotation.ExcelField;
 import org.easyarch.myutils.export.excel.entity.User;
-import org.easyarch.myutils.format.TimeUtil;
+import org.easyarch.myutils.format.TimeUtils;
 import org.easyarch.myutils.io.IOUtils;
 
 import java.io.ByteArrayOutputStream;
@@ -31,7 +31,6 @@ public class ExcelUtils {
     private static ByteArrayOutputStream content;
     private final static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static final String SUFFIX = ".xls";
-
     /**
      * 构建excel表格，生成文件流
      * @param datas
@@ -116,6 +115,7 @@ public class ExcelUtils {
         if (ArrayUtils.isEmpty(data)){
             return;
         }
+
         try {
             output.write(data,0,data.length);
             output.flush();
@@ -152,7 +152,7 @@ public class ExcelUtils {
         List<User> users = new ArrayList<User>();
         long begin = System.currentTimeMillis();
         for (int index=0;index<50000;index++){
-            users.add(new User("邢天宇", 22+index, "dfghjhdasfdsgdfbdv"+index,"1SFdsgfdhgfG1"+index,"1afsafsgds1"+index,TimeUtil.getDateOffsetByNow(-5000+index)));
+            users.add(new User("邢天宇", 22+index, "dfghjhdasfdsgdfbdv"+index,"1SFdsgfdhgfG1"+index,"1afsafsgds1"+index, TimeUtils.getDateOffsetByNow(-5000+index)));
         }
 //        users.add(new User("梁乙", 23, TimeUtil.getDateOffsetByNow(-1)));
 //        users.add(new User("季旭", 21, TimeUtil.getDateOffsetByNow(1)));

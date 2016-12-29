@@ -11,7 +11,7 @@ import java.util.Date;
  * 下午4:27
  */
 
-public class TimeUtil {
+public class TimeUtils {
 
     private static final String TIMESTAMP = "yyyy-MM-dd HH:mm:ss";
     private static final String DATE = "yyyy-MM-dd";
@@ -106,6 +106,12 @@ public class TimeUtil {
         return plus(second * 1000);
     }
 
+    public static Date plusMinutes(int minutes) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.MINUTE, minutes);
+        return c.getTime();
+    }
     public static Date plusHours(int hours) {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
@@ -177,6 +183,11 @@ public class TimeUtil {
         return c.get(Calendar.DAY_OF_MONTH);
     }
 
+    public static int week(){
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        return c.get(Calendar.DAY_OF_WEEK) - 1;
+    }
     public static int month(){
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());

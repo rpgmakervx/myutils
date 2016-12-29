@@ -10,11 +10,14 @@ import sun.misc.BASE64Encoder;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import static org.easyarch.myutils.codec.HashType.MD5;
-import static org.easyarch.myutils.codec.HashType.SHA1;
+import static org.easyarch.myutils.codec.CodecUtils.HashType.HMACSHA1;
+import static org.easyarch.myutils.codec.CodecUtils.HashType.MD5;
+import static org.easyarch.myutils.codec.CodecUtils.HashType.SHA1;
+
 /**
  * Description : MD5Util
  * Created by YangZH on 16-5-25
@@ -41,20 +44,27 @@ public class CodecUtils {
     }
 
     public static String sha1(byte[] bytes){
-        return hash(bytes,SHA1);
+        return hash(bytes,SHA1.name);
     }
 
     public static String md5(byte[] bytes){
-        return hash(bytes,MD5);
+        return hash(bytes,MD5.name);
+    }
+    public static String md5(String key){
+        return hash(key,MD5.name);
+    }
+    public static String sha1(String key){
+        return hash(key,SHA1.name);
     }
 
     public static String hash(String strSrc, String encName) {
         return hash(strSrc.getBytes(),encName);
     }
+
     public static long hash(String key) {
         MessageDigest md5 = null;
         try {
-            md5 = MessageDigest.getInstance(SHA1);
+            md5 = MessageDigest.getInstance(SHA1.name);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -69,7 +79,7 @@ public class CodecUtils {
         SecretKey secretKey;
         byte[] bytes = null;
         try {
-            secretKey = new SecretKeySpec(decodeBase64(key), "HmacSHA1");
+            secretKey = new SecretKeySpec(decodeBase64(key), HMACSHA1.name);
             Mac mac = Mac.getInstance(secretKey.getAlgorithm());
             mac.init(secretKey);
             bytes = mac.doFinal(data);
@@ -79,7 +89,7 @@ public class CodecUtils {
         return bytes;
     }
 
-    public static String encodeBase64(byte[] key) throws Exception {
+    public static String encodeBase64(byte[] key) {
         return (new BASE64Encoder()).encodeBuffer(key);
     }
 
@@ -89,8 +99,13 @@ public class CodecUtils {
      * @return 字节数组
      * @throws Exception
      */
-    public static byte[] decodeBase64(String key) throws Exception {
-        return (new BASE64Decoder()).decodeBuffer(key);
+    public static byte[] decodeBase64(String key) {
+        try {
+            return (new BASE64Decoder()).decodeBuffer(key);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private static String bytes2Hex(byte[] bts) {
@@ -107,4 +122,12 @@ public class CodecUtils {
 
     }
 
+    public enum HashType{
+        SHA1("SHA-1"),MD5("MD5"),SHA256("SHA-256"),HMACSHA1("HmacSHA1");
+        public String name;
+
+        HashType(String name) {
+            this.name = name;
+        }
+    }
 }

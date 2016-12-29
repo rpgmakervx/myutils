@@ -18,24 +18,27 @@ public class StringUtils {
 
     /**
      * 字符串是否是空
+     *
      * @param src
      * @return
      */
-    public static boolean isEmpty(final String src){
-        return src == null||src.length() == 0;
+    public static boolean isEmpty(final String src) {
+        return src == null || src.length() == 0;
     }
 
     /**
      * 字符串是否是空白的
+     *
      * @param src
      * @return
      */
-    public static boolean isBlank(final String src){
+    public static boolean isBlank(final String src) {
         return trimToEmpty(src).length() == 0;
     }
 
     /**
      * 字符串头部添加省略符
+     *
      * @param src
      * @param begin
      * @param ellipsisLength
@@ -46,40 +49,44 @@ public class StringUtils {
         if (src == null || src.isEmpty() || begin > length - ellipsisLength) {
             return src;
         }
+        StringBuffer buffer = new StringBuffer();
         String ellipsis = "...";
         if (ellipsisLength > 3) {
             for (int index = 0; index < ellipsisLength - 3; index++) {
-                ellipsis.concat(".");
+                buffer.append(ellipsis.concat("."));
             }
         }
-        String newStr = src.substring(0, begin) + ellipsis;
+        String newStr = src.substring(0, begin) + buffer.toString();
         return newStr;
     }
 
     /**
      * 字符串尾部添加省略符
+     *
      * @param end
      * @param ellipsisLength
      * @param src
      * @return
      */
-    public static String tailAbbreviate(int end, int ellipsisLength, final String src) {
+    public static String tailAbbreviate(final String src ,int end, int ellipsisLength) {
         final int length = src.length();
         if (src == null || src.isEmpty() || length - end < ellipsisLength) {
             return src;
         }
+        StringBuffer buffer = new StringBuffer();
         String ellipsis = "...";
         if (ellipsisLength > 3) {
             for (int index = 0; index < ellipsisLength - 3; index++) {
-                ellipsis.concat(".");
+                buffer.append(ellipsis.concat("."));
             }
         }
-        String newStr = ellipsis + src.substring(length - end, length);
+        String newStr = buffer.toString() + src.substring(length - end, length);
         return newStr;
     }
 
     /**
      * 字符串首字母大写
+     *
      * @param str
      * @return
      */
@@ -98,6 +105,7 @@ public class StringUtils {
 
     /**
      * 给字符串追加内容
+     *
      * @param src
      * @param plugin
      * @return
@@ -108,6 +116,7 @@ public class StringUtils {
 
     /**
      * 给字符串前面添加内容
+     *
      * @param src
      * @param plugin
      * @return
@@ -118,6 +127,7 @@ public class StringUtils {
 
     /**
      * 用指定的标识符将字符串居中
+     *
      * @param src
      * @param pad
      * @param symbol
@@ -136,6 +146,7 @@ public class StringUtils {
 
     /**
      * 将字符串居中
+     *
      * @param src
      * @param pad
      * @return
@@ -146,12 +157,13 @@ public class StringUtils {
 
     /**
      * 用指定的标签组给字符串打标签
+     *
      * @param src
      * @param frontSymbol
      * @param backSymbol
      * @return
      */
-    public static String surround(final String src,final String frontSymbol,final String backSymbol){
+    public static String surround(final String src, final String frontSymbol, final String backSymbol) {
         if (src == null || src.isEmpty()) {
             return src;
         }
@@ -160,7 +172,8 @@ public class StringUtils {
 
     /**
      * 去除字符串中所有空白符
-     * @param src   字符串不能为null
+     *
+     * @param src 字符串不能为null
      * @return
      */
     public static String trimAll(final String src) {
@@ -174,6 +187,7 @@ public class StringUtils {
 
     /**
      * 去除字符串中所有的空白符（包括null）
+     *
      * @param src
      * @return
      */
@@ -183,6 +197,7 @@ public class StringUtils {
 
     /**
      * 在源字符串指定位置插入字符串
+     *
      * @param src
      * @param plugin
      * @param index
@@ -203,7 +218,6 @@ public class StringUtils {
     }
 
     /**
-     *
      * @param str1
      * @param str2
      * @return
@@ -228,6 +242,7 @@ public class StringUtils {
 
     /**
      * 两个字符串开始出现不同的临界点
+     *
      * @param src1
      * @param src2
      * @return
@@ -253,10 +268,11 @@ public class StringUtils {
 
     /**
      * 字符串翻转
+     *
      * @param str
      * @return
      */
-    public static String reverse(final String str)  {
+    public static String reverse(final String str) {
         if (str == null || str.isEmpty()) {
             return str;
         }
@@ -265,6 +281,7 @@ public class StringUtils {
 
     /**
      * 是否是回文
+     *
      * @param src
      * @return
      */
@@ -275,6 +292,7 @@ public class StringUtils {
 
     /**
      * 是否是回文（忽略大小写）
+     *
      * @param src
      * @return
      */
@@ -285,6 +303,7 @@ public class StringUtils {
 
     /**
      * 配合kmp算法获取下一个数组
+     *
      * @param t
      * @return
      */
@@ -336,9 +355,10 @@ public class StringUtils {
 
     /**
      * 用分隔符把字符串数组拼接成按分隔符分割的字符串
+     *
      * @param srcs
      * @param separator
-     * @param edge  是否把分隔符添加到边界
+     * @param edge      是否把分隔符添加到边界
      * @return
      */
     public static String join(final String[] srcs, String separator, boolean edge) {
@@ -359,6 +379,7 @@ public class StringUtils {
 
     /**
      * 用分隔符把字符串数组拼接成按分隔符分割的字符串
+     *
      * @param srcs
      * @param separator
      * @return
@@ -369,25 +390,26 @@ public class StringUtils {
 
     /**
      * 关键字打标签
+     *
      * @param src
      * @param key
      * @param frontTag
      * @param backTag
      * @return
      */
-    public static String tagKeyWord(final String src,String key,String frontTag,String backTag){
+    public static String tagKeyWord(final String src, String key, String frontTag, String backTag) {
         StringBuffer buffer = new StringBuffer();
         int begin = 0;
         int end = 0;
         String copy = src;
-        while (true){
-            begin = kmp(copy,key);
-            if (begin == -1){
+        while (true) {
+            begin = kmp(copy, key);
+            if (begin == -1) {
                 buffer.append(copy);
                 break;
             }
             end = begin + key.length();
-            String frontSegment = src.substring(0,begin);
+            String frontSegment = src.substring(0, begin);
             copy = src.substring(end);
             buffer.append(frontSegment)
                     .append(frontTag)
@@ -399,7 +421,7 @@ public class StringUtils {
 
 
     private static String random(int count, int start, int end, final boolean letters, final boolean numbers,
-                                final char[] chars, final Random random) {
+                                 final char[] chars, final Random random) {
         if (count == 0) {
             return "";
         } else if (count < 0) {
@@ -439,8 +461,8 @@ public class StringUtils {
             if (letters && Character.isLetter(ch)
                     || numbers && Character.isDigit(ch)
                     || !letters && !numbers) {
-                if(ch >= 56320 && ch <= 57343) {
-                    if(count == 0) {
+                if (ch >= 56320 && ch <= 57343) {
+                    if (count == 0) {
                         count++;
                     } else {
                         // low surrogate, insert high surrogate after putting it in
@@ -448,8 +470,8 @@ public class StringUtils {
                         count--;
                         buffer[count] = (char) (55296 + random.nextInt(128));
                     }
-                } else if(ch >= 55296 && ch <= 56191) {
-                    if(count == 0) {
+                } else if (ch >= 55296 && ch <= 56191) {
+                    if (count == 0) {
                         count++;
                     } else {
                         // high surrogate, insert low surrogate before putting it in
@@ -457,7 +479,7 @@ public class StringUtils {
                         count--;
                         buffer[count] = ch;
                     }
-                } else if(ch >= 56192 && ch <= 56319) {
+                } else if (ch >= 56192 && ch <= 56319) {
                     // private high surrogate, no effing clue, so skip it
                     count++;
                 } else {
@@ -473,9 +495,11 @@ public class StringUtils {
     private static String random(final int count, final int start, final int end, final boolean letters, final boolean numbers) {
         return random(count, start, end, letters, numbers, null, RANDOM);
     }
+
     private static String random(final int count, final boolean letters, final boolean numbers) {
         return random(count, 0, 0, letters, numbers);
     }
+
     public static String randomString(final int count) {
         return random(count, 32, 127, false, false);
     }
@@ -484,7 +508,7 @@ public class StringUtils {
         return random(count, false, true);
     }
 
-    public static String uuid(){
+    public static String uuid() {
         return UUID.randomUUID().toString();
     }
 
@@ -497,7 +521,7 @@ public class StringUtils {
 //        String frontSegement = src.substring(0,21);;
 //        System.out.println(frontSegement);
 //        System.out.println(src.replace("java","c++"));
-        String[] languages = new String[]{"java","c++","python"};
+        String[] languages = new String[]{"java", "c++", "python"};
 //        System.out.println(join(languages, File.separator));
 //        System.out.println(indexOfDifference(src1,src2));
         System.out.println(capitalize(src2));

@@ -289,7 +289,7 @@ public class ArrayUtils {
         return newarray;
     }
 
-    public static <T> Object addAll(Object array, T... elems) {
+    public static <T> Object addAll(Object array, T[] elems) {
         int srcLength = getLength(array);
         int elemsLength = Array.getLength(elems);
         if (srcLength < elemsLength) {
@@ -307,35 +307,6 @@ public class ArrayUtils {
 
     public static <T> T[] add(T[] array, int index, T elem) {
         return (T[]) add(array, index, elem, array.getClass().getComponentType());
-    }
-
-    public static <T> T[] add(T[] array, T elem) {
-        return (T[]) add(array, elem, array.getClass().getComponentType());
-    }
-
-
-    public static int[] add(int[] array, int elem) {
-        return (int[]) add(array, elem, Integer.TYPE);
-    }
-
-    public static float[] add(float[] array, float elem) {
-        return (float[]) add(array, elem, Float.TYPE);
-    }
-
-    public static double[] add(double[] array, double elem) {
-        return (double[]) add(array, elem, Double.TYPE);
-    }
-
-    public static long[] add(long[] array, long elem) {
-        return (long[]) add(array, elem, Long.TYPE);
-    }
-
-    public static byte[] add(byte[] array, byte elem) {
-        return (byte[]) add(array, elem, Byte.TYPE);
-    }
-
-    public static short[] add(short[] array, short elem) {
-        return (short[]) add(array, elem, Short.TYPE);
     }
 
     public static int[] add(int[] array, int index, int elem) {

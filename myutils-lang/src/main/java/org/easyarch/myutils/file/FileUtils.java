@@ -4,6 +4,7 @@ package org.easyarch.myutils.file;/**
  *  下午7:42
  */
 
+import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.io.IOUtils;
 
 import java.io.*;
@@ -151,11 +152,7 @@ public class FileUtils {
         if (!exists(dst)) {
             dst.createNewFile();
         }
-        FileInputStream sis = new FileInputStream(src);
-        FileOutputStream dos = new FileOutputStream(dst);
-        IOUtils.transferFrom(sis, dos);
-        IOUtils.closeIO(sis);
-        IOUtils.closeIO(dos);
+        write(dst,read(src));
     }
 
     public static void mv(String srcPath, String dstPath) throws Exception {
@@ -166,6 +163,11 @@ public class FileUtils {
         cp(srcPath, dstPath);
         rm(srcPath);
     }
+
+    public static File vim(String path, String str) throws Exception {
+        return write(path, str.getBytes());
+    }
+
 
     public static File write(String path, byte[] data) throws Exception {
         if (path == null)
@@ -182,18 +184,40 @@ public class FileUtils {
         return file;
     }
 
-    public static File vim(String path, String str) throws Exception {
-        return write(path, str.getBytes());
+    public static byte[] read(String path){
+        if (path == null)
+            throw new NullPointerException("path is null");
+        return read(new File(path));
+    }
+    public static byte[] read(File path){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream(path);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        IOUtils.transferTo(fis, baos);
+        IOUtils.closeIO(baos);
+        IOUtils.closeIO(fis);
+        return baos.toByteArray();
     }
 
     public static File vim(File file, String str) throws Exception {
         return write(file, str.getBytes());
     }
 
+    public static void deleteAll(String path){
+        deleteAll(new File(path));
+    }
+
     public static void deleteAll(File file){
         if (!exists(file))
             return;
         File[] files = file.listFiles();
+        if (ArrayUtils.isEmpty(files)){
+            return;
+        }
         for (File f:files){
             if (f.isDirectory()){
                 if (!f.delete()){//删除该文件夹,删除失败则进入目录删除
@@ -297,7 +321,7 @@ public class FileUtils {
         return file.lastModified() > date.getTime();
     }
 
-    public static boolean contentEquals(File file1, File file2) {
+    public static boolean eq(File file1, File file2) {
         if (!exists(file1) || !exists(file2)) {
             return false;
         }
@@ -315,8 +339,8 @@ public class FileUtils {
         }
     }
 
-    public static boolean contentEquals(String path1, String path2) {
-        return contentEquals(new File(path1), new File(path2));
+    public static boolean eq(String path1, String path2) {
+        return eq(new File(path1), new File(path2));
     }
 
     public static List<File> filter(File file,FileFilter filter){
