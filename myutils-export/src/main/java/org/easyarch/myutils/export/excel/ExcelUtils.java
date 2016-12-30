@@ -99,6 +99,7 @@ public class ExcelUtils {
         try {
             fos = new FileOutputStream(path);
             fos.write(getExcelAsByte());
+            fos.flush();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
