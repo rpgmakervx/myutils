@@ -21,16 +21,15 @@ public class ProcessWatcher implements Monitor{
         rt.addShutdownHook(new Thread() {
             public void run() {
                 System.out.println("programme exit,ready to close all dbcpool connections ... ");
-                System.out.println("connections count is :"+ DBCPool.realconns.size());
+                System.out.println("connections count is :"+ RealCPool.getConnections().size());
                 kill();
             }
         });
-
     }
 
     private static void kill() {
-        for (Connection conn : DBCPool.realconns) {
-            ConnectionUtils.close(conn);
+        for (ConnectionWrapper wrapper : RealCPool.getConnections()) {
+            ConnectionUtils.close(wrapper.connection());
         }
     }
 

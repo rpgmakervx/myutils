@@ -4,8 +4,8 @@ package org.easyarch.myutils.cp.ds;/**
  * 下午10:04
  */
 
+import org.easyarch.myutils.codec.CodecUtils;
 import org.easyarch.myutils.cp.cfg.PoolConfig;
-import org.easyarch.myutils.db.ConnectionUtils;
 import org.easyarch.myutils.db.cfg.ConnConfig;
 
 import java.lang.reflect.InvocationHandler;
@@ -14,9 +14,7 @@ import java.lang.reflect.Proxy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.HashSet;
 import java.util.Queue;
-import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -29,7 +27,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class DBCPool extends DataSourceAdapter{
     private Queue<Connection> conpool;
     private Queue<Connection> idleQueue;
-    public static final Set<Connection> realconns = new HashSet<>();
+
     private final int maxPoolSize;
     private final int minIdle;
     private final int maxIdle;
@@ -143,7 +141,9 @@ public class DBCPool extends DataSourceAdapter{
         try {
             Connection conn = DriverManager.getConnection(ConnConfig.getUrl()
                     , ConnConfig.getUser(), ConnConfig.getPassword());
-            realconns.add(conn);
+            long id = CodecUtils.hash(conn.toString());
+            ConnectionWrapper wrapper = new ConnectionWrapper();
+            RealCPool.getConnections().add(wrapper);
             return (Connection) Proxy.newProxyInstance(getClass().getClassLoader(),
                     new Class[]{Connection.class}, new ConnectionProxy(conn));
         } catch (SQLException e) {
@@ -154,7 +154,7 @@ public class DBCPool extends DataSourceAdapter{
     protected synchronized void recycle(Connection conn) {
         if (conn != null) {
             poolOut(conn);
-            System.out.println("recycle 总连接数--->"+realconns.size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
+            System.out.println("recycle 总连接数--->"+RealCPool.getConnections().size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
         }else{
             System.out.println("recycle fail...");
         }
@@ -192,11 +192,4 @@ public class DBCPool extends DataSourceAdapter{
         }
     }
 
-
-
-
-
-    static Set<Connection> getRealConnections() {
-        return realconns;
-    }
 }
