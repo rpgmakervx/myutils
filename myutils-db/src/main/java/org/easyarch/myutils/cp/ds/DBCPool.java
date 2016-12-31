@@ -38,7 +38,7 @@ public class DBCPool extends DataSourceAdapter {
 
     static {
         try {
-            Class.forName(ProcessWatcher.class.getName());
+            Class.forName(ConnectionMonitor.class.getName());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -151,12 +151,12 @@ public class DBCPool extends DataSourceAdapter {
         }
     }
 
-    protected synchronized void recover(Connection conn) {
+    protected synchronized void recycle(Connection conn) {
         if (conn != null) {
             poolOut(conn);
-            System.out.println("recover 总连接数--->"+realconns.size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
+            System.out.println("recycle 总连接数--->"+realconns.size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
         }else{
-            System.out.println("recover fail...");
+            System.out.println("recycle fail...");
         }
     }
 
@@ -187,7 +187,7 @@ public class DBCPool extends DataSourceAdapter {
                     return method.invoke(conn, args);
                 }
             }
-            recover((Connection) proxy);
+            recycle((Connection) proxy);
             return null;
         }
     }

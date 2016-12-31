@@ -10,16 +10,14 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.*;
-import org.easyarch.myutils.User;
 import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.http.future.ResponseFuture;
 import org.easyarch.myutils.http.handler.BaseClientChildHandler;
 import org.easyarch.myutils.http.manager.HttpResponseManager;
 
-import java.net.InetSocketAddress;
+import java.net.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.Executors;
 
 /**
  * Description :
@@ -27,7 +25,7 @@ import java.util.concurrent.Executors;
  * 上午1:35
  */
 
-public class HttpUtils {
+public class AsyncHttpUtils {
 
     private String ip;
     private int port;
@@ -36,11 +34,12 @@ public class HttpUtils {
     private ChannelFuture future;
     private Channel channel;
 
-    public HttpUtils(InetSocketAddress address) {
+    public AsyncHttpUtils(String url){
         try {
-            this.ip = address.getHostString();
-            this.port = address.getPort();
-            workerGroup = new NioEventLoopGroup(32, Executors.newCachedThreadPool());
+            URL u = new URL(url);
+            this.ip = u.getHost();
+            this.port = u.getPort();
+            workerGroup = new NioEventLoopGroup();
             b = new Bootstrap();
             init();
         } catch (Exception e) {
@@ -48,10 +47,18 @@ public class HttpUtils {
         }
     }
 
-    public HttpUtils(String ip, int port) {
+    public AsyncHttpUtils(URL url){
+        this(url.getHost(),url.getPort());
+    }
+
+    public AsyncHttpUtils(String ip, int port) {
+        this(new InetSocketAddress(ip,port));
+    }
+
+    public AsyncHttpUtils(InetSocketAddress address) {
         try {
-            this.ip = ip;
-            this.port = port;
+            this.ip = address.getHostString();
+            this.port = address.getPort();
             workerGroup = new NioEventLoopGroup();
             b = new Bootstrap();
             init();
@@ -63,7 +70,7 @@ public class HttpUtils {
     private void init() throws Exception {
         b.group(workerGroup)
                 .channel(NioSocketChannel.class)
-                .remoteAddress(new InetSocketAddress(ip, port))
+                .remoteAddress(InetAddress.getByName(ip),port)
                 .option(ChannelOption.SO_KEEPALIVE, true)
                 .handler(new BaseClientChildHandler());
     }
@@ -76,50 +83,49 @@ public class HttpUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("channel id:" + channel.id());
     }
 
     public void send(FullHttpRequest request) throws Exception {
-        doRequest(request.uri(),request.method()
-                ,request.headers(),request.content());
+        doRequest(request.uri(), request.method()
+                , request.headers(), request.content());
     }
 
     public void get(String uri, HttpHeaders headers) throws Exception {
-        doRequest(uri,HttpMethod.GET,headers,Unpooled.EMPTY_BUFFER);
+        doRequest(uri, HttpMethod.GET, headers, Unpooled.EMPTY_BUFFER);
     }
 
     public void post(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
-        if (ArrayUtils.isEmpty(bytes)){
+        if (ArrayUtils.isEmpty(bytes)) {
             bytes = new byte[0];
         }
-        doRequest(uri,HttpMethod.POST,headers,Unpooled.wrappedBuffer(bytes));
+        doRequest(uri, HttpMethod.POST, headers, Unpooled.wrappedBuffer(bytes));
     }
 
     public void put(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
-        if (ArrayUtils.isEmpty(bytes)){
+        if (ArrayUtils.isEmpty(bytes)) {
             bytes = new byte[0];
         }
-        doRequest(uri,HttpMethod.PUT,headers,Unpooled.wrappedBuffer(bytes));
+        doRequest(uri, HttpMethod.PUT, headers, Unpooled.wrappedBuffer(bytes));
     }
 
     public void delete(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
-        if (ArrayUtils.isEmpty(bytes)){
+        if (ArrayUtils.isEmpty(bytes)) {
             bytes = new byte[0];
         }
-        doRequest(uri,HttpMethod.DELETE,headers,Unpooled.wrappedBuffer(bytes));
+        doRequest(uri, HttpMethod.DELETE, headers, Unpooled.wrappedBuffer(bytes));
     }
 
-    private void doRequest(String uri, HttpMethod method,HttpHeaders headers, ByteBuf buf){
+    private void doRequest(String uri, HttpMethod method, HttpHeaders headers, ByteBuf buf) {
         DefaultFullHttpRequest request =
-                new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, uri,buf);
-        if (headers == null){
+                new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, uri, buf);
+        if (headers == null) {
             headers = new DefaultHttpHeaders();
             headers.set(HttpHeaderNames.CONTENT_TYPE, "text/html;charset=utf-8");
             headers.set(HttpHeaderNames.HOST, channel.localAddress());
         }
         request.headers().set(headers);
-        request.headers().set(HttpHeaderNames.USER_AGENT,"java/HttpUtils");
-        HttpResponseManager.setAttr(channel,new ResponseFuture<FullHttpResponse>());
+        request.headers().set(HttpHeaderNames.USER_AGENT, "java/HttpUtils");
+        HttpResponseManager.setAttr(channel, new ResponseFuture<FullHttpResponse>());
         channel.writeAndFlush(request);
     }
 
@@ -129,7 +135,7 @@ public class HttpUtils {
         return responseFuture.get();
     }
 
-    public byte[] getContentAsStream(){
+    public byte[] getContentAsStream() {
         ResponseFuture<FullHttpResponse> responseFuture =
                 HttpResponseManager.getAttr(channel);
         try {
@@ -137,11 +143,12 @@ public class HttpUtils {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        }finally {
+        } finally {
             close();
         }
     }
-    public HttpHeaders getHeaders(){
+
+    public HttpHeaders getHeaders() {
         ResponseFuture<FullHttpResponse> responseFuture =
                 HttpResponseManager.getAttr(channel);
         try {
@@ -152,14 +159,14 @@ public class HttpUtils {
         }
     }
 
-    public Map<String,Object> getHeadersAsMap(){
+    public Map<String, Object> getHeadersAsMap() {
         ResponseFuture<FullHttpResponse> responseFuture =
                 HttpResponseManager.getAttr(channel);
-        Map<String,Object> headMap = new HashMap<>();
+        Map<String, Object> headMap = new HashMap<>();
         try {
             HttpHeaders headers = getHeaders(responseFuture.get());
-            for (Map.Entry<String,String> entry : headers.entries()){
-                headMap.put(entry.getKey(),entry.getValue());
+            for (Map.Entry<String, String> entry : headers.entries()) {
+                headMap.put(entry.getKey(), entry.getValue());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -178,26 +185,9 @@ public class HttpUtils {
         return bytes;
     }
 
-    private HttpHeaders getHeaders(FullHttpResponse response){
-        return response == null?null:response.headers();
+    private HttpHeaders getHeaders(FullHttpResponse response) {
+        return response == null ? null : response.headers();
     }
 
-    public static void main(String[] args) throws Exception {
-//        HttpUtils client = new HttpUtils("127.0.0.1",8080);
-//        client.connect();
-//        client.get("/",null);
-//        System.out.println(new String(client.getContentAsStream()));
-        User u1 = new User("xing",1);
-        User u2 = new User("lala",2);
-        User u3 = new User("okok",3);
-
-//        List<User> user = CollectionUtil.newArrayList(u1,u2,u3);
-        Map<String,User> map = new HashMap<>();
-        map.put("1",u1);
-        map.put("2",u2);
-        map.put("3",u3);
-//        test(map);
-        System.out.println(map.get("1").getUsername());
-    }
 
 }

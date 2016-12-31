@@ -1,11 +1,9 @@
-package org.easyarch.myutils.cp.factory;/**
+package org.easyarch.myutils.cp.ds;/**
  * Description : 
  * Created by YangZH on 16-11-4
  *  上午2:00
  */
 
-
-import org.easyarch.myutils.cp.ds.DBCPool;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

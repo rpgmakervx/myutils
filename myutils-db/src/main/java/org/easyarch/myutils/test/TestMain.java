@@ -5,7 +5,7 @@ package org.easyarch.myutils.test;/**
  */
 
 import org.easyarch.myutils.cp.cfg.PoolConfig;
-import org.easyarch.myutils.cp.factory.DBCPoolFactory;
+import org.easyarch.myutils.cp.ds.DBCPoolFactory;
 import org.easyarch.myutils.db.cfg.ConnConfig;
 
 import javax.sql.DataSource;

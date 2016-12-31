@@ -12,7 +12,7 @@ import java.util.Timer;
  * 下午8:23
  */
 
-public class ProcessWatcher {
+public class ConnectionMonitor {
     static Runtime rt = Runtime.getRuntime();
     static Timer timer;
     static{
@@ -20,7 +20,7 @@ public class ProcessWatcher {
         rt.addShutdownHook(new Thread() {
             public void run() {
                 System.out.println("programme exit,ready to close all dbcpool connections ... ");
-                System.out.println("connections count is :"+DBCPool.realconns.size());
+                System.out.println("connections count is :"+ DBCPool.realconns.size());
                 DBCPool.kill();
             }
         });
