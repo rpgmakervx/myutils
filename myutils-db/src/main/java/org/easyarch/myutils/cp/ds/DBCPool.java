@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 下午10:04
  */
 
-public class DBCPool extends DataSourceAdapter {
+public class DBCPool extends DataSourceAdapter implements Monitor {
     private Queue<Connection> conpool;
     private Queue<Connection> idleQueue;
     public static final Set<Connection> realconns = new HashSet<>();
@@ -38,7 +38,7 @@ public class DBCPool extends DataSourceAdapter {
 
     static {
         try {
-            Class.forName(ConnectionMonitor.class.getName());
+            Class.forName(ProcessWatcher.class.getName());
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -164,6 +164,16 @@ public class DBCPool extends DataSourceAdapter {
     @Override
     public Connection getConnection(String username, String password) throws SQLException {
         throw new RuntimeException("don't support this way to get connection");
+    }
+
+    @Override
+    public void onBroken(Connection connection) {
+
+    }
+
+    @Override
+    public void onCreate(Connection connection) {
+
     }
 
     class ConnectionProxy implements InvocationHandler {

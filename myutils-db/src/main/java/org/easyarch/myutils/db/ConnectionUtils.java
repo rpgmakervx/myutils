@@ -124,6 +124,23 @@ public final class ConnectionUtils {
         }
     }
 
+    public static boolean isClose(Connection connection){
+        try {
+            connection.isValid(1000);
+            return connection == null||connection.isClosed();
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
+    public static boolean isValid(Connection connection){
+        try {
+            return connection == null||connection.isValid(3);
+        } catch (SQLException e) {
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedBlockingQueue<User> queue = new LinkedBlockingQueue();
         User u = new User();

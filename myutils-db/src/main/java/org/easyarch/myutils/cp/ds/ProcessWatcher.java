@@ -4,7 +4,7 @@ package org.easyarch.myutils.cp.ds;/**
  *  下午8:23
  */
 
-import java.util.Timer;
+import java.sql.Connection;
 
 /**
  * Description :
@@ -12,9 +12,8 @@ import java.util.Timer;
  * 下午8:23
  */
 
-public class ConnectionMonitor {
+public class ProcessWatcher implements Monitor{
     static Runtime rt = Runtime.getRuntime();
-    static Timer timer;
     static{
         System.out.println("watcher is ready.");
         rt.addShutdownHook(new Thread() {
@@ -24,6 +23,16 @@ public class ConnectionMonitor {
                 DBCPool.kill();
             }
         });
+
+    }
+
+    @Override
+    public void onBroken(Connection connection) {
+
+    }
+
+    @Override
+    public void onCreate(Connection connection) {
 
     }
 }
