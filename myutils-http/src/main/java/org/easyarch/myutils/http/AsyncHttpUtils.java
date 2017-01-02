@@ -39,6 +39,9 @@ public class AsyncHttpUtils {
             URL u = new URL(url);
             this.ip = u.getHost();
             this.port = u.getPort();
+            if(port == -1){
+                port = 80;
+            }
             workerGroup = new NioEventLoopGroup();
             b = new Bootstrap();
             init();
