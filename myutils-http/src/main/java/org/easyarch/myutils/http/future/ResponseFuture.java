@@ -32,6 +32,7 @@ public class ResponseFuture<T extends HttpResponse> implements Future<T> {
 
     public T get() throws InterruptedException, ExecutionException {
         latch.await();
+        System.out.println("读到数据");
         return response;
     }
 
@@ -44,5 +45,6 @@ public class ResponseFuture<T extends HttpResponse> implements Future<T> {
     public void set(T response) {
         this.response = response;
         latch.countDown();
+        System.out.println("数据填充完毕");
     }
 }

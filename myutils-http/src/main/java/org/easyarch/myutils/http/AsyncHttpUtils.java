@@ -37,7 +37,7 @@ public class AsyncHttpUtils {
     public AsyncHttpUtils(String url){
         try {
             URL u = new URL(url);
-            this.ip = u.getHost();
+            this.ip = InetAddress.getByName(u.getHost()).getHostAddress();
             this.port = u.getPort();
             if(port == -1){
                 port = 80;
@@ -51,7 +51,7 @@ public class AsyncHttpUtils {
     }
 
     public AsyncHttpUtils(URL url){
-        this(url.getHost(),url.getPort());
+        this(url.toString());
     }
 
     public AsyncHttpUtils(String ip, int port) {
@@ -76,6 +76,14 @@ public class AsyncHttpUtils {
                 .remoteAddress(InetAddress.getByName(ip),port)
                 .option(ChannelOption.SO_KEEPALIVE, true)
                 .handler(new BaseClientChildHandler());
+    }
+
+    public String ip() {
+        return ip;
+    }
+
+    public int port() {
+        return port;
     }
 
     public void connect() {
@@ -142,7 +150,9 @@ public class AsyncHttpUtils {
         ResponseFuture<FullHttpResponse> responseFuture =
                 HttpResponseManager.getAttr(channel);
         try {
-            return getContent(responseFuture.get());
+            FullHttpResponse response = responseFuture.get();
+            System.out.println("response : "+response.content().readableBytes());
+            return getContent(response);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
