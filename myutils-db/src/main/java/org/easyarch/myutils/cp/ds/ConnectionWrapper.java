@@ -18,7 +18,9 @@ public class ConnectionWrapper {
 
     private long id;
 
-    public ConnectionWrapper() {
+    public ConnectionWrapper(long id,Connection connection) {
+        this.connection = connection;
+        this.id = id;
     }
 
     public long id(){
@@ -28,6 +30,7 @@ public class ConnectionWrapper {
     public Connection connection(){
         return connection;
     }
+
 
     public Statement createStatement() throws SQLException {
         return connection.createStatement();

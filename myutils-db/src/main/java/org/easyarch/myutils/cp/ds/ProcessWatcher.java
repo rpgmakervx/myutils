@@ -6,15 +6,13 @@ package org.easyarch.myutils.cp.ds;/**
 
 import org.easyarch.myutils.db.ConnectionUtils;
 
-import java.sql.Connection;
-
 /**
  * Description :
  * Created by code4j on 16-11-7
  * 下午8:23
  */
 
-public class ProcessWatcher implements Monitor{
+public class ProcessWatcher{
     static Runtime rt = Runtime.getRuntime();
     static{
         System.out.println("watcher is ready.");
@@ -31,15 +29,5 @@ public class ProcessWatcher implements Monitor{
         for (ConnectionWrapper wrapper : RealCPool.getConnections()) {
             ConnectionUtils.close(wrapper.connection());
         }
-    }
-
-    @Override
-    public void onBroken(Connection connection) {
-
-    }
-
-    @Override
-    public void onCreate(Connection connection) {
-
     }
 }

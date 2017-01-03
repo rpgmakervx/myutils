@@ -142,7 +142,7 @@ public class DBCPool extends DataSourceAdapter{
             Connection conn = DriverManager.getConnection(ConnConfig.getUrl()
                     , ConnConfig.getUser(), ConnConfig.getPassword());
             long id = CodecUtils.hash(conn.toString());
-            ConnectionWrapper wrapper = new ConnectionWrapper();
+            ConnectionWrapper wrapper = new ConnectionWrapper(id,conn);
             RealCPool.getConnections().add(wrapper);
             return (Connection) Proxy.newProxyInstance(getClass().getClassLoader(),
                     new Class[]{Connection.class}, new ConnectionProxy(conn));
@@ -189,6 +189,21 @@ public class DBCPool extends DataSourceAdapter{
             }
             recycle((Connection) proxy);
             return null;
+        }
+    }
+
+    class Monitor implements Runnable{
+        private static final int PERIOD = 5;
+
+        private Connection conn;
+
+        public Monitor(Connection conn){
+            this.conn = conn;
+        }
+
+        @Override
+        public void run() {
+
         }
     }
 
