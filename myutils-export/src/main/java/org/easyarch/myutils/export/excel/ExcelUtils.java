@@ -1,13 +1,10 @@
 package org.easyarch.myutils.export.excel;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.poi.xssf.usermodel.*;
 import org.easyarch.myutils.array.ArrayUtils;
-import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.export.excel.annotation.ExcelEntity;
 import org.easyarch.myutils.export.excel.annotation.ExcelField;
-import org.easyarch.myutils.export.excel.entity.User;
-import org.easyarch.myutils.format.TimeUtils;
-import org.easyarch.myutils.io.IOUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
@@ -15,7 +12,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,11 +22,11 @@ import java.util.List;
  */
 
 public class ExcelUtils {
-
     private static XSSFWorkbook xsswb;
     private static ByteArrayOutputStream content;
     private final static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static final String SUFFIX = ".xls";
+
     /**
      * 构建excel表格，生成文件流
      * @param datas
@@ -99,11 +95,14 @@ public class ExcelUtils {
         try {
             fos = new FileOutputStream(path);
             fos.write(getExcelAsByte());
-            fos.flush();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            IOUtils.closeIO(fos);
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -116,7 +115,6 @@ public class ExcelUtils {
         if (ArrayUtils.isEmpty(data)){
             return;
         }
-
         try {
             output.write(data,0,data.length);
             output.flush();
@@ -134,6 +132,7 @@ public class ExcelUtils {
      * @throws Exception
      */
     private static <T> void iterateField(Field[] fields, T dto, XSSFRow row) throws Exception {
+        int col = 0;
         for (int index = 0; index < fields.length; index++) {
             fields[index].setAccessible(true);
             ExcelField ef = fields[index].getAnnotation(ExcelField.class);
@@ -142,14 +141,11 @@ public class ExcelUtils {
             }
             Object value = fields[index].get(dto);
             if (value instanceof Date) {
-                row.createCell(index).setCellValue(format.format((Date) value));
+                row.createCell(col).setCellValue(format.format((Date) value));
             } else {
-                row.createCell(index).setCellValue(String.valueOf(value));
+                row.createCell(col).setCellValue(String.valueOf(value));
             }
+            col++;
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }
