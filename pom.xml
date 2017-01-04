@@ -14,6 +14,7 @@
         <module>myutils-http</module>
         <module>myutils-redis</module>
         <module>myutils-export</module>
+        <module>myutils-algorithm</module>
     </modules>
 
     <dependencies>
