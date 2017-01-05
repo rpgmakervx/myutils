@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -111,6 +112,7 @@ public class ExcelUtils {
      * @param output
      */
     public static void stream(OutputStream output){
+
         byte[] data = getExcelAsByte();
         if (ArrayUtils.isEmpty(data)){
             return;
@@ -147,5 +149,12 @@ public class ExcelUtils {
             }
             col++;
         }
+    }
+
+    public static void main(String[] args) {
+        BigDecimal d = new BigDecimal("100.0");
+        System.out.println(d.scale());
+        BigDecimal e = new BigDecimal("100.00");
+        System.out.println(d.compareTo(e));
     }
 }
