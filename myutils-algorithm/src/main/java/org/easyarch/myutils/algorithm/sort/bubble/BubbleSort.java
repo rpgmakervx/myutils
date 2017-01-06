@@ -13,7 +13,22 @@ import java.util.List;
 
 public class BubbleSort implements Sort {
     public void sort(List<Integer> list, boolean desc) {
-
+        int length = list.size();
+        for (int outIndex = 0; outIndex < length; outIndex++) {
+            boolean swaped = false;
+            for (int inIndex = 1; inIndex < length; inIndex++) {
+                System.out.println("(" + list.get(inIndex) + " < " + list.get(inIndex - 1) + "):" + (list.get(inIndex) < list.get(inIndex - 1)));
+                if (list.get(inIndex) < list.get(inIndex - 1)) {
+                    Integer tmp = list.get(inIndex);
+                    list.set(inIndex, list.get(inIndex - 1));
+                    list.set(inIndex - 1, tmp);
+                    swaped = true;
+                }
+            }
+            if (!swaped) {
+                break;
+            }
+        }
     }
 
     /**
@@ -27,7 +42,7 @@ public class BubbleSort implements Sort {
         for (int outIndex = 0; outIndex < length; outIndex++) {
             boolean swaped = false;
             for (int inIndex = 1; inIndex < length; inIndex++) {
-                System.out.println("("+list[inIndex] +" < "+list[inIndex - 1] +"):"+(list[inIndex] < list[inIndex - 1]));
+                System.out.println("(" + list[inIndex] + " < " + list[inIndex - 1] + "):" + (list[inIndex] < list[inIndex - 1]));
                 if (list[inIndex] < list[inIndex - 1]) {
                     Integer tmp = list[inIndex];
                     list[inIndex] = list[inIndex - 1];
@@ -35,7 +50,7 @@ public class BubbleSort implements Sort {
                     swaped = true;
                 }
             }
-            if (!swaped){
+            if (!swaped) {
                 break;
             }
         }
