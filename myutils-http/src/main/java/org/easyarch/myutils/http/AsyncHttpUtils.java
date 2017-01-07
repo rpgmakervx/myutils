@@ -35,6 +35,35 @@ public class AsyncHttpUtils {
     private Channel channel;
 
     public AsyncHttpUtils(String url){
+
+    }
+
+    private void init(URL url){
+        try {
+            init(url.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void init(InetSocketAddress address){
+        try {
+            this.ip = address.getHostString();
+            this.port = address.getPort();
+            workerGroup = new NioEventLoopGroup();
+            b = new Bootstrap();
+            workerGroup = new NioEventLoopGroup();
+            b = new Bootstrap();
+            b.group(workerGroup)
+                    .channel(NioSocketChannel.class)
+                    .remoteAddress(InetAddress.getByName(ip),port)
+                    .option(ChannelOption.SO_KEEPALIVE, true)
+                    .handler(new BaseClientChildHandler());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void init(String url) throws Exception {
         try {
             URL u = new URL(url);
             this.ip = InetAddress.getByName(u.getHost()).getHostAddress();
@@ -44,38 +73,14 @@ public class AsyncHttpUtils {
             }
             workerGroup = new NioEventLoopGroup();
             b = new Bootstrap();
-            init();
+            b.group(workerGroup)
+                    .channel(NioSocketChannel.class)
+                    .remoteAddress(InetAddress.getByName(ip),port)
+                    .option(ChannelOption.SO_KEEPALIVE, true)
+                    .handler(new BaseClientChildHandler());
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public AsyncHttpUtils(URL url){
-        this(url.toString());
-    }
-
-    public AsyncHttpUtils(String ip, int port) {
-        this(new InetSocketAddress(ip,port));
-    }
-
-    public AsyncHttpUtils(InetSocketAddress address) {
-        try {
-            this.ip = address.getHostString();
-            this.port = address.getPort();
-            workerGroup = new NioEventLoopGroup();
-            b = new Bootstrap();
-            init();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void init() throws Exception {
-        b.group(workerGroup)
-                .channel(NioSocketChannel.class)
-                .remoteAddress(InetAddress.getByName(ip),port)
-                .option(ChannelOption.SO_KEEPALIVE, true)
-                .handler(new BaseClientChildHandler());
     }
 
     public String ip() {
