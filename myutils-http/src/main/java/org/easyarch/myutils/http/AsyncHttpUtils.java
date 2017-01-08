@@ -15,7 +15,9 @@ import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.http.future.ResponseFuture;
 import org.easyarch.myutils.http.handler.BaseClientChildHandler;
 import org.easyarch.myutils.http.manager.HttpResponseManager;
+import org.easyarch.myutils.lang.StringUtils;
 
+import java.io.File;
 import java.net.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,6 +54,7 @@ public class AsyncHttpUtils {
             b = new Bootstrap();
             b.group(workerGroup)
                     .channel(NioSocketChannel.class)
+                    .option(ChannelOption.SO_BACKLOG,256)
                     .option(ChannelOption.SO_KEEPALIVE, true)
                     .handler(new BaseClientChildHandler());
             connect(InetAddress.getByName(ip).getHostAddress(),port);
@@ -72,7 +75,7 @@ public class AsyncHttpUtils {
             b = new Bootstrap();
             b.group(workerGroup)
                     .channel(NioSocketChannel.class)
-                    .remoteAddress(InetAddress.getByName(ip),port)
+                    .option(ChannelOption.SO_BACKLOG,256)
                     .option(ChannelOption.SO_KEEPALIVE, true)
                     .handler(new BaseClientChildHandler());
             connect(ip,port);
@@ -91,7 +94,7 @@ public class AsyncHttpUtils {
 
     private void connect(String ip,int port) {
         try {
-            future = b.connect();
+            future = b.connect(ip,port);
             future.sync();
             channel = future.channel();
         } catch (Exception e) {
@@ -101,13 +104,13 @@ public class AsyncHttpUtils {
 
     public void send(String url, FullHttpRequest request) throws Exception {
         init(url);
-        doRequest(request.uri(), request.method()
+        doRequest(new URL(url), request.method()
                 , request.headers(), request.content());
     }
 
     public void get(String url, HttpHeaders headers) throws Exception {
         init(url);
-        doRequest(url, HttpMethod.GET, headers, Unpooled.EMPTY_BUFFER);
+        doRequest(new URL(url), HttpMethod.GET, headers, null);
     }
 
     public void post(String url, HttpHeaders headers, byte[] bytes) throws Exception {
@@ -115,7 +118,7 @@ public class AsyncHttpUtils {
             bytes = new byte[0];
         }
         init(url);
-        doRequest(url, HttpMethod.POST, headers, Unpooled.wrappedBuffer(bytes));
+        doRequest(new URL(url), HttpMethod.POST, headers, Unpooled.wrappedBuffer(bytes));
     }
 
     public void put(String url, HttpHeaders headers, byte[] bytes) throws Exception {
@@ -123,27 +126,29 @@ public class AsyncHttpUtils {
             bytes = new byte[0];
         }
         init(url);
-        doRequest(url, HttpMethod.PUT, headers, Unpooled.wrappedBuffer(bytes));
+        doRequest(new URL(url), HttpMethod.PUT, headers, Unpooled.wrappedBuffer(bytes));
     }
 
-    public void delete(String url, HttpHeaders headers, byte[] bytes) throws Exception {
-        if (ArrayUtils.isEmpty(bytes)) {
-            bytes = new byte[0];
-        }
+    public void delete(String url, HttpHeaders headers) throws Exception {
         init(url);
-        doRequest(url, HttpMethod.DELETE, headers, Unpooled.wrappedBuffer(bytes));
+        doRequest(new URL(url), HttpMethod.DELETE, headers, null);
     }
 
-    private void doRequest(String uri, HttpMethod method, HttpHeaders headers, ByteBuf buf) {
-        DefaultFullHttpRequest request =
-                new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, uri, buf);
+    private void doRequest(URL url, HttpMethod method, HttpHeaders headers, ByteBuf buf) {
+        String uri = StringUtils.isEmpty(url.getPath())? File.separator:url.getPath();
+        DefaultFullHttpRequest request;
+        if(buf == null){
+            request  = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, uri);
+        }else{
+            request  = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, method, uri, buf);
+        }
         if (headers == null) {
             headers = new DefaultHttpHeaders();
-            headers.set(HttpHeaderNames.CONTENT_TYPE, "text/html;charset=utf-8");
-            headers.set(HttpHeaderNames.HOST, channel.localAddress());
+            headers.set(HttpHeaderNames.HOST, url.getHost());
+            headers.set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
         }
         request.headers().set(headers);
-        request.headers().set(HttpHeaderNames.USER_AGENT, "java/HttpUtils");
+//        request.headers().set(HttpHeaderNames.USER_AGENT, "java/HttpUtils");
         HttpResponseManager.setAttr(channel, new ResponseFuture<FullHttpResponse>());
         channel.writeAndFlush(request);
     }
@@ -165,7 +170,6 @@ public class AsyncHttpUtils {
             e.printStackTrace();
             return null;
         } finally {
-            close();
         }
     }
 

@@ -25,9 +25,13 @@ public class TestHttp {
     @Test
     public void testHttp() throws Exception {
 //        System.out.println(InetAddress.getByName("www.baidu.com"));
-//        URL url = new URL("https://segmentfault.com/");
+//        URL url = new URL("https://segmentfault.com");
+//        URI uri = new URI("https://segmentfault.com/");
+//        System.out.println(url.getPath());
+//        System.out.println(uri.getHost());
         AsyncHttpUtils utils = new AsyncHttpUtils();
-        URL url = new URL("http://www.bilibili.com/");
+//        URL url = new URL("http://localhost:9524/");
+        URL url = new URL("http://www.baidu.com/");
         utils.get(url.toString(),null);
         String content = new String(utils.getContentAsStream());
         System.out.println(content);
