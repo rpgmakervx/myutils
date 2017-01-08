@@ -195,6 +195,7 @@ public class DBCPool extends DataSourceAdapter{
     class Monitor implements Runnable{
         private static final int PERIOD = 5;
 
+        private static final String PING = "SELECT 1";
         private Connection conn;
 
         public Monitor(Connection conn){

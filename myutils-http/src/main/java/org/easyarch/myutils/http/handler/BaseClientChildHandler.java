@@ -9,6 +9,7 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.codec.http.HttpClientCodec;
 import io.netty.handler.codec.http.HttpObjectAggregator;
+import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
  * Description :
@@ -23,6 +24,7 @@ public class BaseClientChildHandler extends ChannelInitializer<SocketChannel> {
         ChannelPipeline pipeline = ch.pipeline();
         pipeline.addLast(new HttpClientCodec());
         pipeline.addLast(new HttpObjectAggregator(1024000));
+        pipeline.addLast(new ChunkedWriteHandler());
         pipeline.addLast(new HttpClientHandler());
     }
 

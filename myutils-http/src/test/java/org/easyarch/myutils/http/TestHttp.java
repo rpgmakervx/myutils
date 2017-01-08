@@ -25,17 +25,12 @@ public class TestHttp {
     @Test
     public void testHttp() throws Exception {
 //        System.out.println(InetAddress.getByName("www.baidu.com"));
-        URL url = new URL("http://localhost:8080/thirdpay/refund/index");
 //        URL url = new URL("https://segmentfault.com/");
-        AsyncHttpUtils utils = new AsyncHttpUtils(url);
-        System.out.println(utils.ip());
-        System.out.println(utils.port());
-//        boolean isDomain = utils.isDomain("127.0.0.1");
-//        System.out.println(isDomain);
-        utils.connect();
-        utils.get("/",null);
+        AsyncHttpUtils utils = new AsyncHttpUtils();
+        URL url = new URL("http://www.bilibili.com/");
+        utils.get(url.toString(),null);
         String content = new String(utils.getContentAsStream());
-//        System.out.println(content);
+        System.out.println(content);
 
     }
 
@@ -43,7 +38,7 @@ public class TestHttp {
     public void testHttpClient() throws IOException {
         HttpClient client = new DefaultHttpClient();
         // 实例化HTTP方法
-        HttpGet request = new HttpGet("http://localhost:8080/thirdpay/refund/index");
+        HttpGet request = new HttpGet("https://www.baidu.com");
         System.out.println("request:"+request);
         Header[] headers = request.getAllHeaders();
         System.out.println("headers:"+headers.length);
@@ -62,6 +57,6 @@ public class TestHttp {
         }
         in.close();
         String content = sb.toString();
-//        System.out.println(content);
+        System.out.println(content);
     }
 }

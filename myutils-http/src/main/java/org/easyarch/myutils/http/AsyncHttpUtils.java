@@ -2,6 +2,7 @@ package org.easyarch.myutils.http;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufUtil;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
@@ -34,10 +35,6 @@ public class AsyncHttpUtils {
     private ChannelFuture future;
     private Channel channel;
 
-    public AsyncHttpUtils(String url){
-
-    }
-
     private void init(URL url){
         try {
             init(url.toString());
@@ -55,9 +52,9 @@ public class AsyncHttpUtils {
             b = new Bootstrap();
             b.group(workerGroup)
                     .channel(NioSocketChannel.class)
-                    .remoteAddress(InetAddress.getByName(ip),port)
                     .option(ChannelOption.SO_KEEPALIVE, true)
                     .handler(new BaseClientChildHandler());
+            connect(InetAddress.getByName(ip).getHostAddress(),port);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,6 +75,7 @@ public class AsyncHttpUtils {
                     .remoteAddress(InetAddress.getByName(ip),port)
                     .option(ChannelOption.SO_KEEPALIVE, true)
                     .handler(new BaseClientChildHandler());
+            connect(ip,port);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,7 +89,7 @@ public class AsyncHttpUtils {
         return port;
     }
 
-    public void connect() {
+    private void connect(String ip,int port) {
         try {
             future = b.connect();
             future.sync();
@@ -101,34 +99,39 @@ public class AsyncHttpUtils {
         }
     }
 
-    public void send(FullHttpRequest request) throws Exception {
+    public void send(String url, FullHttpRequest request) throws Exception {
+        init(url);
         doRequest(request.uri(), request.method()
                 , request.headers(), request.content());
     }
 
-    public void get(String uri, HttpHeaders headers) throws Exception {
-        doRequest(uri, HttpMethod.GET, headers, Unpooled.EMPTY_BUFFER);
+    public void get(String url, HttpHeaders headers) throws Exception {
+        init(url);
+        doRequest(url, HttpMethod.GET, headers, Unpooled.EMPTY_BUFFER);
     }
 
-    public void post(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
+    public void post(String url, HttpHeaders headers, byte[] bytes) throws Exception {
         if (ArrayUtils.isEmpty(bytes)) {
             bytes = new byte[0];
         }
-        doRequest(uri, HttpMethod.POST, headers, Unpooled.wrappedBuffer(bytes));
+        init(url);
+        doRequest(url, HttpMethod.POST, headers, Unpooled.wrappedBuffer(bytes));
     }
 
-    public void put(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
+    public void put(String url, HttpHeaders headers, byte[] bytes) throws Exception {
         if (ArrayUtils.isEmpty(bytes)) {
             bytes = new byte[0];
         }
-        doRequest(uri, HttpMethod.PUT, headers, Unpooled.wrappedBuffer(bytes));
+        init(url);
+        doRequest(url, HttpMethod.PUT, headers, Unpooled.wrappedBuffer(bytes));
     }
 
-    public void delete(String uri, HttpHeaders headers, byte[] bytes) throws Exception {
+    public void delete(String url, HttpHeaders headers, byte[] bytes) throws Exception {
         if (ArrayUtils.isEmpty(bytes)) {
             bytes = new byte[0];
         }
-        doRequest(uri, HttpMethod.DELETE, headers, Unpooled.wrappedBuffer(bytes));
+        init(url);
+        doRequest(url, HttpMethod.DELETE, headers, Unpooled.wrappedBuffer(bytes));
     }
 
     private void doRequest(String uri, HttpMethod method, HttpHeaders headers, ByteBuf buf) {
@@ -198,9 +201,7 @@ public class AsyncHttpUtils {
 
     private byte[] getContent(FullHttpResponse response) {
         ByteBuf buf = response.content();
-        byte[] bytes = new byte[buf.readableBytes()];
-        buf.readBytes(bytes);
-        return bytes;
+        return ByteBufUtil.getBytes(buf);
     }
 
     private HttpHeaders getHeaders(FullHttpResponse response) {
