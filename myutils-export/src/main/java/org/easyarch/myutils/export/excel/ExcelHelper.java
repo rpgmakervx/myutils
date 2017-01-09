@@ -5,6 +5,7 @@ import org.apache.poi.xssf.usermodel.*;
 import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.export.excel.annotation.ExcelEntity;
 import org.easyarch.myutils.export.excel.annotation.ExcelField;
+import org.easyarch.myutils.format.TimeUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
@@ -12,7 +13,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -22,15 +22,14 @@ import java.util.List;
  * 下午4:34
  */
 
-public class ExcelUtils {
-    private static XSSFWorkbook xsswb;
-    private static ByteArrayOutputStream content;
-    private final static SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+public class ExcelHelper {
+    private XSSFWorkbook xsswb;
+    private ByteArrayOutputStream content;
     public static final String SUFFIX = ".xls";
     //控制是否能够生成表格
-    public static boolean option = false;
+    public boolean option = false;
 
-    static {
+    {
         xsswb = new XSSFWorkbook();
         content = new ByteArrayOutputStream();
     }
@@ -40,17 +39,17 @@ public class ExcelUtils {
      * @param datas
      * @param <T>
      */
-    public static <T> void build(List<T> datas) {
+    public <T> ExcelHelper build(List<T> datas) {
         if (option){
-            return;
+            return this;
         }
         if (CollectionUtils.isEmpty(datas)) {
-            return;
+            return this;
         }
         T t = datas.get(0);
         ExcelEntity entity = t.getClass().getAnnotation(ExcelEntity.class);
         if (entity == null) {
-            return;
+            return this;
         }
         // 第二步，在webbook中添加一个sheet,对应Excel文件中的sheet
         XSSFSheet sheet = xsswb.createSheet(entity.table());
@@ -73,7 +72,7 @@ public class ExcelUtils {
         }
         //实体中没有列要放到excel表中
         if (index == 0) {
-            return;
+            return this;
         }
         try {
             for (index = 0; index < datas.size(); index++) {
@@ -83,7 +82,7 @@ public class ExcelUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return;
+        return this;
     }
 
     /**
@@ -92,12 +91,12 @@ public class ExcelUtils {
      * @param sheetname
      * @param <T>
      */
-    public static <T> void build(List<T> datas,String sheetname) {
+    public <T> ExcelHelper build(List<T> datas,String sheetname) {
         if (option){
-            return;
+            return this;
         }
         if (CollectionUtils.isEmpty(datas)) {
-            return;
+            return this;
         }
         T t = datas.get(0);
         // 第二步，在webbook中添加一个sheet,对应Excel文件中的sheet
@@ -121,7 +120,7 @@ public class ExcelUtils {
         }
         //实体中没有列要放到excel表中
         if (index == 0) {
-            return;
+            return this;
         }
         try {
             for (index = 0; index < datas.size(); index++) {
@@ -131,14 +130,14 @@ public class ExcelUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return;
+        return this;
     }
 
     /**
      * 获得文件流
      * @return
      */
-    public static byte[] getExcelAsByte() {
+    public byte[] getExcelAsByte() {
         return content.toByteArray();
     }
 
@@ -146,7 +145,7 @@ public class ExcelUtils {
      * 持久化到本地磁盘
      * @param path
      */
-    public static void disk(String path) {
+    public ExcelHelper disk(String path) {
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(path);
@@ -160,17 +159,18 @@ public class ExcelUtils {
                 e.printStackTrace();
             }
         }
+        return this;
     }
 
     /**
      * 输出到指定流中
      * @param output
      */
-    public static void stream(OutputStream output){
+    public ExcelHelper stream(OutputStream output){
 
         byte[] data = getExcelAsByte();
         if (ArrayUtils.isEmpty(data)){
-            return;
+            return this;
         }
         try {
             output.write(data,0,data.length);
@@ -178,17 +178,19 @@ public class ExcelUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return this;
     }
 
-    public static void complete(){
+    public ExcelHelper complete(){
         option = true;
         try {
             xsswb.write(content);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return this;
     }
-    public static void clear(){
+    public void clear(){
         content = null;
         option = false;
         try {
@@ -206,7 +208,7 @@ public class ExcelUtils {
      * @param <T>
      * @throws Exception
      */
-    private static <T> void iterateField(Field[] fields, T dto, XSSFRow row) throws Exception {
+    private <T> void iterateField(Field[] fields, T dto, XSSFRow row) throws Exception {
         int col = 0;
         for (int index = 0; index < fields.length; index++) {
             fields[index].setAccessible(true);
@@ -216,7 +218,7 @@ public class ExcelUtils {
             }
             Object value = fields[index].get(dto);
             if (value instanceof Date) {
-                row.createCell(col).setCellValue(format.format((Date) value));
+                row.createCell(col).setCellValue(TimeUtils.getTimeFormatString((Date) value));
             } else {
                 row.createCell(col).setCellValue(String.valueOf(value));
             }
@@ -224,7 +226,7 @@ public class ExcelUtils {
         }
     }
 
-    public static void main(String[] args) {
+    public void main(String[] args) {
         BigDecimal d = new BigDecimal("100.0");
         System.out.println(d.scale());
         BigDecimal e = new BigDecimal("100.00");
