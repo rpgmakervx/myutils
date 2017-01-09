@@ -1,0 +1,11 @@
+支持语法：
+#{xxx}
+#{xxx.name}
+
+#if(a eq 1)
+#elseif()
+#end
+
+#for(#{var} as #{list})
+
+#end

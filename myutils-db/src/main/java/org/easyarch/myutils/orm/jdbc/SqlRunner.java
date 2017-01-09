@@ -1,10 +1,8 @@
 package org.easyarch.myutils.orm.jdbc;
 
 import org.easyarch.myutils.db.exec.SqlExecutor;
-import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
 
 import javax.sql.DataSource;
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -29,12 +27,12 @@ public class SqlRunner {
         this.ds = ds;
     }
 
-    public<E> List<E> selectList(String sql,Class<E> cls,Object ... parameters){
-        try {
-            return executor.query(ds.getConnection(),sql,new BeanListResultSetHadler<E>(cls),parameters);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public<E> List<E> selectList(String bind,Object parameter){
+//        try {
+//            return executor.query(ds.getConnection(),sql,new BeanListResultSetHadler<E>(cls),parameters);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
         return null;
     }
 }

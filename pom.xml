@@ -15,6 +15,8 @@
         <module>myutils-redis</module>
         <module>myutils-export</module>
         <module>myutils-algorithm</module>
+        <module>myutils-template</module>
+        <module>myutils-inject</module>
     </modules>
 
     <dependencies>

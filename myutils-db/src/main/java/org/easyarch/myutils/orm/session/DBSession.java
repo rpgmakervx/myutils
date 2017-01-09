@@ -16,10 +16,13 @@ public interface DBSession {
     public <E> List<E> selectList(String bind,Object parameter);
 
     public int update(String bind,Object parameter);
+    public int update(Object bean);
 
     public int delete(String bind,Object parameter);
+    public int delete(Object bean);
 
     public int insert(String bind,Object parameter);
+    public int insert(Object bean);
 
 
 }

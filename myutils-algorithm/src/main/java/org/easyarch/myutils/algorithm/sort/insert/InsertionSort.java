@@ -1,6 +1,6 @@
 package org.easyarch.myutils.algorithm.sort.insert;
 
-import org.easyarch.myutils.algorithm.sort.Sort;
+import org.easyarch.myutils.algorithm.sort.AbstractSort;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * description:
  */
 
-public class InsertionSort implements Sort {
+public class InsertionSort extends AbstractSort {
 
     /**
      *

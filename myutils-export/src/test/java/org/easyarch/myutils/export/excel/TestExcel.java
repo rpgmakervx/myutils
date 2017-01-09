@@ -22,10 +22,12 @@ public class TestExcel {
     public void testExcel(){
         List<User> users = new ArrayList<User>();
         long begin = System.currentTimeMillis();
-        for (int index=0;index<50000;index++){
+        for (int index=0;index<50;index++){
             users.add(new User("xxx", 22+index, "dfghjhdasfdsgdfbdv"+index,"1SFdsgfdhgfG1"+index,"1afsafsgds1"+index, TimeUtils.getDateOffsetByNow(-5000+index)));
         }
-        ExcelUtils.build(users);
+        ExcelUtils.build(users,"user1");
+        ExcelUtils.build(users,"student2");
+        ExcelUtils.complete();
         ExcelUtils.disk("/home/code4j/58daojia/名单" + SUFFIX);
         System.out.println("time:"+ (System.currentTimeMillis() - begin));
     }
