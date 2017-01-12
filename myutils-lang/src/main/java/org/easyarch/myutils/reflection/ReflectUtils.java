@@ -1,8 +1,4 @@
-package org.easyarch.myutils.reflection;/**
- * Description :
- * Created by YangZH on 16-11-3
- * 上午12:36
- */
+package org.easyarch.myutils.reflection;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
