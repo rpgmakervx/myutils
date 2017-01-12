@@ -25,7 +25,7 @@ import java.util.List;
 public class ExcelHelper {
     private XSSFWorkbook xsswb;
     private ByteArrayOutputStream content;
-    public static final String SUFFIX = ".xls";
+    public static final String SUFFIX = ".xlsx";
     //控制是否能够生成表格
     public boolean option = false;
 

@@ -111,6 +111,7 @@ public class SqlExecutor extends AbstractExecutor{
         DataSource dataSource = DBCPoolFactory.newConfigedDBCPool();
         final SqlExecutor executor = new MySqlExecutor();
         Connection connection = dataSource.getConnection();
+        PreparedStatement ps = connection.prepareStatement("");
         List<User> user = executor.query(connection,"select * from user ",
                 new BeanListResultSetHadler<User>(User.class), null);
 //        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);

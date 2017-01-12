@@ -4,14 +4,10 @@ package org.easyarch.myutils.db;/**
  *  上午10:37
  */
 
-import org.easyarch.myutils.db.exec.SqlExecutor;
-import org.easyarch.myutils.test.User;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Description :
@@ -20,8 +16,6 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 
 public final class ConnectionUtils {
-
-    public static SqlExecutor executor;
 
     public static void closeAll(Connection conn, Statement stmt,
                                     ResultSet rs) {
@@ -141,17 +135,4 @@ public final class ConnectionUtils {
         }
     }
 
-    public static void main(String[] args) {
-        LinkedBlockingQueue<User> queue = new LinkedBlockingQueue();
-        User u = new User();
-        queue.add(u);
-        queue.add(new User());
-        queue.add(new User());
-        queue.add(new User());
-        queue.add(new User());
-        queue.add(new User());
-        queue.add(new User());
-        queue.add(new User());
-        System.out.println(queue.remove(u));
-    }
 }
