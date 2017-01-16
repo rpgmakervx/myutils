@@ -29,7 +29,7 @@ public class ExcelHelper {
     //控制是否能够生成表格
     public boolean option = false;
 
-    {
+    public ExcelHelper(){
         xsswb = new XSSFWorkbook();
         content = new ByteArrayOutputStream();
     }
@@ -146,10 +146,14 @@ public class ExcelHelper {
      * @param path
      */
     public ExcelHelper disk(String path) {
+        byte[] data = getExcelAsByte();
+        if (ArrayUtils.isEmpty(data)){
+            return this;
+        }
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(path);
-            fos.write(getExcelAsByte());
+            fos.write(data);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -167,7 +171,6 @@ public class ExcelHelper {
      * @param output
      */
     public ExcelHelper stream(OutputStream output){
-
         byte[] data = getExcelAsByte();
         if (ArrayUtils.isEmpty(data)){
             return this;
@@ -183,12 +186,19 @@ public class ExcelHelper {
 
     public ExcelHelper complete(){
         option = true;
+        if (isEmpty()){
+            return this;
+        }
         try {
             xsswb.write(content);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return this;
+    }
+
+    private boolean isEmpty(){
+        return xsswb.getNumberOfSheets() == 0;
     }
     public void clear(){
         content = null;
