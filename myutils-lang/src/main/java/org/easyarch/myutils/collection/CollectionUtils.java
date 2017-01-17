@@ -2,6 +2,7 @@ package org.easyarch.myutils.collection;
 
 import org.easyarch.myutils.lang.NumberUtils;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -53,6 +54,10 @@ public class CollectionUtils {
             list.add(t);
         }
         return list;
+    }
+
+    public static <T> T[] toArray(final Collection<T> col,Class<T> clazz){
+        return col.toArray((T[]) Array.newInstance(clazz,col.size()));
     }
 
     public static <T> Map<T, Integer> wordcount(final Collection<T> col) {
@@ -124,6 +129,8 @@ public class CollectionUtils {
         }
         return resultMap;
     }
+
+
 
     public static void main(String[] args) {
 //        List<String> words = newArrayList("this", "is", "a", "file", "and", "that", "is", "a", "file");

@@ -217,6 +217,18 @@ public class NumberUtils {
         }
         return max;
     }
+    public static int max(final Integer[] array) {
+        if (array == null || array.length == 0) {
+            throw new IllegalArgumentException("数组不能为空");
+        }
+        Integer max = array[1];
+        for (int index = 0; index < array.length; index++) {
+            if (array[index] > max) {
+                max = array[index];
+            }
+        }
+        return max;
+    }
 
     public static float max(final float... array) {
         if (array == null || array.length == 0) {

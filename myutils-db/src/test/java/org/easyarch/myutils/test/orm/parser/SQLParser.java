@@ -36,7 +36,7 @@ public class SQLParser {
     @Test
     public void testParse() throws JSQLParserException {
         Statement statement = CCJSqlParserUtil.parse("select a,b,c from test where test.id = ? and oid in (?,?,?) " +
-                "and  user.age = ? and user.create_at between ? and ? and label like ?");
+                "and  user.age = ? and user.create_at between ? and ? and label like ? and col = ?");
         Select select = (Select) statement;
         PlainSelect plain = (PlainSelect) select.getSelectBody();
         Expression where = plain.getWhere();
@@ -136,16 +136,18 @@ public class SQLParser {
 
     @Test
     public void demo() throws JSQLParserException{
-        Statement statement = CCJSqlParserUtil.parse("select sex from test where age > 20 and id in (?,?,?)");
+        Statement statement = CCJSqlParserUtil.parse("select sex from test where test.age = $user.age$ and id in ($user.age$,$user.age$)");
         Select select = (Select) statement;
         PlainSelect plainSelect = (PlainSelect) select.getSelectBody();
         BinaryExpression binaryExpression = (BinaryExpression) plainSelect.getWhere();
         InExpression inExpression = (InExpression) binaryExpression.getRightExpression();
+        BinaryExpression leftExpression = (BinaryExpression) binaryExpression.getLeftExpression();
         ExpressionList expressionList = (ExpressionList) inExpression.getRightItemsList();
         List<Expression> expressions = expressionList.getExpressions();
+        System.out.println(leftExpression.getRightExpression());
         System.out.println(expressions);
         for (Expression e:expressions){
-            System.out.println(e.getClass().getName());
+            System.out.println(e);
         }
     }
 

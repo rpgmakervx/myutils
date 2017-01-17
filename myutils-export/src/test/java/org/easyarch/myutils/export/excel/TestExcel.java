@@ -19,7 +19,7 @@ import static org.easyarch.myutils.export.excel.ExcelHelper.SUFFIX;
 public class TestExcel {
 
     @Test
-    public void testExcel(){
+    public void testExcel(int i){
         List<User> users = new ArrayList<User>();
         long begin = System.currentTimeMillis();
         for (int index=0;index<50;index++){

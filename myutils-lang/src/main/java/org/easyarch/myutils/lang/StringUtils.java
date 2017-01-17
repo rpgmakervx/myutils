@@ -419,6 +419,53 @@ public class StringUtils {
         return buffer.toString();
     }
 
+    /**
+     * 按模式将字符串剥去出来，仅限开头结尾被包裹的字符串
+     * @param src
+     * @param tag
+     * @return
+     */
+    public static String strip(final String src,final String tag){
+        int beginIndex = tag.length();
+        return src.substring(beginIndex,src.length() - beginIndex);
+    }
+
+//    /**
+//     * 从若干对标签中取出字符，返回字符出现的顺序和字符本身的映射
+//     * @param src
+//     * @param frontTag
+//     * @param backTag
+//     * @return
+//     */
+//    public static Map<Integer,String> splitTag(final String src,String frontTag, String backTag){
+//        Map<Integer,String> mapper = new HashMap<>();
+//        boolean isFront = true;
+//        int countDown = 0;
+//        int startIndex = 0;
+//        int currentIndex = src.indexOf(frontTag);
+//        StringBuffer buffer = new StringBuffer();
+//        String tmp = src;
+//        while (currentIndex > 0){
+//            if (isFront){
+//                currentIndex = tmp.indexOf(frontTag);
+//                isFront = false;
+//            }else{
+//                currentIndex = tmp.indexOf(backTag) + startIndex;
+//                System.out.println("back tag ,, startIndex:"+startIndex+",currentIndex:"+currentIndex);
+//                System.out.println("back tag src:"+src);
+//                String core = src.substring(startIndex,currentIndex);
+//                mapper.put(countDown,core);
+//                countDown++;
+//                isFront = true;
+//            }
+//            tmp = tmp.substring(currentIndex + 1,src.length());
+//            startIndex = currentIndex;
+//            System.out.println("tmp string : "+tmp);
+//            System.out.println("startIndex:"+startIndex+",currentIndex:"+currentIndex);
+//        }
+//
+//        return mapper;
+//    }
 
     private static String random(int count, int start, int end, final boolean letters, final boolean numbers,
                                  final char[] chars, final Random random) {
@@ -515,15 +562,20 @@ public class StringUtils {
     public static void main(String[] args) {
 //        System.out.println(tagKeyWord("this book told about javaweb programming","java","<br>","</br>"));
 //        System.out.println(kmp("this book told about java programming","java"));
-        String src1 = "this book told about java programming";
-        String src2 = "this book told about C++ programming";
+//        String src1 = "this book told about java programming";
+//        String src2 = "this book told about C++ programming";
 //        String key = "java";
 //        String frontSegement = src.substring(0,21);;
 //        System.out.println(frontSegement);
 //        System.out.println(src.replace("java","c++"));
-        String[] languages = new String[]{"java", "c++", "python"};
+//        String[] languages = new String[]{"java", "c++", "python"};
 //        System.out.println(join(languages, File.separator));
 //        System.out.println(indexOfDifference(src1,src2));
-        System.out.println(capitalize(src2));
+//        System.out.println(capitalize(src2));
+        String sql = "select * from user where age = #user.age# and curse_id = #user.curseId#";
+        System.out.println(strip("$&user.id$&","$&"));
+//        System.out.println(sql.substring(0,31));
+//        System.out.println(sql.indexOf("##"));
+
     }
 }
