@@ -1,5 +1,7 @@
 package org.easyarch.myutils.orm.annotation.sql;
 
+import org.easyarch.myutils.orm.mapper.JDBCType;
+
 import java.lang.annotation.*;
 
 /**
@@ -11,7 +13,8 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-public @interface TermParam {
-    String columnName ();
+public @interface SqlParam {
+    String name ();
+    JDBCType type ();
 
 }
