@@ -12,19 +12,17 @@ import static org.easyarch.myutils.orm.parser.Token.SEPERTOR;
 
 public class ParamParser implements Parser {
 
-    private String paramToken;
-
-    private String prefixToken;
+    private String []paramTokens;
 
     @Override
     public void parse(String src) {
         int beginIndex = SEPERTOR.length();
         String word = src.substring(beginIndex, src.length() - beginIndex);
-        String[] words = word.split(POINT);
-        if (words.length > 0){
-            prefixToken = words[0];
-            paramToken = words[1];
-        }
+        paramTokens = word.split(POINT);
+    }
+
+    public int getLevel(){
+        return paramTokens.length;
     }
 
 }

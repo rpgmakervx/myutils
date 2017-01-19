@@ -4,18 +4,26 @@ package org.easyarch.myutils.test;/**
  *  上午2:04
  */
 
+import org.easyarch.myutils.orm.annotation.entity.Column;
+import org.easyarch.myutils.orm.annotation.entity.Table;
+
 /**
  * Description :
  * Created by code4j on 16-11-3
  * 上午2:04
  */
-
+@Table(tableName = "t_user")
 public class User {
 
+    @Column(name = "t_id")
     private int id;
+    @Column(name = "userName")
     private String username;
+    @Column(name = "passwd")
     private String password;
+    @Column(name = "mobile")
     private String phone;
+    @Column(name = "age")
     private int age;
 
 

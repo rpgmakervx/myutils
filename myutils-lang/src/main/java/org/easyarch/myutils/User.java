@@ -1,8 +1,4 @@
-package org.easyarch.myutils;/**
- * Description : 
- * Created by YangZH on 16-11-3
- *  上午12:44
- */
+package org.easyarch.myutils;
 
 /**
  * Description :
@@ -37,6 +33,14 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Integer getSum() {
+        return sum;
+    }
+
+    public void setSum(Integer sum) {
+        this.sum = sum;
     }
 
     @Override

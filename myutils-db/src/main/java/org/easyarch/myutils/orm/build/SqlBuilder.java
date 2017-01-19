@@ -16,9 +16,12 @@ public class SqlBuilder {
 
     private ParamParser paramParser;
 
+    private ParamBinder paramBinder;
+
     public SqlBuilder(String sql){
         sqlParser = new SQLParser(sql);
         paramParser = new ParamParser();
+        paramBinder = new ParamBinder();
     }
 
 }
