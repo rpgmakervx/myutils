@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.mapper;
+package org.easyarch.myutils.orm.type;
 
 import java.sql.Timestamp;
 import java.util.Date;

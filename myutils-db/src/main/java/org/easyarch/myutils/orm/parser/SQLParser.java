@@ -11,7 +11,6 @@ import net.sf.jsqlparser.statement.select.PlainSelect;
 import net.sf.jsqlparser.statement.select.Select;
 import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.lang.StringUtils;
-import org.easyarch.myutils.orm.bean.SqlBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,7 @@ public class SQLParser implements Parser{
 
     private String sql;
 
-    private String finalSql;
+    private String preparedSql;
 
     private List<String> params;
 
@@ -46,7 +45,7 @@ public class SQLParser implements Parser{
     @Override
     public void parse(String src) {
         this.sql = src;
-        finalSql = sql;
+        preparedSql = sql;
         try {
             statement = CCJSqlParserUtil.parse(sql);
         } catch (JSQLParserException e) {
@@ -60,7 +59,7 @@ public class SQLParser implements Parser{
         Expression where = plain.getWhere();
         filterWhereColumns(where,params);
         for (String param:params){
-            finalSql = finalSql.replace(StringUtils.center(param,0,SEPERTOR),PLACEHOLDER);
+            preparedSql = preparedSql.replace(StringUtils.center(param,0,SEPERTOR),PLACEHOLDER);
         }
         return params;
     }
@@ -119,8 +118,8 @@ public class SQLParser implements Parser{
         return sql;
     }
 
-    public String getFinalSql(){
-        return finalSql;
+    public String getPreparedSql(){
+        return preparedSql;
     }
     public static void main(String[] args) throws JSQLParserException {
 //        Statement statement = CCJSqlParserUtil.parse("select a,b,c from test where test.id = ? and oid in (?,?,?) " +
@@ -128,13 +127,12 @@ public class SQLParser implements Parser{
 //        Select select = (Select) statement;
 //        PlainSelect plain = (PlainSelect) select.getSelectBody();
 //        Expression where = plain.getWhere();
-        List<SqlBean> columnNames = new ArrayList<>();
         SQLParser parser = new SQLParser("select a,b,c from test where id = $user.id$ and oid in ($map.pid$,$map.oid$,$map.mid$) " +
                 "and age = $map.age$ and create_at between $map.begin$ and $map.end$ and label like $map.label$");
         for (String param:parser.getSqlParams()){
             System.out.println(StringUtils.strip(param,SEPERTOR));
         }
-        System.out.println("finalSql:"+parser.getFinalSql());
+        System.out.println("preparedSql:"+parser.getPreparedSql());
 //        Map<Integer,String> map = new HashMap<>();
 //        map.put(2,"2");
 //        map.put(3,"3");
