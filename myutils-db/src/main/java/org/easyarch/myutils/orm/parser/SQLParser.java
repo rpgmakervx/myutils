@@ -14,9 +14,7 @@ import org.easyarch.myutils.lang.StringUtils;
 import org.easyarch.myutils.orm.bean.SqlBean;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.easyarch.myutils.orm.parser.Token.PLACEHOLDER;
 import static org.easyarch.myutils.orm.parser.Token.SEPERTOR;
@@ -26,9 +24,13 @@ import static org.easyarch.myutils.orm.parser.Token.SEPERTOR;
  * Created by xingtianyu on 17-1-11
  * 上午12:41
  * description:
+ * 语法：
+ * 1.select * from user where id = $user.id$    //对象反射取值
+ * 2.select * from user where id = $map.id$     //从map的键中取值
+ * 3.select * from user where id = $id$         //从@SqlParam中取值
+ * 3.select * from user where id = ?            //通过左值表达式和@Column中的映射取值
  */
-
-public class SQLParser {
+public class SQLParser implements Parser{
 
     private Statement statement;
 
@@ -36,10 +38,14 @@ public class SQLParser {
 
     private String finalSql;
 
-    private Map<Integer,String> paramMapper;
+    private List<String> params;
 
     public SQLParser(String sql){
-        this.sql = sql;
+       parse(sql);
+    }
+    @Override
+    public void parse(String src) {
+        this.sql = src;
         finalSql = sql;
         try {
             statement = CCJSqlParserUtil.parse(sql);
@@ -47,25 +53,24 @@ public class SQLParser {
             e.printStackTrace();
         }
     }
-
-    public Map<Integer,String> getSqlParamMapper(){
-        paramMapper = new HashMap<>();
+    public List<String> getSqlParams(){
+        params = new ArrayList<>();
         Select select = (Select) statement;
         PlainSelect plain = (PlainSelect) select.getSelectBody();
         Expression where = plain.getWhere();
-        filterWhereColumns(where,paramMapper);
-        for (Map.Entry<Integer,String> entry:paramMapper.entrySet()){
-            finalSql = finalSql.replace(StringUtils.center(entry.getValue(),0,SEPERTOR),PLACEHOLDER);
+        filterWhereColumns(where,params);
+        for (String param:params){
+            finalSql = finalSql.replace(StringUtils.center(param,0,SEPERTOR),PLACEHOLDER);
         }
-        return paramMapper;
+        return params;
     }
 
     /**
      * @param whereAfter
-     * @param mapper
+     * @param params
      * 注意：Column对象在getColumnName的时候会根据 . 做分割
      */
-    private void filterWhereColumns(Expression whereAfter,Map<Integer,String> mapper){
+    private void filterWhereColumns(Expression whereAfter,List<String> params){
         if (whereAfter instanceof Column){
             return;
         }
@@ -75,20 +80,20 @@ public class SQLParser {
             Expression rightExpression = binaryExpression.getRightExpression();
             if (leftExpression instanceof Column &&rightExpression instanceof Column){
                 String columnName = rightExpression.toString();
-                mapper.put(mapper.size()+1,columnName);
+                params.add(columnName);
             }
             // 访问左子树
-            filterWhereColumns(leftExpression,mapper);
+            filterWhereColumns(leftExpression,params);
             // 访问右子树
-            filterWhereColumns(rightExpression,mapper);
+            filterWhereColumns(rightExpression,params);
         }else if (whereAfter instanceof Between){
             Between between = (Between) whereAfter;
             //between 没有只有左子树有column，右子树没有
             Expression frontVal = between.getBetweenExpressionStart();
             Expression backVal = between.getBetweenExpressionEnd();
-            mapper.put(mapper.size() + 1,frontVal.toString());
-            mapper.put(mapper.size() + 1,backVal.toString());
-            filterWhereColumns(between.getLeftExpression(),mapper);
+            params.add(frontVal.toString());
+            params.add(backVal.toString());
+            filterWhereColumns(between.getLeftExpression(),params);
         }else if (whereAfter instanceof InExpression){
             InExpression inExpression = (InExpression) whereAfter;
             ItemsList itemsList = inExpression.getRightItemsList();
@@ -97,16 +102,16 @@ public class SQLParser {
                 List<Expression> expressions = expressionList.getExpressions();
                 if (CollectionUtils.isNotEmpty(expressions)){
                     for (Expression e:expressions){
-                        mapper.put(mapper.size()+1,e.toString());
+                        params.add(e.toString());
                     }
                 }
             }
-            filterWhereColumns(inExpression.getLeftExpression(),mapper);
+            filterWhereColumns(inExpression.getLeftExpression(),params);
         }else if (whereAfter instanceof LikeExpression){
             LikeExpression likeExpression = (LikeExpression) whereAfter;
             Expression val = likeExpression.getRightExpression();
-            mapper.put(mapper.size()+1,val.toString());
-            filterWhereColumns(likeExpression,mapper);
+            params.add(val.toString());
+            filterWhereColumns(likeExpression,params);
         }
     }
 
@@ -126,8 +131,8 @@ public class SQLParser {
         List<SqlBean> columnNames = new ArrayList<>();
         SQLParser parser = new SQLParser("select a,b,c from test where id = $user.id$ and oid in ($map.pid$,$map.oid$,$map.mid$) " +
                 "and age = $map.age$ and create_at between $map.begin$ and $map.end$ and label like $map.label$");
-        for (Map.Entry<Integer,String> entry:parser.getSqlParamMapper().entrySet()){
-            System.out.println(StringUtils.strip(entry.getValue(),SEPERTOR));;
+        for (String param:parser.getSqlParams()){
+            System.out.println(StringUtils.strip(param,SEPERTOR));
         }
         System.out.println("finalSql:"+parser.getFinalSql());
 //        Map<Integer,String> map = new HashMap<>();
@@ -137,4 +142,6 @@ public class SQLParser {
 //        System.out.println(map.get(map.size()));
 //        System.out.println(parser.getCurrentIndex(map));
     }
+
+
 }

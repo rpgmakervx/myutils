@@ -27,7 +27,7 @@ public enum JAVAType {
     public Class obj;
     public Class base;
 
-    JAVAType(Class obj, Class base) {
+    JAVAType(Class base,Class obj) {
         this.obj = obj;
         this.base = base;
     }

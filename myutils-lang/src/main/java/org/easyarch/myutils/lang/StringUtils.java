@@ -422,11 +422,18 @@ public class StringUtils {
     /**
      * 按模式将字符串剥去出来，仅限开头结尾被包裹的字符串
      * @param src
-     * @param tag
+     * @param beginToken
+     * @param endToken
      * @return
      */
-    public static String strip(final String src,final String tag){
-        int beginIndex = tag.length();
+    public static String strip(final String src,final String beginToken,final String endToken){
+        int beginIndex = beginToken.length();
+        int endIndex = endToken.length();
+        return src.substring(beginIndex,src.length() - beginIndex - endIndex);
+    }
+
+    public static String strip(final String src,final String beginToken){
+        int beginIndex = beginToken.length();
         return src.substring(beginIndex,src.length() - beginIndex);
     }
 
@@ -573,7 +580,7 @@ public class StringUtils {
 //        System.out.println(indexOfDifference(src1,src2));
 //        System.out.println(capitalize(src2));
         String sql = "select * from user where age = #user.age# and curse_id = #user.curseId#";
-        System.out.println(strip("$&user.id$&","$&"));
+        System.out.println(strip("$user.id ","$",""));
 //        System.out.println(sql.substring(0,31));
 //        System.out.println(sql.indexOf("##"));
 
