@@ -11,17 +11,17 @@ import java.util.List;
 
 public interface DBSession {
 
-    public <T> T selectOne(String bind,Object parameter);
+    public <T> T selectOne(String bind,Object ...parameter);
 
-    public <E> List<E> selectList(String bind,Object parameter);
+    public <E> List<E> selectList(String bind,Object... parameter);
 
-    public int update(String bind,Object parameter);
+    public int update(String bind,Object... parameter);
     public int update(Object bean);
 
-    public int delete(String bind,Object parameter);
+    public int delete(String bind,Object... parameter);
     public int delete(Object bean);
 
-    public int insert(String bind,Object parameter);
+    public int insert(String bind,Object... parameter);
     public int insert(Object bean);
 
 

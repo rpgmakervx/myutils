@@ -39,9 +39,6 @@ public class SQLParser implements Parser{
 
     private List<String> params;
 
-    public SQLParser(String sql){
-       parse(sql);
-    }
     @Override
     public void parse(String src) {
         this.sql = src;
@@ -51,8 +48,6 @@ public class SQLParser implements Parser{
         } catch (JSQLParserException e) {
             e.printStackTrace();
         }
-    }
-    public List<String> getSqlParams(){
         params = new ArrayList<>();
         Select select = (Select) statement;
         PlainSelect plain = (PlainSelect) select.getSelectBody();
@@ -61,6 +56,8 @@ public class SQLParser implements Parser{
         for (String param:params){
             preparedSql = preparedSql.replace(StringUtils.center(param,0,SEPERTOR),PLACEHOLDER);
         }
+    }
+    public List<String> getSqlParams(){
         return params;
     }
 
@@ -127,7 +124,8 @@ public class SQLParser implements Parser{
 //        Select select = (Select) statement;
 //        PlainSelect plain = (PlainSelect) select.getSelectBody();
 //        Expression where = plain.getWhere();
-        SQLParser parser = new SQLParser("select a,b,c from test where id = $user.id$ and oid in ($map.pid$,$map.oid$,$map.mid$) " +
+        SQLParser parser = new SQLParser();
+        parser.parse("select a,b,c from test where id = $user.id$ and oid in ($map.pid$,$map.oid$,$map.mid$) " +
                 "and age = $map.age$ and create_at between $map.begin$ and $map.end$ and label like $map.label$");
         for (String param:parser.getSqlParams()){
             System.out.println(StringUtils.strip(param,SEPERTOR));
