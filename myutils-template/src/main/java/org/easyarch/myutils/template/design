@@ -1,6 +1,6 @@
 支持语法：
 #{xxx}
-#{xxx.name}
+#{xxx.names}
 
 #if(a eq 1)
 #elseif()

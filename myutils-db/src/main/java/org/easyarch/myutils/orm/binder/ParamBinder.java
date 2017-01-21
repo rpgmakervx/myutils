@@ -1,11 +1,9 @@
-package org.easyarch.myutils.orm.build;
+package org.easyarch.myutils.orm.binder;
 
 import org.easyarch.myutils.orm.annotation.entity.Column;
 import org.easyarch.myutils.orm.annotation.entity.Table;
 
 import java.lang.reflect.Field;
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,48 +57,17 @@ public class ParamBinder {
         return null;
     }
 
-    public Map<String,Object> reflect(Integer val,String name){
+    public Map<String,Object> reflect(Object val,String name){
         reflectMap.put(name,val);
         return reflectMap;
     }
-    public Map<String,Object> reflect(Float val,String name){
-        reflectMap.put(name,val);
+
+    public Map<String,Object> reflect(Map<String,?> params){
+        reflectMap.putAll(params);
         return reflectMap;
     }
-    public Map<String,Object> reflect(Long val,String name){
-        reflectMap.put(name,val);
-        return reflectMap;
-    }
-    public Map<String,Object> reflect(Double val,String name){
-        reflectMap.put(name,val);
-        return reflectMap;
-    }
-    public Map<String,Object> reflect(Short val,String name){
-        reflectMap.put(name,val);
-        return reflectMap;
-    }
-    public Map<String,Object> reflect(Character val,String name){
-        reflectMap.put(name,val);
-        return reflectMap;
-    }
-    public Map<String,Object> reflect(Boolean val,String name){
-        reflectMap.put(name,val);
-        return reflectMap;
-    }
-    public Map<String,Object> reflect(Byte val,String name){
-        reflectMap.put(name,val);
-        return reflectMap;
-    }
-    public Map<String,Object> reflect(BigDecimal val, String name){
-        reflectMap.put(name,val);
-        return reflectMap;
-    }
-    public Map<String,Object> reflect(Date val, String name){
-        reflectMap.put(name,val);
-        return reflectMap;
-    }
-    public Map<String,Object> reflect(String val, String name){
-        reflectMap.put(name,val);
+
+    public Map<String,Object> getMapper(){
         return reflectMap;
     }
 

@@ -26,7 +26,7 @@ public class Main {
 //            pool.submit(new Runnable() {
 //                @Override
 //                public void run() {
-//                    Thread.currentThread().setName("thread"+ finalIndex);
+//                    Thread.currentThread().setNames("thread"+ finalIndex);
 //                    int count = 0;
 //                    while (count < 100) {
 //                        try {
@@ -35,10 +35,10 @@ public class Main {
 //                        } catch (SQLException e) {
 //                            e.printStackTrace();
 //                        }
-//                        System.out.println(Thread.currentThread().getName() + " count:" + count);
+//                        System.out.println(Thread.currentThread().getNames() + " count:" + count);
 //                        count++;
 //                    }
-//                    System.out.println("++++++++"+Thread.currentThread().getName()+" ended +++++++++");
+//                    System.out.println("++++++++"+Thread.currentThread().getNames()+" ended +++++++++");
 //                }
 //            });
 //        }
