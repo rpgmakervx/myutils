@@ -268,7 +268,7 @@ public class FileUtils {
      * @param includeDir
      * @return
      */
-    public static List<File> listRecursive(File file,boolean includeDir){
+    private static List<File> listRecursive(File file,boolean includeDir){
         if (file == null){
             return null;
         }
