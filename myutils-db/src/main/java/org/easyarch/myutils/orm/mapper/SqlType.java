@@ -7,6 +7,6 @@ package org.easyarch.myutils.orm.mapper;
  * description:
  */
 
-public enum  SqlCommandType {
+public enum SqlType {
     INSERT,UPDATE,DELETE,SELECT
 }
