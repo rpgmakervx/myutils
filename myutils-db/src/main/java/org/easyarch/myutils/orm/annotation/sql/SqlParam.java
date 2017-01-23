@@ -1,7 +1,5 @@
 package org.easyarch.myutils.orm.annotation.sql;
 
-import org.easyarch.myutils.orm.type.JDBCType;
-
 import java.lang.annotation.*;
 
 /**
@@ -15,6 +13,4 @@ import java.lang.annotation.*;
 @Inherited
 public @interface SqlParam {
     String name ();
-    JDBCType type ();
-
 }

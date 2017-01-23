@@ -1,9 +1,13 @@
 package org.easyarch.myutils.reflection;
 
+import org.objectweb.asm.*;
+import org.objectweb.asm.Type;
+
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.io.IOException;
 import java.lang.reflect.*;
 
 /**
@@ -138,13 +142,13 @@ public class ReflectUtils {
 
     public static Class<Object> getSuperClassGenricType(final Class clazz, final int index) {
         //返回表示此 Class 所表示的实体（类、接口、基本类型或 void）的直接超类的 Type。
-        Type genType = clazz.getGenericSuperclass();
+        java.lang.reflect.Type genType = clazz.getGenericSuperclass();
 
         if (!(genType instanceof ParameterizedType)) {
             return Object.class;
         }
         //返回表示此类型实际类型参数的 Type 对象的数组。
-        Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
+        java.lang.reflect.Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
 
         if (index >= params.length || index < 0) {
             return Object.class;
@@ -156,6 +160,66 @@ public class ReflectUtils {
         return (Class) params[index];
     }
 
+    public static String[] getMethodParameter(final Method m) {
+        final String[] paramNames = new String[m.getParameterTypes().length];
+        final String n = m.getDeclaringClass().getName();
+        final ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+        ClassReader cr = null;
+        try {
+            cr = new ClassReader(n);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        cr.accept(new ClassVisitor(Opcodes.ASM4, cw) {
+            @Override
+            public MethodVisitor visitMethod(final int access,
+                                             final String name, final String desc,
+                                             final String signature, final String[] exceptions) {
+                final Type[] args = Type.getArgumentTypes(desc);
+                // 方法名相同并且参数个数相同
+                if (!name.equals(m.getName())
+                        || !sameType(args, m.getParameterTypes())) {
+                    return super.visitMethod(access, name, desc, signature,
+                            exceptions);
+                }
+                MethodVisitor v = cv.visitMethod(access, name, desc, signature,
+                        exceptions);
+                return new MethodVisitor(Opcodes.ASM4, v) {
+                    @Override
+                    public void visitLocalVariable(String name, String desc,
+                                                   String signature, Label start, Label end, int index) {
+                        int i = index - 1;
+                        // 如果是静态方法，则第一就是参数
+                        // 如果不是静态方法，则第一个是"this"，然后才是方法的参数
+                        if(Modifier.isStatic(m.getModifiers())) {
+                            i = index;
+                        }
+                        if (i >= 0 && i < paramNames.length) {
+                            paramNames[i] = name;
+                        }
+                        super.visitLocalVariable(name, desc, signature, start,
+                                end, index);
+                    }
+
+                };
+            }
+        }, 0);
+        return paramNames;
+    }
+
+    private static boolean sameType(Type[] types, Class<?>[] clazzes) {
+        // 个数不同
+        if (types.length != clazzes.length) {
+            return false;
+        }
+
+        for (int i = 0; i < types.length; i++) {
+            if(!Type.getType(clazzes[i]).equals(types[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
 }
