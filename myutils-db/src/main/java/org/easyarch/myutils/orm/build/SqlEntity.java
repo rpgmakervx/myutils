@@ -3,6 +3,8 @@ package org.easyarch.myutils.orm.build;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.easyarch.myutils.orm.parser.Token.KEY;
+
 /**
  * Description :
  * Created by xingtianyu on 17-1-21
@@ -15,6 +17,11 @@ public class SqlEntity {
     private List<Object> vals;
 
     private List<String> names;
+
+    public SqlEntity() {
+        names = new ArrayList<>();
+        vals = new ArrayList<>();
+    }
 
     public List<Object> getVals() {
         return vals;
@@ -29,20 +36,20 @@ public class SqlEntity {
     }
 
     public void setNames(List<String> names) {
-        this.names = names;
+        for (String name:names){
+            int beginIndex = KEY.length();
+            String word = name.substring(beginIndex, name.length() - beginIndex);
+            this.names.add(word);
+        }
     }
 
     public void addName(String name){
-        if (names == null){
-            names = new ArrayList<>();
-        }
-        this.names.add(name);
+        int beginIndex = KEY.length();
+        String word = name.substring(beginIndex, name.length() - beginIndex);
+        this.names.add(word);
     }
 
     public void addVal(Object val){
-        if (vals == null){
-            this.vals = new ArrayList<>();
-        }
         this.vals.add(val);
     }
 }

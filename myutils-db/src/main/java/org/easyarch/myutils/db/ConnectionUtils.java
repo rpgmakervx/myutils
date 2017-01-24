@@ -100,7 +100,9 @@ public final class ConnectionUtils {
 
     public static void rollBack(Connection conn){
         try {
-            conn.rollback();
+            if (conn != null){
+                conn.rollback();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

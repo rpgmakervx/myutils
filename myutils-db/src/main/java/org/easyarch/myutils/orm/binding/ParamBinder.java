@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.binder;
+package org.easyarch.myutils.orm.binding;
 
 import org.easyarch.myutils.orm.annotation.entity.Column;
 import org.easyarch.myutils.orm.annotation.entity.Table;

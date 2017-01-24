@@ -221,5 +221,16 @@ public class ReflectUtils {
         return true;
     }
 
+    public static Class getReturnType(Method method){
+        java.lang.reflect.Type returnType = method.getGenericReturnType();// 返回类型
+        if (returnType instanceof ParameterizedType)/**//* 如果是泛型类型 */{
+            java.lang.reflect.Type[] types = ((ParameterizedType) returnType)
+                    .getActualTypeArguments();// 泛型类型列表
+            for (java.lang.reflect.Type type : types) {
+                return type.getClass();
+            }
+        }
+        return null;
+    }
 
 }

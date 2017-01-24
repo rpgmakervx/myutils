@@ -27,12 +27,22 @@ import java.util.List;
 
 public class SqlExecutor extends AbstractExecutor{
 
-    public SqlExecutor(boolean supportMeta){
+    private Connection conn;
+
+    public SqlExecutor(Connection conn,boolean supportMeta){
         super(supportMeta);
+        this.conn = conn;
     }
 
-
-    public <T> T query(Connection conn, String sql, ResultSetHandler<T> rshandler, Object[] params) {
+    /**
+     *
+     * @param sql
+     * @param rshandler
+     * @param params
+     * @param <T>
+     * @return
+     */
+    public <T> T query(String sql, ResultSetHandler<T> rshandler, Object[] params) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -54,12 +64,11 @@ public class SqlExecutor extends AbstractExecutor{
 
     /**
      * 提供connection的修改操作
-     * @param conn
      * @param sql
      * @param params
      * @return
      */
-    public int alter(Connection conn,String sql,Object[] params){
+    public int alter(String sql,Object[] params){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -77,13 +86,16 @@ public class SqlExecutor extends AbstractExecutor{
         }
     }
 
+    public void rollback(){
+        ConnectionUtils.close(conn);
+    }
+
     /**
      * 提供connection的批量修改操作
-     * @param conn
      * @param sql
      * @param params
      */
-    public void alterBatch(Connection conn,String sql,Object[][]params){
+    public void alterBatch(String sql,Object[][]params){
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -109,10 +121,10 @@ public class SqlExecutor extends AbstractExecutor{
                 "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");
         PoolConfig.config(200, 50, 5, 3 * 1000L);
         DataSource dataSource = DBCPoolFactory.newConfigedDBCPool();
-        final SqlExecutor executor = new MySqlExecutor();
+        final SqlExecutor executor = new MySqlExecutor(dataSource.getConnection());
         Connection connection = dataSource.getConnection();
         PreparedStatement ps = connection.prepareStatement("");
-        List<User> user = executor.query(connection,"select * from user ",
+        List<User> user = executor.query("select * from user ",
                 new BeanListResultSetHadler<User>(User.class), null);
 //        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
 //        System.out.println("end "+result);

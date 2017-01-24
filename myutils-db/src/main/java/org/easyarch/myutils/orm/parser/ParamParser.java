@@ -1,7 +1,7 @@
 package org.easyarch.myutils.orm.parser;
 
 import static org.easyarch.myutils.orm.parser.Token.POINT;
-import static org.easyarch.myutils.orm.parser.Token.SEPERTOR;
+import static org.easyarch.myutils.orm.parser.Token.KEY;
 
 /**
  * Description :
@@ -16,7 +16,7 @@ public class ParamParser implements Parser {
 
     @Override
     public void parse(String src) {
-        int beginIndex = SEPERTOR.length();
+        int beginIndex = KEY.length();
         String word = src.substring(beginIndex, src.length() - beginIndex);
         paramTokens = word.split(POINT);
     }

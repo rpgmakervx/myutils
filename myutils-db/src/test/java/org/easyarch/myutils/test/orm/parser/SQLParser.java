@@ -9,10 +9,12 @@ import net.sf.jsqlparser.expression.operators.relational.*;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.statement.Statement;
+import net.sf.jsqlparser.statement.insert.Insert;
 import net.sf.jsqlparser.statement.select.ExpressionListItem;
 import net.sf.jsqlparser.statement.select.PlainSelect;
 import net.sf.jsqlparser.statement.select.Select;
 import net.sf.jsqlparser.statement.select.SubSelect;
+import net.sf.jsqlparser.statement.update.Update;
 import net.sf.jsqlparser.util.AddAliasesVisitor;
 import net.sf.jsqlparser.util.SelectUtils;
 import net.sf.jsqlparser.util.TablesNamesFinder;
@@ -32,6 +34,37 @@ import java.util.List;
 
 public class SQLParser {
 
+    @Test
+    public void testUpdate() throws JSQLParserException {
+        Statement statement = CCJSqlParserUtil.parse("update user set username = ? ,age = ? where id = 111");
+        Update update = (Update) statement;
+        List<Expression> expressions = update.getExpressions();
+        for (Expression exp:expressions){
+            System.out.println(exp);
+        }
+        update.getWhere();
+    }
+
+    @Test
+    public void testInsert() throws JSQLParserException {
+        Statement statement = CCJSqlParserUtil.parse("insert into user (id,username,age,phone) values(?,?,?,?),(?,?,?,?)" +
+                "on duplicate key update username = $username$,id = id");
+        Insert insert = (Insert) statement;
+        System.out.println(insert.getColumns());
+        MultiExpressionList itemsList = (MultiExpressionList) insert.getItemsList();
+        List<ExpressionList> expressionLists = itemsList.getExprList();
+//        for (ExpressionList list:expressionLists){
+////            list.getExpressions()
+//        }
+//        List<Column> columns = insert.getDuplicateUpdateColumns();
+//        for (Column column:columns){
+//            System.out.println(column);
+//        }
+        List<Expression> expressions = insert.getDuplicateUpdateExpressionList();
+        for (Expression exp:expressions){
+            System.out.println(((Column)exp).getColumnName());
+        }
+    }
 
     @Test
     public void testParse() throws JSQLParserException {

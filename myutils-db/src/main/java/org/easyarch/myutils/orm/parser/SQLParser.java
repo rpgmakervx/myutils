@@ -3,20 +3,25 @@ package org.easyarch.myutils.orm.parser;
 import net.sf.jsqlparser.JSQLParserException;
 import net.sf.jsqlparser.expression.BinaryExpression;
 import net.sf.jsqlparser.expression.Expression;
+import net.sf.jsqlparser.expression.Function;
 import net.sf.jsqlparser.expression.operators.relational.*;
 import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.schema.Column;
 import net.sf.jsqlparser.statement.Statement;
+import net.sf.jsqlparser.statement.delete.Delete;
+import net.sf.jsqlparser.statement.insert.Insert;
 import net.sf.jsqlparser.statement.select.PlainSelect;
 import net.sf.jsqlparser.statement.select.Select;
+import net.sf.jsqlparser.statement.update.Update;
 import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.lang.StringUtils;
+import org.easyarch.myutils.orm.reflect.SqlType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.easyarch.myutils.orm.parser.Token.PLACEHOLDER;
-import static org.easyarch.myutils.orm.parser.Token.SEPERTOR;
+import static org.easyarch.myutils.orm.parser.Token.KEY;
 
 /**
  * Description :
@@ -32,6 +37,8 @@ import static org.easyarch.myutils.orm.parser.Token.SEPERTOR;
 public class SQLParser implements Parser{
 
     private Statement statement;
+
+    private SqlType type;
 
     private String sql;
 
@@ -49,24 +56,106 @@ public class SQLParser implements Parser{
             e.printStackTrace();
         }
         params = new ArrayList<>();
-        Select select = (Select) statement;
-        PlainSelect plain = (PlainSelect) select.getSelectBody();
-        Expression where = plain.getWhere();
-        filterWhereColumns(where,params);
-        for (String param:params){
-            preparedSql = preparedSql.replace(StringUtils.center(param,0,SEPERTOR),PLACEHOLDER);
+
+        if (statement instanceof Select){
+            Select select = (Select) statement;
+            selectCase(select);
+        }else if (statement instanceof Insert){
+            Insert insert = (Insert) statement;
+            insertCase(insert);
+        }else if (statement instanceof Update){
+            Update update = (Update) statement;
+            updateCase(update);
+        }else if (statement instanceof Delete){
+            Delete delete = (Delete) statement;
+            deleteCase(delete);
         }
+        for (String param:params){
+            preparedSql = preparedSql.replace(StringUtils.center(param,0, KEY),PLACEHOLDER);
+        }
+
     }
     public List<String> getSqlParams(){
         return params;
     }
 
     /**
+     * insert 语句解析
+     * @param insert
+     */
+    public void insertCase(Insert insert){
+        ItemsList itemsList = insert.getItemsList();
+        if (itemsList instanceof MultiExpressionList){
+            MultiExpressionList multiExpressionList = (MultiExpressionList) itemsList;
+            List<ExpressionList> expressionLists = multiExpressionList.getExprList();
+            for (ExpressionList list:expressionLists){
+                List<Expression> expressions = list.getExpressions();
+                for (Expression exp : expressions){
+                    params.add(exp.toString());
+                }
+            }
+        }else if (itemsList instanceof  ExpressionList){
+            ExpressionList expressionList = (ExpressionList) itemsList;
+            List<Expression> expressions = expressionList.getExpressions();
+            for (Expression exp : expressions){
+                params.add(exp.toString());
+            }
+        }
+        List<Expression> expressions = insert.getDuplicateUpdateExpressionList();
+        for (Expression exp:expressions){
+            if (exp instanceof Function){
+                Function function = (Function) exp;
+                ExpressionList expressionList = function.getParameters();
+                List<Expression> exps = expressionList.getExpressions();
+                for (Expression e:exps){
+                    if (e.toString().contains(Token.KEY)){
+                        String columnName = e.toString();
+                        params.add(columnName);
+                    }
+                }
+            }else if (exp instanceof Column){
+                Column column = (Column) exp;
+                String columnName = column.getColumnName();
+                if (columnName.contains(Token.KEY)){
+                    params.add(columnName);
+                }
+            }
+        }
+    }
+
+    private void deleteCase(Delete delete){
+        handleWhereCause(delete.getWhere(),params);
+    }
+
+    private void updateCase(Update update){
+        List<Expression> expressions = update.getExpressions();
+        for (Expression exp:expressions){
+            if (exp instanceof Column){
+                Column column = (Column) exp;
+                if (column.getColumnName().contains(Token.KEY)){
+                    params.add(column.getColumnName());
+                }
+            }
+            handleWhereCause(update.getWhere(),params);
+        }
+    }
+
+    /**
+     * select 语句解析
+     * @param select
+     */
+    private void selectCase(Select select){
+        PlainSelect plain = (PlainSelect) select.getSelectBody();
+        Expression where = plain.getWhere();
+        handleWhereCause(where,params);
+    }
+
+    /** where字句 解析，select update delete中均可能用到
      * @param whereAfter
      * @param params
      * 注意：Column对象在getColumnName的时候会根据 . 做分割
      */
-    private void filterWhereColumns(Expression whereAfter,List<String> params){
+    private void handleWhereCause(Expression whereAfter, List<String> params){
         if (whereAfter instanceof Column){
             return;
         }
@@ -74,14 +163,25 @@ public class SQLParser implements Parser{
             BinaryExpression binaryExpression = (BinaryExpression) whereAfter;
             Expression leftExpression = binaryExpression.getLeftExpression();
             Expression rightExpression = binaryExpression.getRightExpression();
+//            System.out.println("rightExpression :"+rightExpression.getClass());
             if (leftExpression instanceof Column &&rightExpression instanceof Column){
                 String columnName = rightExpression.toString();
                 params.add(columnName);
+            }else if (rightExpression instanceof Function){
+                Function function = (Function) rightExpression;
+                ExpressionList expressionList = function.getParameters();
+                List<Expression> expressions = expressionList.getExpressions();
+                for (Expression exp:expressions){
+                    if (exp.toString().contains(Token.KEY)){
+                        String columnName = exp.toString();
+                        params.add(columnName);
+                    }
+                }
             }
             // 访问左子树
-            filterWhereColumns(leftExpression,params);
+            handleWhereCause(leftExpression,params);
             // 访问右子树
-            filterWhereColumns(rightExpression,params);
+            handleWhereCause(rightExpression,params);
         }else if (whereAfter instanceof Between){
             Between between = (Between) whereAfter;
             //between 没有只有左子树有column，右子树没有
@@ -89,7 +189,7 @@ public class SQLParser implements Parser{
             Expression backVal = between.getBetweenExpressionEnd();
             params.add(frontVal.toString());
             params.add(backVal.toString());
-            filterWhereColumns(between.getLeftExpression(),params);
+            handleWhereCause(between.getLeftExpression(),params);
         }else if (whereAfter instanceof InExpression){
             InExpression inExpression = (InExpression) whereAfter;
             ItemsList itemsList = inExpression.getRightItemsList();
@@ -102,12 +202,7 @@ public class SQLParser implements Parser{
                     }
                 }
             }
-            filterWhereColumns(inExpression.getLeftExpression(),params);
-        }else if (whereAfter instanceof LikeExpression){
-            LikeExpression likeExpression = (LikeExpression) whereAfter;
-            Expression val = likeExpression.getRightExpression();
-            params.add(val.toString());
-            filterWhereColumns(likeExpression,params);
+            handleWhereCause(inExpression.getLeftExpression(),params);
         }
     }
 
@@ -128,7 +223,7 @@ public class SQLParser implements Parser{
         parser.parse("select a,b,c from test where id = $user.id$ and oid in ($map.pid$,$map.oid$,$map.mid$) " +
                 "and age = $map.age$ and create_at between $map.begin$ and $map.end$ and label like $map.label$");
         for (String param:parser.getSqlParams()){
-            System.out.println(StringUtils.strip(param,SEPERTOR));
+            System.out.println(StringUtils.strip(param, KEY));
         }
         System.out.println("preparedSql:"+parser.getPreparedSql());
 //        Map<Integer,String> map = new HashMap<>();

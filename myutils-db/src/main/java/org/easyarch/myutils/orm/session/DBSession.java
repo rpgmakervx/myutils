@@ -11,9 +11,9 @@ import java.util.List;
 
 public interface DBSession {
 
-    public <T> T selectOne(String bind,Object ...parameter);
+    public <T> T selectOne(String bind,Class<T> clazz,Object ...parameter);
 
-    public <E> List<E> selectList(String bind,Object... parameter);
+    public <E> List<E> selectList(String bind,Class<E> clazz,Object... parameter);
 
     public int update(String bind,Object... parameter);
     public int update(Object bean);

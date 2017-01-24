@@ -5,14 +5,13 @@ package org.easyarch.myutils.test;/**
  */
 
 import org.easyarch.myutils.orm.annotation.entity.Column;
-import org.easyarch.myutils.orm.annotation.entity.Table;
 
 /**
  * Description :
  * Created by code4j on 16-11-3
  * 上午2:04
  */
-@Table(tableName = "t_user")
+//@Table(tableName = "t_user")
 public class User {
 
     @Column(name = "t_id")

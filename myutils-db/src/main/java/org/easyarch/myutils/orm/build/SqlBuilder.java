@@ -1,6 +1,6 @@
 package org.easyarch.myutils.orm.build;
 
-import org.easyarch.myutils.orm.binder.ParamBinder;
+import org.easyarch.myutils.orm.binding.ParamBinder;
 import org.easyarch.myutils.orm.parser.SQLParser;
 
 import java.util.List;
@@ -62,4 +62,20 @@ public class SqlBuilder {
         return entity;
     }
 
+    public String getPreparedSql(){
+        return sqlParser.getPreparedSql();
+    }
+
+    public Object[] getParameters(){
+        List parameters = entity.getVals();
+        if (parameters != null){
+            return parameters.toArray();
+        }
+        return new Object[]{};
+    }
+
+    @Override
+    public String toString() {
+        return sqlParser.getOriginSql()+" \n "+sqlParser.getSqlParams()+" \n "+entity.getNames()+" \n "+entity.getVals();
+    }
 }
