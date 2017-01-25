@@ -58,15 +58,19 @@ public class SQLParser implements Parser{
         params = new ArrayList<>();
 
         if (statement instanceof Select){
+            type = SqlType.SELECT;
             Select select = (Select) statement;
             selectCase(select);
         }else if (statement instanceof Insert){
+            type = SqlType.INSERT;
             Insert insert = (Insert) statement;
             insertCase(insert);
         }else if (statement instanceof Update){
+            type = SqlType.UPDATE;
             Update update = (Update) statement;
             updateCase(update);
         }else if (statement instanceof Delete){
+            type = SqlType.DELETE;
             Delete delete = (Delete) statement;
             deleteCase(delete);
         }
@@ -212,6 +216,10 @@ public class SQLParser implements Parser{
 
     public String getPreparedSql(){
         return preparedSql;
+    }
+
+    public SqlType getType(){
+        return type;
     }
     public static void main(String[] args) throws JSQLParserException {
 //        Statement statement = CCJSqlParserUtil.parse("select a,b,c from test where test.id = ? and oid in (?,?,?) " +

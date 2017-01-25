@@ -3,11 +3,13 @@ package org.easyarch.myutils.orm.session.impl;
 import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.db.exec.SqlExecutor;
 import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
+import org.easyarch.myutils.db.handler.MapResultHandler;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
 import org.easyarch.myutils.orm.session.DBSession;
 
 import java.util.List;
+import java.util.Map;
 
 import static org.easyarch.myutils.orm.parser.Token.SEPARATOR;
 
@@ -47,6 +49,15 @@ public class DefaultDBSession implements DBSession {
     }
 
     @Override
+    public List<Map<String, Object>> selectMap(String bind, Object... parameters) {
+        SqlMapCache cache = factory.getSqlMapCache();
+        String[] tokens = bind.split(SEPARATOR);
+        String sql = cache.getSql(tokens[0], tokens[1]);
+        List list = executor.query(sql, new MapResultHandler(), parameters);
+        return list;
+    }
+
+    @Override
     public int update(String bind, Object... parameter) {
         SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(SEPARATOR);
@@ -55,27 +66,22 @@ public class DefaultDBSession implements DBSession {
     }
 
     @Override
-    public int update(Object bean) {
-        return 0;
-    }
-
-    @Override
     public int delete(String bind, Object... parameter) {
-        return 0;
-    }
-
-    @Override
-    public int delete(Object bean) {
-        return 0;
+        return update(bind,parameter);
     }
 
     @Override
     public int insert(String bind, Object... parameter) {
-        return 0;
+        return update(bind,parameter);
     }
 
     @Override
-    public int insert(Object bean) {
-        return 0;
+    public void close() {
+        executor.close();
+    }
+
+    @Override
+    public void rollback() {
+        executor.rollback();
     }
 }

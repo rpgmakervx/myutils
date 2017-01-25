@@ -26,7 +26,7 @@ public class MapWrapper extends WrapperAdapter<Map<String,Object>> implements Wr
         try {
             ResultSetMetaData meta = rs.getMetaData();
             while (rs.next()) {
-                list.add(createMap(rs,meta,type));
+                list.add(createMap(rs,meta));
             }
             return list;
         } catch (Exception e) {
@@ -35,7 +35,7 @@ public class MapWrapper extends WrapperAdapter<Map<String,Object>> implements Wr
         }
     }
 
-    private Map<String,Object> createMap(ResultSet rs, ResultSetMetaData meta,Class<Map<String,Object>> type) {
+    private Map<String,Object> createMap(ResultSet rs, ResultSetMetaData meta) {
         Map<String,Object> resultMap = new HashMap<String, Object>();
         try {
             int count = meta.getColumnCount();

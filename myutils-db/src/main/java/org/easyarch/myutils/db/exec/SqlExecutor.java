@@ -6,7 +6,6 @@ package org.easyarch.myutils.db.exec;/**
 
 import org.easyarch.myutils.cp.cfg.PoolConfig;
 import org.easyarch.myutils.cp.ds.DBCPoolFactory;
-import org.easyarch.myutils.db.ConnectionUtils;
 import org.easyarch.myutils.db.cfg.ConnConfig;
 import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.db.handler.ResultSetHandler;
@@ -54,10 +53,6 @@ public class SqlExecutor extends AbstractExecutor{
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        } finally {
-            ConnectionUtils.close(rs);
-            ConnectionUtils.close(ps);
-            ConnectionUtils.close(conn);
         }
     }
 
@@ -79,14 +74,14 @@ public class SqlExecutor extends AbstractExecutor{
             e.printStackTrace();
             ConnectionUtils.rollBack(conn);
             return -1;
-        }finally {
-            ConnectionUtils.close(rs);
-            ConnectionUtils.close(ps);
-            ConnectionUtils.close(conn);
         }
     }
 
     public void rollback(){
+        ConnectionUtils.close(conn);
+    }
+
+    public void close(){
         ConnectionUtils.close(conn);
     }
 

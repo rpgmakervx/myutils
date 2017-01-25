@@ -1,4 +1,4 @@
-package org.easyarch.myutils.db;/**
+package org.easyarch.myutils.db.exec;/**
  * Description : 
  * Created by YangZH on 16-11-2
  *  上午10:37
@@ -15,7 +15,7 @@ import java.sql.Statement;
  * 上午10:37
  */
 
-public final class ConnectionUtils {
+final class ConnectionUtils {
 
     public static void closeAll(Connection conn, Statement stmt,
                                     ResultSet rs) {

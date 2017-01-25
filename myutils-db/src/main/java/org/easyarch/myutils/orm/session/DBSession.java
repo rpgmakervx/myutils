@@ -1,6 +1,7 @@
 package org.easyarch.myutils.orm.session;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description :
@@ -15,14 +16,15 @@ public interface DBSession {
 
     public <E> List<E> selectList(String bind,Class<E> clazz,Object... parameter);
 
+    public List<Map<String,Object>> selectMap(String bind,Object ... parameters);
+
     public int update(String bind,Object... parameter);
-    public int update(Object bean);
 
     public int delete(String bind,Object... parameter);
-    public int delete(Object bean);
 
     public int insert(String bind,Object... parameter);
-    public int insert(Object bean);
 
+    public void close();
+    public void rollback();
 
 }

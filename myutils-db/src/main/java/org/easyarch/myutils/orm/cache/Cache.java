@@ -7,13 +7,13 @@ package org.easyarch.myutils.orm.cache;
  * description:
  */
 
-public interface Cache<T> {
+public interface Cache<K,V> {
 
-    T get(String key);
+    V get(K key);
 
-    void set(String key,T value);
+    void set(K key,V value);
 
-    T remove(String key);
+    V remove(K key);
 
     void clear();
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * description:
  */
 
-public class SqlMapCache implements Cache<Map<String,String>> {
+public class SqlMapCache implements Cache<String,Map<String,String>> {
 
     private volatile Map<String,Map<String,String>> sqlMap = new ConcurrentHashMap<>();
 
@@ -42,8 +42,9 @@ public class SqlMapCache implements Cache<Map<String,String>> {
 
     @Override
     public Map<String,String> remove(String key) {
-        return null;
+        return sqlMap.remove(key);
     }
+
 
     @Override
     public void clear() {

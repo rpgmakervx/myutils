@@ -12,6 +12,7 @@ public class CacheFactory {
     private static CacheFactory factory;
 
     private SqlMapCache sqlMapCache;
+    private InterfaceCache interfaceCache;
 
     private CacheFactory(){}
 
@@ -31,5 +32,12 @@ public class CacheFactory {
             sqlMapCache = new SqlMapCache();
         }
         return sqlMapCache;
+    }
+
+    public InterfaceCache getInterfaceCache(){
+        if (interfaceCache == null){
+            interfaceCache = new InterfaceCache();
+        }
+        return interfaceCache;
     }
 }
