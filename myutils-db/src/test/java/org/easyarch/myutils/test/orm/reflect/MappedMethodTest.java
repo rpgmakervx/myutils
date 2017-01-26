@@ -1,6 +1,6 @@
 package org.easyarch.myutils.test.orm.reflect;
 
-import org.easyarch.myutils.orm.reflect.MappedMethod;
+import org.easyarch.myutils.orm.mapping.MappedMethod;
 import org.easyarch.myutils.test.User;
 import org.testng.annotations.Test;
 

@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.reflect;
+package org.easyarch.myutils.orm.mapping;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -16,7 +16,6 @@ public class Token {
     public static final String PLACEHOLDER = "?";
 
     public static final String SEPARATOR = "@";
-
-    public static final String MAP = "map";
+    public static final String ANY = "*";
 
 }

@@ -4,7 +4,7 @@ package org.easyarch.myutils.cp.ds;/**
  *  下午8:23
  */
 
-import org.easyarch.myutils.db.ConnectionUtils;
+import org.easyarch.myutils.db.exec.ConnectionUtils;
 
 /**
  * Description :

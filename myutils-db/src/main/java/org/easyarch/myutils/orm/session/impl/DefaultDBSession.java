@@ -5,6 +5,7 @@ import org.easyarch.myutils.db.exec.SqlExecutor;
 import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.db.handler.MapResultHandler;
 import org.easyarch.myutils.orm.cache.CacheFactory;
+import org.easyarch.myutils.orm.cache.ProxyCache;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
 import org.easyarch.myutils.orm.session.DBSession;
 
@@ -53,7 +54,7 @@ public class DefaultDBSession implements DBSession {
         SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(SEPARATOR);
         String sql = cache.getSql(tokens[0], tokens[1]);
-        List list = executor.query(sql, new MapResultHandler(), parameters);
+        List<Map<String, Object>> list = executor.query(sql, new MapResultHandler(), parameters);
         return list;
     }
 
@@ -73,6 +74,12 @@ public class DefaultDBSession implements DBSession {
     @Override
     public int insert(String bind, Object... parameter) {
         return update(bind,parameter);
+    }
+
+    @Override
+    public <T> T getMapper(Class<T> clazz) {
+        ProxyCache proxyCache = factory.getProxyCache();
+        return (T) proxyCache.get(clazz);
     }
 
     @Override

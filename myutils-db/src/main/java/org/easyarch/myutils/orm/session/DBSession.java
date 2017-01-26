@@ -24,6 +24,8 @@ public interface DBSession {
 
     public int insert(String bind,Object... parameter);
 
+    public <T> T getMapper(Class<T> clazz);
+
     public void close();
     public void rollback();
 

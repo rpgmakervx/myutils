@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.binding;
+package org.easyarch.myutils.orm.session;
 
 import java.util.HashMap;
 import java.util.Map;

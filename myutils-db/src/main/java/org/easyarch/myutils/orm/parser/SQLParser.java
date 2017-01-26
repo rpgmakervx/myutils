@@ -15,7 +15,7 @@ import net.sf.jsqlparser.statement.select.Select;
 import net.sf.jsqlparser.statement.update.Update;
 import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.lang.StringUtils;
-import org.easyarch.myutils.orm.reflect.SqlType;
+import org.easyarch.myutils.orm.mapping.SqlType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -221,6 +221,19 @@ public class SQLParser implements Parser{
     public SqlType getType(){
         return type;
     }
+
+    public void setType(SqlType type) {
+        this.type = type;
+    }
+
+    public void setPreparedSql(String preparedSql) {
+        this.preparedSql = preparedSql;
+    }
+
+    public void setParams(List<String> params) {
+        this.params = params;
+    }
+
     public static void main(String[] args) throws JSQLParserException {
 //        Statement statement = CCJSqlParserUtil.parse("select a,b,c from test where test.id = ? and oid in (?,?,?) " +
 //                "and  user.age = ? and user.create_at between ? and ? and label like ?");

@@ -4,19 +4,12 @@ package org.easyarch.myutils.db.exec;/**
  *  上午11:11
  */
 
-import org.easyarch.myutils.cp.cfg.PoolConfig;
-import org.easyarch.myutils.cp.ds.DBCPoolFactory;
-import org.easyarch.myutils.db.cfg.ConnConfig;
-import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.db.handler.ResultSetHandler;
-import org.easyarch.myutils.test.User;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Description :
@@ -111,17 +104,17 @@ public class SqlExecutor extends AbstractExecutor{
     }
 
 
-    public static void main(String[] args) throws SQLException {
-        ConnConfig.config("root", "123456",
-                "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");
-        PoolConfig.config(200, 50, 5, 3 * 1000L);
-        DataSource dataSource = DBCPoolFactory.newConfigedDBCPool();
-        final SqlExecutor executor = new MySqlExecutor(dataSource.getConnection());
-        Connection connection = dataSource.getConnection();
-        PreparedStatement ps = connection.prepareStatement("");
-        List<User> user = executor.query("select * from user ",
-                new BeanListResultSetHadler<User>(User.class), null);
-//        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
-//        System.out.println("end "+result);
-    }
+//    public static void main(String[] args) throws SQLException {
+//        ConnConfig.config("root", "123456",
+//                "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");
+//        PoolConfig.config(200, 50, 5, 3 * 1000L);
+//        DataSource dataSource = DBCPoolFactory.newConfigedDBCPool();
+//        final SqlExecutor executor = new MySqlExecutor(dataSource.getConnection());
+//        Connection connection = dataSource.getConnection();
+//        PreparedStatement ps = connection.prepareStatement("");
+//        List<User> user = executor.query("select * from user ",
+//                new BeanListResultSetHadler<User>(User.class), null);
+////        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
+////        System.out.println("end "+result);
+//    }
 }

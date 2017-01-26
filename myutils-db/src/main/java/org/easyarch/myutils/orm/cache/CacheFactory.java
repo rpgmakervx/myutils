@@ -13,6 +13,7 @@ public class CacheFactory {
 
     private SqlMapCache sqlMapCache;
     private InterfaceCache interfaceCache;
+    private ProxyCache proxyCache;
 
     private CacheFactory(){}
 
@@ -39,5 +40,12 @@ public class CacheFactory {
             interfaceCache = new InterfaceCache();
         }
         return interfaceCache;
+    }
+
+    public ProxyCache getProxyCache(){
+        if (proxyCache == null){
+            proxyCache = new ProxyCache();
+        }
+        return proxyCache;
     }
 }

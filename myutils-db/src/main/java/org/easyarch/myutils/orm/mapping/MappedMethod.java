@@ -1,7 +1,7 @@
-package org.easyarch.myutils.orm.reflect;
+package org.easyarch.myutils.orm.mapping;
 
 import org.easyarch.myutils.orm.annotation.sql.SqlParam;
-import org.easyarch.myutils.orm.binding.Configuration;
+import org.easyarch.myutils.orm.session.Configuration;
 import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
@@ -29,20 +29,27 @@ import static org.easyarch.myutils.orm.parser.Token.SEPARATOR;
 
 public class MappedMethod {
     private DBSession session;
-    private SqlType type;
     private CacheFactory factory = CacheFactory.getInstance();
-
-    public MappedMethod(DBSession session, SqlType type) {
+    private Configuration configuration;
+    public MappedMethod(DBSession session,Configuration configuration) {
         this.session = session;
-        this.type = type;
+        this.configuration = configuration;
     }
 
 
-    public Object delegateExecute(String interfaceName, Method method, Object[] args) {
-        String sql = Configuration.getInstance().getMappedSql(interfaceName, method.getName());
 //        String sql = "select * from t_user where id = $id$ and username like CONCAT('%',$username$,'%') and c > $age$";
+    public Object delegateExecute(String interfaceName, Method method, Object[] args) {
+        String sql = configuration.getMappedSql(interfaceName, method.getName());
+        SqlMapCache cache = factory.getSqlMapCache();
         SqlBuilder builder = new SqlBuilder();
-        builder.buildSql(sql);
+        ///检查缓存的sql
+        if (cache.isHit(interfaceName,method.getName())){
+            builder.setPreparedSql(cache.getSql(interfaceName,method.getName()));
+            builder.setType(cache.getType(interfaceName,method.getName()));
+        }else{
+            //jsqlparser 在这一步，相对其他代码会慢一点
+            builder.buildSql(sql);
+        }
         Parameter[] parameters = method.getParameters();
         String[] paramNames = ReflectUtils.getMethodParameter(method);
         int paramIndex = 0;
@@ -64,9 +71,8 @@ public class MappedMethod {
             builder.buildParams(args[index]);
         }
         builder.buildEntity();
-        SqlMapCache cache = factory.getSqlMapCache();
         cache.addSql(interfaceName,method.getName(),builder.getPreparedSql());
-        switch (type){
+        switch (builder.getType()){
             case SELECT:
                 Class returnType = method.getReturnType();
                 if (Collection.class.isAssignableFrom(returnType)){

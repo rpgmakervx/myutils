@@ -15,7 +15,7 @@ import java.sql.Statement;
  * 上午10:37
  */
 
-final class ConnectionUtils {
+public final class ConnectionUtils {
 
     public static void closeAll(Connection conn, Statement stmt,
                                     ResultSet rs) {

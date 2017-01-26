@@ -15,5 +15,6 @@ public interface Cache<K,V> {
 
     V remove(K key);
 
+    boolean isHit(K key);
     void clear();
 }

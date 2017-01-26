@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<jade>
+    <interface package="org.code4j.test.dao" />
+
+    <mapper location="classpath:mapper/" />
+
+    <datasource location="classpath:db.properties"/>
+</jade>

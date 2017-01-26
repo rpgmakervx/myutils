@@ -1,0 +1,82 @@
+package org.easyarch.myutils.orm.parser;
+
+import org.dom4j.Attribute;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.SAXReader;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.Reader;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Description :
+ * Created by xingtianyu on 17-1-26
+ * 下午8:47
+ * description:
+ */
+
+public class XmlParser {
+    public static final String JADE = "jade";
+    public static final String INTERFACE = "interface";
+    public static final String PACAKGE = "package";
+    public static final String MAPPER = "mapper";
+    public static final String LOCATION = "location";
+    public static final String DATASOURCE = "datasource";
+
+    private SAXReader saxReader = new SAXReader();
+    private Document document = null;
+    private Element root = null;
+
+    private Map<String,Map<String,Object>> content = new HashMap<>();
+
+    public XmlParser(String path){
+        InputStream is = null;
+        try {
+            is = new FileInputStream(path);
+            document = saxReader.read(is);
+            root = document.getRootElement();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public XmlParser(InputStream is){
+        try {
+            document = saxReader.read(is);
+            root = document.getRootElement();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public XmlParser(Reader reader){
+        try {
+            document = saxReader.read(reader);
+            root = document.getRootElement();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void init() {
+        Iterator<Element> elementIterator = root.elementIterator();
+        while (elementIterator.hasNext()) {
+            Element element = elementIterator.next();
+            List<Attribute> attributes = element.attributes();
+            for (Attribute attr:attributes){
+                Map<String,Object> attribute = new HashMap<>();
+                attribute.put(attr.getName(),attr.getData());
+                content.put(element.getName(),attribute);
+            }
+        }
+    }
+
+    public Map<String,Map<String,Object>> getContent(){
+        return content;
+    }
+}

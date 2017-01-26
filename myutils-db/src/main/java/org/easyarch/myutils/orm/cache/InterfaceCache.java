@@ -1,6 +1,6 @@
 package org.easyarch.myutils.orm.cache;
 
-import org.easyarch.myutils.orm.reflect.ClassItem;
+import org.easyarch.myutils.orm.mapping.ClassItem;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -32,6 +32,11 @@ public class InterfaceCache implements Cache<Class,ClassItem>  {
     @Override
     public ClassItem remove(Class key) {
         return interfaceMap.remove(key);
+    }
+
+    @Override
+    public boolean isHit(Class key) {
+        return interfaceMap.containsKey(key);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package org.easyarch.myutils.orm.cache;
 
+import org.easyarch.myutils.orm.mapping.SqlType;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -13,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class SqlMapCache implements Cache<String,Map<String,String>> {
 
     private volatile Map<String,Map<String,String>> sqlMap = new ConcurrentHashMap<>();
+    private volatile Map<String,Map<String,SqlType>> typeMap = new ConcurrentHashMap<>();
 
     public String getSql(String namespace,String id){
         Map<String,String> statement = get(namespace);
@@ -30,6 +33,32 @@ public class SqlMapCache implements Cache<String,Map<String,String>> {
         sqlMap.put(namespace,statement);
     }
 
+    public void addType(String namespace,String id,SqlType type){
+        if (typeMap.containsKey(namespace)){
+            Map<String,SqlType> statement = typeMap.get(namespace);
+            statement.put(id,type);
+            return;
+        }
+        Map<String,SqlType> statement = new ConcurrentHashMap<>();
+        statement.put(id,type);
+        typeMap.put(namespace,statement);
+    }
+
+    public SqlType getType(String namespace,String id){
+        Map<String,SqlType> statement = typeMap.get(namespace);
+        return statement.get(id);
+    }
+
+
+    public boolean isHit(String namespace,String id){
+        Map<String,String> map = get(namespace);
+        if (map != null && map.containsKey(id)){
+            return true;
+        }
+        return false;
+    }
+
+
     @Override
     public Map<String,String> get(String key) {
         return sqlMap.get(key);
@@ -43,6 +72,11 @@ public class SqlMapCache implements Cache<String,Map<String,String>> {
     @Override
     public Map<String,String> remove(String key) {
         return sqlMap.remove(key);
+    }
+
+    @Override
+    public boolean isHit(String key) {
+        return sqlMap.containsKey(key);
     }
 
 

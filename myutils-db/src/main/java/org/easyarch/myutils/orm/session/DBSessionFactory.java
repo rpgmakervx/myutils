@@ -17,7 +17,7 @@ public class DBSessionFactory {
 
     private static final DBCPool pool = (DBCPool) DBCPoolFactory.newConfigedDBCPool();
 
-    public static DBSession newDBSession(){
+    public static DBSession newSession(){
         SqlExecutor executor = new MySqlExecutor(pool.getConnection());
         return new DefaultDBSession(executor);
     }
