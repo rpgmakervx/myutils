@@ -1,5 +1,7 @@
 package org.easyarch.myutils.orm.session;
 
+import javax.sql.DataSource;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,22 +14,13 @@ import java.util.Map;
 
 public class Configuration {
 
-    private static volatile Configuration configuration;
 
     private volatile Map<String, Map<String, String>> mappedSqls = new HashMap<>();
 
-    private Configuration() {
-    }
+    private DataSource dataSource;
 
-    public static Configuration getInstance() {
-        synchronized (Configuration.class) {
-            if (configuration == null) {
-                synchronized (Configuration.class) {
-                    configuration = new Configuration();
-                }
-            }
-        }
-        return configuration;
+    public Configuration(InputStream is) {
+
     }
 
     public String getMappedSql(String namespace, String id) {

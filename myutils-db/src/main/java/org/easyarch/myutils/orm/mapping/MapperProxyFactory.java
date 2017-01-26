@@ -33,7 +33,7 @@ public class MapperProxyFactory<T> {
         if (proxyCache.isHit(interfaceClass)){
             return (T) proxyCache.get(interfaceClass);
         }
-        MapperProxy mapperProxy = new MapperProxy(session,configuration, interfaceClass);
+        MapperProxy mapperProxy = new MapperProxy(session, interfaceClass);
         T interFace = (T) Proxy.newProxyInstance(
                 interfaceClass.getClassLoader(), new Class[]{interfaceClass}, mapperProxy);
         proxyCache.set(interfaceClass,interFace);

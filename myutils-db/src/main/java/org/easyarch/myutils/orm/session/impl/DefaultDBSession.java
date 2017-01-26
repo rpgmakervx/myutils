@@ -1,12 +1,14 @@
 package org.easyarch.myutils.orm.session.impl;
 
 import org.easyarch.myutils.collection.CollectionUtils;
-import org.easyarch.myutils.db.exec.SqlExecutor;
-import org.easyarch.myutils.db.handler.BeanListResultSetHadler;
-import org.easyarch.myutils.db.handler.MapResultHandler;
+import org.easyarch.myutils.jdbc.exec.SqlExecutor;
+import org.easyarch.myutils.jdbc.handler.BeanListResultSetHadler;
+import org.easyarch.myutils.jdbc.handler.MapResultHandler;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.ProxyCache;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
+import org.easyarch.myutils.orm.mapping.MapperProxyFactory;
+import org.easyarch.myutils.orm.session.Configuration;
 import org.easyarch.myutils.orm.session.DBSession;
 
 import java.util.List;
@@ -27,8 +29,11 @@ public class DefaultDBSession implements DBSession {
 
     private SqlExecutor executor;
 
-    public DefaultDBSession(SqlExecutor executor) {
+    private Configuration configuration;
+
+    public DefaultDBSession(Configuration configuration,SqlExecutor executor) {
         this.executor = executor;
+        this.configuration = configuration;
     }
 
     @Override
@@ -79,7 +84,16 @@ public class DefaultDBSession implements DBSession {
     @Override
     public <T> T getMapper(Class<T> clazz) {
         ProxyCache proxyCache = factory.getProxyCache();
-        return (T) proxyCache.get(clazz);
+        if (proxyCache.isHit(clazz)){
+            return (T) proxyCache.get(clazz);
+        }
+        MapperProxyFactory<T> mapperProxyFactory = new MapperProxyFactory(configuration,clazz);
+        return mapperProxyFactory.newInstance(this);
+    }
+
+    @Override
+    public Configuration getConfiguration() {
+        return configuration;
     }
 
     @Override

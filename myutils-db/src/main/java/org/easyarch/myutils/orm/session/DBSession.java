@@ -26,6 +26,7 @@ public interface DBSession {
 
     public <T> T getMapper(Class<T> clazz);
 
+    public Configuration getConfiguration();
     public void close();
     public void rollback();
 

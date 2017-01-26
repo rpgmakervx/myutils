@@ -29,16 +29,16 @@ import static org.easyarch.myutils.orm.parser.Token.SEPARATOR;
 
 public class MappedMethod {
     private DBSession session;
-    private CacheFactory factory = CacheFactory.getInstance();
-    private Configuration configuration;
-    public MappedMethod(DBSession session,Configuration configuration) {
-        this.session = session;
-        this.configuration = configuration;
-    }
 
+    private CacheFactory factory = CacheFactory.getInstance();
+
+    public MappedMethod(DBSession session) {
+        this.session = session;
+    }
 
 //        String sql = "select * from t_user where id = $id$ and username like CONCAT('%',$username$,'%') and c > $age$";
     public Object delegateExecute(String interfaceName, Method method, Object[] args) {
+        Configuration configuration = session.getConfiguration();
         String sql = configuration.getMappedSql(interfaceName, method.getName());
         SqlMapCache cache = factory.getSqlMapCache();
         SqlBuilder builder = new SqlBuilder();

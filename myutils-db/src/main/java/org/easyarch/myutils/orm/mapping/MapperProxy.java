@@ -3,7 +3,6 @@ package org.easyarch.myutils.orm.mapping;
 import org.easyarch.myutils.orm.annotation.sql.Mapper;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.InterfaceCache;
-import org.easyarch.myutils.orm.session.Configuration;
 import org.easyarch.myutils.orm.session.DBSession;
 
 import java.lang.reflect.InvocationHandler;
@@ -16,7 +15,7 @@ import java.lang.reflect.Method;
  * description:
  */
 
-public class MapperProxy implements InvocationHandler {
+public class MapperProxy<T> implements InvocationHandler {
 //
 //    private static final String EQUALS = "equals";
 //    public static final String HASHCODE = "hashCode";
@@ -29,21 +28,18 @@ public class MapperProxy implements InvocationHandler {
 
     private DBSession session;
 
-    private Configuration configuration;
-
-    private Class<?> interfaceClass;
+    private Class<T> interfaceClass;
 
     private InterfaceCache interfaceCache = CacheFactory.getInstance().getInterfaceCache();
 
-    public MapperProxy(DBSession session,Configuration configuration,Class interfaceClass){
+    public MapperProxy(DBSession session,Class<T> interfaceClass){
         this.session = session;
-        this.configuration = configuration;
         this.interfaceClass = interfaceClass;
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        MappedMethod mappedMethod = new MappedMethod(session,configuration);
+        MappedMethod mappedMethod = new MappedMethod(session);
         String methodName = method.getName();
         if (DefaultMethod.contains(methodName)){
             return method.invoke(proxy,args);
