@@ -110,15 +110,20 @@ public class MapperScanner {
 //        for (ClassItem item : ClassItemPool.getInterfaces()){
 //            System.out.println(item.getItemName());
 //        }
-        System.out.println(CLASSPATH);
-        String interfaceFile = "/home/code4j/IDEAWorkspace/myutils/myutils-db/target/classes/org/easyarch/myutils/db/wrapper/Wrapper.class";
-        int endPoint = CLASSPATH.lastIndexOf(File.separator);
-        String packagePath = interfaceFile.substring(endPoint + 1,interfaceFile.length());
-        System.out.println("packagePath:"+packagePath);
-        int prefixEndPoint = packagePath.indexOf(File.separator);
-        System.out.println("prefixEndPoint:"+prefixEndPoint);
-        String prefix = packagePath.substring(0,prefixEndPoint);
-        System.out.println(prefix);
+//        System.out.println(CLASSPATH);
+//        String interfaceFile = "/home/code4j/IDEAWorkspace/myutils/myutils-db/target/classes/org/easyarch/myutils/db/wrapper/Wrapper.class";
+//        int endPoint = CLASSPATH.lastIndexOf(File.separator);
+//        String packagePath = interfaceFile.substring(endPoint + 1,interfaceFile.length());
+//        System.out.println("packagePath:"+packagePath);
+//        int prefixEndPoint = packagePath.indexOf(File.separator);
+//        System.out.println("prefixEndPoint:"+prefixEndPoint);
+//        String prefix = packagePath.substring(0,prefixEndPoint);
+//        System.out.println(prefix);
 
+        System.out.println(MapperScanner.class.getClassLoader().getResource("mapper/sqlmapper.js").getPath());
+        String basePath = "/home/code4j/IDEAWorkspace/myutils/myutils-db/target/classes/";
+        String mapper = "mapper/user/";
+        String fullPath = "/home/code4j/IDEAWorkspace/myutils/myutils-db/target/classes/mapper/user/usermapper.js";
+        System.out.println(fullPath.substring(basePath.length(),fullPath.length()));;
     }
 }

@@ -22,7 +22,7 @@ public class MappedMethodTest {
         Method method = MappedMethod.class.getMethod("method", String.class, String.class, String.class);
         Method insert = MappedMethod.class.getMethod("insert", User.class);
         Method query = MappedMethod.class.getMethod("query", Map.class);
-        MappedMethod mm = new MappedMethod(null, null);
+        MappedMethod mm = new MappedMethod(null);
         User user = new User();
         user.setId(110);
         user.setUsername("xingtianyu");

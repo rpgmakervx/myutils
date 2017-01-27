@@ -5,8 +5,11 @@ package org.easyarch.myutils.pool.ds;/**
  */
 
 
+import org.easyarch.myutils.pool.cfg.PoolConfig;
+
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.util.Properties;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.LinkedTransferQueue;
 
@@ -27,8 +30,8 @@ public class DBCPoolFactory {
         return new DBCPool(Integer.MAX_VALUE, Integer.MAX_VALUE, 10,
                 0L, new LinkedTransferQueue());
     }
-    public static DataSource newConfigedDBCPool() {
-        return new DBCPool();
+    public static DataSource newConfigedDBCPool(Properties prop) {
+        return new DBCPool(PoolConfig.config(prop));
     }
 
 }

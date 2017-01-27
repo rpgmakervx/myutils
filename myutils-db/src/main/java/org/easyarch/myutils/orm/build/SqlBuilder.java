@@ -33,7 +33,6 @@ public class SqlBuilder {
 
     public SqlBuilder buildSql(String sql){
         sqlParser.parse(sql);
-        entity.setNames(sqlParser.getSqlParams());
         return this;
     }
 
@@ -57,8 +56,8 @@ public class SqlBuilder {
 
     public SqlEntity buildEntity(){
         Map<String,Object> mapper = paramBinder.getMapper();
-        for (String paramName:entity.getNames()){
-            entity.addVal(mapper.get(paramName));
+        for (Map.Entry<String,Object> entry:mapper.entrySet()){
+            entity.addParam(entry.getKey(),entry.getValue());
         }
         return entity;
     }
@@ -71,12 +70,8 @@ public class SqlBuilder {
         return sqlParser.getPreparedSql();
     }
 
-    public Object[] getParameters(){
-        List parameters = entity.getVals();
-        if (parameters != null){
-            return parameters.toArray();
-        }
-        return new Object[]{};
+    public List<Map<String,Object>> getParameters(){
+        return entity.getParams();
     }
 
     public void setType(SqlType type) {
@@ -93,6 +88,6 @@ public class SqlBuilder {
 
     @Override
     public String toString() {
-        return sqlParser.getOriginSql()+" \n "+sqlParser.getSqlParams()+" \n "+entity.getNames()+" \n "+entity.getVals();
+        return sqlParser.getOriginSql()+" \n "+sqlParser.getSqlParams()+" \n "+entity.getParams();
     }
 }

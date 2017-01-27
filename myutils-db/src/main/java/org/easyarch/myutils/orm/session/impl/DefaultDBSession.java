@@ -49,7 +49,7 @@ public class DefaultDBSession implements DBSession {
     public <E> List<E> selectList(String bind, Class<E> clazz, Object... parameters) {
         SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(SEPARATOR);
-        String sql = cache.getSql(tokens[0], tokens[1]);
+        String sql = cache.getSqlBuilder(tokens[0], tokens[1]);
         List<E> list = executor.query(sql, new BeanListResultSetHadler<>(clazz), parameters);
         return list;
     }
@@ -58,7 +58,7 @@ public class DefaultDBSession implements DBSession {
     public List<Map<String, Object>> selectMap(String bind, Object... parameters) {
         SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(SEPARATOR);
-        String sql = cache.getSql(tokens[0], tokens[1]);
+        String sql = cache.getSqlBuilder(tokens[0], tokens[1]);
         List<Map<String, Object>> list = executor.query(sql, new MapResultHandler(), parameters);
         return list;
     }
@@ -67,7 +67,7 @@ public class DefaultDBSession implements DBSession {
     public int update(String bind, Object... parameter) {
         SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(SEPARATOR);
-        String sql = cache.getSql(tokens[0], tokens[1]);
+        String sql = cache.getSqlBuilder(tokens[0], tokens[1]);
         return executor.alter(sql, parameter);
     }
 

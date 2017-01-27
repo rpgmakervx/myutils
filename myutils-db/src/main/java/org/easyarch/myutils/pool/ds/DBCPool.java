@@ -43,33 +43,23 @@ public class DBCPool extends DataSourceAdapter{
         }
     }
 
-    public DBCPool(){
-        maxPoolSize = PoolConfig.getMaxPoolSize();
-        minIdle = PoolConfig.getMinIdle();
-        maxIdle = PoolConfig.getMaxIdle();
-        keepAliveTime = PoolConfig.getKeepAliveTime();
+    public DBCPool(PoolConfig config){
+        maxPoolSize = config.getMaxPoolSize();
+        minIdle = config.getMinIdle();
+        maxIdle = config.getMaxIdle();
+        keepAliveTime = config.getKeepAliveTime();
         conpool = new ConcurrentLinkedQueue<Connection>();
         idleQueue = new LinkedBlockingQueue<Connection>();
-        initQueue();
-    }
-
-    public DBCPool(Queue queue) {
-        maxPoolSize = PoolConfig.getMaxPoolSize();
-        minIdle = PoolConfig.getMinIdle();
-        maxIdle = PoolConfig.getMaxIdle();
-        keepAliveTime = PoolConfig.getKeepAliveTime();
-        conpool = new ConcurrentLinkedQueue<Connection>();
-        idleQueue = queue;
         initQueue();
     }
 
     public DBCPool(int maxPoolSize, int maxIdle,
                    int minIdle, long keepAliveTime, Queue queue) {
         PoolConfig.config(maxPoolSize, maxIdle, minIdle, keepAliveTime);
-        this.maxPoolSize = PoolConfig.getMaxPoolSize();
-        this.maxIdle = PoolConfig.getMaxIdle();
-        this.minIdle = PoolConfig.getMinIdle();
-        this.keepAliveTime = PoolConfig.getKeepAliveTime();
+        this.maxPoolSize = maxPoolSize;
+        this.maxIdle = maxIdle;
+        this.minIdle = minIdle;
+        this.keepAliveTime = keepAliveTime;
         conpool = new ConcurrentLinkedQueue<Connection>();
         idleQueue = queue;
         initQueue();

@@ -1,5 +1,7 @@
 package org.easyarch.myutils.orm.parser;
 
+import java.io.InputStream;
+
 /**
  * Description :
  * Created by xingtianyu on 17-1-19
@@ -7,7 +9,12 @@ package org.easyarch.myutils.orm.parser;
  * description:
  */
 
-public interface Parser {
+public interface Parser<T> {
 
     public void parse(String src);
+
+    public void parse(InputStream is);
+
+    public T parse();
+
 }

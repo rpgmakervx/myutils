@@ -262,6 +262,26 @@ public class FileUtils {
         return deletEmptyDirectory(new File(path));
     }
 
+    public static String getBottomDir(String filePath){
+        return getBottomDir(new File(filePath)).getPath() + File.separator;
+    }
+
+    /**
+     * 根据当前文件获得其最底层目录
+     * 先把当前文件名去掉，得到的就是最底层目录了
+     * @param file
+     * @return
+     */
+    public static File getBottomDir(File file){
+        String filePath = file.getPath();
+        int lastSeparatorIndex = filePath.lastIndexOf(File.separator) + 1;
+        String configFileName = filePath.substring(
+                lastSeparatorIndex,filePath.length());
+        int fileNameIndex = filePath.lastIndexOf(configFileName);
+        String bottomDir = filePath.substring(0,fileNameIndex);
+        return new File(bottomDir);
+    }
+
     /**
      * 递归遍历
      * @param file
@@ -376,6 +396,10 @@ public class FileUtils {
             displaySize = String.valueOf(size) + " bytes";
         }
         return displaySize;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getBottomDir("/home/code4j/IDEAWorkspace/myutils/myutils-db/target/classes/mapper/sqlmapper.js"));;
     }
 
 }

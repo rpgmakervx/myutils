@@ -35,43 +35,42 @@ public class MappedMethod {
     public MappedMethod(DBSession session) {
         this.session = session;
     }
-
 //        String sql = "select * from t_user where id = $id$ and username like CONCAT('%',$username$,'%') and c > $age$";
     public Object delegateExecute(String interfaceName, Method method, Object[] args) {
         Configuration configuration = session.getConfiguration();
         String sql = configuration.getMappedSql(interfaceName, method.getName());
         SqlMapCache cache = factory.getSqlMapCache();
-        SqlBuilder builder = new SqlBuilder();
+        SqlBuilder builder = null;
         ///检查缓存的sql
         if (cache.isHit(interfaceName,method.getName())){
-            builder.setPreparedSql(cache.getSql(interfaceName,method.getName()));
-            builder.setType(cache.getType(interfaceName,method.getName()));
+            builder = cache.getSqlBuilder(interfaceName,method.getName());
         }else{
+            builder = new SqlBuilder();
             //jsqlparser 在这一步，相对其他代码会慢一点
             builder.buildSql(sql);
-        }
-        Parameter[] parameters = method.getParameters();
-        String[] paramNames = ReflectUtils.getMethodParameter(method);
-        int paramIndex = 0;
-        for (int index=0;index<parameters.length;index++) {
-            if (isBaseType(parameters[index].getType())) {
-                SqlParam sqlParam = parameters[index].getAnnotation(SqlParam.class);
-                if (sqlParam == null) {
-                    builder.buildParams(args[index],paramNames[paramIndex]);
-                    paramIndex++;
-                }else{
-                    builder.buildParams(args[index],sqlParam.name());
+            Parameter[] parameters = method.getParameters();
+            String[] paramNames = ReflectUtils.getMethodParameter(method);
+            int paramIndex = 0;
+            for (int index=0;index<parameters.length;index++) {
+                if (isBaseType(parameters[index].getType())) {
+                    SqlParam sqlParam = parameters[index].getAnnotation(SqlParam.class);
+                    if (sqlParam == null) {
+                        builder.buildParams(args[index],paramNames[paramIndex]);
+                        paramIndex++;
+                    }else{
+                        builder.buildParams(args[index],sqlParam.name());
+                    }
+                    continue;
                 }
-                continue;
+                if (args[index] instanceof Map) {
+                    builder.buildParams((Map<String,Object>)args[index]);
+                    continue;
+                }
+                builder.buildParams(args[index]);
             }
-            if (args[index] instanceof Map) {
-                builder.buildParams((Map<String,Object>)args[index]);
-                continue;
-            }
-            builder.buildParams(args[index]);
+            builder.buildEntity();
+            cache.addSqlBuilder(interfaceName,method.getName(),builder);
         }
-        builder.buildEntity();
-        cache.addSql(interfaceName,method.getName(),builder.getPreparedSql());
         switch (builder.getType()){
             case SELECT:
                 Class returnType = method.getReturnType();

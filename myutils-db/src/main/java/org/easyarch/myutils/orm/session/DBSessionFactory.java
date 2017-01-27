@@ -1,12 +1,10 @@
 package org.easyarch.myutils.orm.session;
 
-import org.easyarch.myutils.pool.ds.DBCPool;
-import org.easyarch.myutils.pool.ds.DBCPoolFactory;
 import org.easyarch.myutils.jdbc.exec.MySqlExecutor;
 import org.easyarch.myutils.jdbc.exec.SqlExecutor;
 import org.easyarch.myutils.orm.session.impl.DefaultDBSession;
 
-import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  * Description :
@@ -17,16 +15,20 @@ import java.sql.Connection;
 
 public class DBSessionFactory {
 
-    private static final DBCPool pool = (DBCPool) DBCPoolFactory.newConfigedDBCPool();
-
     private Configuration configuration;
 
     public DBSessionFactory(Configuration configuration){
         this.configuration = configuration;
     }
 
-    public DBSession newSession(Connection connection){
-        SqlExecutor executor = new MySqlExecutor(connection);
+    public DBSession newSession(){
+        SqlExecutor executor = null;
+        try {
+            executor = new MySqlExecutor(configuration.getDataSource().getConnection());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
         return new DefaultDBSession(configuration,executor);
     }
 

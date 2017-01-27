@@ -1,9 +1,9 @@
 package org.easyarch.myutils.orm.build;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import static org.easyarch.myutils.orm.parser.Token.KEY;
+import java.util.Map;
 
 /**
  * Description :
@@ -14,42 +14,19 @@ import static org.easyarch.myutils.orm.parser.Token.KEY;
 
 public class SqlEntity {
 
-    private List<Object> vals;
 
-    private List<String> names;
+    private List<Map<String,Object>> params;
 
     public SqlEntity() {
-        names = new ArrayList<>();
-        vals = new ArrayList<>();
+        params = new ArrayList<>();
     }
 
-    public List<Object> getVals() {
-        return vals;
+    public List<Map<String,Object>> getParams(){
+        return params;
     }
 
-    public void setVals(List<Object> vals) {
-        this.vals = vals;
-    }
-
-    public List<String> getNames() {
-        return names;
-    }
-
-    public void setNames(List<String> names) {
-        for (String name:names){
-            int beginIndex = KEY.length();
-            String word = name.substring(beginIndex, name.length() - beginIndex);
-            this.names.add(word);
-        }
-    }
-
-    public void addName(String name){
-        int beginIndex = KEY.length();
-        String word = name.substring(beginIndex, name.length() - beginIndex);
-        this.names.add(word);
-    }
-
-    public void addVal(Object val){
-        this.vals.add(val);
+    public void addParam(String name,Object value){
+        Map<String,Object> param = new HashMap<>();
+        params.add(param);
     }
 }

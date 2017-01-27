@@ -25,6 +25,9 @@ public class StringUtils {
     public static boolean isEmpty(final String src) {
         return src == null || src.length() == 0;
     }
+    public static boolean isNotEmpty(final String src) {
+        return !isEmpty(src);
+    }
 
     /**
      * 字符串是否是空白的

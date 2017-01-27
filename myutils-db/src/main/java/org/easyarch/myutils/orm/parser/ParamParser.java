@@ -10,7 +10,7 @@ import static org.easyarch.myutils.orm.parser.Token.KEY;
  * description:
  */
 
-public class ParamParser implements Parser {
+public class ParamParser extends ParserAdapter {
 
     private String []paramTokens;
 

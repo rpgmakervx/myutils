@@ -34,7 +34,7 @@ import static org.easyarch.myutils.orm.parser.Token.KEY;
  * 3.select * from user where id = $id$         //从@SqlParam中取值
  * 3.select * from user where id = ?            //通过左值表达式和@Column中的映射取值
  */
-public class SQLParser implements Parser{
+public class SQLParser extends ParserAdapter{
 
     private Statement statement;
 

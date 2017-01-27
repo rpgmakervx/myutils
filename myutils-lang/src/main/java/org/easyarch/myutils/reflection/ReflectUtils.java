@@ -18,6 +18,15 @@ import java.lang.reflect.*;
 
 public class ReflectUtils {
 
+    public static Object newInstance(String classname) {
+        try {
+            Class clazz = Class.forName(classname);
+            return clazz.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     public static Object newInstance(Class<?> clazz) {
         try {
             return clazz.newInstance();

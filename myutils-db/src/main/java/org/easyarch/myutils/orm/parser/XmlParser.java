@@ -4,6 +4,8 @@ import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.easyarch.myutils.orm.mapping.MapperScanner;
+import org.easyarch.myutils.orm.session.Configuration;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -20,14 +22,9 @@ import java.util.Map;
  * description:
  */
 
-public class XmlParser {
-    public static final String JADE = "jade";
-    public static final String INTERFACE = "interface";
-    public static final String PACAKGE = "package";
-    public static final String MAPPER = "mapper";
-    public static final String LOCATION = "location";
-    public static final String DATASOURCE = "datasource";
+public class XmlParser extends ParserAdapter<Configuration>{
 
+    private String xmlPath;
     private SAXReader saxReader = new SAXReader();
     private Document document = null;
     private Element root = null;
@@ -35,6 +32,7 @@ public class XmlParser {
     private Map<String,Map<String,Object>> content = new HashMap<>();
 
     public XmlParser(String path){
+        this.xmlPath = path;
         InputStream is = null;
         try {
             is = new FileInputStream(path);
@@ -47,6 +45,7 @@ public class XmlParser {
 
     public XmlParser(InputStream is){
         try {
+            this.xmlPath = MapperScanner.CLASSPATH;
             document = saxReader.read(is);
             root = document.getRootElement();
         } catch (Exception e) {
@@ -56,6 +55,7 @@ public class XmlParser {
 
     public XmlParser(Reader reader){
         try {
+            this.xmlPath = MapperScanner.CLASSPATH;
             document = saxReader.read(reader);
             root = document.getRootElement();
         } catch (Exception e) {
@@ -78,5 +78,10 @@ public class XmlParser {
 
     public Map<String,Map<String,Object>> getContent(){
         return content;
+    }
+
+    @Override
+    public Configuration parse() {
+        return new Configuration(xmlPath,content);
     }
 }

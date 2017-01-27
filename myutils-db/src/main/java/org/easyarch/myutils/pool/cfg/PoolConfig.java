@@ -14,55 +14,66 @@ import java.util.Properties;
 
 public class PoolConfig {
 
+    private static final String MAXPOOLSIZE = "maxPoolSize";
+    private static final String MINIDLE = "minIdle";
+    private static final String MAXIDLE = "maxIdle";
+    private static final String KEEPALIVETIME = "keepAliveTime";
 
-    private static int maxPoolSize;
+    private int maxPoolSize;
 
-    private static int minIdle;
+    private int minIdle;
 
-    private static int maxIdle;
+    private int maxIdle;
 
-    private static long keepAliveTime;
+    private long keepAliveTime;
 
-    public static void config(int maxPoolSize,int maxIdle,
+    private PoolConfig(){
+    }
+
+    public static PoolConfig config(int maxPoolSize,int maxIdle,
                               int minIdle,long keepAliveTime){
-        PoolConfig.maxPoolSize = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
-        PoolConfig.minIdle = minIdle<=0?0:minIdle;
-        PoolConfig.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
-        PoolConfig.keepAliveTime = keepAliveTime<=0?60:keepAliveTime;
+        PoolConfig config = new PoolConfig();
+        config.maxPoolSize = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
+        config.minIdle = minIdle<=0?0:minIdle;
+        config.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
+        config.keepAliveTime = keepAliveTime<=0?60:keepAliveTime;
+        return config;
     }
 
-    public static void config(Properties prop){
-        int maxPoolSize = prop.getProperty("maxPoolSize")==null?
-                Runtime.getRuntime().availableProcessors()*4:Integer.parseInt(prop.getProperty("maxPoolSize"));
-        int minIdle = prop.getProperty("minIdle")==null?
-                0:Integer.parseInt(prop.getProperty("minIdle"));
-        int maxIdle = prop.getProperty("maxIdle")==null?
-                512:Integer.parseInt(prop.getProperty("maxIdle"));
-        int keepAliveTime = prop.getProperty("keepAliveTime")==null?
-                60:Integer.parseInt(prop.getProperty("keepAliveTime"));
-        PoolConfig.maxPoolSize = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
-        PoolConfig.minIdle = minIdle<=0?0:minIdle;
-        PoolConfig.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
-        PoolConfig.keepAliveTime = keepAliveTime<=0?60:keepAliveTime;
+    public static PoolConfig config(Properties prop){
+        PoolConfig config = new PoolConfig();
+        int maxPoolSize = prop.getProperty(MAXPOOLSIZE)==null?
+                Runtime.getRuntime().availableProcessors()*4:Integer.parseInt(prop.getProperty(MAXPOOLSIZE));
+        int minIdle = prop.getProperty(MINIDLE)==null?
+                0:Integer.parseInt(prop.getProperty(MINIDLE));
+        int maxIdle = prop.getProperty(MAXIDLE)==null?
+                512:Integer.parseInt(prop.getProperty(MAXIDLE));
+        int keepAliveTime = prop.getProperty(KEEPALIVETIME)==null?
+                60:Integer.parseInt(prop.getProperty(KEEPALIVETIME));
+        config.maxPoolSize = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
+        config.minIdle = minIdle<=0?0:minIdle;
+        config.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
+        config.keepAliveTime = keepAliveTime<=0?60:keepAliveTime;
+        return config;
     }
 
-    public static int getMaxPoolSize() {
+    public int getMaxPoolSize() {
         return maxPoolSize;
     }
 
-    public static int getMinIdle() {
+    public int getMinIdle() {
         return minIdle;
     }
 
-    public static int getMaxIdle() {
+    public int getMaxIdle() {
         return maxIdle;
     }
 
-    public static long getKeepAliveTime() {
+    public long getKeepAliveTime() {
         return keepAliveTime;
     }
 
-    public static void print() {
+    public void print() {
         System.out.println("maxPoolSize:"+maxPoolSize+
                 "\nmaxIdle:"+maxIdle+
                 "\nminIdle:"+minIdle+

@@ -54,7 +54,7 @@ public class TestMain {
             usermap.put("id",user.getId());
             usermap.put("username",user.getUsername());
             engine.put("user",usermap);
-            engine.eval(new FileReader("/home/code4j/IDEAWorkspace/myutils/myutils-db/src/main/resources/sqlmapper.js"));
+            engine.eval(new FileReader("/home/code4j/IDEAWorkspace/myutils/myutils-db/src/main/resources/mapper/sqlmapper.js"));
             Invocable func = (Invocable)engine;
             Map<String,Object> resultMap = (Map<String, Object>) func.invokeFunction("findUserByCondition",usermap);
             Map<String,Object> paramMap = (Map<String, Object>) resultMap.get("param");
