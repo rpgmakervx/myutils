@@ -35,16 +35,17 @@ public class MappedMethod {
     public MappedMethod(DBSession session) {
         this.session = session;
     }
+
 //        String sql = "select * from t_user where id = $id$ and username like CONCAT('%',$username$,'%') and c > $age$";
     public Object delegateExecute(String interfaceName, Method method, Object[] args) {
         Configuration configuration = session.getConfiguration();
-        String sql = configuration.getMappedSql(interfaceName, method.getName());
         SqlMapCache cache = factory.getSqlMapCache();
         SqlBuilder builder = null;
         ///检查缓存的sql
         if (cache.isHit(interfaceName,method.getName())){
             builder = cache.getSqlBuilder(interfaceName,method.getName());
         }else{
+            String sql = configuration.getMappedSql(interfaceName, method.getName());
             builder = new SqlBuilder();
             //jsqlparser 在这一步，相对其他代码会慢一点
             builder.buildSql(sql);

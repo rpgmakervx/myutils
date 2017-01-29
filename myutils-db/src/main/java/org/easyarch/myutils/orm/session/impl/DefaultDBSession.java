@@ -4,6 +4,7 @@ import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.jdbc.exec.SqlExecutor;
 import org.easyarch.myutils.jdbc.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.jdbc.handler.MapResultHandler;
+import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.ProxyCache;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
@@ -49,7 +50,8 @@ public class DefaultDBSession implements DBSession {
     public <E> List<E> selectList(String bind, Class<E> clazz, Object... parameters) {
         SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(SEPARATOR);
-        String sql = cache.getSqlBuilder(tokens[0], tokens[1]);
+        SqlBuilder builder = cache.getSqlBuilder(tokens[0], tokens[1]);
+        String sql = builder.getPreparedSql();
         List<E> list = executor.query(sql, new BeanListResultSetHadler<>(clazz), parameters);
         return list;
     }
@@ -58,7 +60,8 @@ public class DefaultDBSession implements DBSession {
     public List<Map<String, Object>> selectMap(String bind, Object... parameters) {
         SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(SEPARATOR);
-        String sql = cache.getSqlBuilder(tokens[0], tokens[1]);
+        SqlBuilder builder = cache.getSqlBuilder(tokens[0], tokens[1]);
+        String sql = builder.getPreparedSql();
         List<Map<String, Object>> list = executor.query(sql, new MapResultHandler(), parameters);
         return list;
     }
@@ -67,7 +70,8 @@ public class DefaultDBSession implements DBSession {
     public int update(String bind, Object... parameter) {
         SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(SEPARATOR);
-        String sql = cache.getSqlBuilder(tokens[0], tokens[1]);
+        SqlBuilder builder = cache.getSqlBuilder(tokens[0], tokens[1]);
+        String sql = builder.getPreparedSql();
         return executor.alter(sql, parameter);
     }
 

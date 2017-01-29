@@ -3,6 +3,8 @@ package org.easyarch.myutils.orm.cache;
 import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.mapping.SqlType;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,6 +20,9 @@ public class SqlMapCache implements Cache<String,Map<String,SqlBuilder>> {
     private volatile Map<String,Map<String,SqlBuilder>> sqlMap = new ConcurrentHashMap<>();
 
     public SqlBuilder getSqlBuilder(String namespace, String id){
+        if(!isHit(namespace,id)){
+            return new SqlBuilder();
+        }
         Map<String,SqlBuilder> statement = get(namespace);
         return statement.get(id);
     }
@@ -35,15 +40,15 @@ public class SqlMapCache implements Cache<String,Map<String,SqlBuilder>> {
 
     public String getSql(String namespace,String id){
         if(!isHit(namespace,id)){
-            return null;
+            return "";
         }
         Map<String,SqlBuilder> statement = sqlMap.get(namespace);
         return statement.get(id).getPreparedSql();
     }
 
-    public Object[] getParams(String namespace,String id){
+    public List<Map<String,Object>> getParams(String namespace, String id){
         if(!isHit(namespace,id)){
-            return null;
+            return new ArrayList<>();
         }
         Map<String,SqlBuilder> statement = sqlMap.get(namespace);
         return statement.get(id).getParameters();

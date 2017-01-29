@@ -4,9 +4,9 @@
  *  上午1:15
  */
 function findUserById(map){
-    var sql = "select * from user";
+    var sql = "select * from user where 1 = 1";
     if (map.id == null){
-        sql += "where id = $id$"
+        sql += "and id = $id$"
     }
     if (map.username == null){
         sql += " and username = $username$"
