@@ -1,6 +1,7 @@
 package org.easyarch.myutils.orm.parser;
 
 import java.io.InputStream;
+import java.io.Reader;
 
 /**
  * Description :
@@ -14,6 +15,8 @@ public interface Parser<T> {
     public void parse(String src);
 
     public void parse(InputStream is);
+
+    public void parse(Reader reader);
 
     public T parse();
 

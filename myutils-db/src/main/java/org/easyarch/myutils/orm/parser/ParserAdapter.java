@@ -1,6 +1,7 @@
 package org.easyarch.myutils.orm.parser;
 
 import java.io.InputStream;
+import java.io.Reader;
 
 /**
  * Description :
@@ -17,6 +18,10 @@ public class ParserAdapter<T> implements Parser<T> {
 
     @Override
     public void parse(InputStream is) {
+
+    }
+    @Override
+    public void parse(Reader reader) {
 
     }
 
