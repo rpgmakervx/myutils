@@ -6,11 +6,9 @@ import org.easyarch.myutils.jdbc.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.jdbc.handler.MapResultHandler;
 import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.cache.CacheFactory;
-import org.easyarch.myutils.orm.cache.ProxyCache;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
-import org.easyarch.myutils.orm.mapping.MapperProxyFactory;
 import org.easyarch.myutils.orm.session.Configuration;
-import org.easyarch.myutils.orm.session.DBSession;
+import org.easyarch.myutils.orm.session.DBSessionAdapter;
 
 import java.util.List;
 import java.util.Map;
@@ -24,7 +22,7 @@ import static org.easyarch.myutils.orm.parser.Token.SEPARATOR;
  * description:
  */
 
-public class DefaultDBSession implements DBSession {
+public class DefaultDBSession extends DBSessionAdapter {
 
     private CacheFactory factory = CacheFactory.getInstance();
 
@@ -83,16 +81,6 @@ public class DefaultDBSession implements DBSession {
     @Override
     public int insert(String bind, Object... parameter) {
         return update(bind,parameter);
-    }
-
-    @Override
-    public <T> T getMapper(Class<T> clazz) {
-        ProxyCache proxyCache = factory.getProxyCache();
-        if (proxyCache.isHit(clazz)){
-            return (T) proxyCache.get(clazz);
-        }
-        MapperProxyFactory<T> mapperProxyFactory = new MapperProxyFactory(configuration,clazz);
-        return mapperProxyFactory.newInstance(this);
     }
 
     @Override

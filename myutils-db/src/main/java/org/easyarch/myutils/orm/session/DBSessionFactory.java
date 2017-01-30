@@ -3,6 +3,7 @@ package org.easyarch.myutils.orm.session;
 import org.easyarch.myutils.jdbc.exec.MySqlExecutor;
 import org.easyarch.myutils.jdbc.exec.SqlExecutor;
 import org.easyarch.myutils.orm.session.impl.DefaultDBSession;
+import org.easyarch.myutils.orm.session.impl.DelegeateDBSession;
 
 import java.sql.SQLException;
 
@@ -21,7 +22,7 @@ public class DBSessionFactory {
         this.configuration = configuration;
     }
 
-    public DBSession newSession(){
+    public DBSession newDefaultSession(){
         SqlExecutor executor = null;
         try {
             executor = new MySqlExecutor(configuration.getDataSource().getConnection());
@@ -30,6 +31,16 @@ public class DBSessionFactory {
             return null;
         }
         return new DefaultDBSession(configuration,executor);
+    }
+    public DBSession newDelegateSession(){
+        SqlExecutor executor = null;
+        try {
+            executor = new MySqlExecutor(configuration.getDataSource().getConnection());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return new DelegeateDBSession(configuration,executor);
     }
 
 }

@@ -27,7 +27,9 @@ public class PoolConfig {
 
     private long keepAliveTime;
 
+    private Properties properties;
     private PoolConfig(){
+        properties = new Properties();
     }
 
     public static PoolConfig config(int maxPoolSize,int maxIdle,
@@ -55,6 +57,14 @@ public class PoolConfig {
         config.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
         config.keepAliveTime = keepAliveTime<=0?60:keepAliveTime;
         return config;
+    }
+
+    public Properties getProperties(){
+        properties.setProperty(MAXPOOLSIZE,String.valueOf(maxPoolSize));
+        properties.setProperty(MINIDLE,String.valueOf(maxIdle));
+        properties.setProperty(MAXIDLE,String.valueOf(maxIdle));
+        properties.setProperty(KEEPALIVETIME,String.valueOf(keepAliveTime));
+        return properties;
     }
 
     public int getMaxPoolSize() {

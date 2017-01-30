@@ -16,6 +16,8 @@ public interface DBSession {
 
     public <E> List<E> selectList(String bind,Class<E> clazz,Object... parameter);
 
+    public int selectCount(String bind,Object... parameters);
+
     public List<Map<String,Object>> selectMap(String bind,Object ... parameters);
 
     public int update(String bind,Object... parameter);

@@ -6,6 +6,8 @@ package org.easyarch.myutils.test;/**
 
 import org.easyarch.myutils.orm.annotation.entity.Column;
 
+import java.util.List;
+
 /**
  * Description :
  * Created by code4j on 16-11-3
@@ -24,6 +26,8 @@ public class User {
     private String phone;
     @Column(name = "age")
     private int age;
+
+    private List<String> items;
 
 
     public int getId() {
@@ -64,6 +68,15 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+
+    public List<String> getItems() {
+        return items;
+    }
+
+    public void setItems(List<String> items) {
+        this.items = items;
     }
 
     @Override

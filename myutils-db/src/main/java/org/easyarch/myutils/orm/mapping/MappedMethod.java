@@ -1,11 +1,11 @@
 package org.easyarch.myutils.orm.mapping;
 
 import org.easyarch.myutils.orm.annotation.sql.SqlParam;
-import org.easyarch.myutils.orm.session.Configuration;
 import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
-import org.easyarch.myutils.orm.session.DBSession;
+import org.easyarch.myutils.orm.session.Configuration;
+import org.easyarch.myutils.orm.session.impl.DelegeateDBSession;
 import org.easyarch.myutils.reflection.ReflectUtils;
 import org.easyarch.myutils.test.User;
 
@@ -18,8 +18,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import static org.easyarch.myutils.orm.parser.Token.SEPARATOR;
-
 /**
  * Description :
  * Created by xingtianyu on 17-1-22
@@ -28,11 +26,11 @@ import static org.easyarch.myutils.orm.parser.Token.SEPARATOR;
  */
 
 public class MappedMethod {
-    private DBSession session;
+    private DelegeateDBSession session;
 
     private CacheFactory factory = CacheFactory.getInstance();
 
-    public MappedMethod(DBSession session) {
+    public MappedMethod(DelegeateDBSession session) {
         this.session = session;
     }
 
@@ -53,7 +51,7 @@ public class MappedMethod {
             String[] paramNames = ReflectUtils.getMethodParameter(method);
             int paramIndex = 0;
             for (int index=0;index<parameters.length;index++) {
-                if (isBaseType(parameters[index].getType())) {
+                if (ReflectUtils.isBaseType(parameters[index].getType())) {
                     SqlParam sqlParam = parameters[index].getAnnotation(SqlParam.class);
                     if (sqlParam == null) {
                         builder.buildParams(args[index],paramNames[paramIndex]);
@@ -76,52 +74,18 @@ public class MappedMethod {
             case SELECT:
                 Class returnType = method.getReturnType();
                 if (Collection.class.isAssignableFrom(returnType)){
-                    return session.selectList(interfaceName+SEPARATOR+method.getName(),
+                    return session.selectList(builder.getPreparedSql(),
                             ReflectUtils.getReturnType(method),builder.getParameters());
                 }else{
-                    return session.selectOne(interfaceName+SEPARATOR+method.getName(),
+                    return session.selectOne(builder.getPreparedSql(),
                             ReflectUtils.getReturnType(method),builder.getParameters());
                 }
-            case INSERT:return session.insert(
-                    interfaceName+SEPARATOR+method.getName(),builder.getParameters());
-            case UPDATE:return session.update(
-                    interfaceName+SEPARATOR+method.getName(),builder.getParameters());
-            case DELETE:return session.delete(
-                    interfaceName+SEPARATOR+method.getName(),builder.getParameters());
+            case INSERT:return session.insert(builder.getPreparedSql(),builder.getParameters());
+            case UPDATE:return session.update(builder.getPreparedSql(),builder.getParameters());
+            case DELETE:return session.delete(builder.getPreparedSql(),builder.getParameters());
         }
         System.out.println(builder);
         return null;
-    }
-
-    private boolean isBaseType(Class clazz) {
-        if (clazz == String.class) {
-            return true;
-        }
-        if (clazz == int.class || clazz == Integer.class) {
-            return true;
-        }
-        if (clazz == float.class || clazz == Float.class) {
-            return true;
-        }
-        if (clazz == long.class || clazz == Long.class) {
-            return true;
-        }
-        if (clazz == double.class || clazz == Double.class) {
-            return true;
-        }
-        if (clazz == short.class || clazz == Short.class) {
-            return true;
-        }
-        if (clazz == byte.class || clazz == Byte.class) {
-            return true;
-        }
-        if (clazz == boolean.class || clazz == Boolean.class) {
-            return true;
-        }
-        if (clazz == char.class || clazz == Character.class) {
-            return true;
-        }
-        return false;
     }
 
 

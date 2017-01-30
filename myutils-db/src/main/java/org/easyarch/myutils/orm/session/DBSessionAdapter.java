@@ -1,0 +1,68 @@
+package org.easyarch.myutils.orm.session;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Description :
+ * Created by xingtianyu on 17-1-30
+ * 下午6:56
+ * description:
+ */
+
+public class DBSessionAdapter implements DBSession {
+    @Override
+    public <T> T selectOne(String bind, Class<T> clazz, Object... parameter) {
+        return null;
+    }
+
+    @Override
+    public <E> List<E> selectList(String bind, Class<E> clazz, Object... parameter) {
+        return null;
+    }
+
+    @Override
+    public int selectCount(String bind, Object... parameters) {
+        return 0;
+    }
+
+    @Override
+    public List<Map<String, Object>> selectMap(String bind, Object... parameters) {
+        return null;
+    }
+
+    @Override
+    public int update(String bind, Object... parameter) {
+        return 0;
+    }
+
+    @Override
+    public int delete(String bind, Object... parameter) {
+        return 0;
+    }
+
+    @Override
+    public int insert(String bind, Object... parameter) {
+        return 0;
+    }
+
+    @Override
+    public <T> T getMapper(Class<T> clazz) {
+        return null;
+    }
+
+    @Override
+    public Configuration getConfiguration() {
+        return null;
+    }
+
+    @Override
+    public void close() {
+
+    }
+
+    @Override
+    public void rollback() {
+
+    }
+}

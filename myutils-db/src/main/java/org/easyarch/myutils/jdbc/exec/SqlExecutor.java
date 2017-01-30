@@ -5,6 +5,7 @@ package org.easyarch.myutils.jdbc.exec;/**
  */
 
 import org.easyarch.myutils.jdbc.handler.ResultSetHandler;
+import org.easyarch.myutils.reflection.ReflectUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -104,17 +105,19 @@ public class SqlExecutor extends AbstractExecutor{
     }
 
 
-//    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException {
 //        ConnConfig.config("root", "123456",
 //                "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");
-//        PoolConfig.config(200, 50, 5, 3 * 1000L);
-//        DataSource dataSource = DBCPoolFactory.newConfigedDBCPool();
+//        ;
+//        DataSource dataSource = DBCPoolFactory.newConfigedDBCPool(PoolConfig.config(200, 50, 5, 3 * 1000L).getProperties());
 //        final SqlExecutor executor = new MySqlExecutor(dataSource.getConnection());
 //        Connection connection = dataSource.getConnection();
 //        PreparedStatement ps = connection.prepareStatement("");
-//        List<User> user = executor.query("select * from user ",
-//                new BeanListResultSetHadler<User>(User.class), null);
-////        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
-////        System.out.println("end "+result);
-//    }
+//        int count = executor.query("select count(1) from user ",
+//                new BeanResultSetHadler<Integer>(Integer.class), null);
+//        System.out.println(count);
+        System.out.println(ReflectUtils.newInstance(Integer.class));
+//        int result = executor.alter(connection,"insert into user values(?,?,?,?,?)",10,"laisbfdsfk","583110127","13652212569",30);
+//        System.out.println("end "+result);
+    }
 }

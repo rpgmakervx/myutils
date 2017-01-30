@@ -242,4 +242,12 @@ public class ReflectUtils {
         return null;
     }
 
+    public static boolean isBaseType(Class clz) {
+        try {
+            return (clz.isPrimitive())||((Class) clz.getField("TYPE").get(null)).isPrimitive();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }

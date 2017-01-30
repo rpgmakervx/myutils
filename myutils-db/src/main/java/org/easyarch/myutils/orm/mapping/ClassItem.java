@@ -49,4 +49,13 @@ public class ClassItem {
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
+
+//    @Override
+//    public String toString() {
+//        return "ClassItem{" +
+//                "itemName='" + itemName + '\'' +
+//                ", clazz=" + clazz +
+//                ", methods=" + methods +
+//                '}';
+//    }
 }

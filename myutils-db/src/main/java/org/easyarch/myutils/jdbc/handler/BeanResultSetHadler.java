@@ -30,9 +30,9 @@ public class BeanResultSetHadler<T> implements ResultSetHandler<T> {
         this.type = type;
     }
 
-
     @Override
     public T handle(ResultSet rs) throws Exception {
         return wrapper.bean(rs, type);
     }
+
 }
