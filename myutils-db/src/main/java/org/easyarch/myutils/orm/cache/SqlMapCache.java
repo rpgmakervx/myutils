@@ -1,6 +1,6 @@
 package org.easyarch.myutils.orm.cache;
 
-import org.easyarch.myutils.orm.build.SqlBuilder;
+import org.easyarch.myutils.orm.build.SqlEntity;
 import org.easyarch.myutils.orm.mapping.SqlType;
 
 import java.util.ArrayList;
@@ -15,26 +15,28 @@ import java.util.concurrent.ConcurrentHashMap;
  * description:保存sql解析和参数构造的结果
  */
 
-public class SqlMapCache implements Cache<String,Map<String,SqlBuilder>> {
+public class SqlMapCache implements Cache<String,Map<String,SqlEntity>> {
 
-    private volatile Map<String,Map<String,SqlBuilder>> sqlMap = new ConcurrentHashMap<>();
+    private volatile Map<String,Map<String,SqlEntity>> sqlMap = new ConcurrentHashMap<>();
 
-    public SqlBuilder getSqlBuilder(String namespace, String id){
+    public SqlEntity getSqlEntity(String namespace, String id){
         if(!isHit(namespace,id)){
-            return new SqlBuilder();
+            return new SqlEntity();
         }
-        Map<String,SqlBuilder> statement = get(namespace);
+        Map<String,SqlEntity> statement = get(namespace);
         return statement.get(id);
     }
 
-    public void addSqlBuilder(String namespace, String id, SqlBuilder sqlBuilder){
+    public void addSqlEntity(SqlEntity sqlEntity){
+        String namespace = sqlEntity.getPrefix();
+        String id = sqlEntity.getSuffix();
         if (sqlMap.containsKey(namespace)){
-            Map<String,SqlBuilder> statement = get(namespace);
-            statement.put(id,sqlBuilder);
+            Map<String,SqlEntity> statement = get(namespace);
+            statement.put(id,sqlEntity);
             return;
         }
-        Map<String,SqlBuilder> statement = new ConcurrentHashMap<>();
-        statement.put(id,sqlBuilder);
+        Map<String,SqlEntity> statement = new ConcurrentHashMap<>();
+        statement.put(id,sqlEntity);
         sqlMap.put(namespace,statement);
     }
 
@@ -42,28 +44,28 @@ public class SqlMapCache implements Cache<String,Map<String,SqlBuilder>> {
         if(!isHit(namespace,id)){
             return "";
         }
-        Map<String,SqlBuilder> statement = sqlMap.get(namespace);
-        return statement.get(id).getPreparedSql();
+        Map<String,SqlEntity> statement = sqlMap.get(namespace);
+        return statement.get(id).getSql();
     }
 
     public List<Map<String,Object>> getParams(String namespace, String id){
         if(!isHit(namespace,id)){
             return new ArrayList<>();
         }
-        Map<String,SqlBuilder> statement = sqlMap.get(namespace);
-        return statement.get(id).getParameters();
+        Map<String,SqlEntity> statement = sqlMap.get(namespace);
+        return statement.get(id).getParams();
     }
 
     public SqlType getType(String namespace,String id){
         if(!isHit(namespace,id)){
             return null;
         }
-        Map<String,SqlBuilder> statement = sqlMap.get(namespace);
+        Map<String,SqlEntity> statement = sqlMap.get(namespace);
         return statement.get(id).getType();
     }
 
     public boolean isHit(String namespace,String id){
-        Map<String,SqlBuilder> map = get(namespace);
+        Map<String,SqlEntity> map = get(namespace);
         if (map != null && map.containsKey(id)){
             return true;
         }
@@ -71,17 +73,17 @@ public class SqlMapCache implements Cache<String,Map<String,SqlBuilder>> {
     }
 
     @Override
-    public Map<String,SqlBuilder> get(String key) {
+    public Map<String,SqlEntity> get(String key) {
         return sqlMap.get(key);
     }
 
     @Override
-    public void set(String key, Map<String,SqlBuilder> value) {
+    public void set(String key, Map<String,SqlEntity> value) {
         sqlMap.put(key,value);
     }
 
     @Override
-    public Map<String,SqlBuilder> remove(String key) {
+    public Map<String,SqlEntity> remove(String key) {
         return sqlMap.remove(key);
     }
 

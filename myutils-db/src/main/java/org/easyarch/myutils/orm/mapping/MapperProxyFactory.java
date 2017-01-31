@@ -3,7 +3,7 @@ package org.easyarch.myutils.orm.mapping;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.ProxyCache;
 import org.easyarch.myutils.orm.session.Configuration;
-import org.easyarch.myutils.orm.session.impl.DelegeateDBSession;
+import org.easyarch.myutils.orm.session.impl.MapperDBSession;
 
 import java.lang.reflect.Proxy;
 
@@ -29,7 +29,7 @@ public class MapperProxyFactory<T> {
         this.interfaceClass = interfaceClass;
     }
 
-    public T newInstance(DelegeateDBSession session) {
+    public T newInstance(MapperDBSession session) {
         if (proxyCache.isHit(interfaceClass)){
             return (T) proxyCache.get(interfaceClass);
         }

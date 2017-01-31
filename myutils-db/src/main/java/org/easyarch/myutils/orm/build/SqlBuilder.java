@@ -1,8 +1,8 @@
 package org.easyarch.myutils.orm.build;
 
 import org.easyarch.myutils.orm.binding.ParamBinder;
-import org.easyarch.myutils.orm.parser.SQLParser;
 import org.easyarch.myutils.orm.mapping.SqlType;
+import org.easyarch.myutils.orm.parser.SQLParser;
 
 import java.util.List;
 import java.util.Map;
@@ -33,6 +33,7 @@ public class SqlBuilder {
 
     public SqlBuilder buildSql(String sql){
         sqlParser.parse(sql);
+        entity.setSql(sql);
         return this;
     }
 
@@ -54,20 +55,26 @@ public class SqlBuilder {
         return this;
     }
 
-    public SqlEntity buildEntity(){
+    public SqlEntity buildEntity(String bind){
         Map<String,Object> mapper = paramBinder.getMapper();
+        entity.setBinder(bind);
         for (Map.Entry<String,Object> entry:mapper.entrySet()){
             entity.addParam(entry.getKey(),entry.getValue());
         }
         return entity;
     }
 
+    public SqlEntity buildEntity(SqlEntity entity){
+        this.entity = entity;
+        return this.entity;
+    }
+
     public SqlType getType(){
-        return sqlParser.getType();
+        return entity.getType();
     }
 
     public String getPreparedSql(){
-        return sqlParser.getPreparedSql();
+        return entity.getPreparedSql();
     }
 
     public List<Map<String,Object>> getParameters(){

@@ -1,11 +1,13 @@
 package org.easyarch.myutils.orm.parser;
 
+import org.easyarch.myutils.orm.build.SqlEntity;
 import org.easyarch.myutils.orm.parser.script.JSContext;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import java.io.Reader;
+import java.util.Map;
 
 /**
  * Description :
@@ -14,7 +16,7 @@ import java.io.Reader;
  * description:
  */
 
-public class JSParser<T> extends ParserAdapter<T> {
+public class JSParser extends ParserAdapter<SqlEntity> {
 
     public static final String JAVASCRIPT = "javascript";
 
@@ -22,29 +24,28 @@ public class JSParser<T> extends ParserAdapter<T> {
 
     private ScriptEngine engine;
 
-    private String funcName;
+    private Reader reader;
 
     private JSContext ctx;
 
-    public JSParser(String funcName){
+    private Map<String,Invocable> jsFunctions;
+
+    public JSParser(Reader reader){
         engineManager = new ScriptEngineManager();
         engine = engineManager.getEngineByName(JAVASCRIPT);
+        this.reader = reader;
         ctx = new JSContext();
-        this.funcName = funcName;
     }
+
     @Override
-    public void parse(Reader reader) {
+    public void parse(SqlEntity entity) {
         try {
             engine.eval(reader);
             Invocable func = (Invocable)engine;
-            func.invokeFunction(funcName,null);
+            func.invokeFunction(entity.getSuffix(),entity.getParams());
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Override
-    public T parse() {
-        return super.parse();
-    }
 }

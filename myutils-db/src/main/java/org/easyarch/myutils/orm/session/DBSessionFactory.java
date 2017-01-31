@@ -3,7 +3,7 @@ package org.easyarch.myutils.orm.session;
 import org.easyarch.myutils.jdbc.exec.MySqlExecutor;
 import org.easyarch.myutils.jdbc.exec.SqlExecutor;
 import org.easyarch.myutils.orm.session.impl.DefaultDBSession;
-import org.easyarch.myutils.orm.session.impl.DelegeateDBSession;
+import org.easyarch.myutils.orm.session.impl.MapperDBSession;
 
 import java.sql.SQLException;
 
@@ -40,7 +40,7 @@ public class DBSessionFactory {
             e.printStackTrace();
             return null;
         }
-        return new DelegeateDBSession(configuration,executor);
+        return new MapperDBSession(configuration,executor);
     }
 
 }

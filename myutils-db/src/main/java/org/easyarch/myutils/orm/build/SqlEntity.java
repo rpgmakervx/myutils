@@ -1,9 +1,13 @@
 package org.easyarch.myutils.orm.build;
 
+import org.easyarch.myutils.orm.mapping.SqlType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.easyarch.myutils.orm.parser.Token.BIND_SEPARATOR;
 
 /**
  * Description :
@@ -14,8 +18,16 @@ import java.util.Map;
 
 public class SqlEntity {
 
+    private String sql;
+
+    private String preparedSql;
 
     private List<Map<String,Object>> params;
+
+    private SqlType type;
+
+    //sql语句的key,通常是 mapper接口名@方法名
+    private String binder;
 
     public SqlEntity() {
         params = new ArrayList<>();
@@ -25,8 +37,49 @@ public class SqlEntity {
         return params;
     }
 
-    public void addParam(String name,Object value){
+    public String getSql(){
+        return sql;
+    }
+
+    public void setSql(String sql){
+        this.sql = sql;
+    }
+
+    public String getPreparedSql() {
+        return preparedSql;
+    }
+
+    public void setPreparedSql(String preparedSql) {
+        this.preparedSql = preparedSql;
+    }
+
+    public SqlType getType() {
+        return type;
+    }
+
+    public void setType(SqlType type) {
+        this.type = type;
+    }
+
+    public void addParam(String name, Object value){
         Map<String,Object> param = new HashMap<>();
         params.add(param);
+    }
+
+    public String getBinder() {
+        return binder;
+    }
+
+    public void setBinder(String binder) {
+        this.binder = binder;
+    }
+
+    public String getPrefix(){
+        String []segements = binder.split(BIND_SEPARATOR);
+        return segements[0];
+    }
+    public String getSuffix(){
+        String []segements = binder.split(BIND_SEPARATOR);
+        return segements[1];
     }
 }

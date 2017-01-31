@@ -20,7 +20,7 @@ import java.util.Map;
  * description:
  */
 
-public class DelegeateDBSession extends DBSessionAdapter {
+public class MapperDBSession extends DBSessionAdapter {
 
     private CacheFactory factory = CacheFactory.getInstance();
 
@@ -28,7 +28,7 @@ public class DelegeateDBSession extends DBSessionAdapter {
 
     private SqlExecutor executor;
 
-    public DelegeateDBSession(Configuration configuration,SqlExecutor executor) {
+    public MapperDBSession(Configuration configuration, SqlExecutor executor) {
         this.executor = executor;
         this.configuration = configuration;
     }

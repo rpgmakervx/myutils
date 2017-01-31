@@ -2,10 +2,11 @@ package org.easyarch.myutils.orm.mapping;
 
 import org.easyarch.myutils.orm.annotation.sql.SqlParam;
 import org.easyarch.myutils.orm.build.SqlBuilder;
+import org.easyarch.myutils.orm.build.SqlEntity;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
 import org.easyarch.myutils.orm.session.Configuration;
-import org.easyarch.myutils.orm.session.impl.DelegeateDBSession;
+import org.easyarch.myutils.orm.session.impl.MapperDBSession;
 import org.easyarch.myutils.reflection.ReflectUtils;
 import org.easyarch.myutils.test.User;
 
@@ -18,6 +19,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import static org.easyarch.myutils.orm.parser.Token.BIND_SEPARATOR;
+
 /**
  * Description :
  * Created by xingtianyu on 17-1-22
@@ -26,11 +29,11 @@ import java.util.Map;
  */
 
 public class MappedMethod {
-    private DelegeateDBSession session;
+    private MapperDBSession session;
 
     private CacheFactory factory = CacheFactory.getInstance();
 
-    public MappedMethod(DelegeateDBSession session) {
+    public MappedMethod(MapperDBSession session) {
         this.session = session;
     }
 
@@ -38,13 +41,13 @@ public class MappedMethod {
     public Object delegateExecute(String interfaceName, Method method, Object[] args) {
         Configuration configuration = session.getConfiguration();
         SqlMapCache cache = factory.getSqlMapCache();
-        SqlBuilder builder = null;
         ///检查缓存的sql
+        SqlBuilder builder = new SqlBuilder();
         if (cache.isHit(interfaceName,method.getName())){
-            builder = cache.getSqlBuilder(interfaceName,method.getName());
+            SqlEntity entity = cache.getSqlEntity(interfaceName,method.getName());
+            builder.buildEntity(entity);
         }else{
             String sql = configuration.getMappedSql(interfaceName, method.getName());
-            builder = new SqlBuilder();
             //jsqlparser 在这一步，相对其他代码会慢一点
             builder.buildSql(sql);
             Parameter[] parameters = method.getParameters();
@@ -67,8 +70,8 @@ public class MappedMethod {
                 }
                 builder.buildParams(args[index]);
             }
-            builder.buildEntity();
-            cache.addSqlBuilder(interfaceName,method.getName(),builder);
+            SqlEntity entity = builder.buildEntity(interfaceName + BIND_SEPARATOR + method.getName());
+            cache.addSqlEntity(entity);
         }
         switch (builder.getType()){
             case SELECT:

@@ -3,7 +3,7 @@ package org.easyarch.myutils.orm.mapping;
 import org.easyarch.myutils.orm.annotation.sql.Mapper;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.InterfaceCache;
-import org.easyarch.myutils.orm.session.impl.DelegeateDBSession;
+import org.easyarch.myutils.orm.session.impl.MapperDBSession;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -26,13 +26,13 @@ public class MapperProxy<T> implements InvocationHandler {
 //    public static final String NOTIFY = "notify";
 //    public static final String NOTIFYALL = "notifyAll";
 
-    private DelegeateDBSession session;
+    private MapperDBSession session;
 
     private Class<T> interfaceClass;
 
     private InterfaceCache interfaceCache = CacheFactory.getInstance().getInterfaceCache();
 
-    public MapperProxy(DelegeateDBSession session,Class<T> interfaceClass){
+    public MapperProxy(MapperDBSession session, Class<T> interfaceClass){
         this.session = session;
         this.interfaceClass = interfaceClass;
     }

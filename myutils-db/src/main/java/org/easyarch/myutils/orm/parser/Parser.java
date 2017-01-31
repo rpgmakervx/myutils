@@ -18,6 +18,8 @@ public interface Parser<T> {
 
     public void parse(Reader reader);
 
+    public void parse(T obj);
+
     public T parse();
 
 }

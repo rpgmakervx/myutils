@@ -11,6 +11,7 @@ import java.io.Reader;
  */
 
 public class ParserAdapter<T> implements Parser<T> {
+
     @Override
     public void parse(String src) {
 
@@ -22,6 +23,10 @@ public class ParserAdapter<T> implements Parser<T> {
     }
     @Override
     public void parse(Reader reader) {
+
+    }
+    @Override
+    public void parse(T obj) {
 
     }
 

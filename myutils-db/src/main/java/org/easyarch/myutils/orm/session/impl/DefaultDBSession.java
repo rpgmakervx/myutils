@@ -4,7 +4,7 @@ import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.jdbc.exec.SqlExecutor;
 import org.easyarch.myutils.jdbc.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.jdbc.handler.MapResultHandler;
-import org.easyarch.myutils.orm.build.SqlBuilder;
+import org.easyarch.myutils.orm.build.SqlEntity;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
 import org.easyarch.myutils.orm.session.Configuration;
@@ -13,7 +13,7 @@ import org.easyarch.myutils.orm.session.DBSessionAdapter;
 import java.util.List;
 import java.util.Map;
 
-import static org.easyarch.myutils.orm.parser.Token.SEPARATOR;
+import static org.easyarch.myutils.orm.parser.Token.BIND_SEPARATOR;
 
 /**
  * Description :
@@ -47,9 +47,9 @@ public class DefaultDBSession extends DBSessionAdapter {
     @Override
     public <E> List<E> selectList(String bind, Class<E> clazz, Object... parameters) {
         SqlMapCache cache = factory.getSqlMapCache();
-        String[] tokens = bind.split(SEPARATOR);
-        SqlBuilder builder = cache.getSqlBuilder(tokens[0], tokens[1]);
-        String sql = builder.getPreparedSql();
+        String[] tokens = bind.split(BIND_SEPARATOR);
+        SqlEntity entity = cache.getSqlEntity(tokens[0], tokens[1]);
+        String sql = entity.getPreparedSql();
         List<E> list = executor.query(sql, new BeanListResultSetHadler<>(clazz), parameters);
         return list;
     }
@@ -57,9 +57,9 @@ public class DefaultDBSession extends DBSessionAdapter {
     @Override
     public List<Map<String, Object>> selectMap(String bind, Object... parameters) {
         SqlMapCache cache = factory.getSqlMapCache();
-        String[] tokens = bind.split(SEPARATOR);
-        SqlBuilder builder = cache.getSqlBuilder(tokens[0], tokens[1]);
-        String sql = builder.getPreparedSql();
+        String[] tokens = bind.split(BIND_SEPARATOR);
+        SqlEntity entity = cache.getSqlEntity(tokens[0], tokens[1]);
+        String sql = entity.getPreparedSql();
         List<Map<String, Object>> list = executor.query(sql, new MapResultHandler(), parameters);
         return list;
     }
@@ -67,9 +67,9 @@ public class DefaultDBSession extends DBSessionAdapter {
     @Override
     public int update(String bind, Object... parameter) {
         SqlMapCache cache = factory.getSqlMapCache();
-        String[] tokens = bind.split(SEPARATOR);
-        SqlBuilder builder = cache.getSqlBuilder(tokens[0], tokens[1]);
-        String sql = builder.getPreparedSql();
+        String[] tokens = bind.split(BIND_SEPARATOR);
+        SqlEntity entity = cache.getSqlEntity(tokens[0], tokens[1]);
+        String sql = entity.getPreparedSql();
         return executor.alter(sql, parameter);
     }
 
