@@ -9,6 +9,8 @@ import javax.script.ScriptEngineManager;
 import java.io.Reader;
 import java.util.Map;
 
+import static org.easyarch.myutils.orm.parser.script.JSContext.NAMESPACE;
+
 /**
  * Description :
  * Created by xingtianyu on 17-1-27
@@ -28,7 +30,7 @@ public class JSParser extends ParserAdapter<SqlEntity> {
 
     private JSContext ctx;
 
-    private Map<String,Invocable> jsFunctions;
+    private static Map<String,Invocable> jsFunctions;
 
     public JSParser(Reader reader){
         engineManager = new ScriptEngineManager();
@@ -43,6 +45,8 @@ public class JSParser extends ParserAdapter<SqlEntity> {
             engine.eval(reader);
             Invocable func = (Invocable)engine;
             func.invokeFunction(entity.getSuffix(),entity.getParams());
+            String namespace = String.valueOf(engine.get(NAMESPACE));
+            jsFunctions.put(namespace,func);
         } catch (Exception e) {
             e.printStackTrace();
         }
