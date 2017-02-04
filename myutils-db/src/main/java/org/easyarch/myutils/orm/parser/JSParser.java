@@ -1,5 +1,6 @@
 package org.easyarch.myutils.orm.parser;
 
+import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.build.SqlEntity;
 import org.easyarch.myutils.orm.parser.script.JSContext;
 
@@ -24,12 +25,15 @@ public class JSParser extends ParserAdapter<SqlEntity> {
 
     private ScriptEngineManager engineManager ;
 
+    private SqlBuilder sqlBuilder;
+
     private ScriptEngine engine;
 
     private Reader reader;
 
     private JSContext ctx;
 
+    private static Map<String,SqlEntity> sqlValues;
     private static Map<String,Invocable> jsFunctions;
 
     public JSParser(Reader reader){
@@ -44,12 +48,19 @@ public class JSParser extends ParserAdapter<SqlEntity> {
         try {
             engine.eval(reader);
             Invocable func = (Invocable)engine;
-            func.invokeFunction(entity.getSuffix(),entity.getParams());
             String namespace = String.valueOf(engine.get(NAMESPACE));
-            jsFunctions.put(namespace,func);
+            String sql = (String) func.invokeFunction(entity.getSuffix(),entity.getParams());
+            sqlBuilder.buildSql(sql);
+            sqlBuilder.buildParams(entity.getParams());
+            SqlEntity sqlEntity = sqlBuilder.buildEntity(entity.getBinder());
+            sqlValues.put(namespace,sqlEntity);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public SqlEntity getContent(String namespace) {
+        SqlEntity sql = sqlValues.get(namespace);
+        return sql;
+    }
 }
