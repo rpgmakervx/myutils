@@ -1,7 +1,7 @@
 package org.easyarch.myutils.orm.binding;
 
-import org.easyarch.myutils.orm.annotation.entity.Column;
-import org.easyarch.myutils.orm.annotation.entity.Table;
+import org.easyarch.myutils.jdbc.annotation.entity.Column;
+import org.easyarch.myutils.jdbc.annotation.entity.Table;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;

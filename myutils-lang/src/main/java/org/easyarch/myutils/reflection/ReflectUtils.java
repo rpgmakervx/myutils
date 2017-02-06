@@ -101,6 +101,7 @@ public class ReflectUtils {
     }
 
     public static void setter(Object object, String propertyName, Object value) {
+        System.out.println("propertyName:"+propertyName+",value:"+value);
         try {
             PropertyDescriptor pd = new PropertyDescriptor(propertyName, object.getClass());
             Method method = pd.getWriteMethod();

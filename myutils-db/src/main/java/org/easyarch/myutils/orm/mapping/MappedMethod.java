@@ -1,6 +1,6 @@
 package org.easyarch.myutils.orm.mapping;
 
-import org.easyarch.myutils.orm.annotation.sql.SqlParam;
+import org.easyarch.myutils.jdbc.annotation.sql.SqlParam;
 import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.build.SqlEntity;
 import org.easyarch.myutils.orm.cache.CacheFactory;

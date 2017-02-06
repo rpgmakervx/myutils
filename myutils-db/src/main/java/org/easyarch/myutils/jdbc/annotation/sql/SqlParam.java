@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.annotation.sql;
+package org.easyarch.myutils.jdbc.annotation.sql;
 
 import java.lang.annotation.*;
 

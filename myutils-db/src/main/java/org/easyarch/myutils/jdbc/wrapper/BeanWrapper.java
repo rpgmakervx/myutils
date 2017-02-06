@@ -54,11 +54,11 @@ public class BeanWrapper<T> extends WrapperAdapter<T> implements Wrapper<T>{
      * @param rs
      * @param meta
      * @param type
-     * @param <T>
      * @return
      */
     private T createBean(ResultSet rs, ResultSetMetaData meta,Class<T> type) {
         Object object = ReflectUtils.newInstance(type);
+        type.getDeclaredFields();
         try {
             int count = meta.getColumnCount();
             for (int i = 0; i < count; i++) {
