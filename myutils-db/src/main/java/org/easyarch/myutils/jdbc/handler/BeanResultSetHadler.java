@@ -6,6 +6,7 @@ package org.easyarch.myutils.jdbc.handler;/**
 
 import org.easyarch.myutils.jdbc.wrapper.BeanWrapper;
 import org.easyarch.myutils.jdbc.wrapper.Wrapper;
+import org.easyarch.myutils.orm.binding.FieldBinder;
 
 import java.sql.ResultSet;
 
@@ -21,8 +22,8 @@ public class BeanResultSetHadler<T> implements ResultSetHandler<T> {
 
     private Class<T> type;
 
-    public BeanResultSetHadler(Class<T> clazz) {
-        this(new BeanWrapper<T>(),clazz);
+    public BeanResultSetHadler(Class<T> type) {
+        this(new BeanWrapper<T>(new FieldBinder(type)),type);
     }
 
     public BeanResultSetHadler(Wrapper<T> wrapper,Class<T> type) {

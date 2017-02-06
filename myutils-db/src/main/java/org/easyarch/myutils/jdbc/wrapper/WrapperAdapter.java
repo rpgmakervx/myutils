@@ -4,6 +4,8 @@ package org.easyarch.myutils.jdbc.wrapper;/**
  *  上午10:34
  */
 
+import org.easyarch.myutils.orm.binding.FieldBinder;
+
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -15,6 +17,11 @@ import java.util.List;
 
 public class WrapperAdapter<T> implements Wrapper<T> {
 
+    protected FieldBinder fieldBinder;
+
+    public WrapperAdapter(FieldBinder fieldBinder) {
+        this.fieldBinder = fieldBinder;
+    }
 
     @Override
     public List<T> list(ResultSet rs, Class<T> type) {

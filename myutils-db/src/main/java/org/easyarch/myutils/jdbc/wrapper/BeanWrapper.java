@@ -4,6 +4,7 @@ package org.easyarch.myutils.jdbc.wrapper;/**
  *  上午12:19
  */
 
+import org.easyarch.myutils.orm.binding.FieldBinder;
 import org.easyarch.myutils.reflection.ReflectUtils;
 
 import java.sql.ResultSet;
@@ -19,6 +20,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 public class BeanWrapper<T> extends WrapperAdapter<T> implements Wrapper<T>{
+
+
+    public BeanWrapper(FieldBinder fieldBinder) {
+        super(fieldBinder);
+    }
 
     @Override
     public List<T> list(ResultSet rs, Class<T> type) {
@@ -58,12 +64,13 @@ public class BeanWrapper<T> extends WrapperAdapter<T> implements Wrapper<T>{
      */
     private T createBean(ResultSet rs, ResultSetMetaData meta,Class<T> type) {
         Object object = ReflectUtils.newInstance(type);
-        type.getDeclaredFields();
         try {
             int count = meta.getColumnCount();
+
             for (int i = 0; i < count; i++) {
                 Object value = rs.getObject(i + 1);
-                ReflectUtils.setter(object, meta.getColumnName(i + 1), value);
+                String propertyName = fieldBinder.getProperty(type, meta.getColumnName(i + 1));
+                ReflectUtils.setter(object,propertyName, value);
             }
             return (T) object;
         } catch (SQLException e) {

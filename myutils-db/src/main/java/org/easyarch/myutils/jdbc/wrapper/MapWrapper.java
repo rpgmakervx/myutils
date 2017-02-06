@@ -20,6 +20,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class MapWrapper extends WrapperAdapter<Map<String,Object>> implements Wrapper<Map<String,Object>> {
 
+    public MapWrapper() {
+        super(null);
+    }
+
     @Override
     public List<Map<String, Object>> list(ResultSet rs, Class<Map<String, Object>> type) {
         List<Map<String, Object>> list = new CopyOnWriteArrayList<Map<String, Object>>();

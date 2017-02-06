@@ -23,12 +23,10 @@ public class TestJdbc {
 
     @Test
     public void testJdbc() throws SQLException {
+        ConnConfig.config("root", "123456",
+                "jdbc:mysql://localhost:3306/daojiatestdb?connectTimeout=1000&amp;useUnicode=true&amp;characterEncoding=utf-8", "com.mysql.jdbc.Driver");
 //        ConnConfig.config("daojia_root", "aaa111",
 //                "jdbc:mysql://djcard.dbt.djdns.cn:3612/dbdj_zt_reconciliation?connectTimeout=1000&amp;useUnicode=true&amp;characterEncoding=utf-8", "com.mysql.jdbc.Driver");
-//        ;
-        ConnConfig.config("daojia_root", "aaa111",
-                "jdbc:mysql://djcard.dbt.djdns.cn:3612/dbdj_zt_reconciliation?connectTimeout=1000&amp;useUnicode=true&amp;characterEncoding=utf-8", "com.mysql.jdbc.Driver");
-        ;
         DataSource dataSource = DBCPoolFactory.newConfigedDBCPool(PoolConfig.config(200, 50, 5, 3 * 1000L).getProperties());
         final SqlExecutor executor = new MySqlExecutor(dataSource.getConnection());
 //        List<CashPoolCheck> checks = executor.query("select * from check_result_order_cashpool ",
