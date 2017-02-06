@@ -1,13 +1,14 @@
 package org.easyarch.myutils.orm.parser;
 
 import org.easyarch.myutils.orm.build.SqlBuilder;
-import org.easyarch.myutils.orm.build.SqlEntity;
+import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.parser.script.JSContext;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.easyarch.myutils.orm.parser.script.JSContext.NAMESPACE;
@@ -33,12 +34,13 @@ public class JSParser extends ParserAdapter<SqlEntity> {
 
     private JSContext ctx;
 
-    private static Map<String,SqlEntity> sqlValues;
-    private static Map<String,Invocable> jsFunctions;
+    private static Map<String,SqlEntity> sqlValues = new HashMap<>();
+    private static Map<String,Invocable> jsFunctions = new HashMap<>();
 
     public JSParser(Reader reader){
         engineManager = new ScriptEngineManager();
         engine = engineManager.getEngineByName(JAVASCRIPT);
+        this.sqlBuilder = new SqlBuilder();
         this.reader = reader;
         ctx = new JSContext();
     }
@@ -46,9 +48,12 @@ public class JSParser extends ParserAdapter<SqlEntity> {
     @Override
     public void parse(SqlEntity entity) {
         try {
-            engine.eval(reader);
-            Invocable func = (Invocable)engine;
             String namespace = String.valueOf(engine.get(NAMESPACE));
+            Invocable func = jsFunctions.get(namespace);
+            if (func == null){
+                engine.eval(reader);
+                func = (Invocable)engine;
+            }
             String sql = (String) func.invokeFunction(entity.getSuffix(),entity.getParams());
             sqlBuilder.buildSql(sql);
             sqlBuilder.buildParams(entity.getParams());

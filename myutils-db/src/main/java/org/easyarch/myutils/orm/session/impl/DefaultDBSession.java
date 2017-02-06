@@ -4,7 +4,7 @@ import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.jdbc.exec.SqlExecutor;
 import org.easyarch.myutils.jdbc.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.jdbc.handler.MapResultHandler;
-import org.easyarch.myutils.orm.build.SqlEntity;
+import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
 import org.easyarch.myutils.orm.session.Configuration;

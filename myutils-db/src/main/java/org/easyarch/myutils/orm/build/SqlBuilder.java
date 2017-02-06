@@ -1,6 +1,7 @@
 package org.easyarch.myutils.orm.build;
 
 import org.easyarch.myutils.orm.binding.ParamBinder;
+import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.mapping.SqlType;
 import org.easyarch.myutils.orm.parser.SQLParser;
 

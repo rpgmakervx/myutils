@@ -4,6 +4,7 @@ package org.easyarch.myutils.jdbc.wrapper;/**
  *  上午12:19
  */
 
+import org.easyarch.myutils.lang.StringUtils;
 import org.easyarch.myutils.orm.binding.FieldBinder;
 import org.easyarch.myutils.reflection.ReflectUtils;
 
@@ -70,7 +71,11 @@ public class BeanWrapper<T> extends WrapperAdapter<T> implements Wrapper<T>{
             for (int i = 0; i < count; i++) {
                 Object value = rs.getObject(i + 1);
                 String propertyName = fieldBinder.getProperty(type, meta.getColumnName(i + 1));
-                ReflectUtils.setter(object,propertyName, value);
+                if (StringUtils.isEmpty(propertyName)){
+                    ReflectUtils.setter(object,meta.getColumnName(i + 1), value);
+                }else{
+                    ReflectUtils.setter(object,propertyName, value);
+                }
             }
             return (T) object;
         } catch (SQLException e) {

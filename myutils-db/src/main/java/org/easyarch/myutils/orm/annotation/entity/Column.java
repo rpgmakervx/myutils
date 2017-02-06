@@ -1,4 +1,4 @@
-package org.easyarch.myutils.jdbc.annotation.entity;
+package org.easyarch.myutils.orm.annotation.entity;
 
 import org.easyarch.myutils.orm.type.JDBCType;
 

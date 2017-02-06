@@ -1,7 +1,7 @@
 package org.easyarch.myutils.orm.binding;
 
-import org.easyarch.myutils.jdbc.annotation.entity.Column;
-import org.easyarch.myutils.jdbc.annotation.entity.Table;
+import org.easyarch.myutils.orm.annotation.entity.Column;
+import org.easyarch.myutils.orm.annotation.entity.Table;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -22,11 +22,14 @@ public class FieldBinder<T> {
 
     public FieldBinder(Class<T> cls){
         this.cls = cls;
-        bind();
+        init();
     }
 
-    private void bind(){
+    private void init(){
         if (cls.getAnnotation(Table.class) == null){
+            return;
+        }
+        if (fieldMapper.containsKey(cls)){
             return;
         }
         Field[] fields = cls.getDeclaredFields();
@@ -38,11 +41,22 @@ public class FieldBinder<T> {
         fieldMapper.put(cls,mapper);
     }
 
+    public void bind(String column,String property){
+        fieldMapper.get(cls).put(column,property);
+    }
+
+    public void bind(Map<String,String> mapper){
+        fieldMapper.get(cls).putAll(mapper);
+    }
+
     public String getProperty(String column){
         return getProperty(cls,column);
     }
 
     public String getProperty(Class<?> cls,String column){
-        return fieldMapper.get(cls).get(column);
+        if (fieldMapper.containsKey(cls)){
+            return fieldMapper.get(cls).get(column);
+        }
+        return "";
     }
 }

@@ -1,6 +1,6 @@
 package org.easyarch.myutils.orm.cache;
 
-import org.easyarch.myutils.orm.build.SqlEntity;
+import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.mapping.SqlType;
 
 import java.util.ArrayList;

@@ -4,7 +4,7 @@ package org.easyarch.myutils.test;/**
  *  上午2:04
  */
 
-import org.easyarch.myutils.jdbc.annotation.entity.Column;
+import org.easyarch.myutils.orm.annotation.entity.Column;
 
 import java.util.List;
 

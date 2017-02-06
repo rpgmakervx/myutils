@@ -1,7 +1,7 @@
 package org.easyarch.myutils.test.db;
 
-import org.easyarch.myutils.jdbc.annotation.entity.Column;
-import org.easyarch.myutils.jdbc.annotation.entity.Table;
+import org.easyarch.myutils.orm.annotation.entity.Column;
+import org.easyarch.myutils.orm.annotation.entity.Table;
 
 import java.math.BigDecimal;
 import java.util.Date;

@@ -4,8 +4,8 @@ package org.easyarch.myutils.jdbc.handler;/**
  *  下午7:08
  */
 
-import org.easyarch.myutils.jdbc.annotation.entity.Column;
-import org.easyarch.myutils.jdbc.annotation.entity.Table;
+import org.easyarch.myutils.orm.annotation.entity.Column;
+import org.easyarch.myutils.orm.annotation.entity.Table;
 import org.easyarch.myutils.jdbc.wrapper.Wrapper;
 
 import java.lang.reflect.Field;

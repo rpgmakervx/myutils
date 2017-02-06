@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.build;
+package org.easyarch.myutils.orm.entity;
 
 import org.easyarch.myutils.orm.mapping.SqlType;
 

@@ -2,7 +2,9 @@ package org.easyarch.myutils.orm.session;
 
 import org.easyarch.myutils.file.FileUtils;
 import org.easyarch.myutils.lang.StringUtils;
+import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.mapping.MapperScanner;
+import org.easyarch.myutils.orm.parser.JSParser;
 import org.easyarch.myutils.pool.ds.DBCPool;
 import org.easyarch.myutils.pool.ds.DBCPoolFactory;
 import org.easyarch.myutils.reflection.ReflectUtils;
@@ -47,19 +49,7 @@ public class Configuration {
         sqlMapperReaders = new ArrayList<>();
     }
 
-    public String getPacakge(){
-        Map<String,Object> pkg = configMap.get(INTERFACE);
-        String packagePath = String.valueOf(pkg.get(PACKAGE));
-        return packagePath;
-    }
-
-    public String getMapperLocation(){
-        Map<String,Object> mapper = configMap.get(MAPPER);
-        String mapperLocation = String.valueOf(mapper.get(LOCATION));
-        return mapperLocation;
-    }
-
-    public List<Reader> getSqlMapperReaders(){
+    private void initMapper(){
         try {
             Map<String,Object> mapper = configMap.get(MAPPER);
             String basePath = String.valueOf(mapper.get(LOCATION));
@@ -108,14 +98,10 @@ public class Configuration {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return sqlMapperReaders;
+
     }
 
-    /**
-     * 支持其他第三方连接池（配置文件信息和本框架不同）
-     * @return
-     */
-    public DataSource getDataSource(){
+    private void initDataSource(){
         Properties prop = new Properties();
         Map<String,Object> mapper = configMap.get(MAPPER);
         String classname = String.valueOf(mapper.get(DATASOURCECLASS));
@@ -140,12 +126,37 @@ public class Configuration {
                 for (Object key:prop.keySet()){
                     ReflectUtils.setFieldValue(dataSource,String.valueOf(key),prop.get(key));
                 }
-                return (DataSource) dataSource;
+                this.dataSource = (DataSource) dataSource;
+                return ;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DBCPoolFactory.newConfigedDBCPool(prop);
+        this.dataSource = DBCPoolFactory.newConfigedDBCPool(prop);
+    }
+
+    public String getPacakge(){
+        Map<String,Object> pkg = configMap.get(INTERFACE);
+        String packagePath = String.valueOf(pkg.get(PACKAGE));
+        return packagePath;
+    }
+
+    public String getMapperLocation(){
+        Map<String,Object> mapper = configMap.get(MAPPER);
+        String mapperLocation = String.valueOf(mapper.get(LOCATION));
+        return mapperLocation;
+    }
+
+    public List<Reader> getSqlMapperReaders(){
+        return sqlMapperReaders;
+    }
+
+    /**
+     * 支持其他第三方连接池（配置文件信息和本框架不同）
+     * @return
+     */
+    public DataSource getDataSource(){
+        return this.dataSource;
     }
 
     public String getMappedSql(String namespace, String id) {
@@ -163,6 +174,17 @@ public class Configuration {
             sqlMap.putAll(newMap);
         } else {
             mappedSqls.put(namespace,newMap);
+        }
+    }
+
+    public void parseMappedSql(SqlEntity sqlEntity){
+        for (Reader reader:sqlMapperReaders){
+            JSParser parser = new JSParser(reader);
+            parser.parse(sqlEntity);
+            SqlEntity entity = parser.getContent(sqlEntity.getPrefix());
+            Map<String,String> map = new HashMap<>();
+            map.put(sqlEntity.getSuffix(),entity.getPreparedSql());
+            mappedSqls.put(sqlEntity.getPrefix(),map);
         }
     }
 

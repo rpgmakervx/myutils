@@ -1,7 +1,7 @@
 package org.easyarch.myutils.orm.binding;
 
-import org.easyarch.myutils.jdbc.annotation.entity.Column;
-import org.easyarch.myutils.jdbc.annotation.entity.Table;
+import org.easyarch.myutils.orm.annotation.entity.Column;
+import org.easyarch.myutils.orm.annotation.entity.Table;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -32,12 +32,14 @@ public class ParamBinder {
 
     public <T> Map<String,Object> reflect(Object obj,Class<T> clazz){
         try {
+            FieldBinder<T> binder = new FieldBinder(clazz);
             Field[] fields = clazz.getDeclaredFields();
             Table table = clazz.getAnnotation(Table.class);
             if (table == null){
                 for (Field field:fields){
                     field.setAccessible(true);
                     reflectMap.put(field.getName(),field.get(obj));
+                    binder.bind(field.getName(),field.getName());
                 }
             }else{
                 for (Field field:fields){
@@ -45,8 +47,10 @@ public class ParamBinder {
                     Column column = field.getAnnotation(Column.class);
                     if (column == null){
                         reflectMap.put(field.getName(),field.get(obj));
+                        binder.bind(field.getName(),field.getName());
                     }else{
                         reflectMap.put(column.name(),field.get(obj));
+                        binder.bind(column.name(),field.getName());
                     }
                 }
             }

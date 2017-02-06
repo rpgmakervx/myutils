@@ -1,6 +1,6 @@
 package org.easyarch.myutils.orm.mapping;
 
-import org.easyarch.myutils.jdbc.annotation.sql.Mapper;
+import org.easyarch.myutils.orm.annotation.sql.Mapper;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.InterfaceCache;
 import org.easyarch.myutils.orm.session.impl.MapperDBSession;
