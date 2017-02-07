@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>myutils-lang</module>
-        <module>myutils-db</module>
+        <module>myutils-orm</module>
         <module>myutils-http</module>
         <module>myutils-redis</module>
         <module>myutils-export</module>
