@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.pool.cfg;/**
+package org.easyarch.myutils.orm.jdbc.cfg;/**
  * Description : 
  * Created by YangZH on 16-11-4
  *  下午3:57

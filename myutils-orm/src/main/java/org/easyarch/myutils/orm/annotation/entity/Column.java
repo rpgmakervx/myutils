@@ -1,6 +1,6 @@
 package org.easyarch.myutils.orm.annotation.entity;
 
-import org.easyarch.myutils.orm.type.JDBCType;
+import org.easyarch.myutils.orm.jdbc.type.JDBCType;
 
 import java.lang.annotation.*;
 

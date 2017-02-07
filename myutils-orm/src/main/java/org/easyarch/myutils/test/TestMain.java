@@ -21,13 +21,13 @@ public class TestMain {
 //        ConnConfig.config("root", "123456",
 //                "jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false", "com.mysql.jdbc.Driver");
 //        PoolConfig.config(200, 50, 20, 3 * 1000L);
-//        DataSource ds = DBCPoolFactory.newConfigedDBCPool();
+//        DataSource pool = DBCPoolFactory.newConfigedDBCPool();
 //        List<Connection> cons = new LinkedList<>();
-//        Connection con1 = ds.getConnection();
-//        Connection con2 = ds.getConnection();
-//        Connection con3 = ds.getConnection();
-//        Connection con4 = ds.getConnection();
-//        Connection con5 = ds.getConnection();
+//        Connection con1 = pool.getConnection();
+//        Connection con2 = pool.getConnection();
+//        Connection con3 = pool.getConnection();
+//        Connection con4 = pool.getConnection();
+//        Connection con5 = pool.getConnection();
 //        cons.add(con1);
 //        cons.add(con2);
 //        cons.add(con3);

@@ -18,7 +18,7 @@ import java.sql.*;
 public abstract class AbstractExecutor {
 
     protected boolean supportMeta;
-//    protected final DataSource ds;
+//    protected final DataSource pool;
     public AbstractExecutor(boolean supportMeta){
         this.supportMeta = supportMeta;
     }

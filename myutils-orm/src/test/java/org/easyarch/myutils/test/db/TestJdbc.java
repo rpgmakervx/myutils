@@ -4,8 +4,8 @@ import org.easyarch.myutils.orm.jdbc.cfg.ConnConfig;
 import org.easyarch.myutils.orm.jdbc.exec.MySqlExecutor;
 import org.easyarch.myutils.orm.jdbc.exec.SqlExecutor;
 import org.easyarch.myutils.orm.jdbc.handler.BeanListResultSetHadler;
-import org.easyarch.myutils.orm.pool.cfg.PoolConfig;
-import org.easyarch.myutils.orm.pool.ds.DBCPoolFactory;
+import org.easyarch.myutils.orm.jdbc.cfg.PoolConfig;
+import org.easyarch.myutils.orm.jdbc.pool.DBCPoolFactory;
 import org.testng.annotations.Test;
 
 import javax.sql.DataSource;

@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.type;
+package org.easyarch.myutils.orm.jdbc.type;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -9,16 +9,16 @@ package org.easyarch.myutils.test;
 public class Main {
 
 //    public static void main(String[] args) throws SQLException {
-//        final BasicDataSource ds = new BasicDataSource();
-//        ds.setUrl("jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false");
-//        ds.setDriverClassName("com.mysql.jdbc.Driver");
-//        ds.setUsername("root");
-//        ds.setPassword("123456");
+//        final BasicDataSource pool = new BasicDataSource();
+//        pool.setUrl("jdbc:mysql://localhost:3306/database?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false");
+//        pool.setDriverClassName("com.mysql.jdbc.Driver");
+//        pool.setUsername("root");
+//        pool.setPassword("123456");
 //
-//        ds.setInitialSize(100); // 初始的连接数；
-//        ds.setMaxIdle(50);
-//        ds.setMinIdle(20);
-//        ds.setMaxWait(60 * 1000L);
+//        pool.setInitialSize(100); // 初始的连接数；
+//        pool.setMaxIdle(50);
+//        pool.setMinIdle(20);
+//        pool.setMaxWait(60 * 1000L);
 //        ExecutorService pool = Executors.newCachedThreadPool();
 //        System.out.println("开始");
 //        for (int index = 0;index<20;index++){
@@ -30,7 +30,7 @@ public class Main {
 //                    int count = 0;
 //                    while (count < 100) {
 //                        try {
-//                            List<User> user = executor.query(ds.getConnection(),"select * from user "
+//                            List<User> user = executor.query(pool.getConnection(),"select * from user "
 //                                    ,new BeanListResultSetHadler<User>(User.class));
 //                        } catch (SQLException e) {
 //                            e.printStackTrace();

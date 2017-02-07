@@ -5,8 +5,8 @@ import org.easyarch.myutils.lang.StringUtils;
 import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.mapping.MapperScanner;
 import org.easyarch.myutils.orm.parser.JSParser;
-import org.easyarch.myutils.orm.pool.ds.DBCPool;
-import org.easyarch.myutils.orm.pool.ds.DBCPoolFactory;
+import org.easyarch.myutils.orm.jdbc.pool.DBCPool;
+import org.easyarch.myutils.orm.jdbc.pool.DBCPoolFactory;
 import org.easyarch.myutils.reflection.ReflectUtils;
 
 import javax.sql.DataSource;

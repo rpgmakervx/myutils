@@ -1,4 +1,4 @@
-package org.easyarch.myutils.orm.type;
+package org.easyarch.myutils.orm.jdbc.type;
 
 import java.sql.Timestamp;
 import java.util.Date;
