@@ -46,10 +46,13 @@ public class DefaultDBSession extends DBSessionAdapter {
 
     @Override
     public <E> List<E> selectList(String bind, Class<E> clazz, Object... parameters) {
-        SqlMapCache cache = factory.getSqlMapCache();
         String[] tokens = bind.split(BIND_SEPARATOR);
-        SqlEntity entity = cache.getSqlEntity(tokens[0], tokens[1]);
-        String sql = entity.getPreparedSql();
+//        SqlEntity entity = cache.getSqlEntity();
+        SqlEntity entity = new SqlEntity();
+        entity.setBinder(bind);
+//        entity.setParamNames();
+//        configuration.parseMappedSql();
+        String sql = configuration.getMappedSql(tokens[0], tokens[1]);
         List<E> list = executor.query(sql, new BeanListResultSetHadler<>(clazz), parameters);
         return list;
     }

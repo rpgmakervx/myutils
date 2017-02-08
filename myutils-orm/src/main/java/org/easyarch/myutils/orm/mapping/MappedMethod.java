@@ -47,9 +47,6 @@ public class MappedMethod {
             SqlEntity entity = cache.getSqlEntity(interfaceName,method.getName());
             builder.buildEntity(entity);
         }else{
-            String sql = configuration.getMappedSql(interfaceName, method.getName());
-            //jsqlparser 在这一步，相对其他代码会慢一点
-            builder.buildSql(sql);
             Parameter[] parameters = method.getParameters();
             String[] paramNames = ReflectUtils.getMethodParameter(method);
             int paramIndex = 0;
@@ -70,7 +67,12 @@ public class MappedMethod {
                 }
                 builder.buildParams(args[index]);
             }
+            //先构造参数，根据参数获得动态sql,然后缓存
             SqlEntity entity = builder.buildEntity(interfaceName + BIND_SEPARATOR + method.getName());
+            configuration.parseMappedSql(entity);
+            String sql = configuration.getMappedSql(interfaceName, method.getName());
+            //jsqlparser 在这一步，相对其他代码会慢一点
+            builder.buildSql(sql);
             cache.addSqlEntity(entity);
         }
         switch (builder.getType()){

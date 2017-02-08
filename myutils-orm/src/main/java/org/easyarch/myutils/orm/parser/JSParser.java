@@ -53,13 +53,20 @@ public class JSParser extends ParserAdapter<SqlEntity> {
     public void parse(SqlEntity entity) {
         try {
             String namespace = String.valueOf(engine.get(NAMESPACE));
+            if (!entity.getPrefix().equals(namespace)){
+                return ;
+            }
             Invocable func = jsFunctions.get(namespace);
             if (func == null){
                 engine.eval(reader);
                 func = (Invocable)engine;
                 jsFunctions.put(namespace,func);
             }
-            String sql = (String) func.invokeFunction(entity.getSuffix(),entity.getParams());
+            Map<String,Object> params = new HashMap<>();
+            for (Map<String,Object> param:entity.getParams()){
+                param.putAll(param);
+            }
+            String sql = (String) func.invokeFunction(entity.getSuffix(),params);
             configuration.addMappedSql(namespace,entity.getSuffix(),sql);
             sqlBuilder.buildSql(sql);
             sqlBuilder.buildParams(entity.getParams());

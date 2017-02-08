@@ -44,7 +44,7 @@ public class SQLParser extends ParserAdapter{
 
     private String preparedSql;
 
-    private List<String> params;
+    private List<String> paramNames;
 
     @Override
     public void parse(String src) {
@@ -55,7 +55,7 @@ public class SQLParser extends ParserAdapter{
         } catch (JSQLParserException e) {
             e.printStackTrace();
         }
-        params = new ArrayList<>();
+        paramNames = new ArrayList<>();
 
         if (statement instanceof Select){
             type = SqlType.SELECT;
@@ -74,13 +74,17 @@ public class SQLParser extends ParserAdapter{
             Delete delete = (Delete) statement;
             deleteCase(delete);
         }
-        for (String param:params){
+        for (String param: paramNames){
             preparedSql = preparedSql.replace(StringUtils.center(param,0, KEY),PLACEHOLDER);
         }
-
+        List<String> paramNames = new ArrayList<>();
+        for (String param:this.paramNames){
+            paramNames.add(StringUtils.strip(param, KEY));
+        }
+        this.paramNames = paramNames;
     }
-    public List<String> getSqlParams(){
-        return params;
+    public List<String> getSqlParamNames(){
+        return paramNames;
     }
 
     /**
@@ -95,14 +99,14 @@ public class SQLParser extends ParserAdapter{
             for (ExpressionList list:expressionLists){
                 List<Expression> expressions = list.getExpressions();
                 for (Expression exp : expressions){
-                    params.add(exp.toString());
+                    paramNames.add(exp.toString());
                 }
             }
         }else if (itemsList instanceof  ExpressionList){
             ExpressionList expressionList = (ExpressionList) itemsList;
             List<Expression> expressions = expressionList.getExpressions();
             for (Expression exp : expressions){
-                params.add(exp.toString());
+                paramNames.add(exp.toString());
             }
         }
         List<Expression> expressions = insert.getDuplicateUpdateExpressionList();
@@ -114,21 +118,21 @@ public class SQLParser extends ParserAdapter{
                 for (Expression e:exps){
                     if (e.toString().contains(Token.KEY)){
                         String columnName = e.toString();
-                        params.add(columnName);
+                        paramNames.add(columnName);
                     }
                 }
             }else if (exp instanceof Column){
                 Column column = (Column) exp;
                 String columnName = column.getColumnName();
                 if (columnName.contains(Token.KEY)){
-                    params.add(columnName);
+                    paramNames.add(columnName);
                 }
             }
         }
     }
 
     private void deleteCase(Delete delete){
-        handleWhereCause(delete.getWhere(),params);
+        handleWhereCause(delete.getWhere(), paramNames);
     }
 
     private void updateCase(Update update){
@@ -137,10 +141,10 @@ public class SQLParser extends ParserAdapter{
             if (exp instanceof Column){
                 Column column = (Column) exp;
                 if (column.getColumnName().contains(Token.KEY)){
-                    params.add(column.getColumnName());
+                    paramNames.add(column.getColumnName());
                 }
             }
-            handleWhereCause(update.getWhere(),params);
+            handleWhereCause(update.getWhere(), paramNames);
         }
     }
 
@@ -151,7 +155,7 @@ public class SQLParser extends ParserAdapter{
     private void selectCase(Select select){
         PlainSelect plain = (PlainSelect) select.getSelectBody();
         Expression where = plain.getWhere();
-        handleWhereCause(where,params);
+        handleWhereCause(where, paramNames);
     }
 
     /** where字句 解析，select update delete中均可能用到
@@ -230,8 +234,8 @@ public class SQLParser extends ParserAdapter{
         this.preparedSql = preparedSql;
     }
 
-    public void setParams(List<String> params) {
-        this.params = params;
+    public void setParamNames(List<String> paramNames) {
+        this.paramNames = paramNames;
     }
 
     public static void main(String[] args) throws JSQLParserException {
@@ -243,7 +247,7 @@ public class SQLParser extends ParserAdapter{
         SQLParser parser = new SQLParser();
         parser.parse("select a,b,c from test where id = $user.id$ and oid in ($map.pid$,$map.oid$,$map.mid$) " +
                 "and age = $map.age$ and create_at between $map.begin$ and $map.end$ and label like $map.label$");
-        for (String param:parser.getSqlParams()){
+        for (String param:parser.getSqlParamNames()){
             System.out.println(StringUtils.strip(param, KEY));
         }
         System.out.println("preparedSql:"+parser.getPreparedSql());

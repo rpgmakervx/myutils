@@ -57,6 +57,10 @@ public class SqlEntity {
         return type;
     }
 
+    public void setParams(List<Map<String, Object>> params) {
+        this.params = params;
+    }
+
     public void setType(SqlType type) {
         this.type = type;
     }
