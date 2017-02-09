@@ -1,5 +1,9 @@
 package org.easyarch.myutils.test;
 
+import org.easyarch.myutils.orm.session.DBSessionFactory;
+import org.easyarch.myutils.orm.session.DBSessionFactoryBuilder;
+import org.easyarch.myutils.orm.utils.ResourcesUtil;
+
 /**
  * Description :
  * Created by xingtianyu on 16-11-30
@@ -7,6 +11,12 @@ package org.easyarch.myutils.test;
  */
 
 public class Main {
+
+    public static void main(String[] args) throws Exception {
+        DBSessionFactory sessionFactory = new DBSessionFactoryBuilder().build(
+                ResourcesUtil.getResourceAsStream("/config.xml"));
+
+    }
 
 //    public static void main(String[] args) throws SQLException {
 //        final BasicDataSource pool = new BasicDataSource();

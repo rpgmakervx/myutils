@@ -1,7 +1,7 @@
 package org.easyarch.myutils.orm.utils;
 
 import org.easyarch.myutils.reflection.ReflectUtils;
-import org.easyarch.myutils.test.User;
+import org.easyarch.myutils.test.UserVO;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -112,7 +112,7 @@ public class BeanMapUtils {
         items.add("item1");
         items.add("item2");
         items.add("item3");
-        User user = new User();
+        UserVO user = new UserVO();
         user.setAge(23);
         user.setPhone("13652179825");
         user.setId(100001);

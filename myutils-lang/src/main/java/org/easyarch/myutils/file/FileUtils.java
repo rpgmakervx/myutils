@@ -399,7 +399,8 @@ public class FileUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(getBottomDir("/home/code4j/IDEAWorkspace/myutils/myutils-db/target/classes/mapper/sqlmapper.js"));;
+        System.out.println(Short.MAX_VALUE);
+//        System.out.println(getBottomDir("/home/code4j/IDEAWorkspace/myutils/myutils-db/target/classes/mapper/sqlmapper.js"));;
     }
 
 }

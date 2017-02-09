@@ -50,6 +50,7 @@ public class SQLParser extends ParserAdapter{
     public void parse(String src) {
         this.sql = src;
         preparedSql = sql;
+        System.out.println("sql parser begin sql is : "+sql);
         try {
             statement = CCJSqlParserUtil.parse(sql);
         } catch (JSQLParserException e) {

@@ -14,10 +14,10 @@ import java.util.Properties;
 
 public class PoolConfig {
 
-    private static final String MAXPOOLSIZE = "maxPoolSize";
-    private static final String MINIDLE = "minIdle";
-    private static final String MAXIDLE = "maxIdle";
-    private static final String KEEPALIVETIME = "keepAliveTime";
+    private static final String MAXPOOLSIZE = "pool.maxPoolSize";
+    private static final String MINIDLE = "pool.minIdle";
+    private static final String MAXIDLE = "pool.maxIdle";
+    private static final String KEEPALIVETIME = "pool.keepAliveTime";
 
     private int maxPoolSize;
 
@@ -56,6 +56,7 @@ public class PoolConfig {
         config.minIdle = minIdle<=0?0:minIdle;
         config.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
         config.keepAliveTime = keepAliveTime<=0?60:keepAliveTime;
+        ConnConfig.config(prop);
         return config;
     }
 

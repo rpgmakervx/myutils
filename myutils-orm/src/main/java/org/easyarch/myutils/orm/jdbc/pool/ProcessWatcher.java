@@ -18,8 +18,8 @@ public class ProcessWatcher{
         System.out.println("watcher is ready.");
         rt.addShutdownHook(new Thread() {
             public void run() {
-                System.out.println("programme exit,ready to close all dbcpool connections ... ");
-                System.out.println("connections count is :"+ RealCPool.getConnections().size());
+//                System.out.println("programme exit,ready to close all dbcpool connections ... ");
+//                System.out.println("connections count is :"+ RealCPool.getConnections().size());
                 kill();
             }
         });

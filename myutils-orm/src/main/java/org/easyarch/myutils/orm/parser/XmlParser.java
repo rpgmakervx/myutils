@@ -38,6 +38,7 @@ public class XmlParser extends ParserAdapter<Configuration>{
             is = new FileInputStream(path);
             document = saxReader.read(is);
             root = document.getRootElement();
+            init();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -48,6 +49,7 @@ public class XmlParser extends ParserAdapter<Configuration>{
             this.xmlPath = MapperScanner.CLASSPATH;
             document = saxReader.read(is);
             root = document.getRootElement();
+            init();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -58,6 +60,7 @@ public class XmlParser extends ParserAdapter<Configuration>{
             this.xmlPath = MapperScanner.CLASSPATH;
             document = saxReader.read(reader);
             root = document.getRootElement();
+            init();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,11 +71,11 @@ public class XmlParser extends ParserAdapter<Configuration>{
         while (elementIterator.hasNext()) {
             Element element = elementIterator.next();
             List<Attribute> attributes = element.attributes();
+            Map<String,Object> attribute = new HashMap<>();
             for (Attribute attr:attributes){
-                Map<String,Object> attribute = new HashMap<>();
                 attribute.put(attr.getName(),attr.getData());
-                content.put(element.getName(),attribute);
             }
+            content.put(element.getName(),attribute);
         }
     }
 
@@ -82,6 +85,7 @@ public class XmlParser extends ParserAdapter<Configuration>{
 
     @Override
     public Configuration parse() {
+        System.out.println(content);
         return new Configuration(xmlPath,content);
     }
 }

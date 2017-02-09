@@ -7,6 +7,7 @@ import org.easyarch.myutils.orm.mapping.MapperScanner;
 import org.easyarch.myutils.orm.parser.JSParser;
 import org.easyarch.myutils.orm.jdbc.pool.DBCPool;
 import org.easyarch.myutils.orm.jdbc.pool.DBCPoolFactory;
+import org.easyarch.myutils.orm.utils.ResourcesUtil;
 import org.easyarch.myutils.reflection.ReflectUtils;
 
 import javax.sql.DataSource;
@@ -69,8 +70,7 @@ public class Configuration {
                 //去掉classpath:关键字
                 basePath = basePath.replace(CLASSPATH,"");
                 //连接classpath目录和用户输入目录
-                basePath = MapperScanner.CLASSPATH + basePath;
-                System.out.println("basePath:"+basePath);
+                basePath = ResourcesUtil.getResources(basePath);
                 //遍历相对路径下的所有目录中的文件
                 List<File> mapperFiles = FileUtils.listFileRecursive(basePath);
                 for (File file : mapperFiles){
@@ -112,9 +112,12 @@ public class Configuration {
 
     }
 
+    /**
+     * 规则同mapper
+     */
     private void initDataSource(){
         Properties prop = new Properties();
-        Map<String,Object> mapper = configMap.get(MAPPER);
+        Map<String,Object> mapper = configMap.get(DATASOURCE);
         String classname = String.valueOf(mapper.get(DATASOURCECLASS));
         try {
             String baseFilePath = String.valueOf(mapper.get(LOCATION));
@@ -123,8 +126,7 @@ public class Configuration {
                 //去掉classpath:关键字
                 baseFilePath = baseFilePath.replace(CLASSPATH,"");
                 //连接classpath目录和用户输入目录
-                baseFilePath = MapperScanner.CLASSPATH + baseFilePath;
-                System.out.println("baseFilePath:"+baseFilePath);
+                baseFilePath = ResourcesUtil.getResources(baseFilePath);
             }else if(!baseFile.isAbsolute()){
                 //prefixPath 就是最底层目录路径
                 String prefixPath = FileUtils.getBottomDir(configFilePath);
@@ -148,8 +150,10 @@ public class Configuration {
 
     public String getPacakge(){
         Map<String,Object> pkg = configMap.get(INTERFACE);
-        String packagePath = String.valueOf(pkg.get(PACKAGE));
-        return packagePath;
+        if (pkg == null){
+            return null;
+        }
+        return pkg.get(PACKAGE)+"";
     }
 
     public String getMapperLocation(){
@@ -210,6 +214,6 @@ public class Configuration {
 //        System.out.println(conf.sqlMapperReaders);
 //        File baseDir = new File("D://mapper/dsds");
 //        System.out.println(baseDir.isAbsolute());
-        System.out.println("/mapper/dsds/aaaa".lastIndexOf("/"));
+        System.out.println(ResourcesUtil.getResources("mapper/sqlmapper.js"));
     }
 }

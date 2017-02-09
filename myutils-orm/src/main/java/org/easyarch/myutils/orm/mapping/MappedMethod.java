@@ -2,13 +2,13 @@ package org.easyarch.myutils.orm.mapping;
 
 import org.easyarch.myutils.orm.annotation.sql.SqlParam;
 import org.easyarch.myutils.orm.build.SqlBuilder;
-import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.SqlMapCache;
+import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.session.Configuration;
 import org.easyarch.myutils.orm.session.impl.MapperDBSession;
 import org.easyarch.myutils.reflection.ReflectUtils;
-import org.easyarch.myutils.test.User;
+import org.easyarch.myutils.test.UserVO;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
@@ -65,10 +65,13 @@ public class MappedMethod {
                     builder.buildParams((Map<String,Object>)args[index]);
                     continue;
                 }
-                builder.buildParams(args[index]);
+                builder.buildParams(args[index],paramNames[paramIndex]);
             }
             //先构造参数，根据参数获得动态sql,然后缓存
-            SqlEntity entity = builder.buildEntity(interfaceName + BIND_SEPARATOR + method.getName());
+            SqlEntity entity = new SqlEntity();
+            entity.setParams(builder.getParameters());
+            entity.setBinder(interfaceName + BIND_SEPARATOR + method.getName());
+//            SqlEntity entity = builder.buildEntity(interfaceName + BIND_SEPARATOR + method.getName());
             configuration.parseMappedSql(entity);
             String sql = configuration.getMappedSql(interfaceName, method.getName());
             //jsqlparser 在这一步，相对其他代码会慢一点
@@ -97,7 +100,7 @@ public class MappedMethod {
     public void method(@SqlParam(name = "b")  String b, @SqlParam(name = "a") String a,@SqlParam(name = "c") String c) {
     }
 
-    public void insert(User user){}
+    public void insert(UserVO user){}
     public List<String> query(Map<String,Object> map){
         return new ArrayList<>();
     }

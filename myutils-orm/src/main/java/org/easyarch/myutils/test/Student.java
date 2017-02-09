@@ -15,7 +15,7 @@ public class Student {
     private int a;
     private int b;
     private String c;
-    private User d;
+    private UserVO d;
 
     public int getA() {
         return a;
@@ -41,11 +41,11 @@ public class Student {
         this.c = c;
     }
 
-    public User getD() {
+    public UserVO getD() {
         return d;
     }
 
-    public void setD(User d) {
+    public void setD(UserVO d) {
         this.d = d;
     }
 }

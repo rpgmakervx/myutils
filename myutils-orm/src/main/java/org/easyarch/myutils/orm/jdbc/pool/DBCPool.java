@@ -88,11 +88,11 @@ public class DBCPool extends DataSourceAdapter{
             }else{
                 if (currentPoolSize.get()  < maxPoolSize+ maxIdle) {
                     conn = createConnection();
-                    System.out.println("队列没有，在池中创建:" + conn);
+//                    System.out.println("队列没有，在池中创建:" + conn);
                     poolIn(conn);
                     return conn;
                 }
-                System.out.println("try again...." + idleQueue.size());
+//                System.out.println("try again...." + idleQueue.size());
                 long timestamp = System.currentTimeMillis();
                 while (System.currentTimeMillis() - timestamp <= keepAliveTime) {
                     conn = idleQueue.poll();
@@ -104,7 +104,7 @@ public class DBCPool extends DataSourceAdapter{
                 if (conn == null) {
                     throw new RuntimeException("db connection pool was full");
                 }
-                System.out.println("got it!!" + conn);
+//                System.out.println("got it!!" + conn);
             }
             return conn;
         } catch (Exception e) {
@@ -119,18 +119,18 @@ public class DBCPool extends DataSourceAdapter{
             if (!conn.isClosed()){
                 conpool.offer(conn);
                 currentPoolSize.incrementAndGet();
-                System.out.println("连接入池成功"+conn);
+//                System.out.println("连接入池成功"+conn);
             }else{
-                System.out.println("连接入池失败，连接已关闭");
+//                System.out.println("连接入池失败，连接已关闭");
             }
         }else{
-            System.out.println("连接入池失败，连接为空");
+//            System.out.println("连接入池失败，连接为空");
         }
     }
 
     private void poolOut(Connection conn){
         if (conpool.remove(conn)){
-            System.out.println("从池中删除连接");
+//            System.out.println("从池中删除连接");
             currentPoolSize.decrementAndGet();
             if (idleQueue.size() < maxIdle){
                 idleQueue.offer(conn);
@@ -155,9 +155,9 @@ public class DBCPool extends DataSourceAdapter{
     protected synchronized void recycle(Connection conn) {
         if (conn != null) {
             poolOut(conn);
-            System.out.println("recycle 总连接数--->"+RealCPool.getConnections().size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
+//            System.out.println("recycle 总连接数--->"+RealCPool.getConnections().size()+", idle --> "+idleQueue.size()+",active-->"+conpool.size()+",activecount-->"+currentPoolSize.get());
         }else{
-            System.out.println("recycle fail...");
+//            System.out.println("recycle fail...");
         }
     }
 

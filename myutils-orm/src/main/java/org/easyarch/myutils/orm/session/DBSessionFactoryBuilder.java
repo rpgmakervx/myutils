@@ -1,11 +1,9 @@
 package org.easyarch.myutils.orm.session;
 
+import org.easyarch.myutils.orm.mapping.MapperScanner;
 import org.easyarch.myutils.orm.parser.XmlParser;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.Reader;
+import java.io.*;
 
 /**
  * Description :
@@ -16,24 +14,24 @@ import java.io.Reader;
 
 public class DBSessionFactoryBuilder {
 
-    public DBSessionFactory build(InputStream is){
-        XmlParser xmlParser = new XmlParser(is);
-        return new DBSessionFactory(xmlParser.parse());
+    public DBSessionFactory build(InputStream is) throws Exception {
+        return build(new InputStreamReader(is));
     }
-    public DBSessionFactory build(Reader reader){
+    public DBSessionFactory build(Reader reader) throws Exception {
         XmlParser xmlParser = new XmlParser(reader);
-        return new DBSessionFactory(xmlParser.parse());
+        Configuration configuration = xmlParser.parse();
+        MapperScanner scanner = new MapperScanner();
+        scanner.scan(configuration.getPacakge());
+        return new DBSessionFactory(configuration);
     }
-    public DBSessionFactory build(File file){
-        try {
-            if (!file.exists()){
-                throw new FileNotFoundException("configuration file not found");
-            }
-            XmlParser xmlParser = new XmlParser(file.getPath());
-            return new DBSessionFactory(xmlParser.parse());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    public DBSessionFactory build(File file) throws Exception {
+        if (!file.exists()){
+            throw new FileNotFoundException("configuration file not found");
         }
-        return null;
+        XmlParser xmlParser = new XmlParser(file.getPath());
+        Configuration configuration = xmlParser.parse();
+        MapperScanner scanner = new MapperScanner();
+        scanner.scan(configuration.getPacakge());
+        return new DBSessionFactory(configuration);
     }
 }

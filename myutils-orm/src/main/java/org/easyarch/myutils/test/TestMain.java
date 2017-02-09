@@ -47,7 +47,7 @@ public class TestMain {
         ScriptEngineManager engineManager = new ScriptEngineManager();
         ScriptEngine engine = engineManager.getEngineByName("javascript");
         try {
-            User user = new User();
+            UserVO user = new UserVO();
             user.setId(1000);
             user.setUsername("xingtianyu");
             Map<String,Object> usermap = new HashMap<>();

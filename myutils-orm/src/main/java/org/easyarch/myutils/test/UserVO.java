@@ -14,7 +14,7 @@ import java.util.List;
  * 上午2:04
  */
 //@Table(tableName = "t_user")
-public class User {
+public class UserVO {
 
     @Column(name = "t_id")
     private int id;

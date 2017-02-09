@@ -1,9 +1,11 @@
 package org.easyarch.myutils.orm.mapping;
 
 import org.easyarch.myutils.file.FileUtils;
+import org.easyarch.myutils.lang.StringUtils;
 import org.easyarch.myutils.orm.annotation.sql.Mapper;
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.InterfaceCache;
+import org.easyarch.myutils.orm.utils.ResourcesUtil;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,17 +25,18 @@ import static org.easyarch.myutils.orm.parser.Token.POINT;
 
 public class MapperScanner {
 
-    public static final String CLASSPATH = MapperScanner.class.getClassLoader().getResource("").getPath();
+    public static final String CLASSPATH = ResourcesUtil.getClassPath();
 
     public static final String CLASS = ".class";
 
     private InterfaceCache interfaceCache = CacheFactory.getInstance().getInterfaceCache();
 
+    private static boolean scaned = false;
     /**
      * 扫描整个工程
      * @throws Exception
      */
-    public void scan() throws Exception {
+    private void scan() throws Exception {
         List<File> classFiles = FileUtils.listFileRecursive(CLASSPATH);
         int endPoint = CLASSPATH.lastIndexOf(File.separator);
 
@@ -53,17 +56,30 @@ public class MapperScanner {
     }
 
     /**
-     * 路径扫描，目前部支持通配符*扫描
-     * @param packagePath
+     * 路径扫描，目前不支持通配符*扫描
+     * @param packagePath  包名，空字符或单个*符号代表当前工程下所有包
      * @throws Exception
      */
     public void scan(String packagePath) throws Exception {
+        if (scaned){
+            return;
+        }
+        scaned = true;
+        if (packagePath == null){
+            return;
+        }
+
+        if (StringUtils.isBlank(packagePath)||ANY.equals(packagePath)){
+            scan();
+            return;
+        }
         if(packagePath.contains(ANY)){
             packagePath = packagePath.replaceAll("\\"+POINT+ANY,"");
         }
         String copyPath = packagePath.replace(POINT,File.separator);
         String classpath = CLASSPATH + copyPath + File.separator;
         File file = new File(classpath);
+        System.out.println("current classpath-->"+classpath);
         if (!file.exists()){
             throw new FileNotFoundException("package not found");
         }

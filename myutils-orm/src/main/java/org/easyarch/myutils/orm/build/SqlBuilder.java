@@ -62,6 +62,7 @@ public class SqlBuilder {
         Map<String,Object> mapper = paramBinder.getMapper();
         List<String> paramNames = sqlParser.getSqlParamNames();
         entity.setBinder(bind);
+        System.out.println("sql parser params : "+paramNames);
         for (String name:paramNames){
             for (Map.Entry<String,Object> entry:mapper.entrySet()){
                 if (entry.getKey().equals(name)){

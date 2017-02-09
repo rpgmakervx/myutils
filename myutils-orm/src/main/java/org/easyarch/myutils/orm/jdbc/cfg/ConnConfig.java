@@ -18,6 +18,11 @@ import java.util.Properties;
 
 public class ConnConfig {
 
+    private static final String USER = "jdbc.user";
+    private static final String PASSWORD = "jdbc.password";
+    private static final String URL = "jdbc.url";
+    private static final String DRIVERNAME = "jdbc.driver";
+
     private static String user;
     private static String password;
     private static String url;
@@ -34,10 +39,10 @@ public class ConnConfig {
     }
 
     public static void config(Properties props){
-        config(props.getProperty("user"),
-                props.getProperty("password"),
-                props.getProperty("url"),
-                props.getProperty("drivername"));
+        config(props.getProperty(USER),
+                props.getProperty(PASSWORD),
+                props.getProperty(URL),
+                props.getProperty(DRIVERNAME));
         registerDriver();
     }
 
