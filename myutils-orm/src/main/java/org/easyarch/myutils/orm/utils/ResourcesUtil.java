@@ -11,15 +11,15 @@ import java.io.InputStream;
 
 public class ResourcesUtil {
 
-    public static String getClassPath(){
+    public static String getClassPath() {
         return ResourcesUtil.class.getClassLoader().getResource("").getPath();
     }
 
-    public static String getResources(String resource){
+    public static String getResources(String resource) {
         return ResourcesUtil.class.getClassLoader().getResource(resource).getPath();
     }
 
-    public static InputStream getResourceAsStream(String resource){
+    public static InputStream getResourceAsStream(String resource) {
         return ResourcesUtil.class.getResourceAsStream(resource);
     }
 }

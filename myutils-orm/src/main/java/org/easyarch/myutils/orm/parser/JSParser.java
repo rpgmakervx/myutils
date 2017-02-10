@@ -1,5 +1,6 @@
 package org.easyarch.myutils.orm.parser;
 
+import org.easyarch.myutils.lang.StringUtils;
 import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.parser.script.JSContext;
@@ -12,6 +13,7 @@ import java.io.Reader;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.easyarch.myutils.orm.parser.script.JSContext.CONTEXT;
 import static org.easyarch.myutils.orm.parser.script.JSContext.NAMESPACE;
 
 /**
@@ -27,9 +29,9 @@ public class JSParser extends ParserAdapter<SqlEntity> {
 
     private ScriptEngineManager engineManager ;
 
-    private SqlBuilder sqlBuilder;
-
     private ScriptEngine engine;
+
+    private SqlBuilder sqlBuilder;
 
     private Reader reader;
 
@@ -52,33 +54,30 @@ public class JSParser extends ParserAdapter<SqlEntity> {
     @Override
     public void parse(SqlEntity entity) {
         try {
-            String namespace = String.valueOf(engine.get(NAMESPACE));
+            Invocable func = jsFunctions.get(entity.getPrefix());
+            String namespace = null;
+            if (func == null){
+                engine.put(JSContext.CONTEXT,ctx.getCtx());
+                engine.eval(reader);
+                func = (Invocable)engine;
+                namespace = String.valueOf(((Map<String,Object>)engine.get(CONTEXT)).get(NAMESPACE));
+                if (StringUtils.isEmpty(namespace)){
+                    return;
+                }
+                jsFunctions.put(entity.getPrefix(),func);
+            }
             if (!entity.getPrefix().equals(namespace)){
                 return ;
             }
-            Invocable func = jsFunctions.get(namespace);
-            if (func == null){
-                engine.eval(reader);
-                func = (Invocable)engine;
-                jsFunctions.put(namespace,func);
-            }
-            Map<String,Object> params = new HashMap<>();
-            for (Map<String,Object> param:entity.getParams()){
-                param.putAll(param);
-            }
+            Map<String,Object> params = entity.getFlatParams();
             String sql = (String) func.invokeFunction(entity.getSuffix(),params);
             configuration.addMappedSql(namespace,entity.getSuffix(),sql);
             sqlBuilder.buildSql(sql);
-            sqlBuilder.buildParams(entity.getParams());
+            sqlBuilder.buildParams(params);
             SqlEntity sqlEntity = sqlBuilder.buildEntity(entity.getBinder());
             sqlValues.put(namespace,sqlEntity);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public SqlEntity getContent(String namespace) {
-        SqlEntity sql = sqlValues.get(namespace);
-        return sql;
     }
 }

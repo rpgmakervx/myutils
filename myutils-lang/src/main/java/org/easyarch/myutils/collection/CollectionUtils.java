@@ -130,7 +130,33 @@ public class CollectionUtils {
         return resultMap;
     }
 
+    /**
+     * 给maplist降低维度到统一的map中
+     * @param mapList
+     * @return
+     */
+    public static Map<String,Object> flatMapLists(List<Map<String,Object>> mapList){
+        Map<String,Object> flatMap = new HashMap<>();
+        for (Map<String,Object> map:mapList){
+            flatMap.putAll(map);
+        }
+        return flatMap;
+    }
 
+    /**
+     * 统计maplist的值，返回数组
+     * @param mapList
+     * @return
+     */
+    public static Object[] gatherMapListsValues(List<Map<String,Object>> mapList){
+        List valueList = new ArrayList();
+        for (Map<String,Object> map:mapList){
+            for (Map.Entry<String,Object> entry:map.entrySet()){
+                valueList.add(entry.getValue());
+            }
+        }
+        return valueList.toArray();
+    }
 
     public static void main(String[] args) {
 //        List<String> words = newArrayList("this", "is", "a", "file", "and", "that", "is", "a", "file");

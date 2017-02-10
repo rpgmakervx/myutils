@@ -4,6 +4,7 @@ import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.mapping.SqlType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -54,6 +55,13 @@ public class SqlMapCache implements Cache<String,Map<String,SqlEntity>> {
         }
         Map<String,SqlEntity> statement = sqlMap.get(namespace);
         return statement.get(id).getParams();
+    }
+    public Map<String,Object> getFlatParams(String namespace, String id){
+        if(!isHit(namespace,id)){
+            return new HashMap<>();
+        }
+        Map<String,SqlEntity> statement = sqlMap.get(namespace);
+        return statement.get(id).getFlatParams();
     }
 
     public SqlType getType(String namespace,String id){

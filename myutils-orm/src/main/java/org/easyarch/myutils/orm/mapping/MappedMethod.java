@@ -1,5 +1,6 @@
 package org.easyarch.myutils.orm.mapping;
 
+import org.easyarch.myutils.collection.CollectionUtils;
 import org.easyarch.myutils.orm.annotation.sql.SqlParam;
 import org.easyarch.myutils.orm.build.SqlBuilder;
 import org.easyarch.myutils.orm.cache.CacheFactory;
@@ -8,12 +9,10 @@ import org.easyarch.myutils.orm.entity.SqlEntity;
 import org.easyarch.myutils.orm.session.Configuration;
 import org.easyarch.myutils.orm.session.impl.MapperDBSession;
 import org.easyarch.myutils.reflection.ReflectUtils;
-import org.easyarch.myutils.test.UserVO;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -44,14 +43,16 @@ public class MappedMethod {
         ///检查缓存的sql
         SqlBuilder builder = new SqlBuilder();
         if (cache.isHit(interfaceName,method.getName())){
+            System.out.println("sqlBuilder hit the cache");
             SqlEntity entity = cache.getSqlEntity(interfaceName,method.getName());
             builder.buildEntity(entity);
         }else{
+            System.out.println("sqlBuilder didnt hit the cache");
             Parameter[] parameters = method.getParameters();
             String[] paramNames = ReflectUtils.getMethodParameter(method);
             int paramIndex = 0;
             for (int index=0;index<parameters.length;index++) {
-                if (ReflectUtils.isBaseType(parameters[index].getType())) {
+                if (ReflectUtils.isFrequentlyUseType(parameters[index].getType())) {
                     SqlParam sqlParam = parameters[index].getAnnotation(SqlParam.class);
                     if (sqlParam == null) {
                         builder.buildParams(args[index],paramNames[paramIndex]);
@@ -76,23 +77,29 @@ public class MappedMethod {
             String sql = configuration.getMappedSql(interfaceName, method.getName());
             //jsqlparser 在这一步，相对其他代码会慢一点
             builder.buildSql(sql);
-            cache.addSqlEntity(entity);
+            SqlEntity se = builder.buildEntity(interfaceName + BIND_SEPARATOR + method.getName());
+            cache.addSqlEntity(se);
         }
+        System.out.println("sqlbuilder:"+builder);
         switch (builder.getType()){
             case SELECT:
-                Class returnType = method.getReturnType();
+                Class<?> returnType = ReflectUtils.getReturnType(method);
+                System.out.println("return class--->"+returnType);
                 if (Collection.class.isAssignableFrom(returnType)){
                     return session.selectList(builder.getPreparedSql(),
-                            ReflectUtils.getReturnType(method),builder.getParameters());
+                            ReflectUtils.getGenericReturnType(method),
+                            CollectionUtils.gatherMapListsValues(builder.getParameters()));
                 }else{
                     return session.selectOne(builder.getPreparedSql(),
-                            ReflectUtils.getReturnType(method),builder.getParameters());
+                            returnType, CollectionUtils.gatherMapListsValues(builder.getParameters()));
                 }
-            case INSERT:return session.insert(builder.getPreparedSql(),builder.getParameters());
-            case UPDATE:return session.update(builder.getPreparedSql(),builder.getParameters());
-            case DELETE:return session.delete(builder.getPreparedSql(),builder.getParameters());
+            case INSERT:return session.insert(builder.getPreparedSql(),
+                    CollectionUtils.gatherMapListsValues(builder.getParameters()));
+            case UPDATE:return session.update(builder.getPreparedSql(),
+                    CollectionUtils.gatherMapListsValues(builder.getParameters()));
+            case DELETE:return session.delete(builder.getPreparedSql(),
+                    CollectionUtils.gatherMapListsValues(builder.getParameters()));
         }
-        System.out.println(builder);
         return null;
     }
 
@@ -100,26 +107,36 @@ public class MappedMethod {
     public void method(@SqlParam(name = "b")  String b, @SqlParam(name = "a") String a,@SqlParam(name = "c") String c) {
     }
 
-    public void insert(UserVO user){}
+    public int insert(int i){
+        return 0;
+    }
     public List<String> query(Map<String,Object> map){
         return new ArrayList<>();
     }
 
-    public static void main(String[] args) throws NoSuchMethodException {
+    public static void main(String[] args) throws NoSuchMethodException, IOException, InterruptedException {
 //        List<String> list = new ArrayList();
 //        Class clazz = list.getClass();
 //        System.out.println(Collection.class.isAssignableFrom(clazz));
-        Method method = MappedMethod.class.getDeclaredMethod("query", Map.class);
-        Type returnType = method.getGenericReturnType();// 返回类型
-        System.out.println("  " + returnType);
-        if (returnType instanceof ParameterizedType)/**//* 如果是泛型类型 */{
-            Type[] types = ((ParameterizedType) returnType)
-                    .getActualTypeArguments();// 泛型类型列表
-            System.out.println("  TypeArgument: ");
-            for (Type type : types) {
-                System.out.println("   " + type);
-            }
-        }
+//        Method method = MappedMethod.class.getDeclaredMethod("query", Map.class);
+//        Type returnType = method.getGenericReturnType();// 返回类型
+//        System.out.println("  " + returnType);
+//        if (returnType instanceof ParameterizedType)/**//* 如果是泛型类型 */{
+//            Type[] types = ((ParameterizedType) returnType)
+//                    .getActualTypeArguments();// 泛型类型列表
+//            System.out.println("  TypeArgument: ");
+//            for (Type type : types) {
+//                System.out.println("   " + type);
+//            }
+//        }
+//        Class cls = UserMapper.class;
+//        Class clss = MappedMethod.class;
+//        Method method = cls.getMethod("findById",String.class);
+//        Method mthd = clss.getMethod("query",Map.class);
+//        System.out.println(ReflectUtils.getReturnType(mthd));
+
+//        System.out.println("paramNames:"+paramNames[0]);
+        Runtime.getRuntime().exec("top").waitFor();
     }
 
 }

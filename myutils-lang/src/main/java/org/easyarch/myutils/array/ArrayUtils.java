@@ -679,4 +679,22 @@ public class ArrayUtils {
         return newarray;
     }
 
+
+    public static String printArray(Object[] array){
+        StringBuffer buffer = new StringBuffer();
+        if (isEmpty(array)){
+            buffer.append("[empty]");
+            return buffer.toString();
+        }
+        buffer.append("[");
+        int index = 0;
+        for (Object obj:array){
+            if (index == array.length - 1){
+                buffer.append(obj + "]");
+            }else{
+                buffer.append(obj + ",");
+            }
+        }
+        return buffer.toString();
+    }
 }

@@ -2,7 +2,6 @@ package org.easyarch.myutils.orm.mapping;
 
 import org.easyarch.myutils.orm.cache.CacheFactory;
 import org.easyarch.myutils.orm.cache.ProxyCache;
-import org.easyarch.myutils.orm.session.Configuration;
 import org.easyarch.myutils.orm.session.impl.MapperDBSession;
 
 import java.lang.reflect.Proxy;
@@ -18,14 +17,12 @@ public class MapperProxyFactory<T> {
 
     private Class<T> interfaceClass;
 
-    private Configuration configuration;
     /**
      * 缓存代理实例，减轻动态代理带来的性能损耗
      */
     private static ProxyCache proxyCache = CacheFactory.getInstance().getProxyCache();
 
-    public MapperProxyFactory(Configuration configuration,Class interfaceClass) {
-        this.configuration = configuration;
+    public MapperProxyFactory(Class interfaceClass) {
         this.interfaceClass = interfaceClass;
     }
 

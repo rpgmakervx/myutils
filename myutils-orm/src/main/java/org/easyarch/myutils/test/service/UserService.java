@@ -7,6 +7,8 @@ import org.easyarch.myutils.orm.utils.ResourcesUtil;
 import org.easyarch.myutils.test.dao.UserMapper;
 import org.easyarch.myutils.test.pojo.User;
 
+import java.util.List;
+
 /**
  * Description :
  * Created by xingtianyu on 17-2-9
@@ -16,26 +18,24 @@ import org.easyarch.myutils.test.pojo.User;
 
 public class UserService {
 
-    static {
-//        DBSessionFactory factory = new DBSessionFactoryBuilder().build()
-    }
-
-    private DBSessionFactory sessionFactory;
-
     private UserMapper mapper;
+
+    private DBSession session;
 
     public UserService(){
         try {
-            sessionFactory = new DBSessionFactoryBuilder().build(
+            DBSessionFactory sessionFactory = new DBSessionFactoryBuilder().build(
                     ResourcesUtil.getResourceAsStream("/config.xml"));
+            session = sessionFactory.newDelegateSession();
+            mapper = session.getMapper(UserMapper.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
     public User getUser(String id){
-        DBSession session = sessionFactory.newDelegateSession();
-        mapper = session.getMapper(UserMapper.class);
         return mapper.findById(id);
+    }
+    public List<User> getUsers(User user){
+        return mapper.findByUser(user);
     }
 }

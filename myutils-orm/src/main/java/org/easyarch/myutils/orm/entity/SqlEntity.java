@@ -22,7 +22,7 @@ public class SqlEntity {
 
     private String preparedSql;
 
-    private List<Map<String,Object>> params;
+    private List<Map<String, Object>> params;
 
     private SqlType type;
 
@@ -33,15 +33,23 @@ public class SqlEntity {
         params = new ArrayList<>();
     }
 
-    public List<Map<String,Object>> getParams(){
+    public List<Map<String, Object>> getParams() {
         return params;
     }
 
-    public String getSql(){
+    public Map<String, Object> getFlatParams() {
+        Map<String, Object> flatParams = new HashMap<>();
+        for (Map<String, Object> flatMap : params) {
+            flatParams.putAll(flatMap);
+        }
+        return flatParams;
+    }
+
+    public String getSql() {
         return sql;
     }
 
-    public void setSql(String sql){
+    public void setSql(String sql) {
         this.sql = sql;
     }
 
@@ -65,8 +73,9 @@ public class SqlEntity {
         this.type = type;
     }
 
-    public void addParam(String name, Object value){
-        Map<String,Object> param = new HashMap<>();
+    public void addParam(String name, Object value) {
+        Map<String, Object> param = new HashMap<>();
+        param.put(name,value);
         params.add(param);
     }
 
@@ -78,12 +87,13 @@ public class SqlEntity {
         this.binder = binder;
     }
 
-    public String getPrefix(){
-        String []segements = binder.split(BIND_SEPARATOR);
+    public String getPrefix() {
+        String[] segements = binder.split(BIND_SEPARATOR);
         return segements[0];
     }
-    public String getSuffix(){
-        String []segements = binder.split(BIND_SEPARATOR);
+
+    public String getSuffix() {
+        String[] segements = binder.split(BIND_SEPARATOR);
         return segements[1];
     }
 }

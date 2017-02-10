@@ -1,5 +1,6 @@
 package org.easyarch.myutils.orm.session.impl;
 
+import org.easyarch.myutils.array.ArrayUtils;
 import org.easyarch.myutils.orm.jdbc.exec.SqlExecutor;
 import org.easyarch.myutils.orm.jdbc.handler.BeanListResultSetHadler;
 import org.easyarch.myutils.orm.jdbc.handler.BeanResultSetHadler;
@@ -35,11 +36,16 @@ public class MapperDBSession extends DBSessionAdapter {
 
     @Override
     public <T> T selectOne(String sql, Class<T> clazz, Object... parameters) {
+        System.out.println("print sql-->"+sql);
+        System.out.println("print params --> "+ArrayUtils.printArray(parameters));
         return executor.query(sql, new BeanResultSetHadler<>(clazz), parameters);
     }
 
     @Override
     public <E> List<E> selectList(String sql, Class<E> clazz, Object... parameters) {
+        System.out.println("print sql-->"+sql);
+        System.out.println("print params --> "+ ArrayUtils.printArray(parameters));
+        System.out.println("class : "+clazz);
         List<E> list = executor.query(sql, new BeanListResultSetHadler<>(clazz), parameters);
         return list;
     }
@@ -76,7 +82,7 @@ public class MapperDBSession extends DBSessionAdapter {
         if (proxyCache.isHit(clazz)){
             return (T) proxyCache.get(clazz);
         }
-        MapperProxyFactory<T> mapperProxyFactory = new MapperProxyFactory(configuration,clazz);
+        MapperProxyFactory<T> mapperProxyFactory = new MapperProxyFactory(clazz);
         return mapperProxyFactory.newInstance(this);
     }
 

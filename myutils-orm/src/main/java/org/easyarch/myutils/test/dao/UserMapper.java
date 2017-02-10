@@ -1,5 +1,6 @@
 package org.easyarch.myutils.test.dao;
 
+import org.easyarch.myutils.orm.annotation.sql.SqlParam;
 import org.easyarch.myutils.test.pojo.User;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public interface UserMapper {
 
-    public User findById(String id);
+    public User findById(@SqlParam(name = "id") String id);
 
     public List<User> findByUser(User user);
 }

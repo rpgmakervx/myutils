@@ -101,7 +101,6 @@ public class ReflectUtils {
     }
 
     public static void setter(Object object, String propertyName, Object value) {
-        System.out.println("propertyName:"+propertyName+",value:"+value);
         try {
             PropertyDescriptor pd = new PropertyDescriptor(propertyName, object.getClass());
             Method method = pd.getWriteMethod();
@@ -206,6 +205,7 @@ public class ReflectUtils {
                         }
                         if (i >= 0 && i < paramNames.length) {
                             paramNames[i] = name;
+                            System.out.println("paramNames:"+name);
                         }
                         super.visitLocalVariable(name, desc, signature, start,
                                 end, index);
@@ -233,14 +233,18 @@ public class ReflectUtils {
 
     public static Class getReturnType(Method method){
         java.lang.reflect.Type returnType = method.getGenericReturnType();// 返回类型
+        return method.getReturnType();
+    }
+    public static Class getGenericReturnType(Method method){
+        java.lang.reflect.Type returnType = method.getGenericReturnType();// 返回类型
         if (returnType instanceof ParameterizedType)/**//* 如果是泛型类型 */{
             java.lang.reflect.Type[] types = ((ParameterizedType) returnType)
                     .getActualTypeArguments();// 泛型类型列表
             for (java.lang.reflect.Type type : types) {
-                return type.getClass();
+                return (Class) type;
             }
         }
-        return null;
+        return method.getReturnType();
     }
 
     public static boolean isBaseType(Class clz) {
@@ -249,6 +253,15 @@ public class ReflectUtils {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    /**
+     * 常用类型包括基本类型，包装类型和字符串类型
+     * @param clz
+     * @return
+     */
+    public static boolean isFrequentlyUseType(Class clz){
+        return isBaseType(clz)||clz.equals(String.class);
     }
 
 }

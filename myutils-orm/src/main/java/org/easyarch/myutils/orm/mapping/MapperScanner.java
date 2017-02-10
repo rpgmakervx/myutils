@@ -79,7 +79,6 @@ public class MapperScanner {
         String copyPath = packagePath.replace(POINT,File.separator);
         String classpath = CLASSPATH + copyPath + File.separator;
         File file = new File(classpath);
-        System.out.println("current classpath-->"+classpath);
         if (!file.exists()){
             throw new FileNotFoundException("package not found");
         }

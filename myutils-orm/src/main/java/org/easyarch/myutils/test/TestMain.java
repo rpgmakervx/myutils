@@ -1,11 +1,11 @@
 package org.easyarch.myutils.test;
 
+import org.easyarch.myutils.orm.parser.script.JSContext;
+
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Description :
@@ -47,19 +47,20 @@ public class TestMain {
         ScriptEngineManager engineManager = new ScriptEngineManager();
         ScriptEngine engine = engineManager.getEngineByName("javascript");
         try {
-            UserVO user = new UserVO();
-            user.setId(1000);
-            user.setUsername("xingtianyu");
-            Map<String,Object> usermap = new HashMap<>();
-            usermap.put("id",user.getId());
-            usermap.put("username",user.getUsername());
-            engine.put("user",usermap);
-            engine.eval(new FileReader("/home/code4j/IDEAWorkspace/myutils/myutils-db/src/main/resources/mapper/sqlmapper.js"));
+//            UserVO user = new UserVO();
+//            user.setId(1000);
+//            user.setUsername("xingtianyu");
+//            Map<String,Object> usermap = new HashMap<>();
+//            usermap.put("id",user.getId());
+//            usermap.put("username",user.getUsername());
+            JSContext context = new JSContext();
+            engine.put(JSContext.CONTEXT,context.getCtx());
+            engine.eval(new FileReader("/home/code4j/IDEAWorkspace/myutils/myutils-orm/src/main/resources/mapper/usermapper.js"));
             Invocable func = (Invocable)engine;
-            Map<String,Object> resultMap = (Map<String, Object>) func.invokeFunction("findUserByCondition",usermap);
-            Map<String,Object> paramMap = (Map<String, Object>) resultMap.get("param");
-            System.out.println(resultMap.get("sql"));
-            System.out.println(paramMap.get("1"));
+//            Map<String,Object> resultMap = (Map<String, Object>) func.invokeFunction("findUserByCondition",usermap);
+//            Map<String,Object> paramMap = (Map<String, Object>) resultMap.get("param");
+//            System.out.println(resultMap.get("sql"));
+//            System.out.println(paramMap.get("1"));
         } catch (Exception e) {
             e.printStackTrace();
         }
