@@ -16,5 +16,7 @@ public interface UserMapper {
 
     public User findById(@SqlParam(name = "id") String id);
 
-    public List<User> findByUser(User user);
+    public List<User> findByUser(@SqlParam(name = "user") User user);
+
+    public int insert(@SqlParam(name = "user") User user);
 }

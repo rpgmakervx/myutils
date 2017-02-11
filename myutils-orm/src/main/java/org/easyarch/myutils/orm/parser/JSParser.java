@@ -56,6 +56,7 @@ public class JSParser extends ParserAdapter<SqlEntity> {
         try {
             Invocable func = jsFunctions.get(entity.getPrefix());
             String namespace = null;
+            System.out.println("suffix:"+entity.getSuffix());
             if (func == null){
                 engine.put(JSContext.CONTEXT,ctx.getCtx());
                 engine.eval(reader);

@@ -19,3 +19,8 @@ function findByUser(params) {
     }
     return sql;
 }
+
+function insert(params){
+    return "insert into user(client_id,username,password,phone) " +
+        "values($clientId$,$userName$,$password$,$phone$)"
+}

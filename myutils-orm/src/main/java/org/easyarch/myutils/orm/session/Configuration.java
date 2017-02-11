@@ -199,13 +199,21 @@ public class Configuration {
      * @param sqlEntity
      */
     public void parseMappedSql(SqlEntity sqlEntity){
-        if (mappedSqls.containsKey(sqlEntity.getPrefix())){
+        if (containsSql(sqlEntity.getPrefix(),sqlEntity.getSuffix())){
             return;
         }
         for (Reader reader:sqlMapperReaders){
             JSParser parser = new JSParser(reader,this);
             parser.parse(sqlEntity);
         }
+    }
+
+    private boolean containsSql(String namespace,String id){
+        Map<String,String> mapper = mappedSqls.get(namespace);
+        if (mapper == null){
+            return false;
+        }
+        return mapper.containsKey(id);
     }
 
     public static void main(String[] args) {

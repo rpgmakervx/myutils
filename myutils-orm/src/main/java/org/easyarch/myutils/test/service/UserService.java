@@ -38,4 +38,8 @@ public class UserService {
     public List<User> getUsers(User user){
         return mapper.findByUser(user);
     }
+
+    public void saveUser(User user){
+        mapper.insert(user);
+    }
 }

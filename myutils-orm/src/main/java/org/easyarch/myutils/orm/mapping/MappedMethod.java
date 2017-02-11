@@ -52,27 +52,30 @@ public class MappedMethod {
             String[] paramNames = ReflectUtils.getMethodParameter(method);
             int paramIndex = 0;
             for (int index=0;index<parameters.length;index++) {
+                if (args[index] instanceof Map) {
+                    builder.buildParams((Map<String,Object>)args[index]);
+                    continue;
+                }
+                SqlParam sqlParam = parameters[index].getAnnotation(SqlParam.class);
                 if (ReflectUtils.isFrequentlyUseType(parameters[index].getType())) {
-                    SqlParam sqlParam = parameters[index].getAnnotation(SqlParam.class);
                     if (sqlParam == null) {
                         builder.buildParams(args[index],paramNames[paramIndex]);
                         paramIndex++;
                     }else{
                         builder.buildParams(args[index],sqlParam.name());
                     }
-                    continue;
+                }else{
+                    builder.buildParams(args[index]);
                 }
-                if (args[index] instanceof Map) {
-                    builder.buildParams((Map<String,Object>)args[index]);
-                    continue;
-                }
-                builder.buildParams(args[index],paramNames[paramIndex]);
+
+//                continue;
+//                if (ReflectUtils.isFrequentlyUseType(parameters[index].getType())) {
+//                }
             }
             //先构造参数，根据参数获得动态sql,然后缓存
             SqlEntity entity = new SqlEntity();
             entity.setParams(builder.getParameters());
             entity.setBinder(interfaceName + BIND_SEPARATOR + method.getName());
-//            SqlEntity entity = builder.buildEntity(interfaceName + BIND_SEPARATOR + method.getName());
             configuration.parseMappedSql(entity);
             String sql = configuration.getMappedSql(interfaceName, method.getName());
             //jsqlparser 在这一步，相对其他代码会慢一点
@@ -80,11 +83,10 @@ public class MappedMethod {
             SqlEntity se = builder.buildEntity(interfaceName + BIND_SEPARATOR + method.getName());
             cache.addSqlEntity(se);
         }
-        System.out.println("sqlbuilder:"+builder);
+//        System.out.println("sql type goto:"+builder.getType());
         switch (builder.getType()){
             case SELECT:
                 Class<?> returnType = ReflectUtils.getReturnType(method);
-                System.out.println("return class--->"+returnType);
                 if (Collection.class.isAssignableFrom(returnType)){
                     return session.selectList(builder.getPreparedSql(),
                             ReflectUtils.getGenericReturnType(method),
@@ -93,7 +95,9 @@ public class MappedMethod {
                     return session.selectOne(builder.getPreparedSql(),
                             returnType, CollectionUtils.gatherMapListsValues(builder.getParameters()));
                 }
-            case INSERT:return session.insert(builder.getPreparedSql(),
+            case INSERT:
+                System.out.println("go to insert params:"+builder.getParameters());
+                return session.insert(builder.getPreparedSql(),
                     CollectionUtils.gatherMapListsValues(builder.getParameters()));
             case UPDATE:return session.update(builder.getPreparedSql(),
                     CollectionUtils.gatherMapListsValues(builder.getParameters()));

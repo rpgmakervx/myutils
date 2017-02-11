@@ -27,11 +27,9 @@ public class FieldBinder<T> {
 
     private void init(){
         if (cls.getAnnotation(Table.class) == null){
-            System.out.println("pojo no annotation");
             return;
         }
         if (fieldMapper.containsKey(cls)){
-            System.out.println("pojo already in fieldMapper");
             return;
         }
         Field[] fields = cls.getDeclaredFields();

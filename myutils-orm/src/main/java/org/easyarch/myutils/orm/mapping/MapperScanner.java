@@ -80,7 +80,7 @@ public class MapperScanner {
         String classpath = CLASSPATH + copyPath + File.separator;
         File file = new File(classpath);
         if (!file.exists()){
-            throw new FileNotFoundException("package not found");
+            throw new FileNotFoundException("package "+packagePath+" not found");
         }
         if (file.isFile()){
             throw new IllegalArgumentException("please offer a package name");

@@ -85,7 +85,6 @@ public class XmlParser extends ParserAdapter<Configuration>{
 
     @Override
     public Configuration parse() {
-        System.out.println(content);
         return new Configuration(xmlPath,content);
     }
 }

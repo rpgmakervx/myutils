@@ -110,6 +110,9 @@ public class SQLParser extends ParserAdapter{
             }
         }
         List<Expression> expressions = insert.getDuplicateUpdateExpressionList();
+        if (CollectionUtils.isEmpty(expressions)){
+            return;
+        }
         for (Expression exp:expressions){
             if (exp instanceof Function){
                 Function function = (Function) exp;
