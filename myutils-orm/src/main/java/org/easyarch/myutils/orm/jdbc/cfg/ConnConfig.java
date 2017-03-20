@@ -1,8 +1,4 @@
-package org.easyarch.myutils.orm.jdbc.cfg;/**
- * Description : 
- * Created by YangZH on 16-11-3
- *  下午7:28
- */
+package org.easyarch.myutils.orm.jdbc.cfg;
 
 import org.easyarch.myutils.io.IOUtils;
 
@@ -18,10 +14,10 @@ import java.util.Properties;
 
 public class ConnConfig {
 
-    private static final String USER = "jdbc.user";
-    private static final String PASSWORD = "jdbc.password";
-    private static final String URL = "jdbc.url";
-    private static final String DRIVERNAME = "jdbc.driver";
+    public static final String USERNAME = "username";
+    public static final String PASSWORD = "password";
+    public static final String URL = "url";
+    public static final String DRIVERNAME = "driverClassName";
 
     private static String user;
     private static String password;
@@ -39,7 +35,7 @@ public class ConnConfig {
     }
 
     public static void config(Properties props){
-        config(props.getProperty(USER),
+        config(props.getProperty(USERNAME),
                 props.getProperty(PASSWORD),
                 props.getProperty(URL),
                 props.getProperty(DRIVERNAME));
@@ -68,7 +64,7 @@ public class ConnConfig {
         }
     }
 
-    public static String getUser() {
+    public static String getUsername() {
         return user;
     }
 

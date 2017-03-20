@@ -116,4 +116,8 @@ public class JSONUtils {
     public static<T> T deserialize(byte[] json,Class<T> cls){
         return (T) JSONObject.parse(json, Feature.OrderedField);
     }
+
+    public static void main(String[] args) throws Exception {
+
+    }
 }

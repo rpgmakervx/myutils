@@ -17,7 +17,7 @@ public class TestFile {
 
     public void testVim(){
         try {
-            FileUtils.vim("/home/code4j/58daojia/txt","邢天宇");
+            FileUtils.vim("/home/code4j/txt","邢天宇");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,7 +27,7 @@ public class TestFile {
         byte[] data = FileUtils.read("/home/code4j/picture/50k.jpg");
         System.out.println(data.length);
         try {
-            FileUtils.write("/home/code4j/58daojia/image.jpg",data);
+            FileUtils.write("/home/code4j/image.jpg",data);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,7 +35,7 @@ public class TestFile {
 
     public void testCopy(){
         try {
-            FileUtils.cp("/home/code4j/picture/50k.jpg","/home/code4j/58daojia/image111.jpg");
+            FileUtils.cp("/home/code4j/picture/50k.jpg","/home/code4j/image111.jpg");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,7 +43,7 @@ public class TestFile {
 
     public void testMv(){
         try {
-            FileUtils.mv("/home/code4j/picture/50k.jpg","/home/code4j/58daojia/image111.jpg");
+            FileUtils.mv("/home/code4j/picture/50k.jpg","/home/code4j/image111.jpg");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,27 +51,27 @@ public class TestFile {
 
     public void testCat(){
         try {
-            System.out.println(FileUtils.cat("/home/code4j/58daojia/maven/conf/settings.xml"));
+            System.out.println(FileUtils.cat("/home/code4j/maven/conf/settings.xml"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void testEquals(){
-        boolean eq = FileUtils.eq("/home/code4j/picture/50k.jpg","/home/code4j/58daojia/image111.jpg");
+        boolean eq = FileUtils.eq("/home/code4j/picture/50k.jpg","/home/code4j/image111.jpg");
         System.out.println(eq);
     }
 
     public void testDeleteAll(){
-        FileUtils.deleteAll("/home/code4j/58daojia/dumps/dir");
+        FileUtils.deleteAll("/home/code4j/dumps/dir");
     }
 
     public void testDeleteEmptyDir(){
-        FileUtils.deletEmptyDirectory("/home/code4j/58daojia/dumps");
+        FileUtils.deletEmptyDirectory("/home/code4j/dumps");
     }
 
     public void testFilter(){
-        List<File> files =  FileUtils.filter("/home/code4j/58daojia/dumps", new FileFilter() {
+        List<File> files =  FileUtils.filter("/home/code4j/dumps", new FileFilter() {
             @Override
             public boolean accept(File file) {
                 String suffix = file.getName().
@@ -86,7 +86,7 @@ public class TestFile {
 
     public void testRM(){
         try {
-            FileUtils.rm("/home/code4j/58daojia/image111.jpg");
+            FileUtils.rm("/home/code4j/image111.jpg");
         } catch (Exception e) {
             e.printStackTrace();
         }

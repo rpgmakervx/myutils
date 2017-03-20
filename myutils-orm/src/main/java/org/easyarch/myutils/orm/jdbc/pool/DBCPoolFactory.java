@@ -33,5 +33,8 @@ public class DBCPoolFactory {
     public static DataSource newConfigedDBCPool(Properties prop) {
         return new DBCPool(PoolConfig.config(prop));
     }
+    public static DataSource newCustomDBCPool(PoolConfig config) {
+        return new DBCPool(config);
+    }
 
 }

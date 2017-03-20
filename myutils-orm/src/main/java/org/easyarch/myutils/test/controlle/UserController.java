@@ -59,22 +59,22 @@ public class UserController {
 
 
 //        MybatisService service1 = new MybatisService();
-//        service1.getUser("ewrgthgdsvng");
+//        service1.getUsername("ewrgthgdsvng");
 //
 //        MybatisService service = new MybatisService();
 //        long begin1 = System.nanoTime();
-//        service.getUser("ewrgthgdsvng");
+//        service.getUsername("ewrgthgdsvng");
 //        long end1 = System.nanoTime();
 //        System.out.println("jade use:"+(end1- begin1));
 
         UserService service = new UserService();
-//        service.getUser("ewrgthgdsvng");
-        User user = new User();
-        user.setClientId("++++++");
-        user.setPhone("130000000");
-        user.setUserName("lalkkk");
-        user.setPassword(".......");
-        service.saveUser(user);
+        System.out.println(service.getUser("ewrgthgdsvng"));;
+//        User user = new User();
+//        user.setClientId("++++++");
+//        user.setPhone("150000000");
+//        user.setUserName("updated");
+////        user.setPassword("*******");
+//        service.deleteById("++++++");
 //        service.getUsers(user);
     }
 

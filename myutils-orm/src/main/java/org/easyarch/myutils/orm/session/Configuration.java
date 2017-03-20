@@ -3,6 +3,8 @@ package org.easyarch.myutils.orm.session;
 import org.easyarch.myutils.file.FileUtils;
 import org.easyarch.myutils.lang.StringUtils;
 import org.easyarch.myutils.orm.entity.SqlEntity;
+import org.easyarch.myutils.orm.jdbc.cfg.ConnConfig;
+import org.easyarch.myutils.orm.jdbc.cfg.PoolConfig;
 import org.easyarch.myutils.orm.mapping.MapperScanner;
 import org.easyarch.myutils.orm.parser.JSParser;
 import org.easyarch.myutils.orm.jdbc.pool.DBCPool;
@@ -134,11 +136,17 @@ public class Configuration {
             }
             prop.load(new FileInputStream(baseFilePath));
             //引用外部的数据库连接池
+            PoolConfig config = PoolConfig.config(prop);
             if (StringUtils.isNotEmpty(classname)&&!classname.equals(DBCPool.class.getName())){
                 Object dataSource = ReflectUtils.newInstance(classname);
-                for (Object key:prop.keySet()){
-                    ReflectUtils.setFieldValue(dataSource,String.valueOf(key),prop.get(key));
-                }
+                ReflectUtils.setter(dataSource, ConnConfig.DRIVERNAME,prop.get(ConnConfig.DRIVERNAME));
+                ReflectUtils.setter(dataSource, ConnConfig.URL,prop.get(ConnConfig.URL));
+                ReflectUtils.setter(dataSource, ConnConfig.PASSWORD,prop.get(ConnConfig.PASSWORD));
+                ReflectUtils.setter(dataSource, ConnConfig.USERNAME,prop.get(ConnConfig.USERNAME));
+                ReflectUtils.setter(dataSource, PoolConfig.INITIAL_SIZE, config.getMaxIdle());
+                ReflectUtils.setter(dataSource, PoolConfig.MINIDLE, config.getMinIdle());
+                ReflectUtils.setter(dataSource, PoolConfig.MAXACTIVE, config.getMaxActive());
+                ReflectUtils.setter(dataSource, PoolConfig.MAXWAIT, config.getMaxWait());
                 this.dataSource = (DataSource) dataSource;
                 return ;
             }

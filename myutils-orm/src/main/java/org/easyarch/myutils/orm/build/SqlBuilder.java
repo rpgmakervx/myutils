@@ -13,6 +13,8 @@ import java.util.Map;
  * Created by xingtianyu on 17-1-19
  * 下午7:31
  * description:
+ *
+ * 构造一个SqlEntity时，先构造参数，再根据参数构造sql和类型，最后通过binder构造SqlEntity
  */
 
 public class SqlBuilder {
@@ -58,10 +60,9 @@ public class SqlBuilder {
         return this;
     }
 
-    public SqlEntity buildEntity(String bind){
+    public SqlBuilder prepareParams(){
         Map<String,Object> mapper = paramBinder.getMapper();
         List<String> paramNames = sqlParser.getSqlParamNames();
-        entity.setBinder(bind);
         for (String name:paramNames){
             for (Map.Entry<String,Object> entry:mapper.entrySet()){
                 if (entry.getKey().equals(name)){
@@ -69,7 +70,11 @@ public class SqlBuilder {
                 }
             }
         }
+        return this;
+    }
 
+    public SqlEntity buildEntity(String bind){
+        entity.setBinder(bind);
         return entity;
     }
 
@@ -79,16 +84,25 @@ public class SqlBuilder {
     }
 
     public SqlType getType(){
-        return entity.getType();
+        return sqlParser.getType();
     }
 
     public String getPreparedSql(){
-        return entity.getPreparedSql();
+        return sqlParser.getPreparedSql();
     }
 
     public List<Map<String,Object>> getParameters(){
         return entity.getParams();
     }
+
+    /**
+     * 无序的参数
+     * @return
+     */
+    public Map<String,Object> getMapperParameters(){
+        return paramBinder.getMapper();
+    }
+
 
     public void setType(SqlType type) {
         sqlParser.setType(type);

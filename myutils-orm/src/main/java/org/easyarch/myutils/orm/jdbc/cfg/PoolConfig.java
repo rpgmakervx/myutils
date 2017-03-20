@@ -14,18 +14,18 @@ import java.util.Properties;
 
 public class PoolConfig {
 
-    private static final String MAXPOOLSIZE = "pool.maxPoolSize";
-    private static final String MINIDLE = "pool.minIdle";
-    private static final String MAXIDLE = "pool.maxIdle";
-    private static final String KEEPALIVETIME = "pool.keepAliveTime";
+    public static final String MAXACTIVE = "maxActive";
+    public static final String MINIDLE = "minIdle";
+    public static final String INITIAL_SIZE = "initialSize";
+    public static final String MAXWAIT = "maxWait";
 
-    private int maxPoolSize;
+    private int maxActive;
 
     private int minIdle;
 
     private int maxIdle;
 
-    private long keepAliveTime;
+    private long maxWait;
 
     private Properties properties;
     private PoolConfig(){
@@ -35,41 +35,41 @@ public class PoolConfig {
     public static PoolConfig config(int maxPoolSize,int maxIdle,
                               int minIdle,long keepAliveTime){
         PoolConfig config = new PoolConfig();
-        config.maxPoolSize = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
+        config.maxActive = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
         config.minIdle = minIdle<=0?0:minIdle;
         config.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
-        config.keepAliveTime = keepAliveTime<=0?60:keepAliveTime;
+        config.maxWait = keepAliveTime<=0?60:keepAliveTime;
         return config;
     }
 
     public static PoolConfig config(Properties prop){
         PoolConfig config = new PoolConfig();
-        int maxPoolSize = prop.getProperty(MAXPOOLSIZE)==null?
-                Runtime.getRuntime().availableProcessors()*4:Integer.parseInt(prop.getProperty(MAXPOOLSIZE));
+        int maxPoolSize = prop.getProperty(MAXACTIVE)==null?
+                Runtime.getRuntime().availableProcessors()*4:Integer.parseInt(prop.getProperty(MAXACTIVE));
         int minIdle = prop.getProperty(MINIDLE)==null?
                 0:Integer.parseInt(prop.getProperty(MINIDLE));
-        int maxIdle = prop.getProperty(MAXIDLE)==null?
-                512:Integer.parseInt(prop.getProperty(MAXIDLE));
-        int keepAliveTime = prop.getProperty(KEEPALIVETIME)==null?
-                60:Integer.parseInt(prop.getProperty(KEEPALIVETIME));
-        config.maxPoolSize = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
+        int maxIdle = prop.getProperty(INITIAL_SIZE)==null?
+                512:Integer.parseInt(prop.getProperty(INITIAL_SIZE));
+        int keepAliveTime = prop.getProperty(MAXWAIT)==null?
+                60:Integer.parseInt(prop.getProperty(MAXWAIT));
+        config.maxActive = maxPoolSize<=0?Integer.MAX_VALUE:maxPoolSize;
         config.minIdle = minIdle<=0?0:minIdle;
         config.maxIdle = maxIdle<=0?Integer.MAX_VALUE:maxIdle;
-        config.keepAliveTime = keepAliveTime<=0?60:keepAliveTime;
+        config.maxWait = keepAliveTime<=0?60:keepAliveTime;
         ConnConfig.config(prop);
         return config;
     }
 
     public Properties getProperties(){
-        properties.setProperty(MAXPOOLSIZE,String.valueOf(maxPoolSize));
+        properties.setProperty(MAXACTIVE,String.valueOf(maxActive));
         properties.setProperty(MINIDLE,String.valueOf(maxIdle));
-        properties.setProperty(MAXIDLE,String.valueOf(maxIdle));
-        properties.setProperty(KEEPALIVETIME,String.valueOf(keepAliveTime));
+        properties.setProperty(INITIAL_SIZE,String.valueOf(maxIdle));
+        properties.setProperty(MAXWAIT,String.valueOf(maxWait));
         return properties;
     }
 
-    public int getMaxPoolSize() {
-        return maxPoolSize;
+    public int getMaxActive() {
+        return maxActive;
     }
 
     public int getMinIdle() {
@@ -80,14 +80,14 @@ public class PoolConfig {
         return maxIdle;
     }
 
-    public long getKeepAliveTime() {
-        return keepAliveTime;
+    public long getMaxWait() {
+        return maxWait;
     }
 
     public void print() {
-        System.out.println("maxPoolSize:"+maxPoolSize+
+        System.out.println("maxActive:"+ maxActive +
                 "\nmaxIdle:"+maxIdle+
                 "\nminIdle:"+minIdle+
-                "\nkeepAliveTime:"+keepAliveTime);
+                "\nmaxWait:"+ maxWait);
     }
 }

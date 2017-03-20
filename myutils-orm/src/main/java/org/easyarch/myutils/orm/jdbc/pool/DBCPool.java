@@ -44,10 +44,10 @@ public class DBCPool extends DataSourceAdapter{
     }
 
     public DBCPool(PoolConfig config){
-        maxPoolSize = config.getMaxPoolSize();
+        maxPoolSize = config.getMaxActive();
         minIdle = config.getMinIdle();
         maxIdle = config.getMaxIdle();
-        keepAliveTime = config.getKeepAliveTime();
+        keepAliveTime = config.getMaxWait();
         conpool = new ConcurrentLinkedQueue<Connection>();
         idleQueue = new LinkedBlockingQueue<Connection>();
         initQueue();
@@ -141,7 +141,7 @@ public class DBCPool extends DataSourceAdapter{
     protected synchronized Connection createConnection() {
         try {
             Connection conn = DriverManager.getConnection(ConnConfig.getUrl()
-                    , ConnConfig.getUser(), ConnConfig.getPassword());
+                    , ConnConfig.getUsername(), ConnConfig.getPassword());
             long id = CodecUtils.hash(conn.toString());
             ConnectionWrapper wrapper = new ConnectionWrapper(id,conn);
             RealCPool.getConnections().add(wrapper);

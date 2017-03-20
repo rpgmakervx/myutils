@@ -131,16 +131,31 @@ public class CollectionUtils {
     }
 
     /**
-     * 给maplist降低维度到统一的map中
+     * 聚合操作，给maplist降低维度到统一的map中
      * @param mapList
      * @return
      */
-    public static Map<String,Object> flatMapLists(List<Map<String,Object>> mapList){
-        Map<String,Object> flatMap = new HashMap<>();
+    public static Map<String,Object> collectMapLists(List<Map<String,Object>> mapList){
+        Map<String,Object> collectMap = new HashMap<>();
         for (Map<String,Object> map:mapList){
-            flatMap.putAll(map);
+            collectMap.putAll(map);
         }
-        return flatMap;
+        return collectMap;
+    }
+
+    /**
+     * 平铺操作，将map中的每个元素作为一个键值放入list
+     * @param flatMap
+     * @return
+     */
+    public static List<Map<String,Object>> flatMapLists(Map<String,Object> flatMap){
+        List<Map<String,Object>> mapList = new ArrayList<>();
+        for (Map.Entry<String,Object> entry : flatMap.entrySet()){
+            Map<String,Object> map = new HashMap<>();
+            map.put(entry.getKey(),entry.getValue());
+            mapList.add(map);
+        }
+        return mapList;
     }
 
     /**

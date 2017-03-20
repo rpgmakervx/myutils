@@ -1,7 +1,9 @@
 /**
- * Description :
- * Created by code4j on 17-1-28
- *  上午1:35
+ * api:
+ * js默认的对象：ctx
+ * ctx.where: 默认值为where 1 = 1 用
+ *            来拼接 sql语句，减少是否需要加and的判断操作
+ * ctx.namespace 用默认为空，来指定js的namespace
  */
 ctx.namespace = "org.easyarch.myutils.test.dao.UserMapper";
 
@@ -12,10 +14,10 @@ function findById(params){
 function findByUser(params) {
     var sql = "select * from user" + ctx.where;
     if (params.clientId != undefined){
-        sql += "client_id = $clientId$ and";
+        sql += " and client_id = $clientId$";
     }
     if (params.phone != undefined){
-        sql += "phone = phone";
+        sql += " and phone = $phone$";
     }
     return sql;
 }
@@ -23,4 +25,22 @@ function findByUser(params) {
 function insert(params){
     return "insert into user(client_id,username,password,phone) " +
         "values($clientId$,$userName$,$password$,$phone$)"
+}
+
+function update(params){
+    var sql = "update user set ";
+    if (params.userName != undefined){
+        sql += "username = $userName$"
+    }
+    if (params.phone != undefined){
+        sql += ", phone = $phone$"
+    }
+    if(params.password != undefined){
+        sql += " , password = $password$"
+    }
+    return sql;
+}
+
+function deleteById(params){
+    return "delete from user where client_id = $clientId$";
 }

@@ -42,4 +42,12 @@ public class UserService {
     public void saveUser(User user){
         mapper.insert(user);
     }
+
+    public void update(User user){
+        mapper.update(user);
+    }
+
+    public void deleteById(String id){
+        mapper.deleteById(id);
+    }
 }
