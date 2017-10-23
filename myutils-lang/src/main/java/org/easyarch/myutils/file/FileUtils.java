@@ -398,9 +398,17 @@ public class FileUtils {
         return displaySize;
     }
 
-    public static void main(String[] args) {
-        System.out.println(Short.MAX_VALUE);
-//        System.out.println(getBottomDir("/home/code4j/IDEAWorkspace/myutils/myutils-db/target/classes/mapper/sqlmapper.js"));;
+    public static List<String> getLines(String filePath) throws Exception {
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        StringBuffer buffer = new StringBuffer();
+        String line = "";
+        List<String> lines = new ArrayList<>();
+        while ((line = reader.readLine()) != null){
+            lines.add(line);
+        }
+        reader.close();
+        return lines;
+
     }
 
 }
