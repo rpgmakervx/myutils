@@ -17,6 +17,7 @@ import java.util.List;
 
 public class SelectionSort extends AbstractSort {
 
+    @Override
     public void sort(List<Integer> list, boolean desc) {
         int length = list.size();
         for (int outIndex = 0; outIndex < length; outIndex++) {
@@ -32,6 +33,7 @@ public class SelectionSort extends AbstractSort {
         }
     }
 
+    @Override
     public void sort(Integer[] list, boolean desc) {
         int length = list.length;
         for (int outIndex = 0; outIndex < length; outIndex++) {

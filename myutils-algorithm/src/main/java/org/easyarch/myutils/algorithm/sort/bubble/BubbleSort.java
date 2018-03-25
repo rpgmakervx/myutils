@@ -14,6 +14,8 @@ import java.util.List;
  */
 
 public class BubbleSort extends AbstractSort {
+
+    @Override
     public void sort(List<Integer> list, boolean desc) {
         int length = list.size();
         for (int outIndex = 0; outIndex < length; outIndex++) {
@@ -37,6 +39,7 @@ public class BubbleSort extends AbstractSort {
      * @param list
      * @param desc
      */
+    @Override
     public void sort(Integer[] list, boolean desc) {
         int length = list.length;
         for (int outIndex = 0; outIndex < length; outIndex++) {

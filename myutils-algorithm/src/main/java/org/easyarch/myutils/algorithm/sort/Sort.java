@@ -15,7 +15,4 @@ public interface Sort {
 
     public void sort(Integer[] list,boolean desc);
 
-    public void swap(Integer[] list,int left,int right);
-    public void swap(List<Integer> list,int left,int right);
-
 }

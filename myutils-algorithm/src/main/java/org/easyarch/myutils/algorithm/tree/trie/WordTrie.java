@@ -144,8 +144,8 @@ public class WordTrie implements ITrie<WordEntity> {
             WordEntity e = new WordEntity(word);
             trie.insert(e);
         }
-        long begin = System.nanoTime();
-        System.out.println(trie.search("jingqing"));
-        System.out.println("COST:"+(System.nanoTime() - begin));
+        long begin = System.currentTimeMillis();
+        System.out.println(trie.search("weixiu"));
+        System.out.println("COST:"+(System.currentTimeMillis() - begin));
     }
 }
