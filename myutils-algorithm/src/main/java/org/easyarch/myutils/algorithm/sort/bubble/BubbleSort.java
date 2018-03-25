@@ -9,6 +9,8 @@ import java.util.List;
  * Created by xingtianyu on 17-1-5
  * 下午5:41
  * description:
+ * 相邻两组数值进行对比，正序排序，则后者小于前者时交换元素顺序。
+ * 如果在一轮冒泡中没有产生一次交换，则说明已经有序，排序停止。
  */
 
 public class BubbleSort extends AbstractSort {

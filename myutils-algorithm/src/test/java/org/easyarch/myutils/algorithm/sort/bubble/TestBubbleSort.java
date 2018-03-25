@@ -15,7 +15,8 @@ public class TestBubbleSort {
 
     @Test
     public void testBubble(){
-        Integer[] integers = new Integer[]{8, 3, 1, 5, 6, 0, 4, 7, 2, 9};
+//        Integer[] integers = new Integer[]{8, 3, 1, 5, 6, 0, 4, 7, 2, 9};
+        Integer[] integers = new Integer[]{0,1,2,3,4,5,6};
         BubbleSort sort = new BubbleSort();
         sort.sort(integers,false);
         ArrayUtils.foreach(integers, new LoopHandler<Integer>() {

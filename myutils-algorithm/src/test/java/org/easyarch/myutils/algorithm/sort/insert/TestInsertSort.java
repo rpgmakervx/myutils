@@ -30,8 +30,9 @@ public class TestInsertSort {
     @Test
     public void testInsertionList(){
         InsertionSort sort = new InsertionSort();
-        List<Integer> integerList = CollectionUtils.newArrayList(8,4,9,7,2,5,6,1,0,3);
-        sort.sort(integerList,true);
+//        List<Integer> integerList = CollectionUtils.newArrayList(8,4,9,7,2,5,6,1,0,3);
+        List<Integer> integerList = CollectionUtils.newArrayList(8,7,6,5,4,3,2,0,0);
+        sort.sort(integerList,false);
         for (Integer i:integerList){
             System.out.println(i);
         }
