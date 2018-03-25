@@ -22,8 +22,7 @@ public class QuickSort extends AbstractSort{
 
     @Override
     public void sort(Integer[] list, boolean desc) {
-        this.desc = desc;
-        quickSort(list,0,list.length - 1);
+        sort(list,0,list.length - 1);
     }
 
     /**
@@ -32,27 +31,31 @@ public class QuickSort extends AbstractSort{
      * @param begin
      * @param end
      */
-    private void quickSort(Integer[] list,int begin,int end){
+    private int partition(Integer[] list,int begin,int end){
         int lower = begin;
         int upper = end;
-        if (lower >= upper){
-            return;
-        }
         Integer base = list[begin];
         while (lower < upper){
-            while (list[upper] >= base && upper > lower){
+            while (list[upper] >= base && lower < upper){
                 upper--;
             }
             list[lower] = list[upper];
-            while (list[lower] <= base && upper > lower){
+            while (list[lower] <= base && lower < upper){
                 lower++;
             }
             list[upper] = list[lower];
         }
         list[upper] = base;
-        System.out.println(Arrays.asList(list));
-        quickSort(list,begin,lower-1);
-        quickSort(list,upper+1,end);
-
+        return upper;
     }
+
+    private void sort(Integer[] list,int begin,int end){
+        if (begin > end){
+            return;
+        }
+        int position = partition(list,begin,end);
+        sort(list,begin,position - 1);
+        sort(list,position + 1,end);
+    }
+
 }
