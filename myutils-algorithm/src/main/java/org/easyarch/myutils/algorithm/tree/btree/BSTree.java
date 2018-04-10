@@ -1,12 +1,11 @@
-package org.easyarch.myutils.algorithm.tree.simple;
+package org.easyarch.myutils.algorithm.tree.btree;
 
 /**
  * Created by xingtianyu on 2018/3/26.
  */
-public class Tree<E extends Comparable> {
+public class BSTree<E extends Comparable> {
 
     private TreeNode<E> root ;
-
 
     public void add(E elem){
         if (elem == null){

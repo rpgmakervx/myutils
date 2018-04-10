@@ -160,11 +160,11 @@ public class AsyncHttpUtils {
     }
 
     public byte[] getContentAsStream() {
+        System.out.println("wait for data");
         ResponseFuture<FullHttpResponse> responseFuture =
                 HttpResponseManager.getAttr(channel);
         try {
             FullHttpResponse response = responseFuture.get();
-            System.out.println("response : "+response.content().readableBytes());
             return getContent(response);
         } catch (Exception e) {
             e.printStackTrace();

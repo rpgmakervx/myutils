@@ -31,10 +31,12 @@ public class TestHttp {
 //        System.out.println(uri.getHost());
         AsyncHttpUtils utils = new AsyncHttpUtils();
 //        URL url = new URL("http://localhost:9524/");
-        URL url = new URL("http://www.baidu.com/");
+        URL url = new URL("http://10.37.17.3:30147/all/capacity");
+
+        long begin = System.currentTimeMillis();
         utils.get(url.toString(),null);
-        String content = new String(utils.getContentAsStream());
-        System.out.println(content);
+        System.out.println("cost:"+(System.currentTimeMillis() - begin));
+        String contents = new String(utils.getContentAsStream());
 
     }
 
@@ -42,25 +44,14 @@ public class TestHttp {
     public void testHttpClient() throws IOException {
         HttpClient client = new DefaultHttpClient();
         // 实例化HTTP方法
-        HttpGet request = new HttpGet("https://www.baidu.com");
+        HttpGet request = new HttpGet("http://10.37.17.3:30147/all/capacity");
         System.out.println("request:"+request);
         Header[] headers = request.getAllHeaders();
         System.out.println("headers:"+headers.length);
-        for (Header h :headers){
-            System.out.println(h.getName()+" : "+h.getValue());
-        }
         System.out.println("....................");
+        long begin = System.currentTimeMillis();
         HttpResponse response = client.execute(request);
+        System.out.println("cost:"+(System.currentTimeMillis() - begin));
         InputStream is = response.getEntity().getContent();
-        BufferedReader in = new BufferedReader(new InputStreamReader(is));
-        String line = "";
-        String NL = System.getProperty("line.separator");
-        StringBuffer sb = new StringBuffer("");
-        while ((line = in.readLine()) != null) {
-            sb.append(line + "\n");
-        }
-        in.close();
-        String content = sb.toString();
-        System.out.println(content);
     }
 }

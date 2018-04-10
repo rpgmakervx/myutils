@@ -19,12 +19,11 @@ public class HttpClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         FullHttpResponse response = (FullHttpResponse) msg;
-        System.out.println("收到响应");
         channelRead0(ctx, response);
         ByteBuf buf = response.content();
         byte[] bytes = new byte[buf.readableBytes()];
         buf.readBytes(bytes);
-        System.out.println("content:\n"+new String(bytes));
+        System.out.println("get data from server!!");
     }
 
     protected void channelRead0(ChannelHandlerContext ctx, FullHttpResponse response) throws Exception {
