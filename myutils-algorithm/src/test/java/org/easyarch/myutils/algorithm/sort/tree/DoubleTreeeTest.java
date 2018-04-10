@@ -18,8 +18,8 @@ public class DoubleTreeeTest {
         tree.add(new User("fff",28));
         tree.add(new User("ggg",24));
         tree.add(new User("hhh",22));
-        System.out.println(tree.find(new User("sss",18)).getName());
-//        tree.iterate();
+        System.out.println("find:"+tree.find(new User("sss",23)));
+        tree.iterate();
 
     }
 }
