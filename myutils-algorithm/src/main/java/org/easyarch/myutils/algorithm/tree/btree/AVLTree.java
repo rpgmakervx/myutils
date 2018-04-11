@@ -66,22 +66,22 @@ public class AVLTree<E extends Comparable> {
         }
         //左深右浅，LL/LR
         if (factor >= THRESHOLD){
-            if (newNode.elem.compareTo(currentNode.elem) > 0){
+            if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.left.elem) > 0){
                 //LR，先左旋再右旋
                 leftRotate(currentNode);
                 rightRotate(currentNode);
-            }else{
-               //LL
+            }else if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.left.elem) < 0){
+                //LL
                 rightRotate(currentNode);
             }
             return ;
         }
         if (factor <= -THRESHOLD){
-            if (newNode.elem.compareTo(currentNode.elem) > 0){
+            if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.right.elem) < 0){
                 //RL，先右旋再左旋
                 rightRotate(currentNode);
                 leftRotate(currentNode);
-            }else{
+            }else if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.right.elem) > 0){
                 //RR
                 leftRotate(currentNode);
             }
@@ -99,23 +99,24 @@ public class AVLTree<E extends Comparable> {
         TreeNode<E> cParent = currentNode.parent;
         //父节点指向新的子节点前先判断是绑定到左子树还是右子树
         if (cParent != null){
-            if (cParent.left.elem.compareTo(cRight.elem) == 0){
-                cParent.right = cRight;
-            }else if (cParent.right.elem.compareTo(cRight.elem) == 0){
+            if (cParent.left.elem.compareTo(currentNode.elem) == 0){
                 cParent.left = cRight;
+            }else if (cParent.right.elem.compareTo(currentNode.elem) == 0){
+                cParent.right = cRight;
             }
             cRight.parent = cParent;
         }else{
             cRight.parent = null;
             this.root = cRight;
         }
-        cRight.left = currentNode;
         if (cRight.left != null){
             currentNode.right = cRight.left;
             cRight.left.parent = currentNode;
+        }else{
+            currentNode.right = null;
         }
+        cRight.left = currentNode;
         currentNode.parent = cRight;
-        currentNode.right = null;
     }
 
     /**

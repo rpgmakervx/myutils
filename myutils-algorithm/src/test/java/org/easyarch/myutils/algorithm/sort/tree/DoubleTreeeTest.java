@@ -10,14 +10,16 @@ public class DoubleTreeeTest {
 
     public static void main(String[] args) {
         AVLTree<User> tree = new AVLTree();
-        tree.add(new User("aaa",20));
-        tree.add(new User("bbb",17));
-        tree.add(new User("ccc",11));
-        tree.add(new User("ddd",18));
-        tree.add(new User("eee",16));
-        tree.add(new User("fff",28));
-        tree.add(new User("ggg",24));
-        tree.add(new User("hhh",22));
+        tree.add(new User("aaa",1));
+        tree.add(new User("bbb",2));
+        tree.add(new User("ccc",3));
+        tree.add(new User("ddd",4));
+        tree.add(new User("eee",5));
+        tree.add(new User("fff",6));
+        tree.add(new User("ggg",7));
+        tree.add(new User("hhh",8));
+        tree.add(new User("hhh",9));
+        tree.add(new User("hhh",10));
         System.out.println("find:"+tree.find(new User("sss",23)));
         tree.iterate();
 
