@@ -41,7 +41,7 @@ public class AVLTree<E extends Comparable> {
             }else{
                 return add(currentNode.right,elem);
             }
-        }else{
+        }else if (elem.compareTo(currentNode.elem) < 0){
             if (currentNode.left == null){
                 currentNode.left = new TreeNode(null,elem,null,currentNode);
                 rebalance(currentNode,currentNode.left);
@@ -50,6 +50,8 @@ public class AVLTree<E extends Comparable> {
                 return add(currentNode.left,elem);
             }
         }
+        //等于当前节点插入失败
+        return null;
     }
 
     private void rebalance(TreeNode<E> currentNode,TreeNode<E> newNode){
@@ -91,7 +93,11 @@ public class AVLTree<E extends Comparable> {
     }
 
     /**
-     * 当前节点向左旋转
+     * 当前节点向左旋转，目标是为了通过移动指针将相应的子树根节点调整到合适位置
+     * 1.当前节点是否是根节点，不是，则判断当前节点在它父节点的哪一测，左侧则将当前节点右子树的根节点绑定到父节点的左侧；右侧则将当前节点右子树的根节点绑定到父节点的右侧。
+     * 2.是根节点则直接将当前节点右子树根节点作为当前树的根节点，并设置它的父节点为空（因为他已经是顶级根节点）。
+     * 3.如果当前节点的右子树还有左孩子，则将左孩子绑定到当前节点右侧，并将这个左孩子的父节点指向当前节点。否则，当前节点右侧为空
+     * 3.当前节点指向当前节点右子树根节点的左侧，当前节点的父节点指向当前节点的右子树的根目录
      * @param currentNode
      */
     private void leftRotate(TreeNode<E> currentNode){
@@ -106,9 +112,11 @@ public class AVLTree<E extends Comparable> {
             }
             cRight.parent = cParent;
         }else{
+            //当前节点为根节点的情况
             cRight.parent = null;
             this.root = cRight;
         }
+        //当前节点包括一个左分支的情况
         if (cRight.left != null){
             currentNode.right = cRight.left;
             cRight.left.parent = currentNode;
@@ -141,8 +149,9 @@ public class AVLTree<E extends Comparable> {
         if (cLeft.right != null){
             currentNode.left = cLeft.right;
             cLeft.right.parent = currentNode;
+        }else{
+            cLeft.right = currentNode;
         }
-        cLeft.right = currentNode;
         currentNode.parent = cLeft;
         currentNode.left = null;
     }
@@ -184,6 +193,104 @@ public class AVLTree<E extends Comparable> {
         }
     }
 
+    public boolean remove(E elem){
+        if (elem == null){
+            return false;
+        }
+        if (root == null){
+            return false;
+        }
+        TreeNode currentNode = root;
+        return remove(currentNode,elem);
+    }
+
+    private boolean remove(TreeNode<E> currentNode,E elem){
+        if (currentNode == null){
+            return false;
+        }
+        if (elem.compareTo(currentNode.elem)>0){
+            return remove(currentNode.right,elem);
+        }else if (elem.compareTo(currentNode.elem)<0){
+            return remove(currentNode.left,elem);
+        }else{
+            TreeNode<E> cParent = currentNode.parent;
+            //被删除节点是叶子节点
+            if (currentNode.left == null && currentNode.right == null){
+                if (cParent.left == currentNode){
+                    cParent.left = null;
+                }else if (cParent.right == currentNode){
+                    cParent.right = null;
+                }
+                currentNode.free();
+                return true;
+            }
+            //被删除节点有左叶子
+            if (currentNode.left != null && currentNode.right == null){
+                TreeNode<E> cLeft = currentNode.left;
+                cLeft.parent = currentNode.parent;
+                currentNode.parent.left = cLeft;
+                currentNode.free();
+                return true;
+            }
+            //被删除节点有右叶子
+            if (currentNode.left == null && currentNode.right != null){
+                TreeNode<E> cRight = currentNode.right;
+                cRight.parent = currentNode.parent;
+                currentNode.parent.right = cRight;
+                currentNode.free();
+                return true;
+            }
+            //被删除节点存在左右子树
+            TreeNode<E> promotedNode = promoteNode(currentNode,currentNode);
+            //被删除的是根
+            if (cParent == null){
+                promotedNode.parent = null;
+            }else{
+                promotedNode.parent = currentNode.parent;
+            }
+            if (currentNode.left != promotedNode){
+                promotedNode.left = currentNode.left;
+                currentNode.left.parent = promotedNode;
+            }
+            if (currentNode.right != promotedNode){
+                promotedNode.right = currentNode.right;
+                currentNode.right.parent = promotedNode;
+            }
+            if (cParent.left == currentNode){
+                cParent.left = promotedNode;
+            }else if (cParent.right == currentNode){
+                cParent.right = promotedNode;
+            }
+
+            currentNode.free();
+            return true;
+        }
+    }
+
+    /**
+     * 寻找当前节点的子树中
+     * @param currentNode
+     * @param deletedNode
+     * @return
+     */
+    private TreeNode<E> promoteNode(TreeNode<E> currentNode,TreeNode<E> deletedNode){
+        if (currentNode == null){
+            return null;
+        }
+        if (currentNode == deletedNode){
+            TreeNode<E> rightNode = currentNode.right;
+            if (rightNode == null){
+                return currentNode.left == null?currentNode:currentNode.left;
+            }
+            return promoteNode(rightNode,deletedNode);
+        }
+        TreeNode<E> leftNode = currentNode.left;
+        if (leftNode == null){
+            return currentNode;
+        }
+        return promoteNode(leftNode,deletedNode);
+    }
+
     public void iterate(){
         iterate(root);
     }
@@ -212,6 +319,13 @@ public class AVLTree<E extends Comparable> {
             this.elem = elem;
             this.right = right;
             this.parent = parent;
+        }
+
+        public void free(){
+            this.left = null;
+            this.right = null;
+            this.parent = null;
+            this.elem = null;
         }
     }
 }

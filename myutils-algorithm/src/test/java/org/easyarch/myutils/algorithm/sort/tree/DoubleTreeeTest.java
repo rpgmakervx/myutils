@@ -20,7 +20,8 @@ public class DoubleTreeeTest {
         tree.add(new User("hhh",8));
         tree.add(new User("hhh",9));
         tree.add(new User("hhh",10));
-        System.out.println("find:"+tree.find(new User("sss",23)));
+        tree.iterate();
+        System.out.println("remove:"+tree.remove(new User("sss",8)));
         tree.iterate();
 
     }
