@@ -207,7 +207,11 @@ public class AVLTree<E extends Comparable> {
             return false;
         }
         TreeNode currentNode = root;
-        return remove(currentNode,elem);
+        boolean removed = remove(currentNode,elem);
+        if (removed){
+            rebalance(currentNode,currentNode);
+        }
+        return removed;
     }
 
     private boolean remove(TreeNode<E> currentNode,E elem){
