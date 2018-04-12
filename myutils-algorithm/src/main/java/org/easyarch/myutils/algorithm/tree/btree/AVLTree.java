@@ -70,7 +70,7 @@ public class AVLTree<E extends Comparable> {
         if (factor >= THRESHOLD){
             if (newNode.elem.compareTo(currentNode.elem) < 0 && newNode.elem.compareTo(currentNode.left.elem) > 0){
                 //LR，先左旋再右旋
-                leftRotate(currentNode);
+                leftRotate(currentNode.left);
                 rightRotate(currentNode);
             }else if (newNode.elem.compareTo(currentNode.elem) < 0 && newNode.elem.compareTo(currentNode.left.elem) < 0){
                 //LL
@@ -81,7 +81,7 @@ public class AVLTree<E extends Comparable> {
         if (factor <= -THRESHOLD){
             if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.right.elem) < 0){
                 //RL，先右旋再左旋
-                rightRotate(currentNode);
+                rightRotate(currentNode.right);
                 leftRotate(currentNode);
             }else if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.right.elem) > 0){
                 //RR
@@ -105,9 +105,10 @@ public class AVLTree<E extends Comparable> {
         TreeNode<E> cParent = currentNode.parent;
         //父节点指向新的子节点前先判断是绑定到左子树还是右子树
         if (cParent != null){
-            if (cParent.left.elem.compareTo(currentNode.elem) == 0){
+            //记得判断左边或右边为空的情况，空则认为不是那一侧的
+            if (cParent.left != null && currentNode.elem.compareTo(cParent.left.elem) == 0){
                 cParent.left = cRight;
-            }else if (cParent.right.elem.compareTo(currentNode.elem) == 0){
+            }else if (cParent.right != null && currentNode.elem.compareTo(cParent.right.elem) == 0){
                 cParent.right = cRight;
             }
             cRight.parent = cParent;
@@ -128,7 +129,7 @@ public class AVLTree<E extends Comparable> {
     }
 
     /**
-     * 当前节点向右旋转
+     * 当前节点向右旋转,同左
      * @param currentNode
      */
     private void rightRotate(TreeNode<E> currentNode){
@@ -136,9 +137,10 @@ public class AVLTree<E extends Comparable> {
         TreeNode<E> cParent = currentNode.parent;
         //当前节点不是root节点,则直接把当前节点的父作为左子树的父，把父节点的左子树指向当前节点左子树.否则左子树作为root节点
         if (cParent != null){
-            if (cParent.left.elem.compareTo(currentNode.elem) == 0){
+            //记得判断左边或右边为空的情况，空则认为不是那一侧的
+            if (cParent.left!= null && currentNode.elem.compareTo(cParent.left.elem) == 0){
                 cParent.left = cLeft;
-            }else if (cParent.right.elem.compareTo(currentNode.elem) == 0){
+            }else if (cParent.right != null && currentNode.elem.compareTo(cParent.right.elem) == 0){
                 cParent.right = cLeft;
             }
             cLeft.parent = cParent;
