@@ -55,7 +55,7 @@ public class AVLTree<E extends Comparable> {
     }
 
     private void rebalance(TreeNode<E> currentNode,TreeNode<E> newNode){
-        if (currentNode == null||newNode == null){
+        if (currentNode == null){
             return;
         }
         int lDeep = deep(currentNode.left);
@@ -68,6 +68,10 @@ public class AVLTree<E extends Comparable> {
         }
         //左深右浅，LL/LR
         if (factor >= THRESHOLD){
+            if (newNode == null){
+                rightRotate(currentNode);
+                return ;
+            }
             if (newNode.elem.compareTo(currentNode.elem) < 0 && newNode.elem.compareTo(currentNode.left.elem) > 0){
                 //LR，先左旋再右旋
                 leftRotate(currentNode.left);
@@ -79,6 +83,10 @@ public class AVLTree<E extends Comparable> {
             return ;
         }
         if (factor <= -THRESHOLD){
+            if (newNode == null){
+                leftRotate(currentNode);
+                return;
+            }
             if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.right.elem) < 0){
                 //RL，先右旋再左旋
                 rightRotate(currentNode.right);
@@ -207,11 +215,7 @@ public class AVLTree<E extends Comparable> {
             return false;
         }
         TreeNode currentNode = root;
-        boolean removed = remove(currentNode,elem);
-        if (removed){
-            rebalance(currentNode,currentNode);
-        }
-        return removed;
+        return remove(currentNode,elem);
     }
 
     private boolean remove(TreeNode<E> currentNode,E elem){
@@ -232,6 +236,7 @@ public class AVLTree<E extends Comparable> {
                     cParent.right = null;
                 }
                 currentNode.free();
+                rebalance(cParent,null);
                 return true;
             }
             //被删除节点有左叶子
@@ -240,6 +245,7 @@ public class AVLTree<E extends Comparable> {
                 cLeft.parent = currentNode.parent;
                 currentNode.parent.left = cLeft;
                 currentNode.free();
+                rebalance(cParent,null);
                 return true;
             }
             //被删除节点有右叶子
@@ -248,10 +254,18 @@ public class AVLTree<E extends Comparable> {
                 cRight.parent = currentNode.parent;
                 currentNode.parent.right = cRight;
                 currentNode.free();
+                rebalance(cParent,null);
                 return true;
             }
             //被删除节点存在左右子树
             TreeNode<E> promotedNode = promoteNode(currentNode,currentNode);
+            TreeNode<E> pParent = promotedNode.parent;
+            //断开提升节点和父节点的关系
+            if (promotedNode.parent.left == promotedNode){
+                promotedNode.parent.left = null;
+            }else if (promotedNode.parent.right == promotedNode){
+                promotedNode.parent.right = null;
+            }
             //被删除的是根
             if (cParent == null){
                 promotedNode.parent = null;
@@ -266,13 +280,15 @@ public class AVLTree<E extends Comparable> {
                 promotedNode.right = currentNode.right;
                 currentNode.right.parent = promotedNode;
             }
-            if (cParent.left == currentNode){
+            this.root = promotedNode;
+            if (cParent != null && cParent.left == currentNode){
                 cParent.left = promotedNode;
-            }else if (cParent.right == currentNode){
+            }else if (cParent != null && cParent.right == currentNode){
                 cParent.right = promotedNode;
             }
 
             currentNode.free();
+            rebalance(pParent,null);
             return true;
         }
     }
