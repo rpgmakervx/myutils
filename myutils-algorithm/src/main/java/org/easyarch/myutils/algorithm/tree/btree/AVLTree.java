@@ -68,11 +68,11 @@ public class AVLTree<E extends Comparable> {
         }
         //左深右浅，LL/LR
         if (factor >= THRESHOLD){
-            if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.left.elem) > 0){
+            if (newNode.elem.compareTo(currentNode.elem) < 0 && newNode.elem.compareTo(currentNode.left.elem) > 0){
                 //LR，先左旋再右旋
                 leftRotate(currentNode);
                 rightRotate(currentNode);
-            }else if (newNode.elem.compareTo(currentNode.elem) > 0 && newNode.elem.compareTo(currentNode.left.elem) < 0){
+            }else if (newNode.elem.compareTo(currentNode.elem) < 0 && newNode.elem.compareTo(currentNode.left.elem) < 0){
                 //LL
                 rightRotate(currentNode);
             }
@@ -146,14 +146,18 @@ public class AVLTree<E extends Comparable> {
             cLeft.parent = null;
             this.root = cLeft;
         }
+        //上升的节点有右子树
         if (cLeft.right != null){
+            //上升节点的右子树挂到下沉节点的左侧
             currentNode.left = cLeft.right;
+            //上一步挂到下沉节点左侧的节点，其父节点指向下沉节点
             cLeft.right.parent = currentNode;
         }else{
-            cLeft.right = currentNode;
+            currentNode.left = null;
         }
+        //下沉节点挂到上升节点的右侧
+        cLeft.right = currentNode;
         currentNode.parent = cLeft;
-        currentNode.left = null;
     }
 
     private int deep(TreeNode<E> currentNode){
