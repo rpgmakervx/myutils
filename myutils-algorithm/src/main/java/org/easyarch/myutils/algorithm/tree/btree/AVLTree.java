@@ -29,6 +29,9 @@ public class AVLTree<E extends Comparable> {
 
 
     private TreeNode<E> add(TreeNode<E> currentNode, E elem){
+        if (elem == null){
+            return null;
+        }
         if (root == null){
             root = new TreeNode<>(null,elem,null,null);
             return null;
@@ -36,7 +39,8 @@ public class AVLTree<E extends Comparable> {
         if (elem.compareTo(currentNode.elem) > 0){
             if (currentNode.right == null){
                 currentNode.right = new TreeNode(null,elem,null,currentNode);
-                rebalance(currentNode,currentNode.right);
+//                rebalance(currentNode,currentNode.right);
+                rebalance(currentNode);
                 return currentNode;
             }else{
                 return add(currentNode.right,elem);
@@ -44,7 +48,8 @@ public class AVLTree<E extends Comparable> {
         }else if (elem.compareTo(currentNode.elem) < 0){
             if (currentNode.left == null){
                 currentNode.left = new TreeNode(null,elem,null,currentNode);
-                rebalance(currentNode,currentNode.left);
+//                rebalance(currentNode,currentNode.left);
+                rebalance(currentNode);
                 return currentNode;
             }else{
                 return add(currentNode.left,elem);
@@ -170,6 +175,50 @@ public class AVLTree<E extends Comparable> {
         currentNode.parent = cLeft;
     }
 
+    private void rebalance(TreeNode<E> currentNode){
+        if (currentNode == null){
+            return;
+        }
+        int lDeep = deep(currentNode.left);
+        int rDeep = deep(currentNode.right);
+        int factor = lDeep - rDeep;
+        // already balanced
+        if (Math.abs(factor) < THRESHOLD){
+            rebalance(currentNode.parent);
+            return ;
+        }
+        //左边比右边高，左边一定不会是空
+        if (factor >= THRESHOLD){
+            int llDeep = deep(currentNode.left.left);
+            int lrDeep = deep(currentNode.left.right);
+            int cFactor = llDeep - lrDeep;
+            if (cFactor > EMPTY){
+                //LL 模式
+                rightRotate(currentNode);
+            }else if (cFactor < EMPTY){
+                //LR 模式
+                leftRotate(currentNode.left);
+                rightRotate(currentNode);
+            }else {
+                System.out.println("that is impossible! currentNode:"+currentNode.elem);
+            }
+            return ;
+        }
+        //右边比左边高，右边一定不为空
+        if (factor <= -THRESHOLD){
+            int rlDeep = deep(currentNode.right.left);
+            int rrDeep = deep(currentNode.right.right);
+            int cFactor = rrDeep - rlDeep;
+            if (cFactor > EMPTY){
+                leftRotate(currentNode);
+            }else if (cFactor < EMPTY){
+                rightRotate(currentNode);
+                leftRotate(currentNode);
+            }
+            return;
+        }
+    }
+
     private int deep(TreeNode<E> currentNode){
         if (currentNode == null){
             return EMPTY;
@@ -260,6 +309,16 @@ public class AVLTree<E extends Comparable> {
             //被删除节点存在左右子树
             TreeNode<E> promotedNode = promoteNode(currentNode,currentNode);
             TreeNode<E> pParent = promotedNode.parent;
+
+            promotedNode.left = currentNode.left;
+            currentNode.left.parent = promotedNode;
+            promotedNode.right = currentNode.right;
+            currentNode.right.parent = promotedNode;
+//            if (currentNode.left != promotedNode){
+//            }
+//            if (currentNode.right != promotedNode){
+//            }
+
             //断开提升节点和父节点的关系
             if (promotedNode.parent.left == promotedNode){
                 promotedNode.parent.left = null;
@@ -269,18 +328,11 @@ public class AVLTree<E extends Comparable> {
             //被删除的是根
             if (cParent == null){
                 promotedNode.parent = null;
+                this.root = promotedNode;
             }else{
                 promotedNode.parent = currentNode.parent;
             }
-            if (currentNode.left != promotedNode){
-                promotedNode.left = currentNode.left;
-                currentNode.left.parent = promotedNode;
-            }
-            if (currentNode.right != promotedNode){
-                promotedNode.right = currentNode.right;
-                currentNode.right.parent = promotedNode;
-            }
-            this.root = promotedNode;
+
             if (cParent != null && cParent.left == currentNode){
                 cParent.left = promotedNode;
             }else if (cParent != null && cParent.right == currentNode){
