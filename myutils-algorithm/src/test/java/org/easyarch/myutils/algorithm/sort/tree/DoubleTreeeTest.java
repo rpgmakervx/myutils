@@ -1,7 +1,6 @@
 package org.easyarch.myutils.algorithm.sort.tree;
 
-import org.easyarch.myutils.algorithm.tree.btree.AVLTree;
-import org.easyarch.myutils.algorithm.tree.btree.BSTree;
+import org.easyarch.myutils.algorithm.struct.tree.btree.AVLTree;
 
 /**
  * Created by xingtianyu on 2018/3/27.

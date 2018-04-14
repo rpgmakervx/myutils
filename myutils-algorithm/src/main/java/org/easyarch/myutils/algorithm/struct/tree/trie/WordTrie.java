@@ -1,4 +1,4 @@
-package org.easyarch.myutils.algorithm.tree.trie;
+package org.easyarch.myutils.algorithm.struct.tree.trie;
 
 import org.easyarch.myutils.file.FileUtils;
 

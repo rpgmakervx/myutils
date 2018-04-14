@@ -1,4 +1,4 @@
-package org.easyarch.myutils.algorithm.tree.btree;
+package org.easyarch.myutils.algorithm.struct.tree.btree;
 
 /**
  * Created by xingtianyu on 2018/3/26.

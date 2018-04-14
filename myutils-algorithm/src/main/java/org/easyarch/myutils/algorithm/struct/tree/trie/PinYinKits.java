@@ -1,4 +1,4 @@
-package org.easyarch.myutils.algorithm.tree.trie;
+package org.easyarch.myutils.algorithm.struct.tree.trie;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
