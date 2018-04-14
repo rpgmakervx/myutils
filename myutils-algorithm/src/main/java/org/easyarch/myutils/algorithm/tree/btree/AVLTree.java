@@ -212,7 +212,7 @@ public class AVLTree<E extends Comparable> {
             if (cFactor > EMPTY){
                 leftRotate(currentNode);
             }else if (cFactor < EMPTY){
-                rightRotate(currentNode);
+                rightRotate(currentNode.right);
                 leftRotate(currentNode);
             }
             return;
@@ -285,7 +285,7 @@ public class AVLTree<E extends Comparable> {
                     cParent.right = null;
                 }
                 currentNode.free();
-                rebalance(cParent,null);
+                rebalance(cParent);
                 return true;
             }
             //被删除节点有左叶子
@@ -294,7 +294,7 @@ public class AVLTree<E extends Comparable> {
                 cLeft.parent = currentNode.parent;
                 currentNode.parent.left = cLeft;
                 currentNode.free();
-                rebalance(cParent,null);
+                rebalance(cParent);
                 return true;
             }
             //被删除节点有右叶子
@@ -303,7 +303,7 @@ public class AVLTree<E extends Comparable> {
                 cRight.parent = currentNode.parent;
                 currentNode.parent.right = cRight;
                 currentNode.free();
-                rebalance(cParent,null);
+                rebalance(cParent);
                 return true;
             }
             //被删除节点存在左右子树
@@ -340,7 +340,7 @@ public class AVLTree<E extends Comparable> {
             }
 
             currentNode.free();
-            rebalance(pParent,null);
+            rebalance(pParent);
             return true;
         }
     }
