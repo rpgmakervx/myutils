@@ -9,13 +9,13 @@ public class AVLTree<E extends Comparable> {
 
     private static final int EMPTY = 0;
 
-    private TreeNode<E> root;
+    private AVLNode<E> root;
 
     public void add(E elem){
         if (elem == null){
             return ;
         }
-        TreeNode<E> parent = add(this.root,elem);
+        AVLNode<E> parent = add(this.root,elem);
         if (parent == null){
             System.out.println("current is root,"+elem);
         }else{
@@ -24,17 +24,17 @@ public class AVLTree<E extends Comparable> {
     }
 
 
-    private TreeNode<E> add(TreeNode<E> currentNode, E elem){
+    private AVLNode<E> add(AVLNode<E> currentNode, E elem){
         if (elem == null){
             return null;
         }
         if (root == null){
-            root = new TreeNode<>(null,elem,null,null);
+            root = new AVLNode<>(null,elem,null,null);
             return null;
         }
         if (elem.compareTo(currentNode.elem) > 0){
             if (currentNode.right == null){
-                currentNode.right = new TreeNode(null,elem,null,currentNode);
+                currentNode.right = new AVLNode(null,elem,null,currentNode);
 //                rebalance(currentNode,currentNode.right);
                 rebalance(currentNode);
                 return currentNode;
@@ -43,7 +43,7 @@ public class AVLTree<E extends Comparable> {
             }
         }else if (elem.compareTo(currentNode.elem) < 0){
             if (currentNode.left == null){
-                currentNode.left = new TreeNode(null,elem,null,currentNode);
+                currentNode.left = new AVLNode(null,elem,null,currentNode);
 //                rebalance(currentNode,currentNode.left);
                 rebalance(currentNode);
                 return currentNode;
@@ -55,7 +55,7 @@ public class AVLTree<E extends Comparable> {
         return null;
     }
 
-    private void rebalance(TreeNode<E> currentNode,TreeNode<E> newNode){
+    private void rebalance(AVLNode<E> currentNode, AVLNode<E> newNode){
         if (currentNode == null){
             return;
         }
@@ -109,9 +109,9 @@ public class AVLTree<E extends Comparable> {
      * 3.当前节点指向当前节点右子树根节点的左侧，当前节点的父节点指向当前节点的右子树的根目录
      * @param currentNode
      */
-    private void leftRotate(TreeNode<E> currentNode){
-        TreeNode<E> cRight = currentNode.right;
-        TreeNode<E> cParent = currentNode.parent;
+    private void leftRotate(AVLNode<E> currentNode){
+        AVLNode<E> cRight = currentNode.right;
+        AVLNode<E> cParent = currentNode.parent;
         //父节点指向新的子节点前先判断是绑定到左子树还是右子树
         if (cParent != null){
             //记得判断左边或右边为空的情况，空则认为不是那一侧的
@@ -141,9 +141,9 @@ public class AVLTree<E extends Comparable> {
      * 当前节点向右旋转,同左
      * @param currentNode
      */
-    private void rightRotate(TreeNode<E> currentNode){
-        TreeNode<E> cLeft = currentNode.left;
-        TreeNode<E> cParent = currentNode.parent;
+    private void rightRotate(AVLNode<E> currentNode){
+        AVLNode<E> cLeft = currentNode.left;
+        AVLNode<E> cParent = currentNode.parent;
         //当前节点不是root节点,则直接把当前节点的父作为左子树的父，把父节点的左子树指向当前节点左子树.否则左子树作为root节点
         if (cParent != null){
             //记得判断左边或右边为空的情况，空则认为不是那一侧的
@@ -171,7 +171,7 @@ public class AVLTree<E extends Comparable> {
         currentNode.parent = cLeft;
     }
 
-    private void rebalance(TreeNode<E> currentNode){
+    private void rebalance(AVLNode<E> currentNode){
         if (currentNode == null){
             return;
         }
@@ -215,7 +215,7 @@ public class AVLTree<E extends Comparable> {
         }
     }
 
-    private int deep(TreeNode<E> currentNode){
+    private int deep(AVLNode<E> currentNode){
         if (currentNode == null){
             return EMPTY;
         }
@@ -232,11 +232,11 @@ public class AVLTree<E extends Comparable> {
         if (root == null){
             return null;
         }
-        TreeNode currentNode = root;
+        AVLNode currentNode = root;
         return find(currentNode,elem);
     }
 
-    private E find(TreeNode currentNode, E elem){
+    private E find(AVLNode currentNode, E elem){
         if (currentNode == null){
             return null;
         }
@@ -259,11 +259,11 @@ public class AVLTree<E extends Comparable> {
         if (root == null){
             return false;
         }
-        TreeNode currentNode = root;
+        AVLNode currentNode = root;
         return remove(currentNode,elem);
     }
 
-    private boolean remove(TreeNode<E> currentNode,E elem){
+    private boolean remove(AVLNode<E> currentNode, E elem){
         if (currentNode == null){
             return false;
         }
@@ -272,7 +272,7 @@ public class AVLTree<E extends Comparable> {
         }else if (elem.compareTo(currentNode.elem)<0){
             return remove(currentNode.left,elem);
         }else{
-            TreeNode<E> cParent = currentNode.parent;
+            AVLNode<E> cParent = currentNode.parent;
             //被删除节点是叶子节点
             if (currentNode.left == null && currentNode.right == null){
                 if (cParent.left == currentNode){
@@ -286,7 +286,7 @@ public class AVLTree<E extends Comparable> {
             }
             //被删除节点有左叶子
             if (currentNode.left != null && currentNode.right == null){
-                TreeNode<E> cLeft = currentNode.left;
+                AVLNode<E> cLeft = currentNode.left;
                 cLeft.parent = currentNode.parent;
                 currentNode.parent.left = cLeft;
                 currentNode.free();
@@ -295,7 +295,7 @@ public class AVLTree<E extends Comparable> {
             }
             //被删除节点有右叶子
             if (currentNode.left == null && currentNode.right != null){
-                TreeNode<E> cRight = currentNode.right;
+                AVLNode<E> cRight = currentNode.right;
                 cRight.parent = currentNode.parent;
                 currentNode.parent.right = cRight;
                 currentNode.free();
@@ -303,8 +303,8 @@ public class AVLTree<E extends Comparable> {
                 return true;
             }
             //被删除节点存在左右子树
-            TreeNode<E> promotedNode = promoteNode(currentNode,currentNode);
-            TreeNode<E> pParent = promotedNode.parent;
+            AVLNode<E> promotedNode = promoteNode(currentNode,currentNode);
+            AVLNode<E> pParent = promotedNode.parent;
 
             promotedNode.left = currentNode.left;
             currentNode.left.parent = promotedNode;
@@ -347,18 +347,18 @@ public class AVLTree<E extends Comparable> {
      * @param deletedNode
      * @return
      */
-    private TreeNode<E> promoteNode(TreeNode<E> currentNode,TreeNode<E> deletedNode){
+    private AVLNode<E> promoteNode(AVLNode<E> currentNode, AVLNode<E> deletedNode){
         if (currentNode == null){
             return null;
         }
         if (currentNode == deletedNode){
-            TreeNode<E> rightNode = currentNode.right;
+            AVLNode<E> rightNode = currentNode.right;
             if (rightNode == null){
                 return currentNode.left == null?currentNode:currentNode.left;
             }
             return promoteNode(rightNode,deletedNode);
         }
-        TreeNode<E> leftNode = currentNode.left;
+        AVLNode<E> leftNode = currentNode.left;
         if (leftNode == null){
             return currentNode;
         }
@@ -369,7 +369,7 @@ public class AVLTree<E extends Comparable> {
         iterate(root);
     }
 
-    private void iterate(TreeNode node){
+    private void iterate(AVLNode node){
         if (node == null){
             return ;
         }
@@ -378,17 +378,17 @@ public class AVLTree<E extends Comparable> {
         iterate(node.right);
     }
 
-    public class TreeNode<E extends Comparable>{
+    public class AVLNode<E extends Comparable>{
 
-        public TreeNode<E> left;
+        public AVLNode<E> left;
 
-        public TreeNode<E> right;
+        public AVLNode<E> right;
 
-        public TreeNode<E> parent;
+        public AVLNode<E> parent;
 
         private E elem;
 
-        public TreeNode(TreeNode left, E elem, TreeNode right, TreeNode parent){
+        public AVLNode(AVLNode left, E elem, AVLNode right, AVLNode parent){
             this.left = left;
             this.elem = elem;
             this.right = right;
