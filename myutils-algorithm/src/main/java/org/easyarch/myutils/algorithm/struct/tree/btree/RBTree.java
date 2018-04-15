@@ -35,7 +35,7 @@ public class RBTree<E extends Comparable> {
             cRight.parent = cParent;
         }else{
             //当前节点为根节点的情况
-            cRight.parent = null;
+            cRight.parent = NIL;
             this.root = cRight;
         }
         //当前节点包括一个左分支的情况
@@ -61,7 +61,7 @@ public class RBTree<E extends Comparable> {
             }
             cLeft.parent = cParent;
         }else{
-            cLeft.parent = null;
+            cLeft.parent = NIL;
             this.root = cLeft;
         }
         if (cLeft.right != null){
