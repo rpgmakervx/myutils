@@ -1,9 +1,15 @@
 package org.easyarch.myutils.algorithm.struct.tree.btree;
 
+import com.sun.org.apache.regexp.internal.RE;
+
 /**
  * Created by xingtianyu on 2018/4/15.
  */
 public class RBTree<E extends Comparable> {
+
+    private static final boolean RED = false;
+
+    private static final boolean BLACK = false;
 
     //所有叶子节点默认都是nil节点，黑色
     private final RBNode NIL = new RBNode<>(null,null,null,null,true);
@@ -17,8 +23,50 @@ public class RBTree<E extends Comparable> {
         add(this.root,elem);
     }
 
+    /**
+     * 若根节点不存在，初始化根节点，根节点是黑色。
+     *
+     * @param currentNode
+     * @param elem
+     */
     private void add(RBNode<E> currentNode,E elem){
+        if (this.root == null){
+            this.root = new RBNode<>(NIL,elem,NIL,null,BLACK);
+            return;
+        }
+        if (elem.compareTo(currentNode.elem) > 0){
+            if (currentNode.right == null){
+                currentNode.right = new RBNode(NIL,elem,NIL,currentNode, RED);
 
+            }else{
+                add(currentNode.right,elem);
+            }
+        }else if (elem.compareTo(currentNode.elem) < 0){
+            if (currentNode.left == null){
+                currentNode.left = new RBNode(NIL,elem,NIL,currentNode,RED);
+
+            }else{
+                add(currentNode.left,elem);
+            }
+        }
+    }
+
+    private void rebalance(RBNode<E> currentNode){
+        //父亲节点为黑色则不作任何处理
+        if (currentNode.color){
+            return;
+        }
+        if (currentNode.parent != null){
+            RBNode<E> cParent = currentNode.parent;
+            if (currentNode == cParent.left){
+                RBNode<E> cUncle = cParent.right;
+            }else if (currentNode == cParent.right){
+                RBNode<E> cUncle = cParent.left;
+            }else{
+
+            }
+
+        }
     }
 
     private void leftRotate(RBNode<E> currentNode){
