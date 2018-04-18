@@ -41,8 +41,15 @@ public class DoubleTreeeTest {
         tree.add(new User("ccc",104));
         tree.add(new User("bbb",72));
         tree.add(new User("aaa",32));
-//        System.out.println("remove:"+tree.remove(new User("sss",104)));
-//        System.out.println("remove:"+tree.remove(new User("sss",15)));
+        System.out.println("remove:"+tree.remove(new User("sss",104)));
+        System.out.println("remove:"+tree.remove(new User("sss",15)));
+//        tree.add(new User("xxx",5));
+//        tree.add(new User("xxx",3));
+//        tree.add(new User("xxx",9));
+//        tree.add(new User("xxx",1));
+//        tree.add(new User("xxx",4));
+//        tree.add(new User("xxx",10));
+//        tree.remove(new User("xxx",5));
         tree.iterate();
 //        tree.iterate();
 
