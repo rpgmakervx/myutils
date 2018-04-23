@@ -128,75 +128,6 @@ public class RBTree<E extends Comparable> {
             }
         }
     }
-//
-//    private void rebalance(RBNode<E> currentNode,RBNode<E> newNode){
-//        //父亲节点为黑色则不作任何处理
-//        if (currentNode.color){
-//            return;
-//        }
-//        if (currentNode == this.root){
-//            //根节点为红色
-//            if (!this.root.color){
-//               this.root.color = BLACK;
-//            }
-//        }
-//        if (currentNode.parent != null){
-//            RBNode<E> cParent = currentNode.parent;
-//            //黑父，无需处理
-//            if (currentNode.color){
-//                return ;
-//            }
-//            //父是红色，此时要看叔节点的颜色
-//            RBNode<E> cUncle;
-//            if (currentNode == cParent.left){
-//                cUncle = cParent.right;
-//            }else{
-//                cUncle = cParent.left;
-//            }
-//            //叔节点是红色
-//            if (!cUncle.color){
-//                currentNode.color = BLACK;
-//                cParent.color = RED;
-//                cUncle.color = BLACK;
-//                rebalance(cParent,newNode);
-//                return;
-//            }
-//            //叔节点是黑色
-//            if (currentNode == cParent.left){
-//                //父节点在祖节点左边
-//                if (newNode == currentNode.left){
-//                    //新节点在父节点左边，此时右旋。祖父变红，父亲变黑，当前节点仍然是红色
-//                    cParent.color = RED;
-//                    currentNode.color= BLACK;
-//                    newNode.color = RED;
-//                    rightRotate(cParent);
-//                }else{
-//                    //新节点在父节点右边，先左旋再右旋。祖父变红，当前节点变黑，父亲仍然是红色
-//                    cParent.color = RED;
-//                    newNode.color = BLACK;
-//                    currentNode.color = RED;
-//                    leftRotate(currentNode);
-//                    rightRotate(cParent);
-//                }
-//            }else{
-//                //父节点在祖节点右边
-//                if(newNode == currentNode.right){
-//                    //新节点在父节点右边，此时左旋.
-//                    cParent.color = RED;
-//                    currentNode.color= BLACK;
-//                    newNode.color = RED;
-//                    leftRotate(cParent);
-//                }else{
-//                    //新节点在父节点左边，先右旋再左旋
-//                    cParent.color = RED;
-//                    newNode.color = BLACK;
-//                    currentNode.color = RED;
-//                    rightRotate(currentNode);
-//                    leftRotate(cParent);
-//                }
-//            }
-//        }
-//    }
 
     private void leftRotate(RBNode<E> currentNode){
         RBNode<E> cRight = currentNode.right;
@@ -251,15 +182,91 @@ public class RBTree<E extends Comparable> {
         currentNode.parent = cLeft;
     }
 
+    public boolean remove(E elem){
+        if (elem == null){
+            return false;
+        }
+        if (root == null){
+            return false;
+        }
+        RBNode<E> currentNode = root;
+        return remove(currentNode,elem);
+    }
+
+    private boolean remove(RBNode<E> currentNode, E elem){
+        if (currentNode == null || currentNode == NIL){
+            return false;
+        }
+        if (elem.compareTo(currentNode.elem)>0){
+            return remove(currentNode.right,elem);
+        }else if (elem.compareTo(currentNode.elem)<0){
+            return remove(currentNode.left,elem);
+        }else{
+            RBNode<E> cParent = currentNode.parent;
+            //被删除节点是叶子节点
+            if (currentNode.left == NIL && currentNode.right == NIL){
+                if (cParent.right == currentNode){
+                    cParent.right = NIL;
+                }else if (cParent.left == currentNode){
+                    cParent.left = NIL;
+                }
+                currentNode.free();
+                rebalance(cParent);
+                return true;
+            }
+            //被删除节点有左叶子
+            if (currentNode.left != NIL && currentNode.right == NIL){
+                RBNode<E> cLeft = currentNode.left;
+                cLeft.parent = currentNode.parent;
+                currentNode.parent.left = cLeft;
+                currentNode.free();
+                rebalance(cParent);
+                return true;
+            }
+            //被删除节点有右叶子
+            if (currentNode.left == NIL && currentNode.right != NIL){
+                RBNode<E> cRight = currentNode.right;
+                cRight.parent = currentNode.parent;
+                currentNode.parent.right = cRight;
+                currentNode.free();
+                rebalance(cParent);
+                return true;
+            }
+            //被删除节点存在左右子树
+            RBNode<E> promotedNode = promoteNode(currentNode,currentNode);
+            //把要删除的节点赋予被提升节点的值，然后把问题转变为：如何删除要提升的节点。
+            currentNode.elem = promotedNode.elem;
+            return remove(promotedNode,promotedNode.elem);
+        }
+    }
+
+    private RBNode<E> promoteNode(RBNode<E> currentNode, RBNode<E> deletedNode){
+        if (currentNode == null){
+            return null;
+        }
+        if (currentNode == deletedNode){
+            RBNode<E> rightNode = currentNode.right;
+            if (rightNode == null || rightNode == NIL){
+                return currentNode.left == null?currentNode:currentNode.left;
+            }
+            return promoteNode(rightNode,deletedNode);
+        }
+        RBNode<E> leftNode = currentNode.left;
+        if (leftNode == null || leftNode == NIL){
+            return currentNode;
+        }
+        return promoteNode(leftNode,deletedNode);
+    }
+
     public void iterate(){
         iterate(root);
     }
 
     private void iterate(RBNode node){
-        if (node == null){
+        if (node == null||node == NIL){
             return ;
         }
-        System.out.println(node.elem);
+        System.out.println("iterate:"+node.elem);
         iterate(node.left);
         iterate(node.right);
     }
@@ -283,6 +290,24 @@ public class RBTree<E extends Comparable> {
             this.parent = parent;
             this.elem = elem;
             this.color = color;
+        }
+
+        public void free(){
+            this.left = null;
+            this.right = null;
+            this.parent = null;
+            this.elem = null;
+        }
+
+        @Override
+        public String toString() {
+            return "RBNode{" +
+                    "left=" + left +
+                    ", right=" + right +
+                    ", parent=" + parent +
+                    ", elem=" + elem +
+                    ", color=" + color +
+                    '}';
         }
     }
 }

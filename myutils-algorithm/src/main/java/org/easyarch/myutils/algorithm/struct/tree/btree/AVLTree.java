@@ -304,38 +304,9 @@ public class AVLTree<E extends Comparable> {
             }
             //被删除节点存在左右子树
             AVLNode<E> promotedNode = promoteNode(currentNode,currentNode);
-            AVLNode<E> pParent = promotedNode.parent;
-            //断开提升节点和父节点的关系,并把右侧节点拉到父节点。理论上此时promoted节点只能是在左侧，有一个右子节点，或者没有子节点
-            if (pParent.left == promotedNode) {
-                //promotedNode.right 若为null，正好置空父节点左侧
-                pParent.left = promotedNode.right;
-            }
-
-            promotedNode.left = currentNode.left;
-            currentNode.left.parent = promotedNode;
-            if (pParent != currentNode){
-                //提升节点不是直接的被删除节点右侧节点。
-                promotedNode.right = currentNode.right;
-                currentNode.right.parent = promotedNode;
-            }
-
-            //被删除的是根
-            if (cParent == null){
-                promotedNode.parent = null;
-                this.root = promotedNode;
-            }else{
-                promotedNode.parent = currentNode.parent;
-            }
-
-            if (cParent != null && cParent.left == currentNode){
-                cParent.left = promotedNode;
-            }else if (cParent != null && cParent.right == currentNode){
-                cParent.right = promotedNode;
-            }
-
-            currentNode.free();
-            rebalance(pParent);
-            return true;
+            //把要删除的节点赋予被提升节点的值，然后把问题转变为：如何删除要提升的节点。
+            currentNode.elem = promotedNode.elem;
+            return remove(promotedNode,promotedNode.elem);
         }
     }
 
