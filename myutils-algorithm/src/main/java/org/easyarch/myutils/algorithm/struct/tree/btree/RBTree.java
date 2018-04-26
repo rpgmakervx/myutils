@@ -33,7 +33,7 @@ public class RBTree<E extends Comparable> {
      */
     private void add(RBNode<E> currentNode,E elem){
         if (this.root == null){
-            this.root = new RBNode<>(NIL,elem,NIL,null,BLACK);
+            this.root = new RBNode<>(NIL,elem,NIL,NIL,BLACK);
             return;
         }
         if (elem.compareTo(currentNode.elem) > 0){
@@ -65,14 +65,14 @@ public class RBTree<E extends Comparable> {
             return;
         }
         RBNode<E> cParent = currentNode.parent;
-        if (cParent == null){
+        if (cParent == NIL){
             System.out.println("cParent is null,root is"+this.root.elem+",current is:"+currentNode.elem);
         }
         //父节点为黑色
         if (cParent.color){
             return;
         }
-        if (cParent != null){
+        if (cParent != NIL){
             //黑父，无需处理
             if (cParent.color){
                 return;
@@ -95,36 +95,48 @@ public class RBTree<E extends Comparable> {
             //叔节点是黑色
             if (cParent == cGrand.left){
                 //父节点在祖节点左边
-                if (currentNode == cParent.left){
-                    //新节点在父节点左边，此时右旋。祖父变红，父亲变黑，当前节点仍然是红色
-                    currentNode.color = RED;
-                    cGrand.color = RED;
-                    cParent.color= BLACK;
-                    rightRotate(cGrand);
-                }else{
-                    //新节点在父节点右边，先左旋再右旋。祖父变红，当前节点变黑，父亲仍然是红色
-                    cParent.color = RED;
-                    cGrand.color = RED;
-                    currentNode.color = BLACK;
+//                if (currentNode == cParent.left){
+//                    //新节点在父节点左边，此时右旋。祖父变红，父亲变黑，当前节点仍然是红色
+//                    currentNode.color = RED;
+//                    cGrand.color = RED;
+//                    cParent.color= BLACK;
+//                    rightRotate(cGrand);
+//                }else{
+//                    //新节点在父节点右边，先左旋再右旋。祖父变红，当前节点变黑，父亲仍然是红色
+//                    cParent.color = RED;
+//                    cGrand.color = RED;
+//                    currentNode.color = BLACK;
+//                    leftRotate(cParent);
+//                    rightRotate(cGrand);
+//                }
+                if (currentNode == cParent.right){
                     leftRotate(cParent);
-                    rightRotate(cGrand);
                 }
+                cGrand.color = RED;
+                cParent.color= BLACK;
+                rightRotate(cGrand);
             }else{
                 //父节点在祖节点右边
-                if(currentNode == cParent.right){
-                    //新节点在父节点右边，此时左旋.
-                    cGrand.color = RED;
-                    cParent.color= BLACK;
-                    currentNode.color = RED;
-                    leftRotate(cGrand);
-                }else{
-                    //新节点在父节点左边，先右旋再左旋
-                    cParent.color = RED;
-                    cGrand.color = RED;
-                    currentNode.color = BLACK;
+//                if(currentNode == cParent.right){
+//                    //新节点在父节点右边，此时左旋.
+//                    cGrand.color = RED;
+//                    cParent.color= BLACK;
+//                    currentNode.color = RED;
+//                    leftRotate(cGrand);
+//                }else{
+//                    //新节点在父节点左边，先右旋再左旋
+//                    cParent.color = RED;
+//                    cGrand.color = RED;
+//                    currentNode.color = BLACK;
+//                    rightRotate(cParent);
+//                    leftRotate(cGrand);
+//                }
+                if(currentNode == cParent.left){
                     rightRotate(cParent);
-                    leftRotate(cGrand);
                 }
+                cGrand.color = RED;
+                cParent.color= BLACK;
+                leftRotate(cGrand);
             }
         }
     }
@@ -133,21 +145,21 @@ public class RBTree<E extends Comparable> {
         RBNode<E> cRight = currentNode.right;
         RBNode<E> cParent = currentNode.parent;
         //父节点指向新的子节点前先判断是绑定到左子树还是右子树
-        if (cParent != null){
+        if (cParent != NIL){
             //记得判断左边或右边为空的情况，空则认为不是那一侧的
-            if (cParent.left != null && currentNode.elem.compareTo(cParent.left.elem) == 0){
+            if (cParent.left != NIL && currentNode == cParent.left){
                 cParent.left = cRight;
-            }else if (cParent.right != null && currentNode.elem.compareTo(cParent.right.elem) == 0){
+            }else if (cParent.right != NIL && currentNode == cParent.right){
                 cParent.right = cRight;
             }
             cRight.parent = cParent;
         }else{
             //当前节点为根节点的情况
-            cRight.parent = null;
+            cRight.parent = NIL;
             this.root = cRight;
         }
         //当前节点包括一个左分支的情况
-        if (cRight.left != null){
+        if (cRight.left != NIL){
             currentNode.right = cRight.left;
             cRight.left.parent = currentNode;
         }else{
@@ -161,10 +173,10 @@ public class RBTree<E extends Comparable> {
         RBNode<E> cLeft = currentNode.left;
         RBNode<E> cParent = currentNode.parent;
 
-        if (cParent != null){
-            if (cParent.left != null && currentNode.left.elem.compareTo(cLeft.elem) == 0){
+        if (cParent != NIL){
+            if (cParent.left != NIL && currentNode.left == cLeft){
                 cParent.left = cLeft;
-            }else if (cParent.right != null && currentNode.right.elem.compareTo(cLeft.elem) == 0){
+            }else if (cParent.right != NIL && currentNode.right == cLeft){
                 cParent.right = cLeft;
             }
             cLeft.parent = cParent;
@@ -172,7 +184,7 @@ public class RBTree<E extends Comparable> {
             cLeft.parent = NIL;
             this.root = cLeft;
         }
-        if (cLeft.right != null){
+        if (cLeft.right != NIL){
             currentNode.left = cLeft.right;
             cLeft.right.parent = currentNode;
         }else{
