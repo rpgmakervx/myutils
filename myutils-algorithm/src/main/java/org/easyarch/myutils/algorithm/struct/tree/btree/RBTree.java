@@ -95,44 +95,20 @@ public class RBTree<E extends Comparable> {
             //叔节点是黑色
             if (cParent == cGrand.left){
                 //父节点在祖节点左边
-//                if (currentNode == cParent.left){
-//                    //新节点在父节点左边，此时右旋。祖父变红，父亲变黑，当前节点仍然是红色
-//                    currentNode.color = RED;
-//                    cGrand.color = RED;
-//                    cParent.color= BLACK;
-//                    rightRotate(cGrand);
-//                }else{
-//                    //新节点在父节点右边，先左旋再右旋。祖父变红，当前节点变黑，父亲仍然是红色
-//                    cParent.color = RED;
-//                    cGrand.color = RED;
-//                    currentNode.color = BLACK;
-//                    leftRotate(cParent);
-//                    rightRotate(cGrand);
-//                }
                 if (currentNode == cParent.right){
                     leftRotate(cParent);
+                    cParent = currentNode;
+                    cGrand = currentNode.parent;
                 }
                 cGrand.color = RED;
                 cParent.color= BLACK;
                 rightRotate(cGrand);
             }else{
                 //父节点在祖节点右边
-//                if(currentNode == cParent.right){
-//                    //新节点在父节点右边，此时左旋.
-//                    cGrand.color = RED;
-//                    cParent.color= BLACK;
-//                    currentNode.color = RED;
-//                    leftRotate(cGrand);
-//                }else{
-//                    //新节点在父节点左边，先右旋再左旋
-//                    cParent.color = RED;
-//                    cGrand.color = RED;
-//                    currentNode.color = BLACK;
-//                    rightRotate(cParent);
-//                    leftRotate(cGrand);
-//                }
                 if(currentNode == cParent.left){
                     rightRotate(cParent);
+                    cParent = currentNode;
+                    cGrand = currentNode.parent;
                 }
                 cGrand.color = RED;
                 cParent.color= BLACK;
@@ -174,9 +150,9 @@ public class RBTree<E extends Comparable> {
         RBNode<E> cParent = currentNode.parent;
 
         if (cParent != NIL){
-            if (cParent.left != NIL && currentNode.left == cLeft){
+            if (cParent.left != NIL && currentNode == cParent.left){
                 cParent.left = cLeft;
-            }else if (cParent.right != NIL && currentNode.right == cLeft){
+            }else if (cParent.right != NIL && currentNode == cParent.right ){
                 cParent.right = cLeft;
             }
             cLeft.parent = cParent;
@@ -188,7 +164,7 @@ public class RBTree<E extends Comparable> {
             currentNode.left = cLeft.right;
             cLeft.right.parent = currentNode;
         }else{
-            currentNode.parent = NIL;
+            currentNode.left = NIL;
         }
         cLeft.right = currentNode;
         currentNode.parent = cLeft;
