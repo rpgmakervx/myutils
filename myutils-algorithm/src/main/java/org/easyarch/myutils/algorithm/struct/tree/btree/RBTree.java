@@ -3,6 +3,8 @@ package org.easyarch.myutils.algorithm.struct.tree.btree;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 import com.sun.org.apache.regexp.internal.RE;
 
+import java.util.TreeMap;
+
 /**
  * Created by xingtianyu on 2018/4/15.
  */
@@ -18,7 +20,6 @@ public class RBTree<E extends Comparable> {
     private RBNode<E> root;
 
     public void add(E elem){
-        System.out.println("add elem:"+elem);
         if (elem == null){
             return;
         }
@@ -68,15 +69,11 @@ public class RBTree<E extends Comparable> {
         if (cParent == NIL){
             System.out.println("cParent is null,root is"+this.root.elem+",current is:"+currentNode.elem);
         }
-        //父节点为黑色
+        //父节点为黑色，无需处理
         if (cParent.color){
             return;
         }
         if (cParent != NIL){
-            //黑父，无需处理
-            if (cParent.color){
-                return;
-            }
             RBNode<E> cUncle;
             RBNode<E> cGrand = cParent.parent;
             if (cGrand.left == cParent){
@@ -123,9 +120,9 @@ public class RBTree<E extends Comparable> {
         //父节点指向新的子节点前先判断是绑定到左子树还是右子树
         if (cParent != NIL){
             //记得判断左边或右边为空的情况，空则认为不是那一侧的
-            if (cParent.left != NIL && currentNode == cParent.left){
+            if (currentNode == cParent.left){
                 cParent.left = cRight;
-            }else if (cParent.right != NIL && currentNode == cParent.right){
+            }else if (currentNode == cParent.right){
                 cParent.right = cRight;
             }
             cRight.parent = cParent;
@@ -150,9 +147,9 @@ public class RBTree<E extends Comparable> {
         RBNode<E> cParent = currentNode.parent;
 
         if (cParent != NIL){
-            if (cParent.left != NIL && currentNode == cParent.left){
+            if (currentNode == cParent.left){
                 cParent.left = cLeft;
-            }else if (cParent.right != NIL && currentNode == cParent.right ){
+            }else if (currentNode == cParent.right ){
                 cParent.right = cLeft;
             }
             cLeft.parent = cParent;
@@ -221,14 +218,19 @@ public class RBTree<E extends Comparable> {
                 return true;
             }
             //被删除节点存在左右子树
-            RBNode<E> promotedNode = promoteNode(currentNode,currentNode);
+            RBNode<E> promotedNode = successor(currentNode,currentNode);
             //把要删除的节点赋予被提升节点的值，然后把问题转变为：如何删除要提升的节点。
             currentNode.elem = promotedNode.elem;
             return remove(promotedNode,promotedNode.elem);
         }
     }
 
-    private RBNode<E> promoteNode(RBNode<E> currentNode, RBNode<E> deletedNode){
+
+    private void rebalanceAfterDeletion(RBNode<E> currentNode){
+
+    }
+
+    private RBNode<E> successor(RBNode<E> currentNode, RBNode<E> deletedNode){
         if (currentNode == null){
             return null;
         }
@@ -237,13 +239,13 @@ public class RBTree<E extends Comparable> {
             if (rightNode == null || rightNode == NIL){
                 return currentNode.left == null?currentNode:currentNode.left;
             }
-            return promoteNode(rightNode,deletedNode);
+            return successor(rightNode,deletedNode);
         }
         RBNode<E> leftNode = currentNode.left;
         if (leftNode == null || leftNode == NIL){
             return currentNode;
         }
-        return promoteNode(leftNode,deletedNode);
+        return successor(leftNode,deletedNode);
     }
 
     public void iterate(){
@@ -257,6 +259,33 @@ public class RBTree<E extends Comparable> {
         System.out.println("iterate:"+node.elem);
         iterate(node.left);
         iterate(node.right);
+    }
+
+    public E find(E elem){
+        if (elem == null){
+            return null;
+        }
+        if (root == null){
+            return null;
+        }
+        RBNode currentNode = root;
+        return find(currentNode,elem);
+    }
+
+    private E find(RBNode currentNode, E elem){
+        if (currentNode == null){
+            return null;
+        }
+        if (elem.compareTo(currentNode.elem) == 0){
+            return (E) currentNode.elem;
+        }
+        if (elem.compareTo(currentNode.elem)>0){
+            return find(currentNode.right,elem);
+        }else if (elem.compareTo(currentNode.elem)<0){
+            return find(currentNode.left,elem);
+        }else{
+            return (E) currentNode.elem;
+        }
     }
 
     private class RBNode<E extends Comparable> {

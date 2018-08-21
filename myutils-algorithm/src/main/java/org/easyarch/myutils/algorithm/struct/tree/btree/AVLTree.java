@@ -16,11 +16,6 @@ public class AVLTree<E extends Comparable> {
             return ;
         }
         AVLNode<E> parent = add(this.root,elem);
-        if (parent == null){
-            System.out.println("current is root,"+elem);
-        }else{
-            System.out.println("add elem is:"+elem+" and parent is "+parent.elem);
-        }
     }
 
 
@@ -35,7 +30,6 @@ public class AVLTree<E extends Comparable> {
         if (elem.compareTo(currentNode.elem) > 0){
             if (currentNode.right == null){
                 currentNode.right = new AVLNode(null,elem,null,currentNode);
-//                rebalance(currentNode,currentNode.right);
                 rebalance(currentNode);
                 return currentNode;
             }else{
@@ -44,7 +38,6 @@ public class AVLTree<E extends Comparable> {
         }else if (elem.compareTo(currentNode.elem) < 0){
             if (currentNode.left == null){
                 currentNode.left = new AVLNode(null,elem,null,currentNode);
-//                rebalance(currentNode,currentNode.left);
                 rebalance(currentNode);
                 return currentNode;
             }else{
