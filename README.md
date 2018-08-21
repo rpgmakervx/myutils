@@ -20,4 +20,6 @@ clone项目后，在你希望使用的模块，用`mvn install`将项目置入�
     <artifactId>myutils-db</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
+
 ```
+2018-08-18
