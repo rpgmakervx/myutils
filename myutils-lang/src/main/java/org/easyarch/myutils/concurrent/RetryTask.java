@@ -40,13 +40,13 @@ abstract public class RetryTask implements Runnable{
 
     private void stop(){
         future.cancel(true);
-        shutdown();
+        shutdown(retryTimes.get() != 0);
         return;
     }
 
     abstract public void retry(int times) throws StopException;
 
-    abstract public void shutdown();
+    abstract public void shutdown(boolean stopped);
 
     @Override
     public void run() {
@@ -63,4 +63,7 @@ abstract public class RetryTask implements Runnable{
         }
     }
 
+    public static void main(String[] args) {
+        System.out.println(TimeUnit.MINUTES.toMillis(2));
+    }
 }

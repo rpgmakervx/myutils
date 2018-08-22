@@ -1,5 +1,6 @@
 package org.easyarch.myutils.concurrent;
 
+
 import java.util.concurrent.*;
 
 /**
@@ -44,18 +45,18 @@ public class RetryScheduler<T extends RetryTask> {
     public static void main(String[] args) {
         RetryScheduler scheduler = new RetryScheduler(2,10);
         scheduler.addTask(new RetryTask(3,1,TimeUnit.SECONDS) {
+
+
             @Override
-            public void retry(int times) {
+            public void retry(int times) throws StopException {
                 System.out.println("任务1重试第"+times+"次");
-                try {
-                    Thread.sleep(3000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if (times == 1){
+                    throw new StopException();
                 }
             }
 
             @Override
-            public void shutdown() {
+            public void shutdown(boolean stopped) {
                 System.out.println("任务1停止");
             }
         });
