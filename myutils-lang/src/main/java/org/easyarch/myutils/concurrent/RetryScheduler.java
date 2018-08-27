@@ -58,6 +58,7 @@ public class RetryScheduler<T extends RetryTask<E>,E> {
                     task.shutdown(true);
                     continue;
                 }catch (Exception e){
+                    task.addException(e);
                     long interval = task.getInterval();
                     Future future = scheduledExecutorService.scheduleAtFixedRate(task,0,interval,TimeUnit.MILLISECONDS);
                     task.addFuture(future);
@@ -75,16 +76,13 @@ public class RetryScheduler<T extends RetryTask<E>,E> {
             public String exec() throws StopException, InterruptedException {
                 System.out.println("执行任务");
                 Thread.sleep(2000);
-//                throw new NullPointerException();
-                return "hello world";
+                throw new NullPointerException();
+//                return "hello world";
             }
 
             @Override
-            public void retry(int times) throws StopException {
-                System.out.println("任务1重试第"+times+"次");
-                if (times == 8){
-                    throw new StopException();
-                }
+            public void retry(Exception exception,int times) throws StopException {
+                System.out.println("任务1重试第"+times+"次,异常内容："+exception);
             }
 
             @Override
@@ -97,8 +95,8 @@ public class RetryScheduler<T extends RetryTask<E>,E> {
 
         System.out.println("下一步");
         System.out.println("获取执行结果："+task.execResult());
-        scheduler.shutdown();
-        scheduler.restart();
+//        scheduler.shutdown();
+//        scheduler.restart();
 //        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(2);
 //        scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
 //            @Override

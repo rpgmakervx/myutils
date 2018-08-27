@@ -24,6 +24,8 @@ abstract public class RetryTask<E> implements Runnable{
 
     private CountDownLatch latch;
 
+    private Exception exception;
+
     public RetryTask(int retryTimes, long interval, TimeUnit unit){
         this.retrys = retryTimes;
         this.retryTimes = new AtomicInteger(retryTimes);
@@ -44,6 +46,10 @@ abstract public class RetryTask<E> implements Runnable{
         this.future = future;
     }
 
+    public void addException(Exception e){
+        this.exception = e;
+    }
+
     private void stop(){
         future.cancel(true);
         shutdown(retryTimes.get() != 0);
@@ -62,21 +68,26 @@ abstract public class RetryTask<E> implements Runnable{
     abstract public E exec() throws Exception;
 
     protected void doExec() throws Exception{
-        this.result = exec();
-        latch.countDown();
+        try {
+            this.result = exec();
+        }finally {
+            latch.countDown();
+        }
     }
 
-    abstract public void retry(int times) throws StopException;
+    abstract public void retry(Exception exception,int times) throws StopException;
 
     abstract public void shutdown(boolean stopped);
 
     @Override
     public void run() {
         try {
-            retry(this.retrys - retryTimes.get() + 1);
+            retry(this.exception,this.retrys - retryTimes.get() + 1);
         } catch (StopException e) {
             stop();
             return ;
+        }catch (Exception exception){
+            this.exception = exception;
         }
         int count = countDown();
         if (retryTimes.get() == 0){
