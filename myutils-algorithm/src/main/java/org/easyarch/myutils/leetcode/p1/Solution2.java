@@ -6,6 +6,7 @@ import java.util.Map;
 
 /**
  * @author xingtianyu(code4j) Created on 2018-8-31.
+ * 两数之和--哈希改进
  */
 public class Solution2 {
 

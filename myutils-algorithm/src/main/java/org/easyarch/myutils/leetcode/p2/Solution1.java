@@ -2,6 +2,7 @@ package org.easyarch.myutils.leetcode.p2;
 
 /**
  * @author xingtianyu(code4j) Created on 2018-8-31.
+ * 两数相加
  */
 public class Solution1 {
 
@@ -18,7 +19,7 @@ public class Solution1 {
         node4.next = node5;
         node5.next = node6;
 
-        addTwoNumbers(node1,node4);
+        ListNode n = addTwoNumbers(node1,node4);
 
     }
 
@@ -40,8 +41,22 @@ public class Solution1 {
             level *= 10;
         }
         int c = a + b;
-
-        return null;
+        String data = String.valueOf(c);
+        char[] chars = data.toCharArray();
+        ListNode node = new ListNode(new Integer(chars[chars.length - 1]+""));
+        for (int index = chars.length - 2;index>=0;index--){
+            ListNode next = new ListNode(new Integer(chars[index]+""));
+            tmp = node;
+            while (true){
+                if (tmp.next == null){
+                    tmp.next = next;
+                    break;
+                }
+                tmp = tmp.next;
+            }
+        }
+        System.out.println(node.val + ","+node.next.val+","+node.next.next.val);
+        return node;
     }
 
     public static class ListNode {
