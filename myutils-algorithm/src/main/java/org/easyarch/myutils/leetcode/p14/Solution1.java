@@ -20,7 +20,6 @@ public class Solution1 {
             String str = strs[index];
             minLength = (minLength > str.length())?str.length():minLength;
         }
-        System.out.println("minLength:"+minLength);
         StringBuffer buffer = new StringBuffer();
         for (int index = 0; index < minLength; index++){
             char ch = strs[0].charAt(index);
@@ -34,7 +33,6 @@ public class Solution1 {
                     break;
                 }
             }
-            System.out.println("ch:"+ch);
             if (end){
                 break;
             }
