@@ -2,7 +2,7 @@ package org.easyarch.myutils.leetcode.p9;
 
 /**
  * Created by xingtianyu on 2018/9/2.
- * 回文数
+ * 回文数字
  */
 public class Solution1 {
 

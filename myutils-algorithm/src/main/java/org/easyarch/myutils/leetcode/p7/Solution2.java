@@ -2,6 +2,7 @@ package org.easyarch.myutils.leetcode.p7;
 
 /**
  * Created by xingtianyu on 2018/9/2.
+ * 反转整数
  */
 public class Solution2 {
 
