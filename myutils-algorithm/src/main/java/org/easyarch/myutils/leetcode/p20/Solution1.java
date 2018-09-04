@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Stack;
 
 /**
- * Created by xingtianyu on 2018/9/4.
+ * @author xingtianyu(code4j) Created on 2018-9-3.
  */
 public class Solution1 {
 
@@ -23,10 +23,10 @@ public class Solution1 {
         KEYWORDS.put(RIGHT2,LEFT2);
         KEYWORDS.put(RIGHT3,LEFT3);
     }
-
     public static void main(String[] args) {
-        System.out.println(isValid("({[{}{}(){}]})"));
+        System.out.println(isValid("{(())"));
     }
+
     public static boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         for (int index = 0;index<s.length();index++){
