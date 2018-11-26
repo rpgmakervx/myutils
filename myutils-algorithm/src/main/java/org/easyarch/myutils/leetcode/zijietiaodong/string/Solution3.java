@@ -1,7 +1,6 @@
 package org.easyarch.myutils.leetcode.zijietiaodong.string;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by xingtianyu on 2018/11/26.
@@ -12,44 +11,80 @@ import java.util.Map;
 public class Solution3 {
 
     public static void main(String[] args) {
-        System.out.println(checkInclusion("abc","aewcbyi"));
-        System.out.println(checkInclusion("abc","aeac2bdjii"));
+        System.out.println('z' - 'A');
+//        System.out.println(checkInclusion2("abc","eidcbaooo"));
+//        System.out.println(checkInclusion2("abc","eidcboaoo"));
+//        System.out.println(checkInclusion2("adc","dcda"));
+//        System.out.println(checkInclusion2("food","money"));
+        System.out.println(checkInclusion2("ccc","cbac"));
+    }
+
+    public static boolean checkInclusion2(String s1, String s2) {
+        if (s1.length() > s2.length()){
+            return false;
+        }
+        int[] queue = new int[58];
+        for (int index = 0;index < s1.length();index++){
+            queue[s2.charAt(index) - 'A']--;
+            queue[s1.charAt(index) - 'A']++;
+        }
+        if (allZero(queue)){
+            return true;
+        }
+
+        for (int index = s1.length();index < s2.length();index++){
+            queue[s2.charAt(index) - 'A']--;
+            queue[s2.charAt(index - s1.length()) - 'A']++;
+            if (allZero(queue)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean allZero(int[] queue){
+        for (int index = 0 ;index < queue.length;index++){
+            if (queue[index] != 0){
+                return false;
+            }
+        }
+        return true;
     }
 
     public static boolean checkInclusion(String s1, String s2) {
-        if (checkCommonPrefix(s1,s2)){
-            return true;
+        int start = 0;
+        int end = 0;
+        if (s1.length() > s2.length()){
+            return false;
         }
-        Map<Character,Integer> wordCount = new HashMap<>();
+        Map<Character,Integer> map = new HashMap<>();
         for (int index = 0;index < s1.length();index++){
-            Integer count = wordCount.get(s1.charAt(index));
-            if (count == null){
-                wordCount.put(s1.charAt(index),1);
-            }else{
-                count++;
-                wordCount.put(s1.charAt(index),count);
-            }
+            addCount(map,s1.charAt(index));
         }
         Map<Character,Integer> record = new HashMap<>();
-        for (int index = 0;index < s2.length();index++){
-            for (int j = index;j < s1.length();j++){
-                Integer count = record.get(s1.charAt(j));
-                if (count == null){
-                    record.put(s1.charAt(j),1);
-                }else{
-                    count++;
-                    record.put(s1.charAt(j),count);
+        int threshold = 0;
+        while (start < s2.length() && end < s2.length()){
+            if (map.containsKey(s2.charAt(end))){
+                addCount(record,s2.charAt(end));
+                Integer recordCount = record.get(s2.charAt(end));
+                Integer count = map.get(s2.charAt(end));
+                threshold++;
+                if (count < recordCount){
+                    //s-e中字符出现次数超过s1则重置
+                    start++;
+                    end = start;
+                    threshold = 0;
+                    record.clear();
+                    continue;
+                }else if (threshold >= s1.length()){
+                    return true;
                 }
-            }
-
-            boolean flag = true;
-            for (Map.Entry<Character,Integer> entry:wordCount.entrySet()){
-                if (entry.getValue() != record.get(entry.getKey())){
-                    flag = false;
-                }
-            }
-            if (flag){
-                return true;
+                end++;
+            }else{
+                end++;
+                start++;
+                threshold = 0;
+                record.clear();
             }
         }
         return false;
@@ -59,8 +94,8 @@ public class Solution3 {
         Map<Character,Integer> count1 = new HashMap<>();
         Map<Character,Integer> count2 = new HashMap<>();
         for (int index = 0;index < s1.length();index++){
-            addCount(count1,s1,index);
-            addCount(count2,s2,index);
+//            addCount(count1,s1,index);
+//            addCount(count2,s2,index);
         }
         boolean flag = true;
         for (Map.Entry<Character,Integer> entry:count1.entrySet()){
@@ -71,13 +106,12 @@ public class Solution3 {
         return flag;
     }
 
-    public static void addCount(Map<Character,Integer> countMap,String str,int index){
-        if (countMap.containsKey(str.charAt(index))){
-            Integer count = countMap.get(str.charAt(index));
-            count++;
-            countMap.put(str.charAt(index),count);
+    public static void addCount(Map<Character,Integer> countMap,Character character){
+        Integer count = countMap.get(character);
+        if (count != null){
+            countMap.put(character,count + 1);
         }else{
-            countMap.put(str.charAt(index),1);
+            countMap.put(character,1);
         }
     }
 }
