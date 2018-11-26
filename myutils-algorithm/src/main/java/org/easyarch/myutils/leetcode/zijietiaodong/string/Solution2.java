@@ -33,12 +33,8 @@ public class Solution2 {
             for (int j = 0;j < strs.length;j++){
                 //获取第j个字符串的第index位字符
                 if (strs[j].charAt(index) != start){
-                    add = false;
-                    break;
+                    return buffer.toString();
                 }
-            }
-            if (!add){
-                break;
             }
             buffer.append(start);
         }
