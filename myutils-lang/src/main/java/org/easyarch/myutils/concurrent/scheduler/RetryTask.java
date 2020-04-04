@@ -1,4 +1,4 @@
-package org.easyarch.myutils.concurrent;
+package org.easyarch.myutils.concurrent.scheduler;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
